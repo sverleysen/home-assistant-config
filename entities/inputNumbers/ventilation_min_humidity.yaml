@@ -1,0 +1,8 @@
+ventilation_min_humidity:
+  name: ventilation_min_humidity
+  min: 0
+  max: 100
+  initial: 40
+  step: 5
+  unit_of_measurement: '%'
+  # icon: mdi:timer-sand 

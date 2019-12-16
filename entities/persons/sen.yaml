@@ -1,0 +1,5 @@
+name: Sen
+id: Sen
+device_trackers:
+- device_tracker.oneplus7
+- device_tracker.oneplus_sen

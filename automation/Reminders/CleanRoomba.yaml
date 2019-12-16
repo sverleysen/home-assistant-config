@@ -1,0 +1,16 @@
+- alias: Clean Roomba Reminder
+  trigger:
+  - entity_id: person.sen
+    platform: state
+    to: home
+  condition:
+    - condition: time
+      weekday:
+      - tue
+      - fri
+      - sun
+  action:
+  - service: notify.notify
+    data:
+      title: "Roomba"
+      message: "Maak de stofzuiger leeg!"

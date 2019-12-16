@@ -1,0 +1,7 @@
+wbi_water_per_hour:  #week total time
+  name: wph
+  min: 0.
+  max: 2000
+  step: 50
+  unit_of_measurement: l
+  icon: mdi:water-pump

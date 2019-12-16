@@ -1,0 +1,10 @@
+- alias: WC uit na 15 min
+  trigger:
+  - entity_id: light.toilet
+    platform: state
+    to: 'on'
+    for:
+      minutes: 15
+  action:
+  - service: light.turn_off
+    entity_id: light.toilet

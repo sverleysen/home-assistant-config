@@ -1,0 +1,7 @@
+platform: history_stats
+name: Router Down
+entity_id: binary_sensor.ping_binary_sensor_Internal
+state: 'off'
+type: count
+start: '{{ 0 }}'
+end: '{{ now() }}'

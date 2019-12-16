@@ -1,0 +1,9 @@
+- alias: Azra Ikea Nico Home Control Sync
+  trigger:
+  - entity_id: switch.azra
+    platform: state
+  action:
+  - data:
+      entity_id: switch.ikea_azra
+    service_template: >
+        switch.turn_{{ trigger.to_state.state }}

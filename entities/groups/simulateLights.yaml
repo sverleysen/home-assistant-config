@@ -1,0 +1,11 @@
+simulateLights:
+  name: Lichten Simulatie
+  entities:
+    - light.living_staande_lamp
+    - light.inkomhal
+    - light.toilet
+    - light.keuken_eiland
+    - light.keuken_kast
+    - light.bureau
+    - light.dressing
+    - light.badkamer

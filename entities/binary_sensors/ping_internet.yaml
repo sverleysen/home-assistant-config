@@ -1,0 +1,4 @@
+platform: ping
+name: "ping_binary_sensor_Internet"
+host: 8.8.8.8
+scan_interval: 10

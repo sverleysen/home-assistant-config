@@ -1,0 +1,35 @@
+#############################################################################
+## Turn on/off indoor lights randomly straing 30 min before sunset till 22:30
+#############################################################################
+- alias: Simulate Home
+
+  trigger:
+    - platform: time_pattern
+      minutes: '/10'
+    #  seconds: '/10'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.guestmode
+      state: 'off'
+
+    - condition: state
+      entity_id: group.persons
+      state: 'not_home'
+
+    - condition: sun
+      after: sunset
+      after_offset: '-00:30:00'
+
+    - condition: time
+      before: '22:30:00'
+    #  before: '10:45:00'
+
+  action:
+    - delay: "00:{{ '{:02}'.format(range(0, 15) | random | int) }}:00"
+    - service: homeassistant.toggle
+      data_template:
+        entity_id: "{{ state_attr('group.simulatelights','entity_id') | random }}"
+
+
+

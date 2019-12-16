@@ -1,0 +1,19 @@
+- alias: Turn On Ventilation
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.owm_humidity')|int > states('input_number.ventilation_min_humidity')|int }}"
+    for:
+      minutes: 20
+  condition:
+    - condition: state
+      state: 'off'
+      entity_id: switch.ventilatie
+  action:
+  - data:
+      entity_id: switch.ventilatie
+    service: switch.turn_on
+  - service: notify.pushbullet_sen
+    data:
+      title: "ventilation"
+      message: "{{now().strftime('%H:%M:%S')}} Humidity is {{states.sensor.owm_humidity.state}}% so ventilation is turned on."
+      target: device/OnePlus

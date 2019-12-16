@@ -1,0 +1,303 @@
+path: default
+icon: 'mdi:home'
+title: Main
+panel: true
+badges: []
+  # - sensor.owm_humidity
+  # - sensor.owm_temperature
+cards:
+  # - type: entity-filter
+  #   show_empty: false
+  #   entities:
+  #     - person.sen
+  #     - person.sofie
+  #     - person.edgard
+  #     - person.peter
+  #     - person.carine
+  #     - person.kelsey
+  #     - person.moeke
+  #   state_filter:
+  #     - home
+  #   card:
+  #     type: glance
+  #     title: People at home
+  #     show_state: false
+  #     show_name: true
+  # - type: custom:weather-card
+  #   entity: weather.openweathermap
+  # - type: entity-filter
+  #   show_empty: false
+  #   entities:
+  #     - entity: light.badkamer
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.bureau
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.dressing
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.eethoek
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.inkomhal
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.keuken_eiland
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.keuken_kast
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.living
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.slaapkamer_lyo
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.slaapkamer_sen_en_sofie
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.living_staande_lamp
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.toilet
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.waskot
+  #       tap_action:
+  #         action: toggle
+  #     - entity: light.zolder
+  #       tap_action:
+  #         action: toggle
+  #     - entity: switch.kerstverlichting_trap
+  #       tap_action:
+  #         action: toggle
+  #     - entity: switch.kerstboom
+  #       tap_action:
+  #         action: toggle
+  #     - entity: switch.azra
+  #       tap_action:
+  #         action: toggle
+  #   state_filter:
+  #     - "on"
+  #   card:
+  #     type: glance
+  #     title: Lights on
+  #     show_state: false
+  #     show_name: true    
+  # - type: custom:ha-card-waze-travel-time
+  #   header: true
+  #   name: "Travel Times"
+  #   columns:
+  #     - from
+  #     - to
+  #     - duration
+  #     # - distance
+  #     - route
+  #     # - icon
+  #   destinations:
+  #     - entity: sensor.sen_home_work
+  #       from: "Home"
+  #       to: "Work Sen"
+  #     - entity: sensor.sen_work_home
+  #       from: "Work Sen"
+  #       to: "Home"
+  #     - entity: sensor.sofie_home_work
+  #       from: "Home"
+  #       to: "Work Sofie"
+  #     - entity: sensor.sofie_work_home
+  #       from: "Work Sofie"
+  #       to: "Home"
+  # ##travel diagrams
+  - type: horizontal-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entity-filter
+            show_empty: false
+            entities:
+              - person.sen
+              - person.sofie
+              - person.edgard
+              - person.peter
+              - person.carine
+              - person.kelsey
+              - person.moeke
+            state_filter:
+              - home
+            card:
+              type: glance
+              title: People at home
+              show_state: false
+              show_name: true
+          - type: custom:weather-card
+            entity: weather.openweathermap
+          - type: entity-filter
+            show_empty: false
+            entities:
+              - entity: light.badkamer
+                tap_action:
+                  action: toggle
+              - entity: light.bureau
+                tap_action:
+                  action: toggle
+              - entity: light.dressing
+                tap_action:
+                  action: toggle
+              - entity: light.eethoek
+                tap_action:
+                  action: toggle
+              - entity: light.inkomhal
+                tap_action:
+                  action: toggle
+              - entity: light.keuken_eiland
+                tap_action:
+                  action: toggle
+              - entity: light.keuken_kast
+                tap_action:
+                  action: toggle
+              - entity: light.living
+                tap_action:
+                  action: toggle
+              - entity: light.slaapkamer_lyo
+                tap_action:
+                  action: toggle
+              - entity: light.slaapkamer_sen_en_sofie
+                tap_action:
+                  action: toggle
+              - entity: light.living_staande_lamp
+                tap_action:
+                  action: toggle
+              - entity: light.toilet
+                tap_action:
+                  action: toggle
+              - entity: light.waskot
+                tap_action:
+                  action: toggle
+              - entity: light.zolder
+                tap_action:
+                  action: toggle
+              - entity: switch.kerstverlichting_trap
+                tap_action:
+                  action: toggle
+              - entity: switch.kerstverlichting_buiten
+                tap_action:
+                  action: toggle
+              - entity: switch.kerstboom
+                tap_action:
+                  action: toggle
+              - entity: switch.azra
+                tap_action:
+                  action: toggle
+            state_filter:
+              - "on"
+            card:
+              type: glance
+              title: Lights on
+              show_state: false
+              show_name: true    
+          
+      - type: vertical-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    entities: 
+                      - sensor.sen_home_work
+                    height: 280
+                    animate: true
+                    hour24: true
+                    line_width: 5
+                    font_size: 70
+                    hours_to_show: 12
+                    points_per_hour: 12
+                    show:
+                      extrema: true
+                      fill: false
+                    line_color: var(--primary-color)
+                    color_thresholds:
+                      - value: 45
+                        color: green
+                      - value: 60
+                        color: red
+                  - type: custom:mini-graph-card
+                    entities: 
+                      - sensor.sen_work_home
+                    height: 280
+                    animate: true
+                    hour24: true
+                    line_width: 5
+                    font_size: 70
+                    hours_to_show: 12
+                    points_per_hour: 12
+                    show:
+                      extrema: true
+                      fill: false
+                    line_color: var(--primary-color)
+                    color_thresholds:
+                      - value: 45
+                        color: green
+                      - value: 60
+                        color: red
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    entities: 
+                      - sensor.sofie_home_work
+                    height: 280
+                    animate: true
+                    hour24: true
+                    line_width: 5
+                    font_size: 70
+                    hours_to_show: 12
+                    points_per_hour: 12
+                    show:
+                      extrema: true
+                      fill: false
+                    line_color: var(--primary-color)
+                    color_thresholds:
+                      - value: 29
+                        color: green
+                      - value: 30
+                        color: red
+                  - type: custom:mini-graph-card
+                    entities: 
+                      - sensor.sofie_work_home
+                    height: 280
+                    animate: true
+                    hour24: true
+                    line_width: 5
+                    font_size: 70
+                    hours_to_show: 12
+                    points_per_hour: 12
+                    show:
+                      extrema: true
+                      fill: false
+                    line_color: var(--primary-color)
+                    color_thresholds:
+                      - value: 29
+                        color: green
+                      - value: 30
+                        color: red
+      - type: "custom:atomic-calendar"
+        title: "Calendar"
+        entities:
+          - entity: calendar.verleysen_van_tilburg
+          - entity: calendar.feestdagen_in_belgie
+          - entity: calendar.verjaardagen
+          - entity: calendar.sen_verleysen_gmail_com
+          - entity: calendar.lyo
+        fullDayEventText: 'Heel de dag'
+        untilText: 'Tot'
+        maxDaysToShow: 14
+        # defaultMode: 2
+        # enableModeChange: true
+        showLoader: true
+        showLocation: true
+        showMonth: false
+        showCurrentEventLine: true
+        dimFinishedEvents: true
+        showProgressBar: true

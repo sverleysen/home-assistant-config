@@ -1,0 +1,12 @@
+- alias: Internet was down
+  trigger:
+  - entity_id: binary_sensor.ping_binary_sensor_internet
+    from: "off"
+    platform: state
+    to: "on"
+  action:
+  - service: notify.pushbullet_sen
+    data_template:
+      title: "Internet was down"
+      message: "{{now().strftime('%H:%M:%S')}} Internet was down, but is back up !"
+      target: device/OnePlus

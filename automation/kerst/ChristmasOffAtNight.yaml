@@ -1,0 +1,8 @@
+- alias: kerst uit snachts
+  trigger:
+  - entity_id: sensor.daylight
+    platform: state
+    to: nadir
+  action:
+  - service: switch.turn_off
+    entity_id: group.kerst_verlichting

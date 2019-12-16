@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  saj_total_today_yield:
+    friendly_name: Totale opbrengst vandaag
+    value_template: "{{states.sensor.saj_large_today_yield.state |float + states.sensor.saj_small_today_yield.state |float }}"
+    unit_of_measurement: 'kWh'

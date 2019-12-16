@@ -1,0 +1,30 @@
+- alias: Start Roomba Guestmode
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.start_roomba_day', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.guestmode
+        state: 'on'
+      - condition: numeric_state
+        below: '0.5'
+        entity_id: sensor.roomba_on_today
+      - condition: time
+        weekday:
+        - mon
+        - wed
+        - thu
+        - fri
+        - sat
+        - sun
+  action:
+  - data:
+      entity_id: vacuum.roomba
+    service: vacuum.turn_on
+  - service: notify.pushbullet_sen
+    data:
+      title: "Roomba"
+      message: "{{now().strftime('%H:%M:%S')}} Start roomba has been triggerd."
+      target: device/OnePlus

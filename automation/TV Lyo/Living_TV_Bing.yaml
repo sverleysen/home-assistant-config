@@ -1,0 +1,30 @@
+- alias: TV Living Bing
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tv_living
+        event: 1001 # hold
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tv_living
+        event: 1002 # short
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.living_tv_lyo
+        state: 'on'
+  action:
+    - service: androidtv.adb_command
+      data_template:
+        entity_id: media_player.living_tv
+        command: 'am start -a android.intent.action.VIEW "{{ [
+                  "https://www.youtube.com/watch?v=WGigH_pe2uY&t=1s", 
+                  "https://www.youtube.com/watch?v=26mxzaQ9mlE&t=1s", 
+                  "https://www.youtube.com/watch?v=_1autgEVCFI&t=1s", 
+                  "https://www.youtube.com/watch?v=vrylB5J3CEw&t=1s",
+                  "https://www.youtube.com/watch?v=NzbwDKVIkfY&t=1s", 
+                ] | random }}"'

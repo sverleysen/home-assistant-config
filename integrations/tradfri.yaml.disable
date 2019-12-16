@@ -1,0 +1,2 @@
+host: 192.168.0.165 #GW-A0C9A0D95FFF
+allow_tradfri_groups: false

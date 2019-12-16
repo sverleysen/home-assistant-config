@@ -1,0 +1,13 @@
+- alias: Set the run roomba at night setting
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.roomba_on_today
+    above: 0.5
+  condition:
+    - condition: state
+      entity_id: input_boolean.roomba_at_night
+      state: 'on'
+  action:
+  - data:
+      entity_id: input_boolean.roomba_at_night
+    service: input_boolean.turn_off

@@ -1,0 +1,17 @@
+lights_indoor:
+  name: Binnen verlichting
+  entities:
+    - light.badkamer
+    - light.bureau
+    - light.dressing
+    - light.eethoek
+    - light.inkomhal
+    - light.keuken_eiland
+    - light.keuken_kast
+    - light.living
+    - light.slaapkamer_lyo
+    - light.slaapkamer_sen_en_sofie
+    - light.living_staande_lamp
+    - light.toilet
+    - light.waskot
+    - light.zolder

@@ -1,0 +1,13 @@
+wb_irrigation:
+  api_key: !secret openweathermap_api
+  rain_factor: 90
+  max_ev: 700 
+  min_ev: -1500.0
+  name: "wb_irrigation"
+  debug: false
+  external_rain_1h: sensor.br_rain_last_hour
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: 28
+  taps: 
+    - name: p1

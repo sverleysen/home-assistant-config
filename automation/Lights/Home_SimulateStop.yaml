@@ -1,0 +1,28 @@
+################################################################
+## Turn off indoor lights randomly between 22:45 ~ 23:30
+################################################################
+- id: '13'
+  alias: Stop simulate Home
+
+  trigger:
+    - platform: time
+      at: '22:30:00'
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.guestmode
+      state: 'off'
+
+    - condition: state
+      entity_id: group.persons
+      state: 'not_home'
+
+  action:
+    - delay: '00:{{ range(15,59) | random | int }}:00'
+    - service: notify.pushbullet_sen
+      data:
+        title: "Simulate Home"
+        message: "{{now().strftime('%H:%M:%S')}} Simulate home Stopped"
+        target: device/OnePlus
+    - service: homeassistant.turn_off
+      entity_id: group.simulateLights

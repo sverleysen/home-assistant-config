@@ -1,0 +1,7 @@
+platform: group
+name: Lampen automatisch
+entities:
+  - light.vooraan
+  - light.achteraan
+  - light.zijgevel
+  - light.trap

@@ -1,0 +1,3 @@
+name: pushbullet_sen
+platform: pushbullet
+api_key: !secret pushbullet_apiKey

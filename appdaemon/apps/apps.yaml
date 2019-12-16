@@ -1,0 +1,28 @@
+---
+hello_world:
+  module: hello
+  class: HelloWorld
+wb_irrigation:
+  module: wbi
+  class: CWBIrrigation
+  m_temp_celsius: 22
+  m_temp_hours: 16
+  enabled: input_boolean.wbi_enabled
+  notify: [tap_open]
+  taps:
+    - name: p1
+      days:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      stime: "05:00:00"
+      m_week_duration_min: input_number.wbi_week_p1_duration
+      switch: switch.bureau
+      manual_duration: input_number.wbi_p1_duration
+      queue_sensor: sensor.wb_irrigation_p1
+      water_sensor: sensor.water_used
+      time_sensor: variable.wbi_last_duration_p1

@@ -1,0 +1,29 @@
+- alias: Staande Lamp aan uit
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: remote_living
+        event: 1001 # hold
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: remote_living
+        event: 1002 # short
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: remote_living
+        event: 1003 # long
+  action:
+    - service: light.toggle
+      entity_id: 
+          - light.living_staande_lamp_1
+          - light.living_staande_lamp_2
+          - light.living_staande_lamp_3
+    # - service: switch.turn_on
+    #   data:
+    #     entity_id: "switch.circadian_lighting_circadian_lighting"
+
+ 

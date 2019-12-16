@@ -1,0 +1,22 @@
+- alias: Staande Lamp Kleur Omhoog
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: remote_living
+      event: 5002
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: "switch.circadian_lighting_circadian_lighting"
+    - service: light.turn_on
+      data_template:
+        entity_id: 
+          - light.living_staande_lamp_1
+          - light.living_staande_lamp_2
+          - light.living_staande_lamp_3
+        color_temp: >
+          {% set color = state_attr('light.living_staande_lamp_1', 'color_temp') | int %}
+          {{ [color+60, 500] | min }}
+  

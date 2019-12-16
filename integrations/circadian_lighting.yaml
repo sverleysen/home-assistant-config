@@ -1,0 +1,5 @@
+circadian_lighting:
+  interval: 60
+  transition: 60
+  sunset_offset: '-02:00:00'
+  

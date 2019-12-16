@@ -1,0 +1,9 @@
+persons:
+  name: Mensen
+  entities:
+    - person.sen
+    - person.sofie
+    - person.kelsey
+    - person.carine
+    - person.peter
+    - person.edgard

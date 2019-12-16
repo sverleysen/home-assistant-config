@@ -1,0 +1,24 @@
+path: camera2
+title: camera
+badges: []
+panel: true
+cards:
+  - type: horizontal-stack
+    cards: 
+    - type: vertical-stack
+      cards: 
+      - type: picture-entity
+        entity: camera.living
+        camera_view: "live"
+      - type: picture-entity
+        entity: camera.oprit
+        camera_view: "live"
+    - type: vertical-stack
+      cards: 
+      - type: picture-entity
+        entity: camera.bureau
+        camera_view: "live"
+      - type: picture-entity
+        entity: camera.tuin
+        camera_view: "live"
+icon: 'mdi:video'  

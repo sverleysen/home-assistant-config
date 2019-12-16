@@ -1,0 +1,7 @@
+platform: history_stats
+name: Internet Down Time
+entity_id: binary_sensor.ping_binary_sensor_Internet
+state: 'off'
+type: time
+start: '{{ 0 }}'
+end: '{{ now() }}'

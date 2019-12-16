@@ -1,0 +1,30 @@
+- alias: Beneden licht aan ochtend
+  trigger:
+  - entity_id: group.lights_downstairs
+    platform: state
+    to: 'on'
+  condition:
+    - condition: time
+      after: '6:00:00'
+      before: '7:00:00'
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: person.sen
+          state: 'home'
+        - condition: state
+          entity_id: person.sofie
+          state: 'home'
+  action:
+    - service: tts.google_say
+      entity_id: media_player.kitchen_display
+      data_template:
+        message: "Het verkeer voor Sen naar zijn werk is {{states('sensor.sen_home_work')}} minuten via {{state_attr('sensor.sen_home_work', 'route')|regex_replace(find='[;]', replace='', ignorecase=False)}}.
+                  Het verkeer voor Sofie naar haar werk is {{states('sensor.sofie_home_work')}} minuten via {{state_attr('sensor.sofie_home_work', 'route')|regex_replace(find='[;]', replace='', ignorecase=False)}}.
+                  De temperatuue is momenteel {{states('sensor.owm_temperature')|regex_replace(find='[.]', replace=' komma ', ignorecase=False)}} graden."

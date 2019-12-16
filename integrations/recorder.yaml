@@ -1,0 +1,21 @@
+recorder:
+  db_url: !secret recorder_db_url
+  exclude:
+    domains:
+      - camera
+      - google
+      - automation
+      - weather
+      - device_tracker
+    entities:
+      - sensor.date
+      - sensor.date_time
+      - sensor.time
+      - sensor.time_date
+      - sensor.owm_condition
+      - sensor.owm_forecast
+      - sensor.owm_snow
+      - sensor.stats_mean
+      - sensor.tradfri_remote_control
+      - sensor.sajlarge
+      - sensor.sajsmall

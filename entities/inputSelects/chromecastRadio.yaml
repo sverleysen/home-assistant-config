@@ -1,0 +1,12 @@
+chromecast_radio:
+  name: 'Select Speakers:'
+  options:
+    - Home Group
+    - Keuken
+    - Living
+    - Slaapkamer
+    - Badkamer
+    - Beneden
+    - Boven
+  initial: Keuken
+  icon: mdi:speaker-wireless

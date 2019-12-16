@@ -1,0 +1,49 @@
+Aankopen:
+    router
+    deurbel
+    sensor
+        Aqara Smart Motion Sensor 3 (wasmachine, droogkast, deurbel
+        xiaomi aqara sensor temperature (living, lyo, badkamer)
+    --Ventilatie Bridge
+    
+
+TODO:
+    aankondiging iemand is thuis
+        Als iemand thuis is
+        als er licht aan is
+            -> naar die zone
+        Geen licht aan 
+            -> geen melding
+    Ochtend
+        licht in de badkamer aan
+            melding
+                verkeer
+                weer
+                
+    paniek mode
+    travel time
+    Ochtend:
+        tts:
+            Travel time
+            Heeft het gevroren?
+            
+
+Integrations:
+    adgaurd: 
+    PS4: 
+        https://www.home-assistant.io/components/ps4/
+        https://github.com/hmn/home-assistant-config/wiki/media_player_ps4
+    TensorFlow: https://community.home-assistant.io/t/tensorflow-step-by-step-guide/78960
+    Spotify: https://community.home-assistant.io/t/spotify-lovelace-card/103525
+    Ventilatie: https://www.home-assistant.io/components/comfoconnect/
+
+
+Lovelace:
+    [Test] Home Feed card: https://github.com/gadgetchnnel/lovelace-home-feed-card
+    [Not using at the moment] Slider Entity row: https://github.com/thomasloven/lovelace-slider-entity-row
+
+
+Other:
+    PiHole:
+        https://github.com/hassio-addons/addon-pi-hole
+    

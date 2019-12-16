@@ -1,0 +1,4 @@
+name: Edgard
+id: Edgard
+device_trackers:
+- device_tracker.galaxy_a50

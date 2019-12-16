@@ -1,0 +1,11 @@
+- alias: RainStart BR
+  trigger:
+  - entity_id: sensor.br_rain_last_hour
+    platform: numeric_state
+    above: 0
+  action:
+  - service: notify.pushbullet_sen
+    data:
+      title: "Irrigation"
+      message: "{{now().strftime('%H:%M:%S')}} Rain Started (buienradar)"
+      target: device/OnePlus

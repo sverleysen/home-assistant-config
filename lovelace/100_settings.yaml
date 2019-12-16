@@ -1,0 +1,282 @@
+path: settings
+title: Settings
+badges: []
+icon: 'mdi:settings'
+cards:
+  - type: vertical-stack
+    cards:
+    - type: entities
+      entities:
+        - sensor.hacs
+        - sensor.potential_breaking_changes
+        - sensor.speedtest_ping
+        - binary_sensor.ping_binary_sensor_internal
+        - binary_sensor.ping_binary_sensor_internet
+        - sensor.internet_down
+        - sensor.router_down
+      show_header_toggle: false
+      title: HASS.IO
+    - type: custom:flex-table-card 
+      title: Connected IPs
+      strict: true
+      clickable: true
+      sort_by: ip+
+      # 1st the **canidate** entities will be selected
+      entities:
+        include: device_tracker.*
+
+      # 2nd, the *column contents* are defined, there are
+      # different ways to match contents:
+      columns:
+        # example: match entity's attribute(s)
+        # - name: Name
+        #   attr: hostname
+        - attr: friendly_name
+          name: Name
+        - name: IP
+          attr: ip
+        - name: Home
+          prop: state
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-graph-card
+        entities: 
+          - sensor.internet_down_time
+        height: 150
+        animate: true
+        hour24: true
+        line_width: 2
+        font_size: 70
+        hours_to_show: 24
+        points_per_hour: 0.5
+        show:
+          extrema: false
+          fill: false
+        line_color: var(--primary-color)
+      - type: custom:mini-graph-card
+        entities: 
+          - sensor.internet_up_time
+        height: 150
+        animate: true
+        hour24: true
+        line_width: 2
+        font_size: 70
+        hours_to_show: 24
+        points_per_hour: 0.5
+        show:
+          extrema: false
+          fill: false
+        line_color: var(--primary-color)
+  - type: vertical-stack
+    cards:
+    - type: horizontal-stack
+      cards:
+        - type: custom:mini-graph-card
+          entities: 
+            - sensor.speedtest_download
+          height: 150
+          animate: true
+          hour24: true
+          line_width: 2
+          font_size: 70
+          hours_to_show: 48
+          points_per_hour: 1
+          show:
+            extrema: false
+            fill: false
+          line_color: var(--primary-color)
+          color_thresholds:
+            - value: 151
+              color: green
+            - value: 150
+              color: red
+        - type: custom:mini-graph-card
+          entities: 
+            - sensor.speedtest_upload
+          height: 150
+          animate: true
+          hour24: true
+          line_width: 2
+          font_size: 70
+          hours_to_show: 48
+          points_per_hour: 1
+          show:
+            extrema: false
+            fill: false
+          line_color: var(--primary-color)
+          color_thresholds:
+            - value: 16
+              color: green
+            - value: 15
+              color: red
+    - type: 'custom:home-feed-card'
+      title: History
+      show_empty: true
+      calendars:
+        - calendar.verleysen_van_tilburg
+        - calendar.feestdagen_in_belgie
+        - calendar.verjaardagen
+        - calendar.sen_verleysen_gmail_com
+        - calendar.lyo
+      more_info_on_tap: true
+      compact_mode: true
+      show_header_toggle : false
+      entities:
+        - entity: sensor.internet_down
+          content_template: '{{display_name}} turned {{state}}'
+          include_history: true
+          max_item_count: 3
+        - entity: switch.ventilatie
+          content_template: '{{display_name}} turned {{state}}'
+          include_history: true
+          max_item_count: 3
+          exclude_states: 
+            - "unavailable" 
+        # - entity: vacuum.roomba
+        #   include_history: true
+        #   content_template: '{{display_name}} turned {{state}}'
+        #   max_item_count: 3
+        #   exclude_states: 
+        #     - "unavailable" 
+        - entity: light.lampen_automatisch
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+          exclude_states: 
+            - "unavailable" 
+        - entity: switch.azra
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+          exclude_states: 
+            - "unavailable" 
+        - entity: switch.bureau
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+          exclude_states: 
+            - "unavailable" 
+        - entity: person.sen
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.sofie
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.carine
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.peter
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.edgard
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.kelsey
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+
+
+  - type: vertical-stack
+    cards:
+    - type: custom:mini-graph-card
+      entities: 
+        - entity: sensor.synology_dsm_volume_used_volume_1
+          name: Disk Used
+      height: 150 
+      animate: true
+      hour24: true
+      line_width: 2
+      font_size: 70
+      hours_to_show: 48
+      points_per_hour: 1
+      show:
+        extrema: false
+        fill: false
+      line_color: var(--primary-color)
+      color_thresholds:
+        - value: 90
+          color: red
+        - value: 89
+          color: green
+    - type: horizontal-stack
+      cards:
+        - type: custom:mini-graph-card
+          entities: 
+            - entity: sensor.synology_dsm_cpu_load_total
+              name: CPU
+          height: 150 
+          animate: true
+          hour24: true
+          line_width: 2
+          font_size: 70
+          hours_to_show: 48
+          points_per_hour: 1
+          show:
+            extrema: false
+            fill: false
+          line_color: var(--primary-color)
+          color_thresholds:
+            - value: 81
+              color: red
+            - value: 80
+              color: green
+              
+        - type: custom:mini-graph-card
+          entities: 
+            - entity: sensor.synology_dsm_memory_usage_real
+              name: RAM
+          height: 150 
+          animate: true
+          hour24: true
+          line_width: 2
+          font_size: 70
+          hours_to_show: 48
+          points_per_hour: 1
+          show:
+            extrema: false
+            fill: false
+          line_color: var(--primary-color)
+          color_thresholds:
+            - value: 81
+              color: red
+            - value: 80
+              color: green
+    - type: horizontal-stack
+      cards:
+        - type: custom:mini-graph-card
+          entities: 
+          - entity: sensor.synology_dsm_network_down
+            name: Download
+          height: 150 
+          animate: true
+          hour24: true
+          line_width: 2
+          font_size: 70
+          hours_to_show: 48
+          points_per_hour: 1
+          show:
+            extrema: false
+            fill: false
+          line_color: var(--primary-color)
+              
+        - type: custom:mini-graph-card
+          entities: 
+          - entity: sensor.synology_dsm_network_up
+            name: Upload
+          height: 150 
+          animate: true
+          hour24: true
+          line_width: 2
+          font_size: 70
+          hours_to_show: 48
+          points_per_hour: 1
+          show:
+            extrema: false
+            fill: false
+          line_color: var(--primary-color)

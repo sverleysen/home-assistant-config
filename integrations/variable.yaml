@@ -1,0 +1,1 @@
+variable: !include_dir_merge_named ../entities/variables

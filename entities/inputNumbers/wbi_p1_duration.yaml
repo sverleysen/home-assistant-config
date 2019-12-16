@@ -1,0 +1,7 @@
+wbi_p1_duration:
+  name: p1
+  min: 15
+  max: 60
+  step: 1.0
+  unit_of_measurement: min
+  icon: mdi:timer-sand 

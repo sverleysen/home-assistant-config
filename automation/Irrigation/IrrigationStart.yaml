@@ -1,0 +1,12 @@
+- alias: IrrigationStart
+  trigger:
+  - entity_id: switch.bureau
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - service: notify.pushbullet_sen
+    data:
+      title: "Irrigation"
+      message: "{{now().strftime('%H:%M:%S')}} Irrigation Started"
+      target: device/OnePlus

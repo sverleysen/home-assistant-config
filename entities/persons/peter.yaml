@@ -1,0 +1,4 @@
+name: Peter
+id: Peter
+device_trackers:
+- device_tracker.galaxy_a8_2018

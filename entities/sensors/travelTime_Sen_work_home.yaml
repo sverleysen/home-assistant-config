@@ -1,0 +1,5 @@
+platform: waze_travel_time
+name: Sen Home Work
+origin:  zone.home
+destination: zone.work_sen
+region: 'EU'

@@ -1,0 +1,16 @@
+platform: buienradar
+monitored_conditions:
+  - stationname
+  - condition
+  - symbol
+  - humidity
+  - temperature
+  - windspeed
+  - windforce
+  - winddirection
+  - windgust
+  - precipitation
+  - precipitation_forecast_average
+  - precipitation_forecast_total
+  - rainlast24hour
+  - rainlasthour

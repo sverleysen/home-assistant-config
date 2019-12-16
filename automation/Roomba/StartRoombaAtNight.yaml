@@ -1,0 +1,25 @@
+- alias: Start Roomba At Night
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.start_roomba_night', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.roomba_at_night
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.guestmode
+      state: 'off'
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - thu
+      - fri
+      - sat
+      - sun
+  action:
+  - data:
+      entity_id: vacuum.roomba
+    service: vacuum.turn_on

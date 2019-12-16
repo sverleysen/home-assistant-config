@@ -1,0 +1,105 @@
+path: test
+title: TEST
+badges: []
+cards:
+  - type: picture-entity
+    entity: camera.living
+    camera_view: "live"
+  - type: entities
+    title: Staande lamp
+    show_header_toggle: false
+    entities:
+      - entity: automation.staande_lamp_aan_uit
+      - entity: automation.staande_lamp_helderheid_omhoog
+      - entity: automation.staande_lamp_helderheid_omlaag
+      - entity: automation.staande_lamp_kleur_omhoog
+      - entity: automation.staande_lamp_kleur_omlaag
+      - entity: automation.enable_circadian_lighting
+      - entity: switch.circadian_lighting_circadian_lighting
+  
+  - type: 'custom:home-feed-card'
+    title: Home Feed
+    show_empty: true
+    calendars:
+      - calendar.verleysen_van_tilburg
+      - calendar.feestdagen_in_belgie
+      - calendar.verjaardagen
+      - calendar.sen_verleysen_gmail_com
+      - calendar.lyo
+    # id_filter: ^light.*
+    more_info_on_tap: true
+    show_header_toggle : false
+    entities:
+        - entity: switch.kerstboom
+          content_template: '{{display_name}} turned {{state}}'
+          include_history: true
+          max_item_count: 3
+          exclude_states: 
+            - "unavailable" 
+        - entity: sensor.internet_down
+          content_template: '{{display_name}} turned {{state}}'
+          include_history: true
+          max_item_count: 3
+        - entity: switch.ventilatie
+          content_template: '{{display_name}} turned {{state}}'
+          include_history: true
+          max_item_count: 3
+          exclude_states: 
+            - "unavailable" 
+        - entity: switch.kerstverlichting_trap
+          content_template: '{{display_name}} turned {{state}}'
+          include_history: true
+          max_item_count: 3
+          exclude_states: 
+            - "unavailable" 
+        - entity: vacuum.roomba
+          include_history: true
+          content_template: '{{display_name}} turned {{state}}'
+          max_item_count: 3
+          exclude_states: 
+            - "unavailable" 
+        - entity: person.sen
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.sofie
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.carine
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.peter
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.edgard
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+        - entity: person.kelsey
+          include_history: true
+          content_template: '{{display_name}} is {{state}}'
+          max_item_count: 3
+  - type: custom:banner-card
+    background: "#EDE7B0"
+    heading: "\U0001F6CB Living"
+    row_size: 2
+    link: /lovelace/downstairs_view
+    entities:
+      - entity: light.living_staande_lamp
+        name: Staande Lamp
+      - entity: light.living
+      - entity: media_player.tv_living
+  - type: custom:banner-card
+    background: "#EDE7B0"
+    heading: "Keuken"
+    row_size: 2
+    link: /lovelace/downstairs_view
+    entities:
+      - entity: light.eethoek
+        name: Tafel
+      - entity: light.keuken
+      - entity: media_player.kitchen_display
+

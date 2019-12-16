@@ -1,0 +1,4 @@
+platform: ping
+name: "ping_binary_sensor_Internal"
+host: 192.168.0.244
+scan_interval: 10

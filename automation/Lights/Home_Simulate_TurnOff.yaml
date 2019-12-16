@@ -1,0 +1,28 @@
+################################################################
+## Turn off the simulate home when home
+################################################################
+- alias: turn off simulate Home
+
+  trigger:
+    - entity_id: group.persons
+      from: not_home
+      platform: state
+      to: home
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.guestmode
+      state: 'off'
+    
+    - condition: sun
+      after: sunset
+      after_offset: '-00:30:00'
+
+    - condition: time
+      before: '23:00:00'
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id: automation.simulate_home
+    - service: homeassistant.turn_off
+      entity_id: group.simulatelights

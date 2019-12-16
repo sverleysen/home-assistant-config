@@ -1,0 +1,18 @@
+- alias: Turn On Ventilation Shower
+  trigger:
+    platform: state
+    entity_id: light.badkamer
+    from: 'off'
+    to: 'on'
+  condition: 
+    condition: state
+    entity_id: switch.ventilatie
+    state: 'off'
+  action:
+  - service: switch.turn_on
+    entity_id: switch.ventilatie
+  - service: notify.pushbullet_sen
+    data:
+      title: "ventilation"
+      message: "{{now().strftime('%H:%M:%S')}} Turn on ventilation when in bathroom"
+      target: device/OnePlus

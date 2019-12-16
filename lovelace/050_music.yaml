@@ -1,0 +1,48 @@
+path: music
+title: Music
+badges: []
+cards:
+# - type: 'custom:spotify-card'
+#   client_id: !secret spotify_clientId
+#   device: media_player.kitchen_display
+- type: entities
+  entities:
+    - input_select.music_source
+    - input_select.chromecast_radio
+    - script.chromecast_radio
+  title: Start Radio
+  show_header_toggle: false
+- type:  custom:mini-media-player
+  entity: media_player.spotify
+
+- type: custom:mini-media-player
+  entity: media_player.kitchen_display
+  tts:
+    platform: google
+  artwork: cover
+- type:  custom:mini-media-player
+  entity: media_player.bathroom_speaker
+  tts:
+    platform: google
+  artwork: cover
+- type: custom:mini-media-player
+  entity: media_player.bedroom_speaker
+  tts:
+    platform: google
+  artwork: cover
+- type:  custom:mini-media-player
+  entity: media_player.soundbar
+  tts:
+    platform: google
+  artwork: cover
+- type:  custom:mini-media-player
+  entity: media_player.keuken
+  tts:
+    platform: google
+  artwork: cover
+- type: custom:mini-media-player
+  entity: media_player.home_group
+  tts:
+    platform: google
+icon: 'mdi:music'
+ 

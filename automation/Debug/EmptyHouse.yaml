@@ -1,0 +1,12 @@
+- alias: Everyone Is Gone
+  trigger:
+  - entity_id: group.persons
+    from: home
+    platform: state
+    to: not_home
+  action:
+  - service: notify.pushbullet_sen
+    data:
+      title: "Empty Home"
+      message: "{{now().strftime('%H:%M:%S')}} Everyone is gone!"
+      target: device/OnePlus

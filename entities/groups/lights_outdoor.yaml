@@ -1,0 +1,6 @@
+lights_outdoor:
+  name: Buiten verlichting
+  entities:
+    - light.achteraan
+    - light.zijgevel
+    - light.vooraan

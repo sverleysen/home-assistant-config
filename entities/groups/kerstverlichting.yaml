@@ -1,0 +1,6 @@
+kerst_verlichting:
+  name: Kerstverlichting
+  entities:
+    - switch.kerstverlichting_trap
+    - switch.kerstboom
+    - switch.kerstverlichting_buiten

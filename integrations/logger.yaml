@@ -1,0 +1,5 @@
+logger:
+  default: warning
+  logs:
+    # custom_components: debug
+    custom_components.nhc2: debug

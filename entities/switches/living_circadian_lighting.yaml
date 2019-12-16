@@ -1,0 +1,11 @@
+platform: circadian_lighting
+# lights_ct:
+#   - light.living_staande_lamp_1
+#   - light.living_staande_lamp_2
+#   - light.living_staande_lamp_3
+lights_xy:
+  - light.living_staande_lamp_1
+  - light.living_staande_lamp_2
+  - light.living_staande_lamp_3
+
+# max_brightness: 70

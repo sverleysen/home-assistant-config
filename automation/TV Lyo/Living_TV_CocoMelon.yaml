@@ -1,0 +1,36 @@
+- alias: TV Living CocoMelon
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tv_living
+        event: 3001 # hold
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tv_living
+        event: 3002 # short
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.living_tv_lyo
+        state: 'on'
+  action:
+    - service: androidtv.adb_command
+      data_template:
+        entity_id: media_player.living_tv
+        command: 'am start -a android.intent.action.VIEW "{{ [
+                  "https://www.youtube.com/watch?v=qUZdvCiQ_Kw&t=1s",
+                  "https://www.youtube.com/watch?v=3tvnA1IkNAg&t=1s",
+                  "https://www.youtube.com/watch?v=oBrYj0ld4vM&t=1s",
+                  "https://www.youtube.com/watch?v=ZzAm13KsBCc&t=1s",
+                  "https://www.youtube.com/watch?v=t_zhewrbHCs&t=1s",
+                  "https://www.youtube.com/watch?v=gzGkSIN9prU&t=1s",
+                  "https://www.youtube.com/watch?v=qaI4psAJ58c&t=1s",
+                  "https://www.youtube.com/watch?v=4Ksf2Ke1sNo&t=1s",
+                  "https://www.youtube.com/watch?v=bWKtAl4L9JU&t=1s",
+                  "https://www.youtube.com/watch?v=11tlNwOjmis&t=1s"
+                ] | random }}"'
+ 

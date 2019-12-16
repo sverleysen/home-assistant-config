@@ -1,0 +1,13 @@
+- alias: Notify bin roomba is full
+  trigger:
+  - entity_id: person.sen
+    platform: state
+    to: home
+  condition:
+    - condition: template
+      value_template: "{{ state_attr('vacuum.roomba', 'bin_full') != 'true' }}"
+  action:
+  - service: notify.notify
+    data:
+      title: "Roomba"
+      message: "Maak de stofzuiger leeg, de vuilbak zit vol!"

@@ -1,0 +1,5 @@
+start_roomba_night:
+  name: Start Roomba Nacht
+  has_date: false
+  has_time: true
+  initial: "02:00"

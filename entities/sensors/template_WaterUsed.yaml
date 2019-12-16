@@ -1,0 +1,6 @@
+platform: template
+sensors:
+    water_used:
+        friendly_name: "Water used"
+        unit_of_measurement: 'l'
+        value_template: "{{ (states.input_number.wbi_water_per_hour.state|float /60) * (60* states.sensor.wbi_p1_hours.state|float)|float|round(1)  }}"

@@ -1,0 +1,12 @@
+- alias: kerst aan wanneer donker
+  trigger:
+  - entity_id: sensor.daylight
+    platform: state
+    to: golden_hour_2
+  condition:
+    - condition: state
+      entity_id: group.persons
+      state: 'not_home'
+  action:
+  - service: switch.turn_on
+    entity_id: group.kerst_verlichting

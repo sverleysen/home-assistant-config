@@ -1,0 +1,12 @@
+- alias: IrrigationStopped
+  trigger:
+  - entity_id: switch.bureau
+    from: 'on'
+    platform: state
+    to: 'off'
+  action:
+  - service: notify.pushbullet_sen
+    data:
+      title: "Irrigation"
+      message: "{{now().strftime('%H:%M:%S')}} Irrigation Stopped"
+      target: device/OnePlus

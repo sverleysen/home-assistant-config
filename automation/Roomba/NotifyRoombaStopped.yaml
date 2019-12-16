@@ -1,0 +1,15 @@
+- alias: Notify is Roomba is stopped
+  trigger:
+    platform: state
+    entity_id: vacuum.roomba
+    to: 'off'
+    for:
+      minutes: 5
+  condition:
+    - condition: template
+      value_template: "{{ state_attr('vacuum.roomba', 'status') != 'Charging' }}"
+  action:
+  - service: notify.notify
+    data:
+      title: "Roomba"
+      message: "Roomba is gestopt"

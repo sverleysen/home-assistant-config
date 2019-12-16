@@ -1,0 +1,8 @@
+music_source:
+  name: 'Select Music Source:'
+  options:
+    - Q-Music
+    - MNM
+    - MNM Hits
+    - Lyo
+    - Sofie

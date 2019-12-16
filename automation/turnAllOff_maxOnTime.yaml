@@ -1,0 +1,10 @@
+- alias: alles uit off after 1 sec
+  trigger:
+  - entity_id: switch.alles_uit
+    from: 'off'
+    platform: state
+    to: 'on'
+    for: 0:00:01
+  action:
+  - service: switch.turn_off
+    entity_id: switch.alles_uit

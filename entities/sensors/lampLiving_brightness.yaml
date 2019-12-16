@@ -1,0 +1,11 @@
+platform: template
+sensors:
+  lampliving_brightness:
+    friendly_name: Brightness staande lamp
+    value_template: >-
+      {% if ((state_attr('light.living_staande_lamp', 'brightness') | string) == "None") %}
+        0 
+      {% else %} 
+        {{ state_attr('light.living_staande_lamp', 'brightness')}} 
+      {% endif %}
+    unit_of_measurement: '%'

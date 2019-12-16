@@ -1,0 +1,29 @@
+  chromecast_radio:
+    alias: Play Radio
+    sequence:
+      -  service: media_player.play_media
+         data_template:
+           entity_id: >
+            {% if is_state("input_select.chromecast_radio", "Home Group") %} media_player.home_group
+            {% elif is_state("input_select.chromecast_radio", "Keuken") %} media_player.kitchen_display
+            {% elif is_state("input_select.chromecast_radio", "Living") %} media_player.soundbar
+            {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %} media_player.bedroom_speaker
+            {% elif is_state("input_select.chromecast_radio", "Badkamer") %} media_player.bathroom_speaker
+            {% elif is_state("input_select.chromecast_radio", "Beneden") %} media_player.beneden
+            {% elif is_state("input_select.chromecast_radio", "Boven") %} media_player.beneden
+            {% endif %}
+           media_content_id: >
+            {% if is_state("input_select.music_source", "Q-Music") %} http://playerservices.streamtheworld.com/api/livestream-redirect/QMUSICAAC.aac?tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNTczMzEyNDUwLCJ0ZC1yZWciOmZhbHNlfQ.U1aRVXE4Tea90bipzlCS9oYZr2QY3YkW3xUIDM_Nflw
+            {% elif is_state("input_select.music_source", "MNM") %} http://icecast.vrtcdn.be/mnm-high.mp3
+            {% elif is_state("input_select.music_source", "MNM Hits") %} http://icecast.vrtcdn.be/mnm_hits-high.mp3
+            {% elif is_state("input_select.music_source", "Lyo") %} spotify:playlist:1qQ48Sbo2tVqzIBLFiniH3
+            {% elif is_state("input_select.music_source", "Sofie") %} spotify:playlist:36xcIAW9ddMbwio1VHZVhr
+            {% endif %}
+           media_content_type: >
+            {% if is_state("input_select.music_source", "Q-Music") %} 'music'
+            {% elif is_state("input_select.music_source", "MNM") %} 'music'
+            {% elif is_state("input_select.music_source", "MNM Hits") %} 'music'
+            {% elif is_state("input_select.music_source", "Lyo") %} 'playlist'
+            {% elif is_state("input_select.music_source", "Sofie") %} 'playlist'
+            {% endif %}
+            

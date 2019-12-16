@@ -1,0 +1,14 @@
+- alias: aankondiging iemand is thuis
+  trigger:
+  - entity_id: person.sen, person.sofie, person.kelsey, person.carine, person.peter, person.moeke, person.edgard
+    platform: state
+    to: home
+  condition:
+    - condition: state
+      entity_id: input_boolean.guestmode
+      state: 'off'
+  action:
+    - service: tts.google_say
+      entity_id: media_player.bathroom_speaker
+      data_template:
+        message: "{{ trigger.to_state.attributes.friendly_name }} is thuis!"

@@ -1,0 +1,8 @@
+- alias: Verlichting sochtens uit
+  trigger:
+  - entity_id: sensor.daylight
+    platform: state
+    to: sunrise_start
+  action:
+  - service: light.turn_off
+    entity_id: light.lampen_automatisch

@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  saj_total_current_power:
+    friendly_name: Totale huidige opbrengst
+    value_template: "{{states.sensor.saj_large_current_power.state |float + states.sensor.saj_small_current_power.state |float }}"
+    unit_of_measurement: 'W'

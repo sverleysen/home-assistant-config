@@ -1,0 +1,46 @@
+- alias: Turn All Off
+  trigger:
+  - entity_id: switch.alles_uit
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - service: switch.turn_off
+    entity_id:
+      - switch.alles_uit
+  - service: light.turn_off
+    entity_id:
+      - light.badkamer
+      - light.bureau
+      - light.dressing
+      - light.eethoek
+      - light.inkomhal
+      - light.keuken_eiland
+      - light.keuken_kast
+      - light.living_staande_lamp
+      - light.living
+      - light.slaapkamer_lyo
+      - light.toilet
+      - light.waskot
+      - light.zolder
+  - service: media_player.turn_off
+    entity_id:
+      - media_player.bathroom_speaker
+      - media_player.bedroom_speaker
+      - media_player.keuken
+      - media_player.kitchen_display
+      # - media_player.living_tv
+      # - media_player.soundbar
+  - service: switch.turn_off
+    entity_id:
+      - switch.azra
+      - switch.kerstboom
+      - switch.kerstverlichting_trap
+      - switch.kerstverlichting_buiten
+      
+  - delay:
+      minutes: 5
+  - service: light.turn_off
+    entity_id:
+      - light.slaapkamer_sen_en_sofie
+

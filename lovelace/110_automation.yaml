@@ -1,0 +1,150 @@
+path: automation
+title: Automation
+badges: []
+cards:
+  - title: Settings
+    type: entities
+    show_header_toggle: false
+    entities:
+      - entity: input_boolean.roomba_at_night
+      - entity: input_boolean.guestmode
+      - entity: switch.circadian_lighting_circadian_lighting
+  - title: Alles uit
+    type: entities
+    entities:
+      - switch.alles_uit
+      - automation.turn_all_off
+      # - type: custom:entity-attributes-card
+      #   entity: automation.turn_all_off
+      #   filter:
+      #     include:
+      #       - automation.turn_all_off.last_triggered 
+      - automation.alles_uit_off_after_1_sec
+      # - type: custom:entity-attributes-card
+      #   entity: automation.alles_uit_off_after_1_sec
+      #   filter:
+      #     include:
+      #       - automation.alles_uit_off_after_1_sec.last_triggered
+  - title: Irrigation
+    type: entities
+    show_header_toggle: false
+    entities:
+      - entity: automation.irrigationstart
+        name: "[DEBUG] Irrigation Started"
+      - entity: automation.irrigationstopped
+        name: "[DEBUG] Irrigation Stopped"
+      - entity: automation.rainstart
+        name: "[DEBUG] Irrigation Rain Started"
+      - entity: automation.rainstart_br
+        name: "[DEBUG] Irrigation Rain Started Buienradar"
+      - entity: automation.irrigationtolong
+        name: Irrigation to long
+  - title: Aankondigingen
+    type: entities
+    show_header_toggle: false
+    entities:
+      - entity: automation.badkamer_licht_aan_ochtend
+      - entity: automation.beneden_licht_aan_ochtend
+      - entity: automation.aankondiging_iemand_is_thuis
+      - entity: automation.aankondiging_iemand_is_thuis_inschakkelen
+      - entity: automation.aankondiging_iemand_is_thuis_uitschakkelen
+  - title: Lichten
+    type: entities
+    show_header_toggle: false
+    entities:
+      - entity: automation.simulate_home
+        name: "Simulate Home"
+      - entity: automation.stop_simulate_home
+        name: "Stop Simulate Home"
+      - entity: automation.turn_off_simulate_home
+        name: "Turn off Simulate Home"
+      - entity: automation.turn_on_simulate_home
+        name: "Turn on Simulate Home"
+      - entity: automation.turn_off_lights_when_gone
+        name: "Turn off lights when gone"
+      - entity: automation.verlichting_sochtens_uit
+      - entity: automation.verlichting_savonds_aan
+      - entity: automation.azra_ikea_nico_home_control_sync
+      - entity: automation.azra_off_after_15_min
+      - entity: automation.wc_uit_na_15_min
+  - title: Staande lamp
+    type: entities
+    show_header_toggle: false
+    entities:
+      - entity: automation.staande_lamp_aan_uit
+      - entity: automation.staande_lamp_helderheid_omhoog
+      - entity: automation.staande_lamp_helderheid_omlaag
+      - entity: automation.staande_lamp_kleur_omhoog
+      - entity: automation.staande_lamp_kleur_omlaag
+      - entity: automation.enable_circadian_lighting
+  - title: Kerst
+    type: entities
+    show_header_toggle: true
+    entities:
+      - entity: automation.kerst_aan_wanneer_donker
+      - entity: automation.kerst_uit_snachts
+      - entity: automation.kerst_aan_wanneer_thuis
+      - entity: automation.kerst_uit_wanneer_niet_thuis
+      - entity: automation.kerst_aan_in_de_ochtend
+      - entity: automation.kerst_uit_in_de_ochtend
+  - title: Herinneringen
+    type: entities
+    show_header_toggle: false
+    entities:
+      - entity: automation.clean_roomba_reminder
+        name: "Clean Roomba Reminder"
+      - entity: automation.update
+        name: "Update is available"
+  - title: Roomba
+    type: entities
+    show_header_toggle: false
+    entities:
+      - input_datetime.start_roomba_day
+      - input_datetime.start_roomba_night
+      - entity: automation.reset_roomba_setting
+        name: "Reset Roomba Setting"
+      - entity: automation.set_the_run_roomba_at_night_setting
+        name: "Set the run roomba at night setting"      
+      - entity: automation.start_roomba_guestmode
+        name: "Start Roomba Guestmode"   
+      - entity: automation.start_roomba_at_night
+        name: "Start Roomba At Night"   
+      - entity: automation.start_roomba_when_gone
+        name: "Start Roomba When Gone"   
+      - entity: automation.notify_is_roomba_is_stopped
+      - entity: automation.notify_bin_roomba_is_full
+  - title: Ventilatie
+    type: entities
+    
+    show_header_toggle: false
+    entities:
+      - input_number.ventilation_min_humidity
+      - entity: automation.turn_off_ventilation
+        name: "Turn Off Ventilation"
+      - entity: automation.turn_on_ventilation
+        name: "Turn On Ventilation"
+      - entity: automation.turn_on_ventilation_shower
+        name: "Turn On Ventilation Shower"
+  - title: TV Living Lyo
+    type: entities
+    show_header_toggle: false
+    entities:
+      - entity: input_boolean.living_tv_lyo
+      - entity: automation.tv_living_bing
+      - entity: automation.tv_living_bumba
+      - entity: automation.tv_living_pepa_pig
+      - entity: automation.tv_living_powpatrol
+      - entity: automation.tv_living_cocomelon
+  - title: DEBUG
+    type: entities
+    entities:
+      - automation.everyone_is_gone
+      - automation.someoneishome
+      - automation.someoneisgone
+      - automation.internet_was_down
+  - title: Deurbel
+    type: entities
+    entities:
+      - entity: automation.someone_is_at_the_frontdoor
+        name: "[TEST] Someone is at the frontdoor"
+icon: 'mdi:clipboard-text-play'

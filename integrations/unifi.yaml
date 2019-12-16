@@ -1,0 +1,7 @@
+unifi:
+  controllers:
+    - host: 192.168.0.244
+      site: 'Default'
+      detection_time: 300
+      ssid_filter:
+        - 'telenet-6E45629'

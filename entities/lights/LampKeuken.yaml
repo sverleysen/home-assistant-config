@@ -1,0 +1,5 @@
+platform: group
+name: Keuken
+entities:
+  - light.keuken_eiland
+  - light.keuken_kast

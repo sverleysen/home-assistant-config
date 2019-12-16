@@ -1,0 +1,6 @@
+wbi_last_duration_p1:
+  value: 0
+  restore: true
+  attributes:
+      friendly_name: 'last duration pump 1'
+      unit_of_measurement: "min"

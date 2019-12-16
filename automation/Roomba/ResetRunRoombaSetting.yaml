@@ -1,0 +1,22 @@
+- alias: Reset Roomba Setting
+  trigger:
+      platform: time
+      at: '6:00:00'
+  condition:
+  - condition: and
+    conditions:
+    - condition: time
+      weekday:
+      - mon
+      - wed
+      - thu
+      - fri
+      - sat
+      - sun
+    - condition: state
+      entity_id: input_boolean.roomba_at_night
+      state: 'off'
+  action:
+  - data:
+      entity_id: input_boolean.roomba_at_night
+    service: input_boolean.turn_on

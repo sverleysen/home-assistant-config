@@ -1,0 +1,101 @@
+google_assistant:
+  project_id: homeassist-66833
+  api_key: !secret google_assistant_clientId
+  exposed_domains:
+    - switch
+    - light
+    - camera
+    #- group
+    # - vacuum
+    - scene
+  entity_config:
+    ## switches ##
+    switch.azra:
+      room: Buiten
+      expose: true
+      name: Azra
+      aliases:
+        - Azra
+        - kakweide
+        - tuin achteraan
+        - hond
+    ## Hide switches ##
+    switch.circadian_lighting_circadian_lighting:
+      expose: false
+    switch.ikea_azra:
+      expose: false
+    switch.alles_uit:
+      expose: false
+    ## Hide lights ##
+    light.living_staande_lamp_1:
+      expose: false
+    light.living_staande_lamp_2:
+      expose: false
+    light.living_staande_lamp_3:
+      expose: false
+    light.keuken:
+      expose: false
+    light.achteraan:
+      expose: false
+    light.zijgevel:
+      expose: false
+    light.vooraan:
+      expose: false
+    light.trap:
+      expose: false
+    light.lampen_automatisch:
+      expose: false
+
+
+    ## lights ##
+    light.living_staande_lamp:
+      expose: true
+      name: Staande lamp
+      room: Living
+    ## Cameras ##
+    camera.bureau_generic:
+      expose: true
+      name: Bureau
+      aliases:
+        - Desk
+        - Bureau camera
+        - Desk camera
+        - Desk cam
+      room: Bureau
+    camera.oprit_generic:
+      expose: true
+      name: Oprit
+      aliases:
+        - Driveway
+        - Oprit camera
+        - Driveway camera
+        - Driveway cam
+      room: Inkom
+    camera.living_generic:
+      expose: true
+      name: Living
+      aliases:
+        - Living camera
+        - Living room camera
+        - Living cam
+      room: Living
+    camera.tuin_generic:
+      expose: true
+      name: Tuin
+      aliases:
+        - Tuin camera
+        - Garden camera
+        - Garden cam  
+      room: Buiten
+    
+    group.kerst_verlichting:
+      expose: true
+      room: Living 
+
+    input_boolean.living_tv_lyo:
+      expose: true
+      room: Andere 
+
+    media_player.living_tv:
+      expose: true
+      room: Living

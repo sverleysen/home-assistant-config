@@ -1,0 +1,28 @@
+- alias: Start Roomba When Gone
+  trigger:
+  - entity_id: group.persons
+    for: 0:10:00
+    from: home
+    platform: state
+    to: not_home
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.guestmode
+      state: 'off'
+    - condition: time
+      weekday:
+      - mon
+      - wed
+      - thu
+      - fri
+      - sat
+      - sun
+    - condition: numeric_state
+      below: '0.5'
+      entity_id: sensor.roomba_on_today
+  action:
+  - data:
+      entity_id: vacuum.roomba
+    service: vacuum.turn_on

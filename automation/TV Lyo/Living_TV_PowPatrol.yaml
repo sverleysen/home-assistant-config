@@ -1,0 +1,29 @@
+- alias: TV Living PowPatrol
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tv_living
+        event: 5001 # hold
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tv_living
+        event: 5002 # short
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.living_tv_lyo
+        state: 'on'
+  action:
+    - service: androidtv.adb_command
+      data_template:
+        entity_id: media_player.living_tv
+        command: 'am start -a android.intent.action.VIEW "{{ [
+                  "https://www.youtube.com/watch?v=Lm91EG11m48",
+                  "https://www.youtube.com/watch?v=SZ_pFe-s5U8",
+                  "https://www.youtube.com/watch?v=YH22VEgCDyg",
+                  "https://www.youtube.com/watch?v=QZzgu88VhXQ"
+                  ] | random }}"'

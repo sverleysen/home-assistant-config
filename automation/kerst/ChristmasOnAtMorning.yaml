@@ -1,0 +1,11 @@
+- alias: kerst aan in de ochtend
+  trigger:
+    platform: time
+    at: "06:00:00"
+  condition:
+    - condition: state
+      entity_id: input_boolean.guestmode
+      state: 'off'
+  action:
+  - service: switch.turn_on
+    entity_id: group.kerst_verlichting

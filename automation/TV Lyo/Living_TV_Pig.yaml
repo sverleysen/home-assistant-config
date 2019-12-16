@@ -1,0 +1,75 @@
+- alias: TV Living Pepa Pig
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tv_living
+        event: 4001 # hold
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: tv_living
+        event: 4002 # short
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.living_tv_lyo
+        state: 'on'
+  action:
+    - service: androidtv.adb_command
+      data_template:
+        entity_id: media_player.living_tv
+        command: 'am start -a android.intent.action.VIEW "{{ [
+                  "https://www.youtube.com/watch?v=3NwSAHqsAmY&t=1s",
+                  "https://www.youtube.com/watch?v=iKWEA-o6g7s&t=1s",
+                  "https://www.youtube.com/watch?v=wxfVl2btdCU&t=1s",
+                  "https://www.youtube.com/watch?v=N3BM4cPcAmg&t=1s",
+                  "https://www.youtube.com/watch?v=ujmVXo1Puh8&t=1s",
+                  "https://www.youtube.com/watch?v=n_OFei6IlfU&t=1s",
+                  "https://www.youtube.com/watch?v=lHi7ulFlF7A&t=1s",
+                  "https://www.youtube.com/watch?v=QZoDDlwAJT8&t=1s",
+                  "https://www.youtube.com/watch?v=iOo8fmFwODE&t=1s",
+                  "https://www.youtube.com/watch?v=OHkGrdDTT8I&t=1s",
+                  "https://www.youtube.com/watch?v=lbQOG6zBbn4&t=1s",
+                  "https://www.youtube.com/watch?v=5ocY4aJGKss&t=1s",
+                  "https://www.youtube.com/watch?v=6EdR4RGa7oU&t=1s",
+                  "https://www.youtube.com/watch?v=GcM34dGXdlE&t=1s",
+                  "https://www.youtube.com/watch?v=tFVG4OBENKg&t=1s",
+                  "https://www.youtube.com/watch?v=Eet_beEPTcs&t=1s",
+                  "https://www.youtube.com/watch?v=yFSvrrMAuJg&t=1s",
+                  "https://www.youtube.com/watch?v=G-Y9G-1voEE&t=1s",
+                  "https://www.youtube.com/watch?v=na-o1Y-5rI4&t=1s",
+                  "https://www.youtube.com/watch?v=rC9i088bGpo&t=1s",
+                  "https://www.youtube.com/watch?v=cZx11HfJCpo&t=1s",
+                  "https://www.youtube.com/watch?v=HhXQAdWCg3o&t=1s",
+                  "https://www.youtube.com/watch?v=duuOfp_c9vs&t=1s",
+                  "https://www.youtube.com/watch?v=UG-DS_784cs&t=1s",
+                  "https://www.youtube.com/watch?v=Q6MHHY_-mfs&t=1s",
+                  "https://www.youtube.com/watch?v=d9jmc-5Rqbc&t=1s",
+                  "https://www.youtube.com/watch?v=NHPZdAvFLT4&t=1s",
+                  "https://www.youtube.com/watch?v=ZPJ-VcwP2jA&t=1s",
+                  "https://www.youtube.com/watch?v=TlXI396EAg8&t=1s",
+                  "https://www.youtube.com/watch?v=So_-8mWbr24&t=1s",
+                  "https://www.youtube.com/watch?v=NuS-dQ2g3nA&t=1s",
+                  "https://www.youtube.com/watch?v=POrABvBJq_w&t=1s",
+                  "https://www.youtube.com/watch?v=Vl0GUO2yFHE&t=1s",
+                  "https://www.youtube.com/watch?v=NqOnv8B10QQ&t=1s",
+                  "https://www.youtube.com/watch?v=smQAUXEnoI0&t=1s",
+                  "https://www.youtube.com/watch?v=7avQ-UOFLQ4&t=1s",
+                  "https://www.youtube.com/watch?v=DxNufRxvJT0&t=1s",
+                  "https://www.youtube.com/watch?v=UcYG1JFWWQM&t=1s",
+                  "https://www.youtube.com/watch?v=l8HJYDXJ34U&t=1s",
+                  "https://www.youtube.com/watch?v=KXPq8OJ12tA&t=1s",
+                  "https://www.youtube.com/watch?v=ksnKhEN-D5A&t=1s",
+                  "https://www.youtube.com/watch?v=jIkRYauP8ms&t=1s",
+                  "https://www.youtube.com/watch?v=XXl5HEajHQc&t=1s",
+                  "https://www.youtube.com/watch?v=18XpY6WUkg8&t=1s",
+                  "https://www.youtube.com/watch?v=N4QtdtGzDlE&t=1s",
+                  "https://www.youtube.com/watch?v=kEXUQGjpi6M&t=1s",
+                  "https://www.youtube.com/watch?v=G_WLWTzeojM&t=1s",
+                  "https://www.youtube.com/watch?v=TifzdHLE8lQ&t=1s",
+                  "https://www.youtube.com/watch?v=ZbIAQL8T8aQ&t=1s",
+                  "https://www.youtube.com/watch?v=d4OWDphuuDU&t=1s"
+                  ] | random }}"'

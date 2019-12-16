@@ -1,0 +1,43 @@
+history:
+  # exclude:
+  #   domains:
+  #     - camera
+  #     - google
+  #     - weather
+  #     - device_tracker
+  #     - calendar
+  #   entities:
+  #     - sensor.date
+  #     - sensor.date_time
+  #     - sensor.time
+  #     - sensor.time_date
+  #     - sensor.owm_condition
+  #     - sensor.owm_forecast
+  #     - sensor.owm_snow
+  #     - sensor.stats_mean
+  #     - sensor.tradfri_remote_control
+  #     - input_boolean.guestmode
+  #     - input_boolean.wbi_enabled
+  #     - input_datetime.start_roomba_day
+  #     - input_boolean.roomba_at_night
+  #     - light.living_bottom_bulb
+  #     - light.living_middle_bulb
+  #     - light.living_top_bulb
+  #     - sensor.br_condition
+  #     - sensor.br_precipitation
+  #     - sensor.br_humidity
+  #     - sensor.br_precipitation_forecast_average
+  #     - sensor.br_precipitation_forecast_total
+  #     - sensor.br_stationname
+  #     - sensor.br_symbol
+  #     - sensor.br_temperature
+  #     - sensor.br_wind_direction
+  #     - sensor.br_wind_force
+  #     - sensor.owm_rain
+  #     - sensor.potential_breaking_changes
+  #     - switch.circadian_lighting_circadian_lighting
+  #     - sensor.snapshot_backup
+  #     - binary_sensor.snapshots_stale
+  #     - input_number.ventilation_min_humidity
+  #     - sensor.circadian_values
+  #     - sensor.hacs

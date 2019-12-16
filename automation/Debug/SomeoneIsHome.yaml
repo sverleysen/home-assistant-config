@@ -1,0 +1,11 @@
+- alias: SomeOneIsHome
+  trigger:
+  - entity_id: person.sen, person.sofie, person.kelsey, person.carine, person.peter, person.moeke, person.edgard
+    platform: state
+    to: home
+  action:
+  - service: notify.pushbullet_sen
+    data_template:
+      title: "Someone is home"
+      message: "{{now().strftime('%H:%M:%S')}} {{ trigger.to_state.attributes.friendly_name }} is home!"
+      target: device/OnePlus
