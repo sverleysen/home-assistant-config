@@ -126,7 +126,7 @@ cards:
               - home
             card:
               type: glance
-              title: People at home
+              title: Wie is thuis
               show_state: false
               show_name: true
           - type: custom:weather-card
