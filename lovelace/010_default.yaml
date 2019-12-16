@@ -3,8 +3,6 @@ icon: 'mdi:home'
 title: Main
 panel: true
 badges: []
-  # - sensor.owm_humidity
-  # - sensor.owm_temperature
 cards:
   # - type: entity-filter
   #   show_empty: false
