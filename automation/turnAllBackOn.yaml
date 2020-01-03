@@ -1,0 +1,16 @@
+- alias: Turn All back on
+  trigger:
+  - entity_id: switch.alles_uit
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: 
+  - condition: state
+    entity_id: switch.alles_uit
+    state: 'home'
+  - condition: template
+    value_template: '{{ (now() - states.automation.turn_all_off.attributes.last_triggered).total_seconds() | int <= 60}}'
+  action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.voor_alles_uit

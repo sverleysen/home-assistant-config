@@ -1,3 +1,6 @@
+custom_header:
+  compact_mode: true
+  hide_header: false
 resources:
   - url: /community_plugin/mini-media-player/mini-media-player.js
     type: module
@@ -28,7 +31,6 @@ resources:
     type: js
   - url: /community_plugin/ha-card-waze-travel-time/ha-card-waze-travel-time.js
     type: module
-    
 title: Home
 views:
   - !include lovelace/010_default.yaml
@@ -44,4 +46,4 @@ views:
   - !include lovelace/100_settings.yaml
   - !include lovelace/110_automation.yaml
   # - !include lovelace/120_cast.yaml
-  # - !include lovelace/130_test.yaml
+  - !include lovelace/130_test.yaml

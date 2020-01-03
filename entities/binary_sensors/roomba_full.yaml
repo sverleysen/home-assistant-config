@@ -1,0 +1,6 @@
+platform: template
+sensors:
+  roomba_full:
+    friendly_name: "Roomba vuilbak vol"
+    value_template: >-
+      {{ state_attr('vacuum.roomba', 'bin_full')  }}

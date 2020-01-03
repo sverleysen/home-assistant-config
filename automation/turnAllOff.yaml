@@ -4,10 +4,39 @@
     from: 'off'
     platform: state
     to: 'on'
+  condition: 
+  - condition: template
+    value_template: '{{ (now() - states.automation.turn_all_off.attributes.last_triggered).total_seconds() | int > 60}}'
   action:
   - service: switch.turn_off
     entity_id:
       - switch.alles_uit
+  - service: scene.create
+    data:
+      scene_id: voor_alles_uit
+      snapshot_entities: 
+        - light.badkamer
+        - light.bureau
+        - light.dressing
+        - light.eethoek
+        - light.inkomhal
+        - light.keuken_eiland
+        - light.keuken_kast
+        - light.living_staande_lamp
+        - light.living
+        - light.slaapkamer_lyo
+        - light.toilet
+        - light.waskot
+        - light.zolder
+        - media_player.bathroom_speaker
+        - media_player.bedroom_speaker
+        - media_player.keuken
+        - media_player.kitchen_display
+        - switch.azra
+        - switch.kerstboom
+        - switch.kerstverlichting_trap
+        - switch.kerstverlichting_buiten
+        - light.slaapkamer_sen_en_sofie
   - service: light.turn_off
     entity_id:
       - light.badkamer

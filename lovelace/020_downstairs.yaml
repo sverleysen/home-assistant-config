@@ -128,6 +128,7 @@ cards:
       - vacuum.roomba
       - sensor.roomba_on_today
       - sensor.roomba_battery
+      - binary_sensor.roomba_full
     title: Stofzuigen
     show_header_toggle: false
 

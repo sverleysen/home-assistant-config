@@ -14,6 +14,7 @@ cards:
     entities:
       - switch.alles_uit
       - automation.turn_all_off
+      - automation.turn_all_back_on
       # - type: custom:entity-attributes-card
       #   entity: automation.turn_all_off
       #   filter:
@@ -67,6 +68,7 @@ cards:
       - entity: automation.azra_ikea_nico_home_control_sync
       - entity: automation.azra_off_after_15_min
       - entity: automation.wc_uit_na_15_min
+      - entity: automation.inkom_uit_na_15_min
   - title: Staande lamp
     type: entities
     show_header_toggle: false
