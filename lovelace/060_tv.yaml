@@ -17,34 +17,34 @@ cards:
     show_header_toggle: false
     entities:
       - entity: automation.tv_living_bing
-      - type: custom:entity-attributes-card
-        entity: automation.tv_living_bing
-        filter:
-          include:
-            - automation.tv_living_bing.last_triggered 
+      # - type: custom:entity-attributes-card
+      #   entity: automation.tv_living_bing
+      #   filter:
+      #     include:
+      #       - automation.tv_living_bing.last_triggered 
       - entity: automation.tv_living_bumba
-      - type: custom:entity-attributes-card
-        entity: automation.tv_living_bumba
-        filter:
-          include:
-            - automation.tv_living_bumba.last_triggered 
+      # - type: custom:entity-attributes-card
+      #   entity: automation.tv_living_bumba
+      #   filter:
+      #     include:
+      #       - automation.tv_living_bumba.last_triggered 
       - entity: automation.tv_living_pepa_pig
-      - type: custom:entity-attributes-card
-        entity: automation.tv_living_pepa_pig
-        filter:
-          include:
-            - automation.tv_living_pepa_pig.last_triggered 
+      # - type: custom:entity-attributes-card
+      #   entity: automation.tv_living_pepa_pig
+      #   filter:
+      #     include:
+      #       - automation.tv_living_pepa_pig.last_triggered 
       - entity: automation.tv_living_powpatrol
-      - type: custom:entity-attributes-card
-        entity: automation.tv_living_powpatrol
-        filter:
-          include:
-            - automation.tv_living_powpatrol.last_triggered 
+      # - type: custom:entity-attributes-card
+      #   entity: automation.tv_living_powpatrol
+      #   filter:
+      #     include:
+      #       - automation.tv_living_powpatrol.last_triggered 
       - entity: automation.tv_living_cocomelon
-      - type: custom:entity-attributes-card
-        entity: automation.tv_living_cocomelon
-        filter:
-          include:
-            - automation.tv_living_cocomelon.last_triggered 
+      # - type: custom:entity-attributes-card
+      #   entity: automation.tv_living_cocomelon
+      #   filter:
+      #     include:
+      #       - automation.tv_living_cocomelon.last_triggered 
       - entity: input_boolean.living_tv_lyo
 icon: 'mdi:television'
