@@ -5,7 +5,7 @@
     to: home
   condition:
     - condition: template
-      value_template: "{{ state_attr('vacuum.roomba', 'bin_full') == 'True' }}"
+      value_template: "{{ state_attr('vacuum.roomba', 'bin_full') == True }}"
   action:
   - service: notify.notify
     data:
