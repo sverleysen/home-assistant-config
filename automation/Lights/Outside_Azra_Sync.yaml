@@ -4,6 +4,6 @@
     platform: state
   action:
   - data:
-      entity_id: switch.ikea_azra
+      entity_id: switch.ikea_tuinhuis_1
     service_template: >
         switch.turn_{{ trigger.to_state.state }}

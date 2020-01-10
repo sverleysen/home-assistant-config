@@ -1,6 +1,6 @@
 - alias: IrrigationToLong
   trigger:
-  - entity_id: switch.bureau
+  - entity_id: switch.ikea_tuinhuis_2
     to: 'on'
     from: 'off'
     platform: state
@@ -8,7 +8,7 @@
       minutes: "{{ states('input_number.wbi_max_duration')|int }}"
   action:
   - service: switch.turn_off
-    entity_id: switch.bureau  
+    entity_id: switch.ikea_tuinhuis_2 
   - service: notify.pushbullet_sen
     data:
       title: "Irrigation"

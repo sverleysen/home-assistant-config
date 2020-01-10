@@ -182,9 +182,6 @@ cards:
               - entity: switch.kerstverlichting_trap
                 tap_action:
                   action: toggle
-              - entity: switch.kerstverlichting_buiten
-                tap_action:
-                  action: toggle
               - entity: switch.kerstboom
                 tap_action:
                   action: toggle

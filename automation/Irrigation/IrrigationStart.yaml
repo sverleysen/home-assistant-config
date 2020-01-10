@@ -1,6 +1,6 @@
 - alias: IrrigationStart
   trigger:
-  - entity_id: switch.bureau
+  - entity_id: switch.ikea_tuinhuis_2
     from: 'off'
     platform: state
     to: 'on'

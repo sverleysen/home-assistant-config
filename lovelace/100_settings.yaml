@@ -150,7 +150,7 @@ cards:
           max_item_count: 3
           exclude_states: 
             - "unavailable" 
-        - entity: switch.bureau
+        - entity: switch.ikea_tuinhuis_2
           include_history: true
           content_template: '{{display_name}} is {{state}}'
           max_item_count: 3

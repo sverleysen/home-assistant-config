@@ -1,6 +1,6 @@
 platform: history_stats
 name: wbi_p1_hours
-entity_id: switch.bureau
+entity_id: switch.ikea_tuinhuis_2
 state: 'on'
 type: time
 start: '{{ 0 }}'

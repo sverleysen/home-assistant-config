@@ -37,7 +37,7 @@ cards:
         title: Settings
         show_header_toggle: false
         entities:
-          - entity: switch.bureau
+          - entity: switch.ikea_tuinhuis_2
             name: Water Pump
           - input_boolean.wbi_enabled
           - entity: sensor.wb_irrigation_fao56

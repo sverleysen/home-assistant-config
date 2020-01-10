@@ -24,7 +24,7 @@ google_assistant:
       expose: false
     switch.circadian_lighting_slaapkamer:
       expose: false
-    switch.ikea_azra:
+    switch.ikea_tuinhuis_1:
       expose: false
     switch.alles_uit:
       expose: false
