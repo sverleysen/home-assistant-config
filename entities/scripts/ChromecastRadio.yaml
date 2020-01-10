@@ -16,14 +16,6 @@
             {% if is_state("input_select.music_source", "Q-Music") %} http://playerservices.streamtheworld.com/api/livestream-redirect/QMUSICAAC.aac?tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNTczMzEyNDUwLCJ0ZC1yZWciOmZhbHNlfQ.U1aRVXE4Tea90bipzlCS9oYZr2QY3YkW3xUIDM_Nflw
             {% elif is_state("input_select.music_source", "MNM") %} http://icecast.vrtcdn.be/mnm-high.mp3
             {% elif is_state("input_select.music_source", "MNM Hits") %} http://icecast.vrtcdn.be/mnm_hits-high.mp3
-            {% elif is_state("input_select.music_source", "Lyo") %} spotify:playlist:1qQ48Sbo2tVqzIBLFiniH3
-            {% elif is_state("input_select.music_source", "Sofie") %} spotify:playlist:36xcIAW9ddMbwio1VHZVhr
             {% endif %}
-           media_content_type: >
-            {% if is_state("input_select.music_source", "Q-Music") %} 'music'
-            {% elif is_state("input_select.music_source", "MNM") %} 'music'
-            {% elif is_state("input_select.music_source", "MNM Hits") %} 'music'
-            {% elif is_state("input_select.music_source", "Lyo") %} 'playlist'
-            {% elif is_state("input_select.music_source", "Sofie") %} 'playlist'
-            {% endif %}
+           media_content_type: music
             

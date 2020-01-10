@@ -6,7 +6,6 @@ chromecast_radio:
     - Living
     - Slaapkamer
     - Badkamer
-    - Beneden
     - Boven
   initial: Keuken
   icon: mdi:speaker-wireless

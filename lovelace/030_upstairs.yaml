@@ -32,6 +32,11 @@ cards:
           action: toggle
         hold_action:
           action: more-info
+      - entity: light.nachtlamp
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
       - entity: light.slaapkamer_lyo
         tap_action:
           action: toggle

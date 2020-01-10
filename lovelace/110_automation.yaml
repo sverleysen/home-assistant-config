@@ -8,7 +8,8 @@ cards:
     entities:
       - entity: input_boolean.roomba_at_night
       - entity: input_boolean.guestmode
-      - entity: switch.circadian_lighting_circadian_lighting
+      - entity: switch.circadian_lighting_living
+      - entity: switch.circadian_lighting_slaapkamer
   - title: Alles uit
     type: entities
     entities:

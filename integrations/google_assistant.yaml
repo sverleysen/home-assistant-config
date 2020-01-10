@@ -20,7 +20,9 @@ google_assistant:
         - tuin achteraan
         - hond
     ## Hide switches ##
-    switch.circadian_lighting_circadian_lighting:
+    switch.circadian_lighting_living:
+      expose: false
+    switch.circadian_lighting_slaapkamer:
       expose: false
     switch.ikea_azra:
       expose: false

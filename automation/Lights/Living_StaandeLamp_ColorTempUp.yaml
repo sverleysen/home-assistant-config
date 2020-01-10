@@ -9,7 +9,7 @@
   action:
     - service: switch.turn_off
       data:
-        entity_id: "switch.circadian_lighting_circadian_lighting"
+        entity_id: "switch.circadian_lighting_living"
     - service: light.turn_on
       data_template:
         entity_id: 

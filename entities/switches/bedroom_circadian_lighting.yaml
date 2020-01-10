@@ -1,0 +1,5 @@
+platform: circadian_lighting
+name: Slaapkamer
+lights_rgb:
+  - light.nachtlamp
+# max_brightness: 70

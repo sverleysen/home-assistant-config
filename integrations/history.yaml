@@ -35,7 +35,7 @@ history:
   #     - sensor.br_wind_force
   #     - sensor.owm_rain
   #     - sensor.potential_breaking_changes
-  #     - switch.circadian_lighting_circadian_lighting
+  #     - switch.circadian_lighting_living
   #     - sensor.snapshot_backup
   #     - binary_sensor.snapshots_stale
   #     - input_number.ventilation_min_humidity

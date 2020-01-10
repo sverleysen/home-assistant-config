@@ -164,6 +164,9 @@ cards:
               - entity: light.slaapkamer_sen_en_sofie
                 tap_action:
                   action: toggle
+              - entity: light.nachtlamp
+                tap_action:
+                  action: toggle
               - entity: light.living_staande_lamp
                 tap_action:
                   action: toggle
