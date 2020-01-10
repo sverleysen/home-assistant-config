@@ -82,11 +82,6 @@ cards:
           action: toggle
         hold_action:
           action: more-info
-      - entity: switch.kerstboom
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
       # - entity: light.inkomhal
       #   tap_action:
       #     action: toggle
