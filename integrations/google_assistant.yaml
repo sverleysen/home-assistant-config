@@ -35,6 +35,8 @@ google_assistant:
       expose: false
     light.living_staande_lamp_3:
       expose: false
+    light.slaapkamer:
+      expose: false
     light.keuken:
       expose: false
     light.achteraan:

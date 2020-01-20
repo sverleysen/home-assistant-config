@@ -4,109 +4,6 @@ title: Main
 panel: true
 badges: []
 cards:
-  # - type: entity-filter
-  #   show_empty: false
-  #   entities:
-  #     - person.sen
-  #     - person.sofie
-  #     - person.edgard
-  #     - person.peter
-  #     - person.carine
-  #     - person.kelsey
-  #     - person.moeke
-  #   state_filter:
-  #     - home
-  #   card:
-  #     type: glance
-  #     title: People at home
-  #     show_state: false
-  #     show_name: true
-  # - type: custom:weather-card
-  #   entity: weather.openweathermap
-  # - type: entity-filter
-  #   show_empty: false
-  #   entities:
-  #     - entity: light.badkamer
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.bureau
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.dressing
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.eethoek
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.inkomhal
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.keuken_eiland
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.keuken_kast
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.living
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.slaapkamer_lyo
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.slaapkamer_sen_en_sofie
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.living_staande_lamp
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.toilet
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.waskot
-  #       tap_action:
-  #         action: toggle
-  #     - entity: light.zolder
-  #       tap_action:
-  #         action: toggle
-  #     - entity: switch.kerstverlichting_trap
-  #       tap_action:
-  #         action: toggle
-  #     - entity: switch.kerstboom
-  #       tap_action:
-  #         action: toggle
-  #     - entity: switch.azra
-  #       tap_action:
-  #         action: toggle
-  #   state_filter:
-  #     - "on"
-  #   card:
-  #     type: glance
-  #     title: Lights on
-  #     show_state: false
-  #     show_name: true    
-  # - type: custom:ha-card-waze-travel-time
-  #   header: true
-  #   name: "Travel Times"
-  #   columns:
-  #     - from
-  #     - to
-  #     - duration
-  #     # - distance
-  #     - route
-  #     # - icon
-  #   destinations:
-  #     - entity: sensor.sen_home_work
-  #       from: "Home"
-  #       to: "Work Sen"
-  #     - entity: sensor.sen_work_home
-  #       from: "Work Sen"
-  #       to: "Home"
-  #     - entity: sensor.sofie_home_work
-  #       from: "Home"
-  #       to: "Work Sofie"
-  #     - entity: sensor.sofie_work_home
-  #       from: "Work Sofie"
-  #       to: "Home"
   # ##travel diagrams
   - type: horizontal-stack
     cards:
@@ -185,6 +82,9 @@ cards:
               - entity: switch.kerstboom
                 tap_action:
                   action: toggle
+              - entity: switch.bureau
+                tap_action:
+                  action: toggle
               - entity: switch.azra
                 tap_action:
                   action: toggle
@@ -200,6 +100,12 @@ cards:
         cards:
           - type: vertical-stack
             cards:
+              - type: entities
+                entities:
+                  - vacuum.roomba
+                  - binary_sensor.roomba_full
+                title: Stofzuigen
+                show_header_toggle: false
               - type: horizontal-stack
                 cards:
                   - type: custom:mini-graph-card
@@ -280,13 +186,14 @@ cards:
                         color: green
                       - value: 30
                         color: red
+              
       - type: "custom:atomic-calendar"
         title: "Calendar"
         entities:
           - entity: calendar.verleysen_van_tilburg
           - entity: calendar.feestdagen_in_belgie
           - entity: calendar.verjaardagen
-          - entity: calendar.sen_verleysen_gmail_com
+          # - entity: calendar.sen_verleysen_gmail_com
           - entity: calendar.lyo
         fullDayEventText: 'Heel de dag'
         untilText: 'Tot'

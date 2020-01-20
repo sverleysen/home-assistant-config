@@ -6,8 +6,6 @@ resources:
     type: module
   - url: /community_plugin/atomic_calendar/atomic_calendar.js
     type: module
-  - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
-    type: module
   - url: /community_plugin/weather-card/weather-card.js
     type: module
   - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
@@ -25,11 +23,12 @@ resources:
     type: module
   - url: /community_plugin/surveillance-card/surveillance-card.js
     type: module
-  - url: /community_plugin/entity-attributes-card/entity-attributes-card.js
-    type: js
+
   - url: /community_plugin/flex-table-card/flex-table-card.js
     type: js
   - url: /community_plugin/ha-card-waze-travel-time/ha-card-waze-travel-time.js
+    type: module
+  - url: /community_plugin/spotify-card/spotify-card.js
     type: module
 title: Home
 views:

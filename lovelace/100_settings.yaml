@@ -5,6 +5,23 @@ icon: 'mdi:settings'
 cards:
   - type: vertical-stack
     cards:
+    - type: entity-filter
+      show_empty: false
+      entities:
+        - person.sen
+        - person.sofie
+        - person.edgard
+        - person.peter
+        - person.carine
+        - person.kelsey
+        - person.moeke
+      state_filter:
+        - home
+      card:
+        type: glance
+        title: Wie is thuis
+        show_state: false
+        show_name: true
     - type: entities
       entities:
         - sensor.hacs

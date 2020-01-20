@@ -22,6 +22,10 @@
           entity_id: person.sofie
           state: 'home'
   action:
+    - service: media_player.volume_set
+      entity_id: media_player.bathroom_speaker
+      data:
+        volume_level: 0.2
     - service: tts.google_say
       entity_id: media_player.bathroom_speaker
       data_template:
