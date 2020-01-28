@@ -1,0 +1,2 @@
+binary_sensor.roomba_full:
+  icon: mdi:trash-can-outline

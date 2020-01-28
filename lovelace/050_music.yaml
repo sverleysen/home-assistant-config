@@ -10,7 +10,7 @@ cards:
     - input_select.music_source
     - input_select.chromecast_radio
     - script.chromecast_music
-  title: Start Music
+  title: Start Muziek
   show_header_toggle: false
 - type:  custom:mini-media-player
   entity: media_player.spotify

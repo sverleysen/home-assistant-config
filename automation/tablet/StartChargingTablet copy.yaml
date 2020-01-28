@@ -1,0 +1,13 @@
+- alias: Stop Charging Tablet
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.tablet_battery
+    above: 80
+  condition:
+    - condition: state
+      entity_id: switch.tablet_charger
+      state: 'on'
+  action:
+  - data:
+      entity_id: switch.tablet_charger
+    service: switch.turn_off

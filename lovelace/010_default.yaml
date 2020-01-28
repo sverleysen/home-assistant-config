@@ -92,7 +92,7 @@ cards:
               - "on"
             card:
               type: glance
-              title: Lights on
+              title: Lichten die aan zijn
               show_state: false
               show_name: true    
           
@@ -187,22 +187,50 @@ cards:
                       - value: 30
                         color: red
               
-      - type: "custom:atomic-calendar"
-        title: "Calendar"
-        entities:
-          - entity: calendar.verleysen_van_tilburg
-          - entity: calendar.feestdagen_in_belgie
-          - entity: calendar.verjaardagen
-          # - entity: calendar.sen_verleysen_gmail_com
-          - entity: calendar.lyo
-        fullDayEventText: 'Heel de dag'
-        untilText: 'Tot'
-        maxDaysToShow: 14
-        # defaultMode: 2
-        # enableModeChange: true
-        showLoader: true
-        showLocation: true
-        showMonth: false
-        showCurrentEventLine: true
-        dimFinishedEvents: true
-        showProgressBar: true
+      - type: vertical-stack
+        cards: 
+        - type: "custom:atomic-calendar"
+          title: "Calendar"
+          entities:
+            - entity: calendar.verleysen_van_tilburg
+            - entity: calendar.feestdagen_in_belgie
+            - entity: calendar.verjaardagen
+            # - entity: calendar.sen_verleysen_gmail_com
+            - entity: calendar.lyo
+          fullDayEventText: 'Heel de dag'
+          untilText: 'Tot'
+          maxDaysToShow: 14
+          # defaultMode: 2
+          # enableModeChange: true
+          showLoader: true
+          showLocation: true
+          showMonth: false
+          showCurrentEventLine: true
+          dimFinishedEvents: true
+          showProgressBar: true
+        - type: horizontal-stack
+          cards: 
+          - type: vertical-stack
+            cards: 
+            - type: picture-entity
+              entity: camera.living
+              camera_view: "live"
+              show_state: false
+              show_name: false
+            - type: picture-entity
+              entity: camera.oprit
+              camera_view: "live"
+              show_state: false
+              show_name: false
+          - type: vertical-stack
+            cards: 
+            - type: picture-entity
+              entity: camera.bureau
+              camera_view: "live"
+              show_state: false
+              show_name: false
+            - type: picture-entity
+              entity: camera.tuin
+              camera_view: "live"
+              show_state: false
+              show_name: false

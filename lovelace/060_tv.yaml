@@ -47,4 +47,4 @@ cards:
       #     include:
       #       - automation.tv_living_cocomelon.last_triggered 
       - entity: input_boolean.living_tv_lyo
-icon: 'mdi:television'
+icon: 'mdi:television-classic'

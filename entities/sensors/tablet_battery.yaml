@@ -1,0 +1,7 @@
+platform: template
+sensors:
+  tablet_battery:
+    friendly_name: Batterij tablet
+    value_template: >-
+        {{ state_attr('device_tracker.sm_t590_2', 'battery_level')}} 
+    unit_of_measurement: '%'

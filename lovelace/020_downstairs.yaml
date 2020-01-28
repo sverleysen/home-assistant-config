@@ -122,11 +122,11 @@ cards:
     title: Stofzuigen
     show_header_toggle: false
 
-  - type: history-graph
-    hours_to_show : 1
-    entities:
-      - entity: sensor.lampliving_brightness
-      - entity: sensor.lampliving_colortemp
+  # - type: history-graph
+  #   hours_to_show : 1
+  #   entities:
+  #     - entity: sensor.lampliving_brightness
+  #     - entity: sensor.lampliving_colortemp
   # - type: picture-entity
   #   entity: camera.living
   #   camera_view: "live"

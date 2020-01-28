@@ -1,0 +1,2 @@
+sensor.roomba_battery:
+  device_class: battery

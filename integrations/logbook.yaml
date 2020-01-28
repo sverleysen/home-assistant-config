@@ -1,24 +1,24 @@
 logbook:
-  exclude:
-    domains:
-      - camera
-      - google
-      - weather
-    entities:
-      - sensor.date
-      - sensor.date_time
-      - sensor.br_condition
-      - sensor.br_precipitation
-      - sensor.br_humidity
-      - sensor.br_precipitation_forecast_average
-      - sensor.br_precipitation_forecast_total
-      - sensor.br_rain_last_24h
-      - sensor.br_rain_last_hour
-      - sensor.br_stationname
-      - sensor.br_symbol
-      - sensor.br_temperature
-      - sensor.br_wind_direction
-      - sensor.br_wind_force
+  # exclude:
+  #   domains:
+  #     - camera
+  #     - google
+  #     - weather
+  #   entities:
+  #     - sensor.date
+  #     - sensor.date_time
+  #     - sensor.br_condition
+  #     - sensor.br_precipitation
+  #     - sensor.br_humidity
+  #     - sensor.br_precipitation_forecast_average
+  #     - sensor.br_precipitation_forecast_total
+  #     - sensor.br_rain_last_24h
+  #     - sensor.br_rain_last_hour
+  #     - sensor.br_stationname
+  #     - sensor.br_symbol
+  #     - sensor.br_temperature
+  #     - sensor.br_wind_direction
+  #     - sensor.br_wind_force
   # include:
   #   domains:
   #     - automation

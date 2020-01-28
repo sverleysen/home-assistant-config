@@ -1,0 +1,3 @@
+sensor.roomba_on_today:
+  icon: mdi:clock-outline
+  friendly_name: Stofzuiger aan vandaag

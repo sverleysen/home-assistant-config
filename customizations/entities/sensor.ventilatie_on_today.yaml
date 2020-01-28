@@ -1,0 +1,3 @@
+sensor.ventilatie_on_today:
+  icon: mdi:clock-outline
+  friendly_name: Ventilatie aan vandaag

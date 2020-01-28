@@ -1,6 +1,9 @@
 google_assistant:
   project_id: homeassist-66833
-  api_key: !secret google_assistant_clientId
+  # api_key: !secret google_assistant_clientId
+  service_account:
+    private_key: !secret google_assistant_privateKey
+    client_email: !secret google_assistant_clientEmail
   exposed_domains:
     - switch
     - light

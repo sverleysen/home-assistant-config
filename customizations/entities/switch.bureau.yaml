@@ -1,0 +1,3 @@
+switch.bureau:
+  icon: mdi:radiator
+  friendly_name: Verwarming bureau

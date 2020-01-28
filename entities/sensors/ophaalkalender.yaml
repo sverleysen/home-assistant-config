@@ -4,7 +4,7 @@ resources:
   - tuinafval
   - papier
   - pmd
-  - grofafval
+  # - grofafval
 postcode: 2040
 streetname: Heidestraat
 streetnumber: 64

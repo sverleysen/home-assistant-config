@@ -1,0 +1,2 @@
+sensor.tablet_battery:
+  device_class: battery

@@ -2,5 +2,5 @@ platform: androidtv
 name: Living TV
 host: 192.168.0.245
 adb_server_ip: 192.168.0.244
-apps:
-      com.google.android.youtube.tv: "YouTube"
+# apps:
+#       com.google.android.youtube.tv: "YouTube"
