@@ -27,6 +27,9 @@
 
   action:
     - delay: "00:{{ '{:02}'.format(range(0, 15) | random | int) }}:00"
+    - condition: state
+      entity_id: group.persons
+      state: 'not_home'
     - service: homeassistant.toggle
       data_template:
         entity_id: "{{ state_attr('group.simulatelights','entity_id') | random }}"

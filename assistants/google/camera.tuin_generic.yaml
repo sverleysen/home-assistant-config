@@ -1,0 +1,8 @@
+camera.tuin_generic:
+  expose: true
+  name: Tuin
+  aliases:
+    - Tuin camera
+    - Garden camera
+    - Garden cam  
+  room: Buiten

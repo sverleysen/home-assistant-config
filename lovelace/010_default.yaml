@@ -210,27 +210,13 @@ cards:
           showProgressBar: true
         - type: horizontal-stack
           cards: 
-          - type: vertical-stack
-            cards: 
-            - type: picture-entity
-              entity: camera.living
-              camera_view: "live"
-              show_state: false
-              show_name: false
-            - type: picture-entity
-              entity: camera.oprit
-              camera_view: "live"
-              show_state: false
-              show_name: false
-          - type: vertical-stack
-            cards: 
-            - type: picture-entity
-              entity: camera.bureau
-              camera_view: "live"
-              show_state: false
-              show_name: false
-            - type: picture-entity
-              entity: camera.tuin
-              camera_view: "live"
-              show_state: false
-              show_name: false
+          - type: picture-entity
+            entity: camera.oprit
+            camera_view: "live"
+            show_state: false
+            show_name: false
+          - type: picture-entity
+            entity: camera.tuin
+            camera_view: "live"
+            show_state: false
+            show_name: false

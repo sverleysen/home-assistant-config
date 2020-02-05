@@ -1,0 +1,3 @@
+media_player.living_tv:
+  expose: true
+  room: Living

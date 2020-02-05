@@ -1,0 +1,3 @@
+input_boolean.living_tv_lyo:
+  expose: true
+  room: Andere 

@@ -1,0 +1,4 @@
+light.living_staande_lamp:
+  expose: true
+  name: Staande lamp
+  room: Living

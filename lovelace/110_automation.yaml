@@ -14,90 +14,138 @@ cards:
     type: entities
     entities:
       - switch.alles_uit
-      - automation.turn_all_off
-      - automation.turn_all_back_on
+      - entity: automation.turn_all_off
+        secondary_info: last-triggered
+      - entity: automation.turn_all_back_on
+        secondary_info: last-triggered
       # - type: custom:entity-attributes-card
       #   entity: automation.turn_all_off
       #   filter:
       #     include:
-      #       - automation.turn_all_off.last_triggered 
-      - automation.alles_uit_off_after_1_sec
+      #       - entity: automation.turn_all_off.last_triggered 
+      - entity: automation.alles_uit_off_after_1_sec
+        secondary_info: last-triggered
       # - type: custom:entity-attributes-card
       #   entity: automation.alles_uit_off_after_1_sec
       #   filter:
       #     include:
-      #       - automation.alles_uit_off_after_1_sec.last_triggered
+      #       - entity: automation.alles_uit_off_after_1_sec.last_triggered
+  - title: Tablet
+    type: entities
+    show_header_toggle: false
+    entities:
+      - entity: sensor.tablet_battery
+      - entity: switch.tablet_charger
+      - entity: automation.start_charging_tablet
+        secondary_info: last-triggered
+      - entity: automation.stop_charging_tablet
+        secondary_info: last-triggered
   - title: Irrigation
     type: entities
     show_header_toggle: false
     entities:
       - entity: automation.irrigationstart
+        secondary_info: last-triggered
         name: "[DEBUG] Irrigation Started"
       - entity: automation.irrigationstopped
+        secondary_info: last-triggered
         name: "[DEBUG] Irrigation Stopped"
       - entity: automation.rainstart
+        secondary_info: last-triggered
         name: "[DEBUG] Irrigation Rain Started"
       - entity: automation.rainstart_br
+        secondary_info: last-triggered
         name: "[DEBUG] Irrigation Rain Started Buienradar"
       - entity: automation.irrigationtolong
+        secondary_info: last-triggered
         name: Irrigation to long
   - title: Aankondigingen
     type: entities
     show_header_toggle: false
     entities:
       - entity: automation.badkamer_licht_aan_ochtend
+        secondary_info: last-triggered
       - entity: automation.beneden_licht_aan_ochtend
+        secondary_info: last-triggered
       - entity: automation.aankondiging_iemand_is_thuis
+        secondary_info: last-triggered
       - entity: automation.aankondiging_iemand_is_thuis_inschakkelen
+        secondary_info: last-triggered
       - entity: automation.aankondiging_iemand_is_thuis_uitschakkelen
+        secondary_info: last-triggered
   - title: Lichten
     type: entities
     show_header_toggle: false
     entities:
       - entity: automation.simulate_home
         name: "Simulate Home"
+        secondary_info: last-triggered
       - entity: automation.stop_simulate_home
         name: "Stop Simulate Home"
+        secondary_info: last-triggered
       - entity: automation.turn_off_simulate_home
         name: "Turn off Simulate Home"
+        secondary_info: last-triggered
       - entity: automation.turn_on_simulate_home
         name: "Turn on Simulate Home"
+        secondary_info: last-triggered
       - entity: automation.turn_off_lights_when_gone
         name: "Turn off lights when gone"
+        secondary_info: last-triggered
       - entity: automation.verlichting_sochtens_uit
+        secondary_info: last-triggered
       - entity: automation.verlichting_savonds_aan
+        secondary_info: last-triggered
       - entity: automation.azra_ikea_nico_home_control_sync
+        secondary_info: last-triggered
       - entity: automation.azra_off_after_15_min
+        secondary_info: last-triggered
       - entity: automation.wc_uit_na_15_min
+        secondary_info: last-triggered
       - entity: automation.inkom_uit_na_15_min
+        secondary_info: last-triggered
   - title: Staande lamp
     type: entities
     show_header_toggle: false
     entities:
       - entity: automation.staande_lamp_aan_uit
+        secondary_info: last-triggered
       - entity: automation.staande_lamp_helderheid_omhoog
+        secondary_info: last-triggered
       - entity: automation.staande_lamp_helderheid_omlaag
+        secondary_info: last-triggered
       - entity: automation.staande_lamp_kleur_omhoog
+        secondary_info: last-triggered
       - entity: automation.staande_lamp_kleur_omlaag
+        secondary_info: last-triggered
       - entity: automation.enable_circadian_lighting
+        secondary_info: last-triggered
   - title: Kerst
     type: entities
     show_header_toggle: true
     entities:
       - entity: automation.kerst_aan_wanneer_donker
+        secondary_info: last-triggered
       - entity: automation.kerst_uit_snachts
+        secondary_info: last-triggered
       - entity: automation.kerst_aan_wanneer_thuis
+        secondary_info: last-triggered
       - entity: automation.kerst_uit_wanneer_niet_thuis
+        secondary_info: last-triggered
       - entity: automation.kerst_aan_in_de_ochtend
+        secondary_info: last-triggered
       - entity: automation.kerst_uit_in_de_ochtend
+        secondary_info: last-triggered
   - title: Herinneringen
     type: entities
     show_header_toggle: false
     entities:
       - entity: automation.clean_roomba_reminder
         name: "Clean Roomba Reminder"
+        secondary_info: last-triggered
       - entity: automation.update
         name: "Update is available"
+        secondary_info: last-triggered
   - title: Roomba
     type: entities
     show_header_toggle: false
@@ -106,16 +154,23 @@ cards:
       - input_datetime.start_roomba_night
       - entity: automation.reset_roomba_setting
         name: "Reset Roomba Setting"
+        secondary_info: last-triggered
       - entity: automation.set_the_run_roomba_at_night_setting
-        name: "Set the run roomba at night setting"      
+        name: "Set the run roomba at night setting"  
+        secondary_info: last-triggered    
       - entity: automation.start_roomba_guestmode
         name: "Start Roomba Guestmode"   
+        secondary_info: last-triggered
       - entity: automation.start_roomba_at_night
-        name: "Start Roomba At Night"   
+        name: "Start Roomba At Night"  
+        secondary_info: last-triggered 
       - entity: automation.start_roomba_when_gone
         name: "Start Roomba When Gone"   
+        secondary_info: last-triggered
       - entity: automation.notify_is_roomba_is_stopped
+        secondary_info: last-triggered
       - entity: automation.notify_bin_roomba_is_full
+        secondary_info: last-triggered
   - title: Ventilatie
     type: entities
     
@@ -124,30 +179,53 @@ cards:
       - input_number.ventilation_min_humidity
       - entity: automation.turn_off_ventilation
         name: "Turn Off Ventilation"
+        secondary_info: last-triggered
       - entity: automation.turn_on_ventilation
         name: "Turn On Ventilation"
+        secondary_info: last-triggered
       - entity: automation.turn_on_ventilation_shower
         name: "Turn On Ventilation Shower"
+        secondary_info: last-triggered
   - title: TV Living Lyo
     type: entities
     show_header_toggle: false
     entities:
       - entity: input_boolean.living_tv_lyo
       - entity: automation.tv_living_bing
+        secondary_info: last-triggered
       - entity: automation.tv_living_bumba
+        secondary_info: last-triggered
       - entity: automation.tv_living_pepa_pig
+        secondary_info: last-triggered
       - entity: automation.tv_living_powpatrol
+        secondary_info: last-triggered
       - entity: automation.tv_living_cocomelon
+        secondary_info: last-triggered
+  - title: Tablet
+    type: entities
+    show_header_toggle: false
+    entities:
+      - entity: sensor.tablet_battery
+      - entity: switch.tablet_charger
+      - entity: automation.start_charging_tablet
+        secondary_info: last-triggered
+      - entity: automation.stop_charging_tablet
+        secondary_info: last-triggered
   - title: DEBUG
     type: entities
     entities:
-      - automation.everyone_is_gone
-      - automation.someoneishome
-      - automation.someoneisgone
-      - automation.internet_was_down
+      - entity: automation.everyone_is_gone
+        secondary_info: last-triggered
+      - entity: automation.someoneishome
+        secondary_info: last-triggered
+      - entity: automation.someoneisgone
+        secondary_info: last-triggered
+      - entity: automation.internet_was_down
+        secondary_info: last-triggered
   - title: Deurbel
     type: entities
     entities:
       - entity: automation.someone_is_at_the_frontdoor
         name: "[TEST] Someone is at the frontdoor"
+        secondary_info: last-triggered
 icon: 'mdi:clipboard-text-play'

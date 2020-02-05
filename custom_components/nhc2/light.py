@@ -32,31 +32,40 @@ class NHC2HassLight(Light):
         """Initialize a light."""
         self._nhc2light = nhc2light
         nhc2light.on_change = self._on_change
+        _LOGGER.debug('_on_change set for' + ' ' + self.name)
 
     def _on_change(self):
+        _LOGGER.debug('_on_change' + ' ' + self.name)
         self.schedule_update_ha_state()
 
     def turn_off(self, **kwargs) -> None:
+        _LOGGER.debug('turn_off' + ' ' + self.name)
         """Pass - not in use."""
         pass
 
     def turn_on(self, **kwargs) -> None:
+        _LOGGER.debug('turn_on' + ' ' + self.name)
         """Pass - not in use."""
         pass
 
     async def async_turn_on(self, **kwargs):
         """Instruct the light to turn on."""
+        _LOGGER.debug('async_turn_on' + ' ' + self.name)
         self._nhc2light.turn_on()
 
     async def async_turn_off(self, **kwargs):
         """Instruct the light to turn off."""
+        _LOGGER.debug('async_turn_off' + ' ' + self.name)
         self._nhc2light.turn_off()
 
     def nhc2_update(self, nhc2light: CoCoLight):
         """Update the NHC2 light with a new object."""
+        _LOGGER.debug('nhc2_update' + ' ' + self.name)
         self._nhc2light = nhc2light
         nhc2light.on_change = self._on_change
+        _LOGGER.debug('before schedule_update_ha_state' + ' ' + self.name)
         self.schedule_update_ha_state()
+        _LOGGER.debug('after schedule_update_ha_state' + ' ' + self.name)
 
     @property
     def unique_id(self):

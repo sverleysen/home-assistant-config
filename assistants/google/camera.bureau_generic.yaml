@@ -1,0 +1,9 @@
+camera.bureau_generic:
+  expose: true
+  name: Bureau
+  aliases:
+    - Desk
+    - Bureau camera
+    - Desk camera
+    - Desk cam
+  room: Bureau

@@ -4,6 +4,21 @@ badges: []
 cards:
   - type: vertical-stack
     cards:
+      - type: iframe
+        url: http://192.168.0.244:8123/api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/dW1f8jyWk/home-assistant?orgId=1&from=1579875083365&to=1580479883365
+        aspect_ratio: 50%
+      - type: entities
+        title: test
+        entities:
+          - light.achteraan
+          - light.zijgevel
+          - light.vooraan
+          - light.waskot
+          - light.bureau
+          - light.badkamer
+          - light.slaapkamer_sen_en_sofie
+          - light.dressing
+          - light.zolder
       - type: picture-elements
         image: /local/house/roomba.jpg
         elements:

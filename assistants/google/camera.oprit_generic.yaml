@@ -1,0 +1,10 @@
+camera.oprit_generic:
+  expose: true
+  name: Oprit
+  aliases:
+    - Driveway
+    - Oprit camera
+    - Driveway camera
+    - Driveway cam
+  room: Inkom
+    

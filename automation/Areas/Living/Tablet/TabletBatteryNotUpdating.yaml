@@ -1,0 +1,9 @@
+- alias: Tablet Battery Not Updating
+  trigger:
+    platform: template
+    value_template: "{{ as_timestamp(now()) - as_timestamp(states.sensor.x.attributes.last_changed) > 300 }}"
+  action:
+  - service: notify.notify
+    data:
+      title: "Tablet Batterij"
+      message: "De batterij status van de tablet wordt niet meer geupdate. Open de HA app op de tablet."

@@ -1,0 +1,3 @@
+group.kerst_verlichting:
+  expose: true
+  room: Living 
