@@ -1,5 +1,5 @@
-camera.oprit_generic:
-  expose: false
+camera.oprit:
+  expose: true
   name: Oprit
   aliases:
     - Driveway
