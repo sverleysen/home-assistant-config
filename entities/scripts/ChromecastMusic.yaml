@@ -3,7 +3,7 @@
     sequence:
       - service: script.turn_on
         data_template:
-          entity_id: >
+          entity_id: >-
             {% if is_state("input_select.music_source", "Q-Music") %} script.chromecast_radio
             {% elif is_state("input_select.music_source", "MNM") %} script.chromecast_radio
             {% elif is_state("input_select.music_source", "MNM Hits") %} script.chromecast_radio

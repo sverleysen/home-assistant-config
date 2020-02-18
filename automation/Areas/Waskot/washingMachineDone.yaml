@@ -1,0 +1,10 @@
+- alias: Washing Machine Done
+  trigger:
+    - entity_id: sensor.wasmachine_vibration
+      platform: numeric_state
+      below: 16
+  action:
+  - service: notify.notify
+    data:
+      title: "Wasmachien"
+      message: "{{now().strftime('%H:%M:%S')}} Wasmachien is klaar."

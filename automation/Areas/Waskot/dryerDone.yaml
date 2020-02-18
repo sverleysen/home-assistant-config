@@ -1,0 +1,10 @@
+- alias: Dryer Done
+  trigger:
+    - entity_id: sensor.droogkast_vibration
+      platform: numeric_state
+      below: 100
+  action:
+  - service: notify.notify
+    data:
+      title: "Droogkast"
+      message: "{{now().strftime('%H:%M:%S')}} Droogkast is klaar."

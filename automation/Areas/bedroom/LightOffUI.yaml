@@ -1,0 +1,15 @@
+- alias: Nachtlamp uit UI
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: light.nachtlamp
+    from: 'on'
+    to: 'off'
+  condition: 
+    condition: state
+    entity_id: switch.circadian_lighting_slaapkamer
+    state: 'on'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.circadian_lighting_slaapkamer

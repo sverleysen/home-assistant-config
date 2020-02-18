@@ -1,0 +1,30 @@
+- alias: Nachtlamp aan
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_slaapkamer
+        event: 1001 # hold
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_slaapkamer
+        event: 1002 # short
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_slaapkamer
+        event: 1003 # long
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.nachtlamp
+        # rgb_color: >-
+        #   {{[ state_attr("sensor.circadian_values", "rgb_color")[0],state_attr("sensor.circadian_values", "rgb_color")[1], state_attr("sensor.circadian_values", "rgb_color")[2]]}}
+        brightness_pct: >-
+          {{ state_attr('switch.circadian_lighting_slaapkamer', 'brightness') | int }}
+        transition: 5
+    - service: switch.turn_on
+      data:
+        entity_id: switch.circadian_lighting_slaapkamer

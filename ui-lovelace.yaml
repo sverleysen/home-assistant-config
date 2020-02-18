@@ -22,7 +22,6 @@ resources:
     type: module
   - url: /community_plugin/surveillance-card/surveillance-card.js
     type: module
-
   - url: /community_plugin/flex-table-card/flex-table-card.js
     type: js
   - url: /community_plugin/ha-card-waze-travel-time/ha-card-waze-travel-time.js

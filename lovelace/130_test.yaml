@@ -1,15 +1,30 @@
 path: test
 title: TEST
+panel: true
 badges: []
 cards:
+ 
   - type: vertical-stack
     cards:
-      - type: iframe
-        url: http://192.168.0.244:8123/api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/dW1f8jyWk/home-assistant?orgId=1&from=1579875083365&to=1580479883365
-        aspect_ratio: 50%
+      - type: horizontal-stack
+        cards:
+        - type: iframe
+          # url: https://192.168.0.244:4430/api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=4&fullscreen
+          url: /api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=4&fullscreen
+          aspect_ratio: 100%  
+        - type: iframe
+          # url: https://192.168.0.244:4430/api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=4&fullscreen
+          url: /api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=2&fullscreen
+          aspect_ratio: 100%
       - type: entities
         title: test
         entities:
+          - entity: binary_sensor.vibration_7
+            name: wasmachine
+          - entity: binary_sensor.vibration_8
+            name: droogkast
+          - entity: sensor.droogkast_vibration
+          - entity: sensor.wasmachine_vibration
           - light.achteraan
           - light.zijgevel
           - light.vooraan

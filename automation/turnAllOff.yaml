@@ -33,8 +33,8 @@
         - media_player.keuken
         - media_player.kitchen_display
         - switch.azra
-        - switch.kerstboom
-        - switch.kerstverlichting_trap
+        # - switch.kerstboom
+        # - switch.kerstverlichting_trap
         - light.slaapkamer_sen_en_sofie
         - light.nachtlamp
   - service: light.turn_off
@@ -63,8 +63,8 @@
   - service: switch.turn_off
     entity_id:
       - switch.azra
-      - switch.kerstboom
-      - switch.kerstverlichting_trap
+      # - switch.kerstboom
+      # - switch.kerstverlichting_trap
       
   - delay:
       minutes: 5

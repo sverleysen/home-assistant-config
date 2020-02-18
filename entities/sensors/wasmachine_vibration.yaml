@@ -1,0 +1,12 @@
+platform: template
+sensors:
+  wasmachine_vibration:
+    friendly_name: Vibration wasmachine
+    unit_of_measurement: "vibration strength"
+    value_template: >-
+      {% if ((state_attr('binary_sensor.vibration_7', 'vibrationstrength') | string) == "None") %}
+        0 
+      {% else %} 
+        {{ state_attr('binary_sensor.vibration_7', 'vibrationstrength')}} 
+      {% endif %}
+    

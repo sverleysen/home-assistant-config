@@ -1,0 +1,25 @@
+- alias: Nachtlamp uit
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_slaapkamer
+        event: 1001 # hold
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_slaapkamer
+        event: 1002 # short
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: switch_slaapkamer
+        event: 1003 # long
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.circadian_lighting_slaapkamer
+    - service: light.turn_off
+      data:
+        entity_id: light.nachtlamp

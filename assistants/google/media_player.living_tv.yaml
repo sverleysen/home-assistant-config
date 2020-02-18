@@ -1,3 +1,10 @@
 media_player.living_tv:
   expose: true
   room: Living
+  name: TV Living
+  aliases:
+    - TV
+    - Living TV
+    - TV Living
+    - Living room TV
+    - televisie 

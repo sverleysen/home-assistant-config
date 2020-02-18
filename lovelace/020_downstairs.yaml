@@ -71,17 +71,17 @@ cards:
           action: toggle
         hold_action:
           action: more-info
-  - type: glance
-    title: Kerst Verlichting
-    show_state: false
-    show_name: true
-    columns: 3
-    entities:
-      - entity: switch.kerstverlichting_trap
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
+  # - type: glance
+  #   title: Kerst Verlichting
+  #   show_state: false
+  #   show_name: true
+  #   columns: 3
+  #   entities:
+  #     - entity: switch.kerstverlichting_trap
+  #       tap_action:
+  #         action: toggle
+  #       hold_action:
+  #         action: more-info
       # - entity: light.inkomhal
       #   tap_action:
       #     action: toggle

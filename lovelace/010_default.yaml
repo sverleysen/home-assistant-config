@@ -76,12 +76,12 @@ cards:
               - entity: light.zolder
                 tap_action:
                   action: toggle
-              - entity: switch.kerstverlichting_trap
-                tap_action:
-                  action: toggle
-              - entity: switch.kerstboom
-                tap_action:
-                  action: toggle
+              # - entity: switch.kerstverlichting_trap
+              #   tap_action:
+              #     action: toggle
+              # - entity: switch.kerstboom
+              #   tap_action:
+              #     action: toggle
               - entity: switch.bureau
                 tap_action:
                   action: toggle

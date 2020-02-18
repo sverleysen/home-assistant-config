@@ -10,6 +10,19 @@ cards:
       - entity: input_boolean.guestmode
       - entity: switch.circadian_lighting_living
       - entity: switch.circadian_lighting_slaapkamer
+  - title: Slaapkamer
+    type: entities
+    entities:
+      - entity: light.nachtlamp
+      - entity: switch.circadian_lighting_slaapkamer
+      - entity: automation.nachtlamp_aan
+        secondary_info: last-triggered
+      - entity: automation.nachtlamp_aan_ui
+        secondary_info: last-triggered
+      - entity: automation.nachtlamp_uit
+        secondary_info: last-triggered
+      - entity: automation.nachtlamp_uit_ui
+        secondary_info: last-triggered
   - title: Alles uit
     type: entities
     entities:
@@ -59,6 +72,13 @@ cards:
       - entity: automation.irrigationtolong
         secondary_info: last-triggered
         name: Irrigation to long
+  - title: bureau
+    type: entities
+    entities:
+      - entity: automation.verwarming_aan_homeoffice
+        secondary_info: last-triggered
+      - entity: automation.verwarming_uit_homeoffice
+        secondary_info: last-triggered
   - title: Aankondigingen
     type: entities
     show_header_toggle: false
@@ -201,19 +221,13 @@ cards:
         secondary_info: last-triggered
       - entity: automation.tv_living_cocomelon
         secondary_info: last-triggered
-  - title: Tablet
-    type: entities
-    show_header_toggle: false
-    entities:
-      - entity: sensor.tablet_battery
-      - entity: switch.tablet_charger
-      - entity: automation.start_charging_tablet
-        secondary_info: last-triggered
-      - entity: automation.stop_charging_tablet
-        secondary_info: last-triggered
   - title: DEBUG
     type: entities
     entities:
+      - entity: automation.washing_machine_done
+        secondary_info: last-triggered
+      - entity: automation.dryer_done
+        secondary_info: last-triggered
       - entity: automation.everyone_is_gone
         secondary_info: last-triggered
       - entity: automation.someoneishome

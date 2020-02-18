@@ -1,0 +1,11 @@
+- alias: Verwarming aan HomeOffice
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: calendar.homeoffice
+    to: 'on'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.bureau
+
