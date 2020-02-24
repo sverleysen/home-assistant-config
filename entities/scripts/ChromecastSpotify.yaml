@@ -4,14 +4,16 @@
       - service: spotcast.start
         data_template:
           entity_id: >-
-            {% if is_state("input_select.chromecast_radio", "Home Group") %} media_player.home_group
-            {% elif is_state("input_select.chromecast_radio", "Kitchen display") %} media_player.kitchen_display
-            {% elif is_state("input_select.chromecast_radio", "SoundBar") %} media_player.soundbar
-            {% elif is_state("input_select.chromecast_radio", "Bedroom speaker") %} media_player.bedroom_speaker
-            {% elif is_state("input_select.chromecast_radio", "Bathroom speaker") %} media_player.bathroom_speaker
-            {% elif is_state("input_select.chromecast_radio", "Boven") %} media_player.boven
+            {% if is_state("input_select.chromecast_radio", "Home group") %}media_player.home_group
+            {% elif is_state("input_select.chromecast_radio", "Kitchen display") %}media_player.kitchen_display
+            {% elif is_state("input_select.chromecast_radio", "SoundBar") %}media_player.soundbar
+            {% elif is_state("input_select.chromecast_radio", "Bedroom speaker") %}media_player.bedroom_speaker
+            {% elif is_state("input_select.chromecast_radio", "Bathroom speaker") %}media_player.bathroom_speaker
+            {% elif is_state("input_select.chromecast_radio", "Boven") %}media_player.boven
             {% endif %}
           uri: >-
-            {% if is_state("input_select.music_source", "Lyo") %} "spotify:playlist:1qQ48Sbo2tVqzIBLFiniH3"
-            {% elif is_state("input_select.music_source", "Sofie") %} "spotify:playlist:36xcIAW9ddMbwio1VHZVhr"
+            {% if is_state("input_select.music_source", "Lyo") %}spotify:playlist:1qQ48Sbo2tVqzIBLFiniH3
+            {% elif is_state("input_select.music_source", "Sofie") %}spotify:playlist:36xcIAW9ddMbwio1VHZVhr
             {% endif %}
+        data:
+          random_song: true

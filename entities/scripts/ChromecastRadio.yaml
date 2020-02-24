@@ -4,7 +4,7 @@
       -  service: media_player.play_media
          data_template:
            entity_id: >-
-            {% if is_state("input_select.chromecast_radio", "Home Group") %} media_player.home_group
+            {% if is_state("input_select.chromecast_radio", "Home group") %} media_player.home_group
             {% elif is_state("input_select.chromecast_radio", "Kitchen display") %} media_player.kitchen_display
             {% elif is_state("input_select.chromecast_radio", "SoundBar") %} media_player.soundbar
             {% elif is_state("input_select.chromecast_radio", "Bedroom speaker") %} media_player.bedroom_speaker
