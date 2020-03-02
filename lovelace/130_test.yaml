@@ -1,122 +1,38 @@
 path: test
 title: TEST
-panel: true
+panel: false
 badges: []
 cards:
  
   - type: vertical-stack
     cards:
-      - type: horizontal-stack
-        cards:
-        - type: iframe
-          # url: https://192.168.0.244:4430/api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=4&fullscreen
-          url: /api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=4&fullscreen
-          aspect_ratio: 100%  
-        - type: iframe
-          # url: https://192.168.0.244:4430/api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=4&fullscreen
-          url: /api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=2&fullscreen
-          aspect_ratio: 100%
       - type: entities
         title: test
         entities:
-          - entity: binary_sensor.vibration_7
+          - entity: binary_sensor.wasmachine
             name: wasmachine
-          - entity: binary_sensor.vibration_8
+          - entity: sensor.wasmachine_vibration
+          - entity: input_boolean.wasmachine_programma
+          - entity: sensor.wasmachine_vibrations
+          - entity: automation.wasmachine_done
+          - entity: binary_sensor.droogkast
             name: droogkast
           - entity: sensor.droogkast_vibration
-          - entity: sensor.wasmachine_vibration
-          - light.achteraan
-          - light.zijgevel
-          - light.vooraan
-          - light.waskot
-          - light.bureau
-          - light.badkamer
-          - light.slaapkamer_sen_en_sofie
-          - light.dressing
-          - light.zolder
-      - type: picture-elements
-        image: /local/house/roomba.jpg
-        elements:
-        - type: icon
-          icon: mdi:bell-ring
-          tap_action: call-service
-          entity: vacuum.roomba
-          service: vacuum.locate
-          style:
-            top: 90%
-            left: 65%
-            "--paper-item-icon-color": rgb(115, 122, 130)
-        - type: icon
-          tap_action: call-service
-          icon: mdi:home
-          entity: vacuum.roomba
-          service: vacuum.return_to_base
-          style:
-            top: 90%
-            left: 55%
-            "--paper-item-icon-color": rgb(115, 122, 130)
-        - type: icon
-          icon: mdi:play
-          tap_action: call-service
-          entity: vacuum.roomba
-          service: vacuum.start
-          style:
-            top: 90%
-            left: 45%
-            "--paper-item-icon-color": rgb(115, 122, 130)
-        - type: icon
-          icon: mdi:stop
-          tap_action: call-service
-          entity: vacuum.roomba
-          service: vacuum.stop
-          style:
-            top: 90%
-            left: 35%
-            "--paper-item-icon-color": rgb(115, 122, 130)
-        - type: state-label
-          entity: sensor.roomba_on_today
-          style:
-            top: 10%
-            left: 1%
-            color: rgb(255, 255, 255)
-            transform: translate(0%,-50%)
-            pointer-events: none
-            text-shadow: 1px 1px black
-            font-family: Trebuchet MS
-            font-size: 90%
-            font-weight: bold
-            border-color: rgb(34, 154, 210)
-            background-color: rgb(54, 65, 78)
-            opacity: 0.8
-        - type: state-label
-          entity: sensor.roomba_battery
-          style:
-            top: 10%
-            right: 1%
-            color: rgb(255, 255, 255)
-            transform: translate(0%,-50%)
-            pointer-events: none
-            text-shadow: 1px 1px black
-            font-family: Trebuchet MS
-            font-size: 90%
-            font-weight: bold
-            border-color: rgb(34, 154, 210)
-            background-color: rgb(54, 65, 78)
-            opacity: 0.8
-        - type: state-label
-          entity: binary_sensor.roomba_full
-          style:
-            top: 17%
-            right: 1%
-            color: rgb(255, 255, 255)
-            transform: translate(0%,-50%)
-            pointer-events: none
-            text-shadow: 1px 1px black
-            font-family: Trebuchet MS
-            font-size: 90%
-            font-weight: bold
-            border-right-style: solid
-            border-color: rgb(34, 154, 210)
-            opacity: 0.8
-        
-
+          - entity: automation.dryer_done
+          # - light.inkomhal
+          # - light.waskot
+          # - light.toilet
+          # - light.living
+          # - light.eethoek
+          # - light.keuken_eiland
+          # - light.keuken_kast
+          # - light.trap
+          # - light.bureau
+          # - light.dressing
+          # - light.slaapkamer_sen_en_sofie
+          # - light.badkamer
+          # - light.zolder
+          # - light.vooraan
+          # - light.achteraan
+          # - light.zijgevel
+      

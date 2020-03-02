@@ -13,7 +13,7 @@ cards:
   title: Start Muziek
   show_header_toggle: false
 - type:  custom:mini-media-player
-  entity: media_player.spotify
+  entity: media_player.spotify_sen_verleysen
 
 - type: custom:mini-media-player
   entity: media_player.kitchen_display
@@ -40,9 +40,32 @@ cards:
   tts:
     platform: google
   artwork: cover
-- type: custom:mini-media-player
-  entity: media_player.home_group
-  tts:
-    platform: google
+
+
+- type: entities
+  entities:
+    - type: custom:mini-media-player
+      entity: media_player.home_group
+      group: true
+      source: icon
+      info: short
+      hide:
+        volume: true
+        power: true
+    - type: custom:mini-media-player
+      entity: media_player.kitchen_display
+      group: true
+      hide:
+        controls: true
+    - type: custom:mini-media-player
+      entity: media_player.bedroom_speaker
+      group: true
+      hide:
+        controls: true
+    - type: custom:mini-media-player
+      entity: media_player.bathroom_speaker
+      group: true
+      hide:
+        controls: true
 icon: 'mdi:music'
  

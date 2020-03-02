@@ -4,8 +4,10 @@ sensors:
     friendly_name: Vibration droogkast
     unit_of_measurement: "vibration strength"
     value_template: >-
-      {% if ((state_attr('binary_sensor.vibration_8', 'vibrationstrength') | string) == "None") %}
+      {% if ((state_attr('binary_sensor.droogkast', 'vibrationstrength') | string) == "None") %}
         0 
+      {% elif is_state('binary_sensor.droogkast', "off") %}
+      0
       {% else %} 
-        {{ state_attr('binary_sensor.vibration_8', 'vibrationstrength')}} 
+        {{ state_attr('binary_sensor.droogkast', 'vibrationstrength')}} 
       {% endif %}

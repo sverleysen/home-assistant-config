@@ -1,0 +1,5 @@
+  check_config:
+    alias: Check Config
+    sequence:
+      - service: homeassistant.check_config
+            

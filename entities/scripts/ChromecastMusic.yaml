@@ -4,10 +4,10 @@
       - service: script.turn_on
         data_template:
           entity_id: >-
-            {% if is_state("input_select.music_source", "Q-Music") %} script.chromecast_radio
-            {% elif is_state("input_select.music_source", "MNM") %} script.chromecast_radio
-            {% elif is_state("input_select.music_source", "MNM Hits") %} script.chromecast_radio
-            {% elif is_state("input_select.music_source", "Sofie") %} script.chromecast_spotify
-            {% elif is_state("input_select.music_source", "Lyo") %} script.chromecast_spotify
+            {% if is_state("input_select.music_source", "Radio: Q-Music") %} script.chromecast_radio
+            {% elif is_state("input_select.music_source", "Radio: MNM") %} script.chromecast_radio
+            {% elif is_state("input_select.music_source", "Radio: MNM Hits") %} script.chromecast_radio
+            {% elif is_state("input_select.music_source", "Spotify: Sofie") %} script.chromecast_spotify
+            {% elif is_state("input_select.music_source", "Spotify: Lyo") %} script.chromecast_spotify
             {% endif %}
             

@@ -18,13 +18,21 @@
         entity_id: input_boolean.living_tv_lyo
         state: 'on'
   action:
-    - service: androidtv.adb_command
+    - service: media_extractor.play_media
+      data:
+        media_content_type: video/youtube
       data_template:
-        entity_id: media_player.living_tv
-        command: 'am start -a android.intent.action.VIEW "{{ [
-                  "https://www.youtube.com/watch?v=WGigH_pe2uY&t=1s", 
-                  "https://www.youtube.com/watch?v=26mxzaQ9mlE&t=1s", 
-                  "https://www.youtube.com/watch?v=_1autgEVCFI&t=1s", 
-                  "https://www.youtube.com/watch?v=vrylB5J3CEw&t=1s",
-                  "https://www.youtube.com/watch?v=NzbwDKVIkfY&t=1s", 
-                ] | random }}"'
+        entity_id: >-
+          {% if is_state("input_select.chromecast_tv_lyo", "Living") %} media_player.living_room_tv
+          {% elif is_state("input_select.chromecast_tv_lyo", "Slaapkamer") %} media_player.slaapkamer_sen_sofie
+          {% elif is_state("input_select.chromecast_tv_lyo", "Zolder") %} media_player.attic_tv
+          {% elif is_state("input_select.chromecast_tv_lyo", "Keuken") %} media_player.kitchen_display
+          {% endif %}
+        media_content_id: >-
+          {{ [
+            "https://www.youtube.com/watch?v=WGigH_pe2uY&t=1s", 
+            "https://www.youtube.com/watch?v=26mxzaQ9mlE&t=1s", 
+            "https://www.youtube.com/watch?v=_1autgEVCFI&t=1s", 
+            "https://www.youtube.com/watch?v=vrylB5J3CEw&t=1s",
+            "https://www.youtube.com/watch?v=NzbwDKVIkfY&t=1s", 
+          ] | random }}

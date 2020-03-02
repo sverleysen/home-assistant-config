@@ -1,10 +1,20 @@
-- alias: Washing Machine Done
+- alias: Wasmachine done
   trigger:
-    - entity_id: sensor.wasmachine_vibration
-      platform: numeric_state
-      below: 16
+  - above: '2'
+    entity_id: sensor.wasmachine_vibrations
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: input_boolean.wasmachine_programma
+    state: 'off'
   action:
+  - entity_id: input_boolean.wasmachine_programma
+    service: input_boolean.turn_on
+  - delay: 00:15:00
   - service: notify.notify
     data:
       title: "Wasmachien"
       message: "{{now().strftime('%H:%M:%S')}} Wasmachien is klaar."
+  - entity_id: input_boolean.wasmachine_programma
+    service: input_boolean.turn_off
+  

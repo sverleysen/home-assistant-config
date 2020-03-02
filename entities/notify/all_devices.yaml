@@ -1,0 +1,5 @@
+name: all devices
+platform: group
+services:
+  - service: notify
+  - service: living_room_tv

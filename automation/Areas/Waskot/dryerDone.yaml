@@ -1,8 +1,11 @@
 - alias: Dryer Done
   trigger:
-    - entity_id: sensor.droogkast_vibration
-      platform: numeric_state
-      below: 100
+    - entity_id: binary_sensor.droogkast
+      platform: state
+      from: 'on'
+      to: 'off'
+      for:
+        minutes: 3
   action:
   - service: notify.notify
     data:

@@ -10,7 +10,9 @@ cards:
       cards:
       - type: picture-entity
         entity: camera.buienradar_loop
-        camera_view: "live"  
+        camera_view: "live"
+        show_state: false
+        show_name: false
     - type: vertical-stack
       cards:
       - type: glance

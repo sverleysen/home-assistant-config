@@ -34,27 +34,6 @@ cards:
         - sensor.tablet_battery
       show_header_toggle: false
       title: HASS.IO
-    - type: custom:flex-table-card 
-      title: Connected IPs
-      strict: true
-      clickable: true
-      sort_by: ip+
-      # 1st the **canidate** entities will be selected
-      entities:
-        include: device_tracker.*
-
-      # 2nd, the *column contents* are defined, there are
-      # different ways to match contents:
-      columns:
-        # example: match entity's attribute(s)
-        # - name: Name
-        #   attr: hostname
-        - attr: friendly_name
-          name: Name
-        - name: IP
-          attr: ip
-        - name: Home
-          prop: state
   - type: horizontal-stack
     cards:
       - type: custom:mini-graph-card
@@ -127,78 +106,27 @@ cards:
               color: green
             - value: 15
               color: red
-    - type: 'custom:home-feed-card'
-      title: History
-      show_empty: true
-      calendars:
-        - calendar.verleysen_van_tilburg
-        - calendar.feestdagen_in_belgie
-        - calendar.verjaardagen
-        - calendar.sen_verleysen_gmail_com
-        - calendar.lyo
-      more_info_on_tap: true
-      compact_mode: true
-      show_header_toggle : false
+    - type: custom:flex-table-card 
+      title: Connected IPs
+      strict: true
+      clickable: true
+      sort_by: ip+
+      # 1st the **canidate** entities will be selected
       entities:
-        - entity: sensor.internet_down
-          content_template: '{{display_name}} turned {{state}}'
-          include_history: true
-          max_item_count: 3
-        - entity: switch.ventilatie
-          content_template: '{{display_name}} turned {{state}}'
-          include_history: true
-          max_item_count: 3
-          exclude_states: 
-            - "unavailable" 
-        # - entity: vacuum.roomba
-        #   include_history: true
-        #   content_template: '{{display_name}} turned {{state}}'
-        #   max_item_count: 3
-        #   exclude_states: 
-        #     - "unavailable" 
-        - entity: light.lampen_automatisch
-          include_history: true
-          content_template: '{{display_name}} is {{state}}'
-          max_item_count: 3
-          exclude_states: 
-            - "unavailable" 
-        - entity: switch.azra
-          include_history: true
-          content_template: '{{display_name}} is {{state}}'
-          max_item_count: 3
-          exclude_states: 
-            - "unavailable" 
-        - entity: switch.ikea_tuinhuis_2
-          include_history: true
-          content_template: '{{display_name}} is {{state}}'
-          max_item_count: 3
-          exclude_states: 
-            - "unavailable" 
-        - entity: person.sen
-          include_history: true
-          content_template: '{{display_name}} is {{state}}'
-          max_item_count: 3
-        - entity: person.sofie
-          include_history: true
-          content_template: '{{display_name}} is {{state}}'
-          max_item_count: 3
-        - entity: person.carine
-          include_history: true
-          content_template: '{{display_name}} is {{state}}'
-          max_item_count: 3
-        - entity: person.peter
-          include_history: true
-          content_template: '{{display_name}} is {{state}}'
-          max_item_count: 3
-        - entity: person.edgard
-          include_history: true
-          content_template: '{{display_name}} is {{state}}'
-          max_item_count: 3
-        - entity: person.kelsey
-          include_history: true
-          content_template: '{{display_name}} is {{state}}'
-          max_item_count: 3
+        include: device_tracker.*
 
+      # 2nd, the *column contents* are defined, there are
+      # different ways to match contents:
+      columns:
+        # example: match entity's attribute(s)
+        # - name: Name
+        #   attr: hostname
+        - attr: friendly_name
+          name: Name
+        - name: IP
+          attr: ip
+        - name: Home
+          prop: state
 
   - type: vertical-stack
     cards:

@@ -4,17 +4,16 @@
       -  service: media_player.play_media
          data_template:
            entity_id: >-
-            {% if is_state("input_select.chromecast_radio", "Home group") %} media_player.home_group
-            {% elif is_state("input_select.chromecast_radio", "Kitchen display") %} media_player.kitchen_display
+            {% if is_state("input_select.chromecast_radio", "Overal") %} media_player.home_group
+            {% elif is_state("input_select.chromecast_radio", "Keuken") %} media_player.kitchen_display
             {% elif is_state("input_select.chromecast_radio", "SoundBar") %} media_player.soundbar
-            {% elif is_state("input_select.chromecast_radio", "Bedroom speaker") %} media_player.bedroom_speaker
-            {% elif is_state("input_select.chromecast_radio", "Bathroom speaker") %} media_player.bathroom_speaker
+            {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %} media_player.bedroom_speaker
+            {% elif is_state("input_select.chromecast_radio", "Badkamer") %} media_player.bathroom_speaker
             {% elif is_state("input_select.chromecast_radio", "Boven") %} media_player.boven
             {% endif %}
            media_content_id: >-
-            {% if is_state("input_select.music_source", "Q-Music") %} http://playerservices.streamtheworld.com/api/livestream-redirect/QMUSICAAC.aac?tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNTczMzEyNDUwLCJ0ZC1yZWciOmZhbHNlfQ.U1aRVXE4Tea90bipzlCS9oYZr2QY3YkW3xUIDM_Nflw
-            {% elif is_state("input_select.music_source", "MNM") %} http://icecast.vrtcdn.be/mnm-high.mp3
-            {% elif is_state("input_select.music_source", "MNM Hits") %} http://icecast.vrtcdn.be/mnm_hits-high.mp3
+            {% if is_state("input_select.music_source", "Radio: Q-Music") %} http://playerservices.streamtheworld.com/api/livestream-redirect/QMUSICAAC.aac?tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNTczMzEyNDUwLCJ0ZC1yZWciOmZhbHNlfQ.U1aRVXE4Tea90bipzlCS9oYZr2QY3YkW3xUIDM_Nflw
+            {% elif is_state("input_select.music_source", "Radio: MNM") %} http://icecast.vrtcdn.be/mnm-high.mp3
+            {% elif is_state("input_select.music_source", "Radio: MNM Hits") %} http://icecast.vrtcdn.be/mnm_hits-high.mp3
             {% endif %}
-           media_content_type: music
-            
+           media_content_type: music         

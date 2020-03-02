@@ -58,8 +58,6 @@
       - media_player.bedroom_speaker
       - media_player.keuken
       - media_player.kitchen_display
-      # - media_player.living_tv
-      # - media_player.soundbar
   - service: switch.turn_off
     entity_id:
       - switch.azra

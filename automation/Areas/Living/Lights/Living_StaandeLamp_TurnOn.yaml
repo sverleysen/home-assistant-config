@@ -1,0 +1,39 @@
+- alias: Staande Lamp aan
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: remote_living
+        event: 1001 # hold
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: remote_living
+        event: 1002 # short
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: remote_living
+        event: 1003 # long
+  condition:
+    - condition: state
+      entity_id: light.living_staande_lamp
+      state: 'off'
+  action:
+    - service: light.turn_on
+      entity_id: 
+        - light.living_staande_lamp_1
+        - light.living_staande_lamp_2
+        - light.living_staande_lamp_3
+      data_template:
+        kelvin: >-
+          {{ state_attr('sensor.circadian_values', 'colortemp') | int }}
+        brightness_pct: >-
+          {{ state_attr('switch.circadian_lighting_living', 'brightness') | int }}
+        transition: 5
+    - service: switch.turn_on
+      data:
+        entity_id: switch.circadian_lighting_living
+
+ 

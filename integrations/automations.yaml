@@ -2,3 +2,4 @@
 # automation split: !include_dir_list  ../automation
 
 automation: !include_dir_merge_list ../automation/ 
+automation split: !include ../automations.yaml

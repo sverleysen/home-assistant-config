@@ -91,7 +91,7 @@ cards:
     title: Buiten verlichting
     show_state: false
     show_name: true
-    columns: 3
+    columns: 4
     entities:
       - entity: light.achteraan
         tap_action:

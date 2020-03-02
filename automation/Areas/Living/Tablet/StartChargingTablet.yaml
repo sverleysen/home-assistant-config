@@ -5,9 +5,9 @@
     below: 50
   condition:
     - condition: state
-      entity_id: switch.tablet_charger
+      entity_id: switch.oplader_tablet
       state: 'off'
   action:
   - data:
-      entity_id: switch.tablet_charger
+      entity_id: switch.oplader_tablet
     service: switch.turn_on

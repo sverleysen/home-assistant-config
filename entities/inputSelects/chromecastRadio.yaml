@@ -1,11 +1,11 @@
 chromecast_radio:
   name: 'Select Speakers:'
   options:
-    - Home group
-    - Kitchen display
+    - Overal
+    - Keuken
     - SoundBar
-    - Bedroom speaker
-    - Bathroom speaker
+    - Slaapkamer
+    - Badkamer
     - Boven
-  initial: Kitchen display
+  initial: Keuken
   icon: mdi:speaker-wireless

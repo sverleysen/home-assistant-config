@@ -14,4 +14,4 @@ monitored_conditions:
   - precipitation_forecast_total
   - rainlast24hour
   - rainlasthour
-  - irradiance
+  # - irradiance

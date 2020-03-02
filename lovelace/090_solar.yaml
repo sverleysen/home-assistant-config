@@ -8,7 +8,7 @@ cards:
     cards:
     - type: iframe
       # url: https://192.168.0.244:4430/api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=4&fullscreen
-      url: /api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s
+      url: /api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&fullscreen
       aspect_ratio: 100%  
     # - type: iframe
     #   # url: https://192.168.0.244:4430/api/hassio_ingress/iRQbh3MYnW2Bei5r5jAguCDpYUKt0Q3C79PEdRpRP2s/d/h0oOLO8Zz/solar?orgId=1&refresh=10s&kiosk&panelId=4&fullscreen

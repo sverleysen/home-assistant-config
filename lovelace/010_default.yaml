@@ -28,6 +28,9 @@ cards:
               show_name: true
           - type: custom:weather-card
             entity: weather.openweathermap
+            current: true
+            details: false
+            forecast: true
           - type: entity-filter
             show_empty: false
             entities:
@@ -76,12 +79,6 @@ cards:
               - entity: light.zolder
                 tap_action:
                   action: toggle
-              # - entity: switch.kerstverlichting_trap
-              #   tap_action:
-              #     action: toggle
-              # - entity: switch.kerstboom
-              #   tap_action:
-              #     action: toggle
               - entity: switch.bureau
                 tap_action:
                   action: toggle
@@ -94,8 +91,15 @@ cards:
               type: glance
               title: Lichten die aan zijn
               show_state: false
-              show_name: true    
-          
+              show_name: true
+              columns: 4
+          - type: entities
+            entities:
+              - input_select.music_source
+              - input_select.chromecast_radio
+              - script.chromecast_music
+            title: Start Muziek
+            show_header_toggle: false
       - type: vertical-stack
         cards:
           - type: vertical-stack
@@ -106,12 +110,28 @@ cards:
                   - binary_sensor.roomba_full
                 title: Stofzuigen
                 show_header_toggle: false
+              - type: entity-filter
+                show_empty: false
+                entities:
+                  - media_player.spotify
+                  - media_player.kitchen_display
+                  - media_player.keuken
+                  - media_player.soundbar
+                  - media_player.bathroom_speaker
+                  - media_player.bedroom_speaker
+                  - media_player.home_group
+                state_filter:
+                  - 'playing'
+                card:
+                  type: entities
+                  show_state: true
+                  show_name: true
               - type: horizontal-stack
                 cards:
                   - type: custom:mini-graph-card
                     entities: 
                       - sensor.sen_home_work
-                    height: 280
+                    height: 150
                     animate: true
                     hour24: true
                     line_width: 5
@@ -119,7 +139,7 @@ cards:
                     hours_to_show: 12
                     points_per_hour: 12
                     show:
-                      extrema: true
+                      extrema: false
                       fill: false
                     line_color: var(--primary-color)
                     color_thresholds:
@@ -130,7 +150,7 @@ cards:
                   - type: custom:mini-graph-card
                     entities: 
                       - sensor.sen_work_home
-                    height: 280
+                    height: 150
                     animate: true
                     hour24: true
                     line_width: 5
@@ -138,7 +158,7 @@ cards:
                     hours_to_show: 12
                     points_per_hour: 12
                     show:
-                      extrema: true
+                      extrema: false
                       fill: false
                     line_color: var(--primary-color)
                     color_thresholds:
@@ -151,7 +171,7 @@ cards:
                   - type: custom:mini-graph-card
                     entities: 
                       - sensor.sofie_home_work
-                    height: 280
+                    height: 150
                     animate: true
                     hour24: true
                     line_width: 5
@@ -159,7 +179,7 @@ cards:
                     hours_to_show: 12
                     points_per_hour: 12
                     show:
-                      extrema: true
+                      extrema: false
                       fill: false
                     line_color: var(--primary-color)
                     color_thresholds:
@@ -170,7 +190,7 @@ cards:
                   - type: custom:mini-graph-card
                     entities: 
                       - sensor.sofie_work_home
-                    height: 280
+                    height: 150
                     animate: true
                     hour24: true
                     line_width: 5
@@ -178,7 +198,7 @@ cards:
                     hours_to_show: 12
                     points_per_hour: 12
                     show:
-                      extrema: true
+                      extrema: false
                       fill: false
                     line_color: var(--primary-color)
                     color_thresholds:
@@ -186,7 +206,6 @@ cards:
                         color: green
                       - value: 30
                         color: red
-              
       - type: vertical-stack
         cards: 
         - type: "custom:atomic-calendar"
@@ -208,6 +227,7 @@ cards:
           showCurrentEventLine: true
           dimFinishedEvents: true
           showProgressBar: true
+          hoursFormat: 24h
         - type: horizontal-stack
           cards: 
           - type: picture-entity
