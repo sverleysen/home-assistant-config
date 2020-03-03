@@ -1,0 +1,26 @@
+- alias: TV uit lichten aan
+  initial_state: 'on'
+  trigger:
+    - entity_id: media_player.living_room_tv
+      platform: state
+      to: 'off'
+  condition:
+    - condition: time
+      after: '20:00:00'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.circadian_lighting_living
+    - service: light.turn_off
+      entity_id: 
+        - light.living_staande_lamp_1
+        - light.living_staande_lamp_2
+        - light.living_staande_lamp_3
+      data:
+        transition: 15
+    - service: light.turn_on
+      entity_id:
+        - light.keuken_kast
+    
+
+ 

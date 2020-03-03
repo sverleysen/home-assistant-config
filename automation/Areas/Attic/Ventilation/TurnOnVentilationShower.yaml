@@ -11,8 +11,8 @@
   action:
   - service: switch.turn_on
     entity_id: switch.ventilatie
-  - service: notify.pushbullet_sen
+  - service: notify.all_devices
     data:
       title: "ventilation"
       message: "{{now().strftime('%H:%M:%S')}} Turn on ventilation when in bathroom"
-      target: device/OnePlus
+      

@@ -100,6 +100,10 @@ cards:
     type: entities
     show_header_toggle: false
     entities:
+      - entity: automation.tv_aan_lichten_uit
+        secondary_info: last-triggered
+      - entity: automation.tv_uit_lichten_aan
+        secondary_info: last-triggered
       - entity: automation.simulate_home
         name: "Simulate Home"
         secondary_info: last-triggered
@@ -132,6 +136,7 @@ cards:
     entities:
       - entity: light.nachtlamp
       - entity: switch.circadian_lighting_slaapkamer
+      - entity: automation.turn_all_off_bedroom
       - entity: automation.nachtlamp_aan
         secondary_info: last-triggered
       - entity: automation.nachtlamp_aan_ui
@@ -225,7 +230,7 @@ cards:
   - title: DEBUG
     type: entities
     entities:
-      - entity: automation.washing_machine_done
+      - entity: automation.wasmachine_done
         secondary_info: last-triggered
       - entity: automation.dryer_done
         secondary_info: last-triggered

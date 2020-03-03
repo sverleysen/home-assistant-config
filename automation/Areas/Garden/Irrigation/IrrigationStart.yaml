@@ -5,8 +5,8 @@
     platform: state
     to: 'on'
   action:
-  - service: notify.pushbullet_sen
+  - service: notify.all_devices
     data:
       title: "Irrigation"
       message: "{{now().strftime('%H:%M:%S')}} Irrigation Started"
-      target: device/OnePlus
+      

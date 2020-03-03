@@ -3,11 +3,11 @@
     platform: template
     value_template:  "{{ states('sensor.time') == as_timestamp(states('sensor.kitchen_display_alarm'))|timestamp_custom ('%H:%M') }}"
   action:
-  - service: notify.pushbullet_sen
+  - service: notify.all_devices
     data:
       title: "Alarm"
       message: "{{now().strftime('%H:%M:%S')}} Alarm is going"
-      target: device/OnePlus
+      
  
 
 

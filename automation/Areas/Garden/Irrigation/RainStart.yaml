@@ -4,8 +4,8 @@
     platform: numeric_state
     above: 0
   action:
-  - service: notify.pushbullet_sen
+  - service: notify.all_devices
     data:
       title: "Irrigation"
       message: "{{now().strftime('%H:%M:%S')}} Rain Started"
-      target: device/OnePlus
+      

@@ -20,8 +20,7 @@
   - data:
       entity_id: switch.ventilatie
     service: switch.turn_off
-  - service: notify.pushbullet_sen
+  - service: notify.all_devices
     data:
       title: "ventilation"
       message: "{{now().strftime('%H:%M:%S')}} Humidity is {{states.sensor.owm_humidity.state}}% so ventilation is turned off."
-      target: device/OnePlus

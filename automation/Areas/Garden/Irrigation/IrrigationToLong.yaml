@@ -9,8 +9,8 @@
   action:
   - service: switch.turn_off
     entity_id: switch.ikea_tuinhuis_2 
-  - service: notify.pushbullet_sen
+  - service: notify.all_devices
     data:
       title: "Irrigation"
       message: "{{now().strftime('%H:%M:%S')}} Irrigation is running for to long!!!"
-      target: device/OnePlus 
+       

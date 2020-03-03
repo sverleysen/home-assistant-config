@@ -1,0 +1,29 @@
+- alias: TV aan lichten uit
+  initial_state: 'on'
+  trigger:
+    - entity_id: media_player.living_room_tv
+      platform: state
+      to: 'on'
+  condition:
+    - condition: time
+      after: '20:00:00'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - group.lights_downstairs
+    - service: light.turn_on
+      entity_id: 
+        - light.living_staande_lamp_1
+        - light.living_staande_lamp_2
+        - light.living_staande_lamp_3
+      data_template:
+        kelvin: >-
+          {{ state_attr('sensor.circadian_values', 'colortemp') | int }}
+        brightness_pct: >-
+          {{ state_attr('switch.circadian_lighting_living', 'brightness') | int }}
+        transition: 5
+    - service: switch.turn_on
+      data:
+        entity_id: switch.circadian_lighting_living
+
+ 

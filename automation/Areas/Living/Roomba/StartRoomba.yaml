@@ -23,8 +23,8 @@
   - data:
       entity_id: vacuum.roomba
     service: vacuum.turn_on
-  - service: notify.pushbullet_sen
+  - service: notify.all_devices
     data:
       title: "Roomba"
       message: "{{now().strftime('%H:%M:%S')}} Start roomba has been triggerd."
-      target: device/OnePlus
+      

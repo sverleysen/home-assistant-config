@@ -5,8 +5,8 @@
     platform: state
     to: not_home
   action:
-  - service: notify.pushbullet_sen
+  - service: notify.all_devices
     data:
       title: "Empty Home"
       message: "{{now().strftime('%H:%M:%S')}} Everyone is gone!"
-      target: device/OnePlus
+      

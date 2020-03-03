@@ -8,4 +8,4 @@
     data_template:
       title: "Someone is home"
       message: "{{now().strftime('%H:%M:%S')}} {{ trigger.to_state.attributes.friendly_name }} is home!"
-      target: device/OnePlus
+      

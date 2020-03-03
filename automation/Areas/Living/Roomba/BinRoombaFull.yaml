@@ -7,7 +7,7 @@
     - condition: template
       value_template: "{{ state_attr('vacuum.roomba', 'bin_full') == True }}"
   action:
-  - service: notify.notify
+  - service: notify.all_devices
     data:
       title: "Roomba"
       message: "Maak de stofzuiger leeg, de vuilbak zit vol!"

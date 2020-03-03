@@ -7,7 +7,7 @@
       for:
         minutes: 3
   action:
-  - service: notify.notify
+  - service: notify.all_devices
     data:
       title: "Droogkast"
       message: "{{now().strftime('%H:%M:%S')}} Droogkast is klaar."

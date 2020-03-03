@@ -31,6 +31,34 @@ cards:
             current: true
             details: false
             forecast: true
+          - type: glance
+            title: Corona
+            columns: 4
+            entities:
+              - entity: sensor.belgium_coronavirus_confirmed
+                name: België Bevestigd
+                icon: mdi:emoticon-neutral-outline
+              - entity: sensor.belgium_coronavirus_current
+                name: België Huidig
+                icon: mdi:emoticon-frown-outline
+              - entity: sensor.belgium_coronavirus_recovered
+                name: België Genezen
+                icon: mdi:emoticon-happy-outline
+              - entity: sensor.belgium_coronavirus_deaths
+                name: België Doden
+                icon: mdi:emoticon-dead-outline
+              - entity: sensor.worldwide_coronavirus_confirmed
+                name: Wereldwijd Bevestigd
+                icon: mdi:emoticon-neutral-outline
+              - entity: sensor.worldwide_coronavirus_current
+                name: Wereldwijd Huidig
+                icon: mdi:emoticon-frown-outline
+              - entity: sensor.worldwide_coronavirus_recovered
+                name: Wereldwijd Genezen
+                icon: mdi:emoticon-happy-outline
+              - entity: sensor.worldwide_coronavirus_deaths
+                name: Wereldwijd Doden
+                icon: mdi:emoticon-dead-outline
           - type: entity-filter
             show_empty: false
             entities:

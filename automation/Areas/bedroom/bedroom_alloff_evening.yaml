@@ -1,0 +1,33 @@
+- alias: Turn All Off Bedroom
+  trigger:
+  - entity_id: switch.alles_uit
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: 
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ (now() - states.automation.turn_all_off.attributes.last_triggered).total_seconds() | int > 60}}'
+      - condition: time
+        after: '20:00:00' 
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.nachtlamp
+        transition: 5
+        brightness_pct: 100
+    - service: switch.turn_on
+      data:
+        entity_id: switch.circadian_lighting_slaapkamer
+    - delay:
+        seconds: 30
+    - service: switch.turn_off
+      data:
+        entity_id: switch.circadian_lighting_slaapkamer
+    - service: light.turn_off
+      data:
+        transition: 300
+        entity_id: light.nachtlamp
+
+

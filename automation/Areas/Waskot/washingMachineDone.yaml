@@ -11,7 +11,7 @@
   - entity_id: input_boolean.wasmachine_programma
     service: input_boolean.turn_on
   - delay: 00:15:00
-  - service: notify.notify
+  - service: notify.all_devices
     data:
       title: "Wasmachien"
       message: "{{now().strftime('%H:%M:%S')}} Wasmachien is klaar."

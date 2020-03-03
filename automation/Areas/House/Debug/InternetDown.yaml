@@ -5,8 +5,8 @@
     platform: state
     to: "on"
   action:
-  - service: notify.pushbullet_sen
+  - service: notify.all_devices
     data_template:
       title: "Internet was down"
       message: "{{now().strftime('%H:%M:%S')}} Internet was down, but is back up !"
-      target: device/OnePlus
+      
