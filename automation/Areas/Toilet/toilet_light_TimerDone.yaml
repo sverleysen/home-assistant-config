@@ -1,0 +1,17 @@
+- alias: Licht toilet timer klaar
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.toilet_light_timer
+  - platform: event
+    event_type: timer.cancelled
+    event_data:
+      entity_id: timer.toilet_light_timer
+  condition: 
+    condition: state
+    entity_id: light.toilet
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.toilet

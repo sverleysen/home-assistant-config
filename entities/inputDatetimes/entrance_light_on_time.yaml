@@ -1,5 +1,5 @@
 entrance_light_on_time:
-  name: Light inkom max tijd aan
+  name: Licht inkom max tijd aan
   has_date: false
   has_time: true
   initial: "00:15"

@@ -13,91 +13,96 @@ cards:
       - entity: input_boolean.living_tv_lyo
   - head: group.automations_tv_lyo
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - head: group.automations_all_off
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - head: group.automations_tablet
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - head: group.automations_irrigation
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - head: group.automations_desk
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - head: group.automations_announcements
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - type: custom:fold-entity-row
-    open: true
+    open: false
     head:
       type: section
       label: Lichten
     entities:
       - head: group.automations_lights
         type: custom:fold-entity-row
-        open: true
+        open: false
         group_config:
           secondary_info: last-triggered
       - head: group.automations_timers_outside_spot
         type: custom:fold-entity-row
-        open: true
+        open: false
         group_config:
           secondary_info: last-triggered
       - head: group.automations_timers_entrance_light
         type: custom:fold-entity-row
-        open: true
+        open: false
+        group_config:
+          secondary_info: last-triggered
+      - head: group.automations_timers_toilet_light
+        type: custom:fold-entity-row
+        open: false
         group_config:
           secondary_info: last-triggered
   - head: group.automations_bedroom
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
     entities:
   - head: group.automations_standing_light
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - head: group.automations_christmas
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - head: group.automations_reminders
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - head: group.automations_roomba
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - head: group.automations_ventilation
     type: custom:fold-entity-row
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
   - type: custom:fold-entity-row
     head:
       type: section
       label: DEBUG
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
     entities:
@@ -117,7 +122,7 @@ cards:
     head:
       type: section
       label: Deurbel
-    open: true
+    open: false
     group_config:
       secondary_info: last-triggered
     entities:

@@ -1,0 +1,13 @@
+- alias: Licht toilet stop timer
+  trigger:
+  - entity_id: light.toilet
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: timer.toilet_light_timer
+    state: 'active'
+  action:
+  - service: timer.cancel
+    entity_id: timer.toilet_light_timer

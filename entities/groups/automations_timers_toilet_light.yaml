@@ -1,0 +1,10 @@
+automations_timers_toilet_light:
+  name: Toilet licht Timer
+  # icon: mdi:tablet
+  entities:
+    - light.toilet
+    - timer.toilet_light_timer
+    - input_datetime.toilet_light_on_time
+    - automation.licht_toilet_start_timer
+    - automation.licht_toilet_stop_timer
+    - automation.licht_toilet_timer_klaar

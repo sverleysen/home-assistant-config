@@ -9,5 +9,3 @@ automations_lights:
     - automation.verlichting_sochtens_uit
     - automation.verlichting_savonds_aan
     - automation.azra_ikea_nico_home_control_sync
-    - automation.wc_uit_na_15_min
-    - automation.inkom_uit_na_15_min
