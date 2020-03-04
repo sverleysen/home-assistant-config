@@ -1,0 +1,8 @@
+automations_ventilation:
+  name: Ventilatie
+  icon: mdi:fan
+  entities:
+    - input_number.ventilation_min_humidity
+    - automation.turn_off_ventilation
+    - automation.turn_on_ventilation
+    - automation.turn_on_ventilation_shower

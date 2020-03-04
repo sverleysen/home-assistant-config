@@ -1,0 +1,10 @@
+automations_standing_light:
+  name: Staande lamp
+  icon: mdi:floor-lamp-dual
+  entities:
+    - automation.staande_lamp_aan
+    - automation.staande_lamp_uit
+    - automation.staande_lamp_helderheid_omhoog
+    - automation.staande_lamp_helderheid_omlaag
+    - automation.staande_lamp_kleur_omhoog
+    - automation.staande_lamp_kleur_omlaag

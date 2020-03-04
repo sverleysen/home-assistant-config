@@ -36,28 +36,28 @@ cards:
             columns: 4
             entities:
               - entity: sensor.belgium_coronavirus_confirmed
-                name: België Bevestigd
+                name: Bevestigd België 
                 icon: mdi:emoticon-neutral-outline
               - entity: sensor.belgium_coronavirus_current
-                name: België Huidig
+                name: Huidig België 
                 icon: mdi:emoticon-frown-outline
               - entity: sensor.belgium_coronavirus_recovered
-                name: België Genezen
+                name: Genezen België 
                 icon: mdi:emoticon-happy-outline
               - entity: sensor.belgium_coronavirus_deaths
-                name: België Doden
+                name: Doden België 
                 icon: mdi:emoticon-dead-outline
               - entity: sensor.worldwide_coronavirus_confirmed
-                name: Wereldwijd Bevestigd
+                name: Bevestigd Wereldwijd 
                 icon: mdi:emoticon-neutral-outline
               - entity: sensor.worldwide_coronavirus_current
-                name: Wereldwijd Huidig
+                name: Huidig Wereldwijd 
                 icon: mdi:emoticon-frown-outline
               - entity: sensor.worldwide_coronavirus_recovered
-                name: Wereldwijd Genezen
+                name: Genezen Wereldwijd 
                 icon: mdi:emoticon-happy-outline
               - entity: sensor.worldwide_coronavirus_deaths
-                name: Wereldwijd Doden
+                name: Doden Wereldwijd 
                 icon: mdi:emoticon-dead-outline
           - type: entity-filter
             show_empty: false

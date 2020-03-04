@@ -1,0 +1,9 @@
+automations_irrigation:
+  name: Irrigation
+  icon: mdi:sprinkler
+  entities:
+    - automation.irrigationstart
+    - automation.irrigationstopped
+    - automation.rainstart
+    - automation.rainstart_br
+    - automation.irrigationtolong

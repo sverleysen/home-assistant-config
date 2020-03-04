@@ -1,0 +1,6 @@
+automations_reminders:
+  name: Herinneringen
+  icon: mdi:reminder
+  entities:
+    - automation.clean_roomba_reminder
+    - automation.update

@@ -1,0 +1,13 @@
+automations_roomba:
+  name: Roomba
+  icon: mdi:robot-vacuum
+  entities:
+    - input_datetime.start_roomba_day
+    - input_datetime.start_roomba_night
+    - automation.reset_roomba_setting
+    - automation.set_the_run_roomba_at_night_setting
+    - automation.start_roomba_guestmode
+    - automation.start_roomba_at_night
+    - automation.start_roomba_when_gone
+    - automation.notify_is_roomba_is_stopped
+    - automation.notify_bin_roomba_is_full

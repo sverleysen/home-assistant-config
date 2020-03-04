@@ -23,6 +23,8 @@ resources:
     type: js
   - url: /community_plugin/ha-card-waze-travel-time/ha-card-waze-travel-time.js
     type: module
+  - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
+    type: module
 title: Home
 views:
   - !include lovelace/010_default.yaml

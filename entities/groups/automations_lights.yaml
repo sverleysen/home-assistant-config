@@ -1,0 +1,17 @@
+automations_lights:
+  name: lichten
+  icon: mdi:lightbulb-group
+  entities:
+    - automation.tv_aan_lichten_uit
+    - automation.tv_uit_lichten_aan
+    - automation.simulate_home
+    - automation.stop_simulate_home
+    - automation.turn_off_simulate_home
+    - automation.turn_on_simulate_home
+    - automation.turn_off_lights_when_gone
+    - automation.verlichting_sochtens_uit
+    - automation.verlichting_savonds_aan
+    - automation.azra_ikea_nico_home_control_sync
+    - automation.azra_off_after_15_min
+    - automation.wc_uit_na_15_min
+    - automation.inkom_uit_na_15_min

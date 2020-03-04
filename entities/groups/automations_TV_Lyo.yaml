@@ -1,0 +1,10 @@
+automations_tv_lyo:
+  name: TV Lyo
+  icon: mdi:television
+  entities:
+    - input_select.chromecast_tv_lyo
+    - automation.tv_living_bing
+    - automation.tv_living_bumba
+    - automation.tv_living_pepa_pig
+    - automation.tv_living_powpatrol
+    - automation.tv_living_cocomelon

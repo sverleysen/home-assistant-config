@@ -1,0 +1,6 @@
+automations_desk:
+  name: Bureau
+  icon: mdi:desktop-mac
+  entities:
+    - automation.verwarming_aan_homeoffice
+    - automation.verwarming_uit_homeoffice

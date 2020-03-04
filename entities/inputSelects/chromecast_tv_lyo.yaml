@@ -5,5 +5,5 @@ chromecast_tv_lyo:
     - Slaapkamer
     - Zolder
     - Keuken
-  initial: Living
+  initial: Zolder
   icon: mdi:television

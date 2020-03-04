@@ -1,0 +1,8 @@
+automations_tablet:
+  name: tablet
+  icon: mdi:tablet
+  entities:
+    - sensor.tablet_battery
+    - switch.oplader_tablet
+    - automation.start_charging_tablet
+    - automation.stop_charging_tablet

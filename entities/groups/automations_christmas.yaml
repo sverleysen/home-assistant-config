@@ -1,0 +1,10 @@
+automations_christmas:
+  name: Kerst
+  icon: mdi:string-lights
+  entities:
+    - automation.kerst_aan_wanneer_donker
+    - automation.kerst_uit_snachts
+    - automation.kerst_aan_wanneer_thuis
+    - automation.kerst_uit_wanneer_niet_thuis
+    - automation.kerst_aan_in_de_ochtend
+    - automation.kerst_uit_in_de_ochtend

@@ -1,0 +1,11 @@
+automations_bedroom:
+  name: Slaapkamer
+  icon: mdi:bed-king-outline
+  entities:
+    - light.nachtlamp
+    - switch.circadian_lighting_slaapkamer
+    - automation.turn_all_off_bedroom
+    - automation.nachtlamp_aan
+    - automation.nachtlamp_aan_ui
+    - automation.nachtlamp_uit
+    - automation.nachtlamp_uit_ui
