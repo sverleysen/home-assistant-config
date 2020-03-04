@@ -4,6 +4,3 @@ automations_announcements:
   entities:
     - automation.badkamer_licht_aan_ochtend
     - automation.beneden_licht_aan_ochtend
-    - automation.aankondiging_iemand_is_thuis
-    - automation.aankondiging_iemand_is_thuis_inschakkelen
-    - automation.aankondiging_iemand_is_thuis_uitschakkelen

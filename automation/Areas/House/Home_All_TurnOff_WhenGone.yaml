@@ -1,7 +1,7 @@
-- alias: turn off lights when gone
+- alias: turn all off when gone
   trigger:
   - entity_id: group.persons
-    for: 0:05:00
+    for: "{{ states('input_datetime.house_leave_timeout') }}"
     from: home
     platform: state
     to: not_home
@@ -9,9 +9,6 @@
     - condition: state
       entity_id: input_boolean.guestmode
       state: 'off'
-    - condition: state
-      entity_id: group.lights_indoor
-      state: 'on'
   action:
-  - service: homeassistant.turn_off
-    entity_id: group.lights_indoor
+  - service: switch.turn_on
+    entity_id: switch.alles_uit

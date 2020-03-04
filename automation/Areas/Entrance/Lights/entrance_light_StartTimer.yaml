@@ -1,0 +1,11 @@
+- alias: Licht inkom start timer 
+  trigger:
+  - entity_id: light.inkomhal
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - service: timer.start
+    data_template:
+          entity_id: timer.entrance_light_timer
+          duration: "{{ states('input_datetime.entrance_light_on_time') }}"

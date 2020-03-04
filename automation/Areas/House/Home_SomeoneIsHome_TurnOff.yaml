@@ -1,9 +1,0 @@
-- alias: aankondiging iemand is thuis uitschakkelen
-  trigger:
-  - entity_id: switch.alles_uit
-    from: 'off'
-    platform: state
-    to: 'on'
-  action:
-    - service: homeassistant.turn_off
-      entity_id: automation.aankondiging_iemand_is_thuis

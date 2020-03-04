@@ -1,0 +1,10 @@
+automations_timers_entrance_light:
+  name: Inkom licht Timer
+  # icon: mdi:tablet
+  entities:
+    - light.inkomhal
+    - timer.entrance_light_timer
+    - input_datetime.entrance_light_on_time
+    - automation.licht_inkom_start_timer
+    - automation.licht_inkom_stop_timer
+    - automation.licht_inkom_timer_klaar

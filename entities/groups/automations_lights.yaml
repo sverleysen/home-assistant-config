@@ -6,9 +6,6 @@ automations_lights:
     - automation.tv_uit_lichten_aan
     - automation.simulate_home
     - automation.stop_simulate_home
-    - automation.turn_off_simulate_home
-    - automation.turn_on_simulate_home
-    - automation.turn_off_lights_when_gone
     - automation.verlichting_sochtens_uit
     - automation.verlichting_savonds_aan
     - automation.azra_ikea_nico_home_control_sync
