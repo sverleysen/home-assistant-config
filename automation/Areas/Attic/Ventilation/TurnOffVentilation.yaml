@@ -10,9 +10,8 @@
       - condition: state
         entity_id: light.badkamer
         state: 'off'
-      - condition: numeric_state
-        above: '5'
-        entity_id: sensor.ventilatie_on_today
+      - condition: template
+        value_template: "{{ states('sensor.ventilatie_on_today')|int > states('input_number.ventilation_min_time_on')|int }}"
       - condition: state
         state: 'on'
         entity_id: switch.ventilatie

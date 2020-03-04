@@ -3,6 +3,7 @@ automations_ventilation:
   icon: mdi:fan
   entities:
     - input_number.ventilation_min_humidity
+    - input_number.ventilation_min_time_on
     - automation.turn_off_ventilation
     - automation.turn_on_ventilation
     - automation.turn_on_ventilation_shower

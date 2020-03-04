@@ -1,0 +1,5 @@
+outside_spot_on_time:
+  name: Spot buiten max tijd aan
+  has_date: false
+  has_time: true
+  initial: "15:00"

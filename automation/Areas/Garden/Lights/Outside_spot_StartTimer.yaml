@@ -1,0 +1,11 @@
+- alias: Spot buiten start timer 
+  trigger:
+  - entity_id: switch.azra
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - service: timer.start
+    data_template:
+          entity_id: timer.outside_spot_timer
+          duration: "{{ states('input_datetime.outside_spot_on_time') }}"

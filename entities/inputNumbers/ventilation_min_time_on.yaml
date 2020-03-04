@@ -1,0 +1,8 @@
+ventilation_min_time_on:
+  name: ventilation_min_time_on
+  min: 0
+  max: 24
+  initial: 5
+  step: 1
+  unit_of_measurement: 'u'
+  # icon: mdi:timer-sand 

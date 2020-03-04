@@ -41,11 +41,21 @@ cards:
     open: false
     group_config:
       secondary_info: last-triggered
-  - head: group.automations_lights
-    type: custom:fold-entity-row
-    open: false
-    group_config:
-      secondary_info: last-triggered
+  - type: custom:fold-entity-row
+    head:
+      type: section
+      label: Lichten
+    entities:
+      - head: group.automations_lights
+        type: custom:fold-entity-row
+        open: false
+        group_config:
+          secondary_info: last-triggered
+      - head: group.automations_timers_outside_spot
+        type: custom:fold-entity-row
+        open: false
+        group_config:
+          secondary_info: last-triggered
   - head: group.automations_bedroom
     type: custom:fold-entity-row
     open: false
