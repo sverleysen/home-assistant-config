@@ -1,0 +1,3 @@
+sensor.humidity_18:
+  expose: true
+  room: Slaapkamer Lyo

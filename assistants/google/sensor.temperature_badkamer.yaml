@@ -1,0 +1,3 @@
+sensor.temperature_badkamer:
+  expose: false
+  room: Badkamer

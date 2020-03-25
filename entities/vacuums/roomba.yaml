@@ -2,4 +2,5 @@ platform: roomba
 host: 192.168.0.193
 username: 69B8882491439640
 password: !secret roomba_password
-continuous: true
+continuous: False
+delay: 120

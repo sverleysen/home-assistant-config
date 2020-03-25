@@ -1,0 +1,3 @@
+sensor.temperature_14:
+  expose: true
+  room: Bureau

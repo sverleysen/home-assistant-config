@@ -1,0 +1,8 @@
+switch.ikea_tuinhuis_3:
+  room: Buiten
+  expose: true
+  name: Led muur
+  aliases:
+    - muur
+    - led buiten
+    - led strip buiten

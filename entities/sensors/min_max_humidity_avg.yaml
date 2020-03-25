@@ -1,0 +1,7 @@
+platform: min_max
+name: humidity_avg
+entity_ids:
+    - sensor.humidity_badkamer
+    - sensor.humidity_bureau
+    - sensor.humidity_slaapkamer_lyo
+type: mean

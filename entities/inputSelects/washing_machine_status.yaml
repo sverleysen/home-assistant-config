@@ -1,0 +1,7 @@
+washing_machine_status:
+  name: Status Wasmachine
+  options:
+    - Uit
+    - Wassen
+    - Zwieren
+    - Proper

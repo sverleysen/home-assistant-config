@@ -1,0 +1,2 @@
+switch.power_monitor_1_restart:
+  expose: false

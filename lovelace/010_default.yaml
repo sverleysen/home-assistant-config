@@ -31,34 +31,6 @@ cards:
             current: true
             details: false
             forecast: true
-          - type: glance
-            title: Corona
-            columns: 4
-            entities:
-              - entity: sensor.belgium_coronavirus_confirmed
-                name: Bevestigd België 
-                icon: mdi:emoticon-neutral-outline
-              - entity: sensor.belgium_coronavirus_current
-                name: Huidig België 
-                icon: mdi:emoticon-frown-outline
-              - entity: sensor.belgium_coronavirus_recovered
-                name: Genezen België 
-                icon: mdi:emoticon-happy-outline
-              - entity: sensor.belgium_coronavirus_deaths
-                name: Doden België 
-                icon: mdi:emoticon-dead-outline
-              - entity: sensor.worldwide_coronavirus_confirmed
-                name: Bevestigd Wereldwijd 
-                icon: mdi:emoticon-neutral-outline
-              - entity: sensor.worldwide_coronavirus_current
-                name: Huidig Wereldwijd 
-                icon: mdi:emoticon-frown-outline
-              - entity: sensor.worldwide_coronavirus_recovered
-                name: Genezen Wereldwijd 
-                icon: mdi:emoticon-happy-outline
-              - entity: sensor.worldwide_coronavirus_deaths
-                name: Doden Wereldwijd 
-                icon: mdi:emoticon-dead-outline
           - type: entity-filter
             show_empty: false
             entities:
@@ -110,7 +82,10 @@ cards:
               - entity: switch.bureau
                 tap_action:
                   action: toggle
-              - entity: switch.azra
+              - entity: switch.ikea_tuinhuis_1
+                tap_action:
+                  action: toggle
+              - entity: switch.ikea_tuinhuis_3
                 tap_action:
                   action: toggle
             state_filter:
@@ -138,6 +113,34 @@ cards:
                   - binary_sensor.roomba_full
                 title: Stofzuigen
                 show_header_toggle: false
+              - type: glance
+                columns: 4
+                entities:
+                  - entity: sensor.belgium_coronavirus_confirmed
+                    name: Bevestigd België 
+                    icon: mdi:emoticon-neutral-outline
+                  - entity: sensor.belgium_coronavirus_current
+                    name: Huidig België 
+                    icon: mdi:emoticon-frown-outline
+                  - entity: sensor.belgium_coronavirus_recovered
+                    name: Genezen België 
+                    icon: mdi:emoticon-happy-outline
+                  - entity: sensor.belgium_coronavirus_deaths
+                    name: Doden België 
+                    icon: mdi:emoticon-dead-outline
+                  - entity: sensor.worldwide_coronavirus_confirmed
+                    name: Bevestigd Wereldwijd 
+                    icon: mdi:emoticon-neutral-outline
+                  - entity: sensor.worldwide_coronavirus_current
+                    name: Huidig Wereldwijd 
+                    icon: mdi:emoticon-frown-outline
+                  - entity: sensor.worldwide_coronavirus_recovered
+                    name: Genezen Wereldwijd 
+                    icon: mdi:emoticon-happy-outline
+                  - entity: sensor.worldwide_coronavirus_deaths
+                    name: Doden Wereldwijd 
+                    icon: mdi:emoticon-dead-outline
+          
               - type: entity-filter
                 show_empty: false
                 entities:
@@ -177,27 +180,6 @@ cards:
                         color: red
                   - type: custom:mini-graph-card
                     entities: 
-                      - sensor.sen_work_home
-                    height: 150
-                    animate: true
-                    hour24: true
-                    line_width: 5
-                    font_size: 70
-                    hours_to_show: 12
-                    points_per_hour: 12
-                    show:
-                      extrema: false
-                      fill: false
-                    line_color: var(--primary-color)
-                    color_thresholds:
-                      - value: 45
-                        color: green
-                      - value: 60
-                        color: red
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    entities: 
                       - sensor.sofie_home_work
                     height: 150
                     animate: true
@@ -214,6 +196,28 @@ cards:
                       - value: 29
                         color: green
                       - value: 30
+                        color: red
+                  
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    entities: 
+                      - sensor.sen_work_home
+                    height: 150
+                    animate: true
+                    hour24: true
+                    line_width: 5
+                    font_size: 70
+                    hours_to_show: 12
+                    points_per_hour: 12
+                    show:
+                      extrema: false
+                      fill: false
+                    line_color: var(--primary-color)
+                    color_thresholds:
+                      - value: 45
+                        color: green
+                      - value: 60
                         color: red
                   - type: custom:mini-graph-card
                     entities: 

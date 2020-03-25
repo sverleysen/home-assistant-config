@@ -32,7 +32,7 @@
         - media_player.bedroom_speaker
         - media_player.keuken
         - media_player.kitchen_display
-        - switch.azra
+        - switch.ikea_tuinhuis_1
         # - switch.kerstboom
         # - switch.kerstverlichting_trap
         - light.slaapkamer_sen_en_sofie
@@ -60,7 +60,7 @@
       - media_player.kitchen_display
   - service: switch.turn_off
     entity_id:
-      - switch.azra
+      - switch.ikea_tuinhuis_1
       # - switch.kerstboom
       # - switch.kerstverlichting_trap
       

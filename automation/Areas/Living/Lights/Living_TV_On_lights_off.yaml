@@ -1,5 +1,4 @@
 - alias: TV aan lichten uit
-  initial_state: 'on'
   trigger:
     - platform: time
       at: "20:00:00"
@@ -16,9 +15,9 @@
         entity_id: media_player.living_room_tv
         state: 'on'
   action:
-    - service: light.turn_off
-      entity_id:
-        - group.lights_downstairs
+    # - service: light.turn_off
+    #   entity_id:
+    #     - group.lights_downstairs
     - service: light.turn_on
       entity_id: 
         - light.living_staande_lamp_1

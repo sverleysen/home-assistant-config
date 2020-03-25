@@ -1,0 +1,10 @@
+- alias: Spot achteraan uit na 15 min
+  trigger:
+  - platform: state
+    entity_id: switch.ikea_tuinhuis_1
+    to: 'on'
+    for:
+      minutes: 15 
+  action:
+  - service: switch.turn_off
+    entity_id: switch.ikea_tuinhuis_1

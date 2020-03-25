@@ -6,4 +6,3 @@ plex:
    verify_ssl: false
    media_player:
      use_episode_art: true
-     show_all_controls: true

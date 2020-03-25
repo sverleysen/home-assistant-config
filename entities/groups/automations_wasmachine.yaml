@@ -1,0 +1,10 @@
+automations_wasmachine:
+  name: Wasmachien
+  icon: mdi:washing-machine
+  entities:
+    - input_select.washing_machine_status
+    - automation.wasmachine_naar_wassen_zetten
+    - automation.wasmachine_naar_zwieren_zetten
+    - automation.wasmachine_naar_proper_zetten
+    - automation.wasmachine_naar_uit_zetten
+    - automation.wasmachine_done

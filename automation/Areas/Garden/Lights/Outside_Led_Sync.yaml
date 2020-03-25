@@ -1,0 +1,9 @@
+- alias: Led Muur Ikea Nico Home Control Sync
+  trigger:
+  - entity_id: switch.muur
+    platform: state
+  action:
+  - data:
+      entity_id: switch.ikea_tuinhuis_3
+    service_template: >
+        switch.turn_{{ trigger.to_state.state }}

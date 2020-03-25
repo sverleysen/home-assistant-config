@@ -1,15 +1,15 @@
 - alias: Turn Off Ventilation
   trigger:
     platform: template
-    value_template: "{{ states('sensor.owm_humidity')|int < states('input_number.ventilation_min_humidity')|int }}"
+    value_template: "{{ states('sensor.owm_humidity')|int < states('sensor.humidity_avg')|int }}"
     for:
       minutes: 20
   condition:
     condition: and
     conditions:
-      - condition: state
-        entity_id: light.badkamer
-        state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.humidity_badkamer
+        below: 70
       - condition: template
         value_template: "{{ states('sensor.ventilatie_on_today')|int > states('input_number.ventilation_min_time_on')|int }}"
       - condition: state
@@ -22,4 +22,4 @@
   - service: notify.all_devices
     data:
       title: "ventilation"
-      message: "{{now().strftime('%H:%M:%S')}} Humidity is {{states.sensor.owm_humidity.state}}% so ventilation is turned off."
+      message: "{{now().strftime('%H:%M:%S')}} Humidity is {{states.sensor.owm_humidity.state}}% outside and {{states('sensor.humidity_avg')}}% inside, so ventilation is turned off."

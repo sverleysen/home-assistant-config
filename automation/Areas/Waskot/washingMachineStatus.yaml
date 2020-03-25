@@ -1,0 +1,67 @@
+- alias: Wasmachine naar Wassen zetten
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.power_monitor_2_power
+      above: 5
+      for:
+        minutes: 1
+  condition:
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: "Uit"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: "Wassen"
+ 
+- alias: Wasmachine naar Zwieren zetten
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.power_monitor_2_power
+      below: 35
+      for:
+        minutes: 1
+  condition:
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: "Wassen"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: "Zwieren"
+ 
+- alias: Wasmachine naar Proper zetten
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.power_monitor_2_power
+      below: 5
+      for:
+        minutes: 1
+  condition:
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: "Zwieren"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: "Proper"
+    - service: notify.all_devices
+      data:
+        title: "Wasmachien"
+        message: "{{now().strftime('%H:%M:%S')}} De was is proper!"
+         
+- alias: Wasmachine naar Uit zetten
+  trigger:
+    - platform: state
+      entity_id: input_select.washing_machine_status
+      to: "Proper"
+      for:
+        minutes: 1
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: "Uit"

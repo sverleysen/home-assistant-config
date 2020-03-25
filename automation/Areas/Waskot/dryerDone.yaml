@@ -1,11 +1,10 @@
 - alias: Dryer Done
   trigger:
-    - entity_id: binary_sensor.droogkast
-      platform: state
-      from: 'on'
-      to: 'off'
+    - entity_id: sensor.power_monitor_1_power
+      platform: numeric_state
+      below: '5'
       for:
-        minutes: 3
+        minutes: 1
   action:
   - service: notify.all_devices
     data:

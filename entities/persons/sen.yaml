@@ -1,5 +1,5 @@
 name: Sen
 id: Sen
 device_trackers:
-# - device_tracker.oneplus_sen
+- device_tracker.oneplus_sen
 - device_tracker.oneplus7

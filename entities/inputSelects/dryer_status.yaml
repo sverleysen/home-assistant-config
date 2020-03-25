@@ -1,0 +1,6 @@
+dryer_status:
+  name: Status Droogkast
+  options:
+    - Uit
+    - Drogen
+    - Klaar

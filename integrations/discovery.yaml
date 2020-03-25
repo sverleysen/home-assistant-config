@@ -1,4 +1,4 @@
 discovery:
   ignore:
-     - igd
-     - plex_mediaserver
+    #  - igd
+    #  - plex_mediaserver

@@ -1,0 +1,3 @@
+sensor.humidity_12:
+  expose: true
+  room: Badkamer

@@ -1,0 +1,3 @@
+sensor.temperature_8:
+  expose: true
+  room: Badkamer

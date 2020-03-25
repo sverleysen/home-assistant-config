@@ -1,0 +1,7 @@
+switch.oplader_tablet:
+  room: Living
+  expose: true
+  name: Oplader tablet
+  aliases:
+    - tablet
+    

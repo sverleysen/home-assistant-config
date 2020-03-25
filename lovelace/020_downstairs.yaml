@@ -91,7 +91,7 @@ cards:
     title: Buiten verlichting
     show_state: false
     show_name: true
-    columns: 4
+    columns: 3
     entities:
       - entity: light.achteraan
         tap_action:
@@ -108,7 +108,12 @@ cards:
           action: toggle
         hold_action:
           action: more-info
-      - entity: switch.azra
+      - entity: switch.ikea_tuinhuis_1
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+      - entity: switch.ikea_tuinhuis_3
         tap_action:
           action: toggle
         hold_action:

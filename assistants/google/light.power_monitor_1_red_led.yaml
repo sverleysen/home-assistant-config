@@ -1,0 +1,2 @@
+light.power_monitor_1_red_led:
+  expose: false

@@ -3,3 +3,4 @@ name: Sofie Work Home
 origin: zone.work_sofie
 destination: zone.home
 region: 'EU'
+# unit: 'km'

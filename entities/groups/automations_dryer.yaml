@@ -1,0 +1,9 @@
+automations_dryer:
+  name: Droogkast
+  icon: mdi:tumble-dryer
+  entities:
+    - input_select.dryer_status
+    - automation.droogkast_naar_drogen_zetten
+    - automation.droogkast_naar_klaar_zetten
+    - automation.droogkast_naar_uit_zetten
+    - automation.dryer_done

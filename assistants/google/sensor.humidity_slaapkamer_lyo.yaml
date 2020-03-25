@@ -1,0 +1,3 @@
+sensor.humidity_slaapkamer_lyo:
+  expose: false
+  room: Slaapkamer Lyo

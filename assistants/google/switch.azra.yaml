@@ -1,7 +1,0 @@
-switch.azra:
-  room: Buiten
-  expose: true
-  name: Azra
-  aliases:
-    - tuin achteraan
-    

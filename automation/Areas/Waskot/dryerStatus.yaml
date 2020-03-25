@@ -1,0 +1,50 @@
+- alias: Droogkast naar Drogen zetten
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.power_monitor_1_power
+      above: 5
+      for:
+        minutes: 1
+  condition:
+    - condition: state
+      entity_id: input_select.dryer_status
+      state: "Uit"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dryer_status
+        option: "Drogen"
+ 
+- alias: Droogkast naar klaar zetten
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.power_monitor_1_power
+      below: 90
+      for:
+        minutes: 1
+  condition:
+    - condition: state
+      entity_id: input_select.dryer_status
+      state: "Drogen"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dryer_status
+        option: "Klaar"
+    - service: notify.all_devices
+      data:
+        title: "Droogkast"
+        message: "{{now().strftime('%H:%M:%S')}} De was is droog!"
+         
+- alias: Droogkast naar Uit zetten
+  trigger:
+    - platform: state
+      entity_id: input_select.dryer_status
+      to: "Klaar"
+      for:
+        minutes: 1
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dryer_status
+        option: "Uit"

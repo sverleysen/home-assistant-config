@@ -1,2 +1,6 @@
 switch.ikea_tuinhuis_1:
-  expose: false
+  room: Buiten
+  expose: true
+  name: Spot achteraan
+  aliases:
+    - spot

@@ -1,9 +1,8 @@
 - alias: Turn On Ventilation Shower
   trigger:
-    platform: state
-    entity_id: light.badkamer
-    from: 'off'
-    to: 'on'
+    platform: numeric_state
+    entity_id: sensor.humidity_badkamer
+    above: 70
   condition: 
     condition: state
     entity_id: switch.ventilatie

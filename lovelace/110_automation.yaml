@@ -26,6 +26,16 @@ cards:
     open: false
     group_config:
       secondary_info: last-triggered
+  - head: group.automations_wasmachine
+    type: custom:fold-entity-row
+    open: false
+    group_config:
+      secondary_info: last-triggered
+  - head: group.automations_dryer
+    type: custom:fold-entity-row
+    open: false
+    group_config:
+      secondary_info: last-triggered
   - head: group.automations_irrigation
     type: custom:fold-entity-row
     open: false
@@ -41,32 +51,11 @@ cards:
     open: false
     group_config:
       secondary_info: last-triggered
-  - type: custom:fold-entity-row
+  - head: group.automations_lights
+    type: custom:fold-entity-row
     open: false
-    head:
-      type: section
-      label: Lichten
-    entities:
-      - head: group.automations_lights
-        type: custom:fold-entity-row
-        open: false
-        group_config:
-          secondary_info: last-triggered
-      - head: group.automations_timers_outside_spot
-        type: custom:fold-entity-row
-        open: false
-        group_config:
-          secondary_info: last-triggered
-      - head: group.automations_timers_entrance_light
-        type: custom:fold-entity-row
-        open: false
-        group_config:
-          secondary_info: last-triggered
-      - head: group.automations_timers_toilet_light
-        type: custom:fold-entity-row
-        open: false
-        group_config:
-          secondary_info: last-triggered
+    group_config:
+      secondary_info: last-triggered
   - head: group.automations_bedroom
     type: custom:fold-entity-row
     open: false

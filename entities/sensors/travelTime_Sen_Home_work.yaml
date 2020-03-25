@@ -3,3 +3,4 @@ name: Sen Work Home
 origin: zone.work_sen
 destination: zone.home
 region: 'EU'
+# unit: 'km'

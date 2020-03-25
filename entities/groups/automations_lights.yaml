@@ -8,4 +8,7 @@ automations_lights:
     - automation.stop_simulate_home
     - automation.verlichting_sochtens_uit
     - automation.verlichting_savonds_aan
-    - automation.azra_ikea_nico_home_control_sync
+    - automation.led_muur_ikea_nico_home_control_sync
+    - automation.licht_inkom_uit_na_15_min
+    - automation.licht_toilet_uit_na_15_min
+    - automation.spot_achteraan_uit_na_15_min
