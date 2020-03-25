@@ -23,7 +23,7 @@ cards:
       - entity: sensor.power_monitor_3_current
       - entity: sensor.power_monitor_3_power
       - entity: sensor.power_monitor_3_voltage
-    title: Plug 3
+    title: Afwasmachine
   - type: glance
     entities:
       - entity: sensor.power_monitor_4_daily_energy
