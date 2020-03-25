@@ -1,8 +1,0 @@
-platform: history_stats
-name: Wasmachine Vibrations
-entity_id: binary_sensor.wasmachine
-state: 'vibration'
-type: 'count'
-end: '{{ now() }}'
-duration:
-  minutes: 60

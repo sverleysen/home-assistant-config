@@ -19,7 +19,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.power_monitor_1_power
-      below: 90
+      below: 95
       for:
         minutes: 1
   condition:

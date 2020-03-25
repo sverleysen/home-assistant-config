@@ -1,0 +1,6 @@
+platform: google_translate
+service_name: google_say
+language: 'nl'
+base_url: !secret http_base_url
+cache: true
+cache_dir: /tmp/tts

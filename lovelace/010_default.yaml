@@ -113,34 +113,6 @@ cards:
                   - binary_sensor.roomba_full
                 title: Stofzuigen
                 show_header_toggle: false
-              - type: glance
-                columns: 4
-                entities:
-                  - entity: sensor.belgium_coronavirus_confirmed
-                    name: Bevestigd België 
-                    icon: mdi:emoticon-neutral-outline
-                  - entity: sensor.belgium_coronavirus_current
-                    name: Huidig België 
-                    icon: mdi:emoticon-frown-outline
-                  - entity: sensor.belgium_coronavirus_recovered
-                    name: Genezen België 
-                    icon: mdi:emoticon-happy-outline
-                  - entity: sensor.belgium_coronavirus_deaths
-                    name: Doden België 
-                    icon: mdi:emoticon-dead-outline
-                  - entity: sensor.worldwide_coronavirus_confirmed
-                    name: Bevestigd Wereldwijd 
-                    icon: mdi:emoticon-neutral-outline
-                  - entity: sensor.worldwide_coronavirus_current
-                    name: Huidig Wereldwijd 
-                    icon: mdi:emoticon-frown-outline
-                  - entity: sensor.worldwide_coronavirus_recovered
-                    name: Genezen Wereldwijd 
-                    icon: mdi:emoticon-happy-outline
-                  - entity: sensor.worldwide_coronavirus_deaths
-                    name: Doden Wereldwijd 
-                    icon: mdi:emoticon-dead-outline
-          
               - type: entity-filter
                 show_empty: false
                 entities:

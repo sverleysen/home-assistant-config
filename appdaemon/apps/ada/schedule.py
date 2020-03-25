@@ -164,7 +164,3 @@ class Schedule:
         """
         kwargs['data']=self.cb_data
         self.on_cb(kwargs)
-        
-
-
-
