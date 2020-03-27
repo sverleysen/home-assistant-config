@@ -7,11 +7,93 @@ import ada.temp
 
 class HassBase(hass.Hass):
 
+    GATEWAY_ID ='light.gateway_light_7c49eb193b55'	
+
+    def call_alarm (self,rind_id):	
+        self.call_service('xiaomi_aqara/play_ringtone', gw_mac= "7C:49:EB:19:3B:55",ringtone_id= rind_id)	
+
+    def retry_turn_on (self,kwargs):	
+        if self.cnt>10:	
+            self.set_light(False)	
+            return;	
+        self.cnt += 1	
+        self.toggle_light()	
+        self.run_in(self.retry_turn_on, 1)	
+
+    def blink_light (self):	
+        self.cnt=0;	
+        self.toggle_light()	
+        self.run_in(self.retry_turn_on, 1,)	
+
+    def toggle_light(self):	
+        self.toggle(HassBase.GATEWAY_ID)	
+
+    def set_light(self,enable):	
+        if enable:	
+           self.turn_on(HassBase.GATEWAY_ID)	
+        else:	
+           self.turn_off(HassBase.GATEWAY_ID)	
+
+    def set_door_bell (self):	
+        self.blink_light();	
+        self.call_alarm(DOORBELL)	
+
+    def alert_sms (self,msg):	
+       self.call_service('notify/clicksend', message = msg)	
+
+    def alert_tts (self,msg):	
+       self.call_service('notify/clicksend_tts', message = msg)	
+
+
     def my_notify (self,msg):
         t=datetime.datetime.now().strftime("%H:%M:%S")
         n_msg = t +' ' + msg
         self.log(n_msg);
         self.notify(n_msg);
+
+    def is_state_valid (self,state):	
+        if state in ['on','off']:	
+            return True	
+        else:	
+            return False	
+
+    def are_states_valid(self,new,old):	
+        if self.is_state_valid(new) and self.is_state_valid(old):	
+            return True	
+        else:	
+            return False	
+
+    def read_ent_as_float(self,name,def_val=0.0):	
+        res=def_val;	
+        try:	
+          val=self.get_state(name)	
+          if val is not None:	
+               res=float(val)	
+        except ValueError:	
+          pass;	
+        return(res)	
+
+    def remove_var_prefix (self,entity):	
+        a = entity.split(".")	
+        assert(len(a)==2)	
+        assert(a[0]=='variable')	
+        return (a[1])	
+
+    def var_set (self,entity,val):	
+       var = self.remove_var_prefix(entity) 	
+       self.call_service('variable/set_variable', variable=var,value=val)	
+
+    def var_inc (self,entity,value):	
+       val = self.read_ent_as_float(entity)	
+       val += value	
+       var = self.remove_var_prefix(entity) 	
+       self.call_service('variable/set_variable', variable=var,value="{:.1f}".format(val))	
+
+    def var_dec (self,entity,value):	
+       val = self.read_ent_as_float(entity)	
+       val -= value	
+       var = self.remove_var_prefix(entity) 	
+       self.call_service('variable/set_variable', variable=var,value="{:.1f}".format(val))
 
 
 class CWBIrrigation(HassBase):
