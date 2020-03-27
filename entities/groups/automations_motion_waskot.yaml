@@ -1,0 +1,12 @@
+automations_motion_waskot:
+  name: Beweging waskot
+  # icon: mdi:toggle-switch-off-outline
+  entities:
+    - input_boolean.motion_waskot
+    - input_number.motion_waskot_lux
+    - binary_sensor.waskot
+    - sensor.waskot
+    - light.waskot
+    - automation.waskot_lights_off
+    - automation.waskot_lights_on
+    

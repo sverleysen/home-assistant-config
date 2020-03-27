@@ -1,0 +1,25 @@
+- alias: toilet_lights_off
+  description: Doe het licht uit in het toilet na beweging
+  id: 90afb230-bc15-4d43-8184-ee3d3d2a91fd
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.toilet
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.motion_toilet
+      state: 'on'
+    - condition: state
+      entity_id: light.toilet
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.toilet
+      state: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.toilet

@@ -1,0 +1,25 @@
+- alias: hallway_lights_off
+  description: Doe het licht uit in de inkom na beweging
+  id: 8d82016a-5f96-4922-acfe-049278b1160d
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.inkom
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.motion_hallway
+      state: 'on'
+    - condition: state
+      entity_id: light.inkomhal
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.inkom
+      state: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.inkomhal

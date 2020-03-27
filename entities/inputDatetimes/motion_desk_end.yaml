@@ -1,0 +1,4 @@
+motion_desk_end:
+  name: Einde beweging bureau
+  has_date: false
+  has_time: true

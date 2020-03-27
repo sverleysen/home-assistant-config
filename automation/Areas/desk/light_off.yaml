@@ -1,0 +1,32 @@
+- alias: desk_lights_off
+  description: Doe het licht uit in de bureau na beweging
+  id: 2be69647-2ca0-4dc6-a796-3f863043c6cd
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.bureau
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.motion_desk
+      state: 'on'
+    - condition: state
+      entity_id: light.bureau
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.bureau
+      state: 'off'
+    - condition: template
+      value_template: >-
+        {{ states('sensor.time') > (state_attr('input_datetime.motion_desk_start', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
+    - condition: template
+      value_template: >-
+        {{ states('sensor.time') < (state_attr('input_datetime.motion_desk_end', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
+  
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.bureau

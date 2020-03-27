@@ -1,0 +1,31 @@
+- alias: hallway_lights_on
+  description: Doe het licht aan in de inkomhal aan als er beweging is
+  id: f187e31d-7bcc-4813-aff3-32444810b228
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.inkom
+    - platform: state
+      entity_id:
+        - sensor.inkom
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.motion_hallway
+      state: 'on'
+    - condition: state
+      entity_id: light.inkomhal
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.inkom
+      state: 'on'
+    - condition: template
+      value_template: >-
+        {{states('sensor.inkom')|float <= states('input_number.motion_hallway_lux')|float }}
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.inkomhal

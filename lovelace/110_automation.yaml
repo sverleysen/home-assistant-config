@@ -11,11 +11,43 @@ cards:
       - entity: switch.circadian_lighting_living
       - entity: switch.circadian_lighting_slaapkamer
       - entity: input_boolean.living_tv_lyo
+      - entity: input_boolean.motion
   - head: group.automations_tv_lyo
     type: custom:fold-entity-row
     open: false
     group_config:
       secondary_info: last-triggered
+  
+  - head: group.automations_motion_hall
+    type: custom:fold-entity-row
+    open: false
+    group_config:
+      secondary_info: last-triggered
+  
+
+  - head: group.automations_motion_toilet
+    type: custom:fold-entity-row
+    open: false
+    group_config:
+      secondary_info: last-triggered
+  
+
+  - head: group.automations_motion_waskot
+    type: custom:fold-entity-row
+    open: false
+    group_config:
+      secondary_info: last-triggered
+  - head: group.automations_motion_desk
+    type: custom:fold-entity-row
+    open: false
+    group_config:
+      secondary_info: last-triggered
+  - head: group.automations_motion_bathroom
+    type: custom:fold-entity-row
+    open: false
+    group_config:
+      secondary_info: last-triggered
+  
   - head: group.automations_all_off
     type: custom:fold-entity-row
     open: false

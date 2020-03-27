@@ -1,0 +1,12 @@
+automations_motion_hall:
+  name: Beweging inkomhal
+  # icon: mdi:toggle-switch-off-outline
+  entities:
+    - input_boolean.motion_hallway
+    - input_number.motion_hallway_lux
+    - binary_sensor.inkom
+    - sensor.inkom
+    - light.inkomhal
+    - automation.hall_lights_off
+    - automation.hall_lights_on
+    

@@ -1,0 +1,4 @@
+motion_bathroom_start:
+  name: Start beweging badkamer
+  has_date: false
+  has_time: true
