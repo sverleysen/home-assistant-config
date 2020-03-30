@@ -1,0 +1,12 @@
+automations_motion_dressing:
+  name: Beweging dressing
+  # icon: mdi:toggle-switch-off-outline
+  entities:
+    - input_boolean.motion_dressing
+    - input_number.motion_dressing_lux
+    - binary_sensor.dressing
+    - sensor.dressing
+    - light.dressing
+    - automation.dressing_lights_off
+    - automation.dressing_lights_on
+    

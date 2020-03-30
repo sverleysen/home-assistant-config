@@ -1,6 +1,5 @@
 - alias: desk_lights_on
   description: Doe het licht aan in de bureau aan als er beweging is
-  id: 271d4b84-cf86-4930-8db3-9393980cfcee
   trigger:
     - platform: state
       entity_id:
@@ -15,9 +14,6 @@
     - condition: state
       entity_id: input_boolean.motion_desk
       state: 'on'
-    - condition: state
-      entity_id: light.bureau
-      state: 'off'
     - condition: state
       entity_id: binary_sensor.bureau
       state: 'on'
@@ -36,3 +32,12 @@
       data:
         entity_id:
           - light.bureau
+    - service: system_log.write
+      data_template:
+        message: >-
+          [Bureau] Licht aan door beweging.
+          Huidige waarde sensor is: {{states('sensor.bureau')|float}} lux. 
+          Drempel is: {{states('input_number.motion_desk_lux')|float }} lux. 
+          Is het donker? {{ state_attr('sensor.bureau', 'dark')}}.
+        level: warning
+        logger: lights.motion.sensor

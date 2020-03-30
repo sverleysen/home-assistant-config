@@ -1,6 +1,5 @@
 - alias: toilet_lights_on
   description: Doe het licht aan in het toilet aan als er beweging is
-  id: d58c074b-da98-4bab-a493-e1d27856d9bc 
   trigger:
     - platform: state
       entity_id:
@@ -16,9 +15,6 @@
       entity_id: input_boolean.motion_toilet
       state: 'on'
     - condition: state
-      entity_id: light.toilet
-      state: 'off'
-    - condition: state
       entity_id: binary_sensor.toilet
       state: 'on'
     - condition: template
@@ -29,3 +25,12 @@
       data:
         entity_id:
           - light.toilet
+    - service: system_log.write
+      data_template:
+        message: >-
+          [Toilet] Licht aan door beweging.
+          Huidige waarde sensor is: {{states('sensor.toilet')|float}} lux. 
+          Drempel is: {{states('input_number.motion_toilet_lux')|float }} lux. 
+          Is het donker? {{ state_attr('sensor.toilet', 'dark')}}.
+        level: warning
+        logger: lights.motion.sensor

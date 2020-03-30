@@ -1,6 +1,5 @@
 - alias: waskot_lights_on
   description: Doe het licht aan in het waskot aan als er beweging is
-  id: c015a6e0-f668-4bb0-a4c5-8d9395c94412
   trigger:
     - platform: state
       entity_id:
@@ -16,9 +15,6 @@
       entity_id: input_boolean.motion_waskot
       state: 'on'
     - condition: state
-      entity_id: light.waskot
-      state: 'off'
-    - condition: state
       entity_id: binary_sensor.waskot
       state: 'on'
     - condition: template
@@ -29,3 +25,12 @@
       data:
         entity_id:
           - light.waskot
+    - service: system_log.write
+      data_template:
+        message: >-
+          [Waskot] Licht aan door beweging.
+          Huidige waarde sensor is: {{states('sensor.waskot')|float}} lux. 
+          Drempel is: {{states('input_number.motion_waskot_lux')|float }} lux. 
+          Is het donker? {{ state_attr('sensor.waskot', 'dark')}}.
+        level: warning
+        logger: lights.motion.sensor

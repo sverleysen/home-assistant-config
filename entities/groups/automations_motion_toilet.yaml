@@ -4,6 +4,7 @@ automations_motion_toilet:
   entities:
     - input_boolean.motion_toilet
     - input_number.motion_toilet_lux
+    - input_number.motion_toilet_timeout
     - binary_sensor.toilet
     - sensor.toilet
     - light.toilet

@@ -1,0 +1,36 @@
+- alias: dressing_lights_on
+  description: Doe het licht aan in de dressing aan als er beweging is
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.dressing
+    - platform: state
+      entity_id:
+        - sensor.dressing
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.motion_dressing
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.dressing
+      state: 'on'
+    - condition: template
+      value_template: >-
+        {{states('sensor.dressing')|float <= states('input_number.motion_dressing_lux')|float }}
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.dressing
+    - service: system_log.write
+      data_template:
+        message: >-
+          [Dressing] Licht aan door beweging.
+          Huidige waarde sensor is: {{states('sensor.dressing')|float}} lux. 
+          Drempel is: {{states('input_number.motion_dressing_lux')|float }} lux. 
+          Is het donker? {{ state_attr('sensor.dressing', 'dark')}}.
+        level: warning
+        logger: lights.motion.sensor

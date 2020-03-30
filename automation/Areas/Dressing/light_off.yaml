@@ -1,24 +1,24 @@
-- alias: toilet_lights_off
-  description: Doe het licht uit in het toilet na beweging
+- alias: dressing_lights_off
+  description: Doe het licht uit in de dressing na beweging
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.toilet
+        - binary_sensor.dressing
       to: 'off'
       for:
-        minutes: "{{ states('input_number.motion_toilet_timeout')|int }}"
+        minutes: "{{ states('input_number.motion_dressing_timeout')|int }}"
   condition:
     - condition: state
       entity_id: input_boolean.motion
       state: 'on'
     - condition: state
-      entity_id: input_boolean.motion_toilet
+      entity_id: input_boolean.motion_dressing
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.toilet
+      entity_id: binary_sensor.dressing
       state: 'off'
   action:
     - service: light.turn_off
       data:
         entity_id:
-          - light.toilet
+          - light.dressing

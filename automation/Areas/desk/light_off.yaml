@@ -1,6 +1,5 @@
 - alias: desk_lights_off
   description: Doe het licht uit in de bureau na beweging
-  id: 2be69647-2ca0-4dc6-a796-3f863043c6cd
   trigger:
     - platform: state
       entity_id:
@@ -11,9 +10,6 @@
       state: 'on'
     - condition: state
       entity_id: input_boolean.motion_desk
-      state: 'on'
-    - condition: state
-      entity_id: light.bureau
       state: 'on'
     - condition: state
       entity_id: binary_sensor.bureau

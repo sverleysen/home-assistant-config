@@ -1,6 +1,5 @@
 - alias: hallway_lights_on
   description: Doe het licht aan in de inkomhal aan als er beweging is
-  id: f187e31d-7bcc-4813-aff3-32444810b228
   trigger:
     - platform: state
       entity_id:
@@ -16,9 +15,6 @@
       entity_id: input_boolean.motion_hallway
       state: 'on'
     - condition: state
-      entity_id: light.inkomhal
-      state: 'off'
-    - condition: state
       entity_id: binary_sensor.inkom
       state: 'on'
     - condition: template
@@ -29,3 +25,12 @@
       data:
         entity_id:
           - light.inkomhal
+    - service: system_log.write
+      data_template:
+        message: >-
+          [Inkom] Licht aan door beweging.
+          Huidige waarde sensor is: {{states('sensor.inkom')|float}} lux. 
+          Drempel is: {{states('input_number.motion_hallway_lux')|float }} lux. 
+          Is het donker? {{ state_attr('sensor.inkom', 'dark')}}.
+        level: warning
+        logger: lights.motion.sensor

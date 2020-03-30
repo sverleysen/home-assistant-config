@@ -7,6 +7,6 @@ automations_motion_hall:
     - binary_sensor.inkom
     - sensor.inkom
     - light.inkomhal
-    - automation.hall_lights_off
-    - automation.hall_lights_on
+    - automation.hallway_lights_off
+    - automation.hallway_lights_on
     

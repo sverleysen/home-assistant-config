@@ -42,7 +42,7 @@ cards:
     open: false
     group_config:
       secondary_info: last-triggered
-  - head: group.automations_motion_bathroom
+  - head: group.automations_motion_dressing
     type: custom:fold-entity-row
     open: false
     group_config:

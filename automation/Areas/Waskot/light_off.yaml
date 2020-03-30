@@ -1,6 +1,5 @@
 - alias: waskot_lights_off
   description: Doe het licht uit in het waskot na beweging
-  id: 335a22f9-d1c5-41b2-a60c-bc476b260bfc
   trigger:
     - platform: state
       entity_id:
@@ -11,9 +10,6 @@
       state: 'on'
     - condition: state
       entity_id: input_boolean.motion_waskot
-      state: 'on'
-    - condition: state
-      entity_id: light.waskot
       state: 'on'
     - condition: state
       entity_id: binary_sensor.waskot

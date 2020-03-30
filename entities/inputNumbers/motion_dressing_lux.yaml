@@ -1,7 +1,7 @@
-motion_badkamer_lux:
-  name: Min licht badkamer
+motion_dressing_lux:
+  name: Min licht dressing
   min: 0
-  max: 700
+  max: 200
   step: 10
   unit_of_measurement: 'lux'
   # icon: mdi:timer-sand 
