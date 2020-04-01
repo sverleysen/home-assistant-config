@@ -1,5 +1,4 @@
 import logging
-import asyncio
 import voluptuous as vol
 from homeassistant.components import http, websocket_api
 from homeassistant.core import callback
@@ -10,7 +9,7 @@ from homeassistant.components.cast.media_player import KNOWN_CHROMECAST_INFO_KEY
 import random
 import time
 
-_VERSION = '2.8.0'
+_VERSION = '2.9.0'
 DOMAIN = 'spotcast'
 
 _LOGGER = logging.getLogger(__name__)
@@ -21,7 +20,7 @@ CONF_ENTITY_ID = 'entity_id'
 CONF_SPOTIFY_URI = 'uri'
 CONF_ACCOUNTS = 'accounts'
 CONF_SPOTIFY_ACCOUNT = 'account'
-CONF_TRANSFER_PLAYBACK = 'transfer_playback'
+CONF_FORCE_PLAYBACK = 'force_playback'
 CONF_RANDOM = 'random_song'
 CONF_REPEAT = 'repeat'
 CONF_SHUFFLE = 'shuffle'
@@ -39,7 +38,7 @@ SERVICE_START_COMMAND_SCHEMA = vol.Schema({
     vol.Optional(CONF_ENTITY_ID): cv.string,
     vol.Optional(CONF_SPOTIFY_URI): cv.string,
     vol.Optional(CONF_SPOTIFY_ACCOUNT): cv.string,
-    vol.Optional(CONF_TRANSFER_PLAYBACK, default=False): cv.boolean,
+    vol.Optional(CONF_FORCE_PLAYBACK, default=False): cv.boolean,
     vol.Optional(CONF_RANDOM, default=False): cv.boolean,
     vol.Optional(CONF_REPEAT, default='off'): cv.string,
     vol.Optional(CONF_SHUFFLE, default=False): cv.boolean,
@@ -60,7 +59,7 @@ CONFIG_SCHEMA = vol.Schema({
 }, extra=vol.ALLOW_EXTRA)
 
 
-async def async_setup(hass, config):
+def setup(hass, config):
     """Setup the Spotcast service."""
     conf = config[DOMAIN]
 
@@ -114,7 +113,8 @@ async def async_setup(hass, config):
                     results = client.playlist_tracks(uri)
                     position = random.randint(0, results['total'] - 1)
                 _LOGGER.debug('Start playback at random position: %s', position)
-            kwargs['offset'] = {'position': position}
+            if uri.find('artist') < 1:
+                kwargs['offset'] = {'position': position}
             _LOGGER.debug('Playing context uri using context_uri for uri: "%s" (random_song: %s)', uri, random_song)
             client.start_playback(**kwargs)
         if shuffle or repeat:
@@ -139,13 +139,6 @@ async def async_setup(hass, config):
             pwd = accounts.get(account).get(CONF_PASSWORD)
         return user, pwd
 
-    def shouldTransferPlayback(call, client):
-        """ Check if something is playing """
-        uri = call.data.get(CONF_SPOTIFY_URI)
-        if uri is None or uri.strip() == '' or call.data.get(CONF_TRANSFER_PLAYBACK):
-            return True
-        return False
-
     def getSpotifyConnectDeviceId(client, device_name):
         devices_available = client.devices()
         for device in devices_available['devices']:
@@ -153,7 +146,7 @@ async def async_setup(hass, config):
                 return device['id']
         return None
 
-    async def start_casting(call):
+    def start_casting(call):
         """service called."""
         import spotipy
 
@@ -163,6 +156,7 @@ async def async_setup(hass, config):
         shuffle = call.data.get(CONF_SHUFFLE)
         spotify_device_id = call.data.get(CONF_SPOTIFY_DEVICE_ID)
         position = call.data.get(CONF_OFFSET)
+        force_playback = call.data.get(CONF_FORCE_PLAYBACK)
 
         # Account
         user, pwd = get_account_credentials(call)
@@ -183,15 +177,14 @@ async def async_setup(hass, config):
             spotify_cast_device.startSpotifyController(access_token, expires)
             spotify_device_id = spotify_cast_device.getSpotifyDeviceId(client)
 
-        transfer_playback = shouldTransferPlayback(call, client)
-        if transfer_playback == True:
+        if uri is None or uri.strip() == '':
             _LOGGER.debug('Transfering playback')
             current_playback = client.current_playback()
             if current_playback is not None:
-                _LOGGER.debug('current_playback from spotipy: %s', current_playback)
-                client.transfer_playback(device_id=spotify_device_id, force_play=True)
-            else:
-                client.transfer_playback(device_id=spotify_device_id, force_play=False)
+                _LOGGER.debug('Current_playback from spotipy: %s', current_playback)
+                force_playback = True
+            _LOGGER.debug('Force playback: %s', force_playback)
+            client.transfer_playback(device_id=spotify_device_id, force_play=force_playback)
         else:
             play(client, spotify_device_id, uri, random_song, repeat, shuffle, position)
 
@@ -200,7 +193,7 @@ async def async_setup(hass, config):
         WS_TYPE_SPOTCAST_PLAYLISTS, websocket_handle_playlists, SCHEMA_PLAYLISTS
     )
 
-    hass.services.async_register(DOMAIN, 'start', start_casting,
+    hass.services.register(DOMAIN, 'start', start_casting,
                                  schema=SERVICE_START_COMMAND_SCHEMA)
 
     return True
@@ -264,10 +257,16 @@ class SpotifyCastDevice:
 
     def startSpotifyController(self, access_token, expires):
         from pychromecast.controllers.spotify import SpotifyController
+        # get the volume so we can remove the bloink
+        volume = self.castDevice.status.volume_level
+        self.castDevice.set_volume(0)
 
         sp = SpotifyController(access_token, expires)
         self.castDevice.register_handler(sp)
         sp.launch_app()
+
+        # reset the volume
+        self.castDevice.set_volume(volume)
 
         if not sp.is_launched and not sp.credential_error:
             raise HomeAssistantError('Failed to launch spotify controller due to timeout')
