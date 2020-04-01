@@ -6,7 +6,6 @@ import typing as T  # pylint: disable=unused-import
 
 import collections
 import datetime
-import util
 
 
 def _dtime2sec(day:int,time: datetime.time):

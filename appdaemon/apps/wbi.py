@@ -2,8 +2,6 @@ import appdaemon.plugins.hass.hassapi as hass
 import datetime
 from pprint import pprint
 import ada.schedule 
-import ada.temp_sensor
-import ada.temp
 
 class HassBase(hass.Hass):
 
