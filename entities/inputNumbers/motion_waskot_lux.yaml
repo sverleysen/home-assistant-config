@@ -1,7 +1,7 @@
 motion_waskot_lux:
   name: Min licht waskot
   min: 0
-  max: 200
-  step: 10
+  max: 30
+  step: 1
   unit_of_measurement: 'lux'
   # icon: mdi:timer-sand 

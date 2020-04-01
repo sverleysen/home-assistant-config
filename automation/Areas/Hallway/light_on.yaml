@@ -25,12 +25,10 @@
       data:
         entity_id:
           - light.inkomhal
-    - service: system_log.write
-      data_template:
+    - service: notify.file_logger
+      data:
         message: >-
-          [Inkom] Licht aan door beweging.
+          [Inkom] {{now().strftime('%H:%M:%S')}}: Licht aan door beweging.
           Huidige waarde sensor is: {{states('sensor.inkom')|float}} lux. 
           Drempel is: {{states('input_number.motion_hallway_lux')|float }} lux. 
           Is het donker? {{ state_attr('sensor.inkom', 'dark')}}.
-        level: warning
-        logger: lights.motion.sensor
