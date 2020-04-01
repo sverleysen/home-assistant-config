@@ -1,0 +1,64 @@
+path: motionsensors
+title: Motion Sensors
+panel: true
+badges: []
+cards:
+  - type: horizontal-stack
+    cards:
+    - type: vertical-stack
+      cards:
+      - title: Inkom
+        type: entities
+        show_header_toggle: false
+        entities:
+          - head: group.automations_motion_hall
+            type: custom:fold-entity-row
+            open: true
+            group_config:
+              secondary_info: last-changed
+      - title: Toilet
+        type: entities
+        entities:
+          - head: group.automations_motion_toilet
+            type: custom:fold-entity-row
+            open: true
+            group_config:
+              secondary_info: last-changed
+    - type: vertical-stack
+      cards:
+      - title: Waskot
+        type: entities
+        entities:
+          - head: group.automations_motion_waskot
+            type: custom:fold-entity-row
+            open: true
+            group_config:
+              secondary_info: last-changed
+      - title: Dressing
+        type: entities
+        entities:
+          - head: group.automations_motion_dressing
+            type: custom:fold-entity-row
+            open: true
+            group_config:
+              secondary_info: last-changed
+    - type: vertical-stack
+      cards:
+      - title: Bureau
+        type: entities
+        entities:
+          - head: group.automations_motion_desk
+            type: custom:fold-entity-row
+            open: true
+            group_config:
+              secondary_info: last-changed
+      - title: lux
+        type: history-graph
+        hours_to_show: 4
+        entities:
+          - sensor.inkom
+          - sensor.waskot
+          - sensor.toilet
+          - sensor.bureau
+          - sensor.dressing
+icon: mdi:motion-sensor

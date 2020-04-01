@@ -1,0 +1,8 @@
+custom_header:
+  compact_mode: true
+  hide_header: false
+
+title: Automations
+views:
+  - !include lovelace/automations/020_motionsensors.yaml
+  - !include lovelace/automations/010_default.yaml

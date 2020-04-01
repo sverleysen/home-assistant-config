@@ -1,0 +1,49 @@
+path: upstairs
+title: Boven
+icon: 'mdi:numeric-1-box-multiple-outline'
+badges: []
+cards:
+  - type: entities
+    entities:
+      - switch.bureau
+    title: Stopcontacten Boven
+    show_header_toggle: true
+  # - type: picture-entity
+  #   entity: camera.bureau
+  #   camera_view: "live"
+  - type: glance
+    title: Lichten
+    show_state: false
+    show_name: true
+    columns: 3
+    entities:
+      - entity: light.bureau
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+      - entity: light.badkamer
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+      - entity: light.slaapkamer_sen_en_sofie
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+      - entity: light.nachtlamp
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+      - entity: light.slaapkamer_lyo
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+      - entity: light.dressing
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info

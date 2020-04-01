@@ -1,0 +1,17 @@
+path: attic
+title: Zolder
+icon: 'mdi:numeric-2-box-multiple-outline'
+badges: []
+cards:
+  - type: entities
+    entities:
+      - switch.ventilatie
+      - sensor.ventilatie_on_today
+    title: Ventilatie
+    show_header_toggle: false
+  - type: entities
+    entities:
+      - light.zolder
+    title: Lichten
+    show_header_toggle: true
+ 

@@ -1,0 +1,123 @@
+path: test
+title: TEST
+panel: false
+badges: []
+cards:
+  - type: glance
+    entities:
+      - entity: sensor.power_monitor_1_daily_energy
+      - entity: sensor.power_monitor_1_current
+      - entity: sensor.power_monitor_1_power
+      - entity: sensor.power_monitor_1_voltage
+    title: Droogkast
+  - type: glance
+    entities:
+      - entity: sensor.power_monitor_2_daily_energy
+      - entity: sensor.power_monitor_2_current
+      - entity: sensor.power_monitor_2_power
+      - entity: sensor.power_monitor_2_voltage
+    title: Wasmachine
+  - type: glance
+    entities:
+      - entity: sensor.power_monitor_3_daily_energy
+      - entity: sensor.power_monitor_3_current
+      - entity: sensor.power_monitor_3_power
+      - entity: sensor.power_monitor_3_voltage
+    title: Afwasmachine
+  - type: glance
+    entities:
+      - entity: sensor.power_monitor_4_daily_energy
+      - entity: sensor.power_monitor_4_current
+      - entity: sensor.power_monitor_4_power
+      - entity: sensor.power_monitor_4_voltage
+    title: Plug 4
+  - type: custom:mini-graph-card
+    name: "Temperatuur"
+    entities: 
+      - entity: sensor.temperature_avg
+      - entity: sensor.badkamer_temp
+      - entity: sensor.living_temp
+      - entity: sensor.slaapkamer_lyo_temp
+    height: 80
+    aggregate_func: avg
+    animate: true
+    hour24: true
+    line_width: 2
+    font_size: 70
+    hours_to_show: 3
+    points_per_hour: 20
+    show:
+      extrema: false
+      fill: false
+      average: false
+      labels: true
+    line_color: var(--primary-color)
+  - type: custom:mini-graph-card
+    name: "Vochtigheid"
+    entities: 
+      - entity: sensor.humidity_avg
+      - entity: sensor.badkamer_hum
+      - entity: sensor.living_hum
+      - entity: sensor.slaapkamer_lyo_hum
+    height: 80
+    aggregate_func: avg
+    animate: true
+    hour24: true
+    line_width: 2
+    font_size: 70
+    hours_to_show: 3
+    points_per_hour: 20
+    show:
+      extrema: false
+      fill: false
+      average: false
+      labels: true
+    line_color: var(--primary-color)
+    # icon: 'mdi:weather-pouring'
+  - type: history-graph
+    entities:
+      - entity: sensor.temperature_avg
+      - entity: sensor.badkamer_temp
+      - entity: sensor.living_temp
+      - entity: sensor.slaapkamer_lyo_temp
+    hours_to_show: 24
+    title: Temparatuur
+  - type: history-graph
+    entities:
+      - entity: sensor.humidity_avg
+      - entity: sensor.badkamer_hum
+      - entity: sensor.living_hum
+      - entity: sensor.slaapkamer_lyo_hum
+    hours_to_show: 24
+    title: Vochtigheid
+  
+
+  # - type: entities
+  #   title: test
+  #   entities:
+  #     - entity: binary_sensor.wasmachine
+  #       name: wasmachine
+  #     - entity: sensor.wasmachine_vibration
+  #     - entity: sensor.wasmachine_vibrations
+  #     - entity: automation.wasmachine_done
+  #     - entity: binary_sensor.droogkast
+  #       name: droogkast
+  #     - entity: sensor.droogkast_vibration
+  #     - entity: automation.dryer_done
+      # - light.inkomhal
+      # - light.waskot
+      # - light.toilet
+      # - light.living
+      # - light.eethoek
+      # - light.keuken_eiland
+      # - light.keuken_kast
+      # - light.trap
+      # - light.bureau
+      # - light.dressing
+      # - light.slaapkamer_sen_en_sofie
+      # - light.badkamer
+      # - light.zolder
+      # - light.vooraan
+      # - light.achteraan
+      # - light.zijgevel
+      

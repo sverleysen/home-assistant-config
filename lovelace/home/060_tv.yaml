@@ -1,0 +1,32 @@
+path: tv
+title: TV
+badges: []
+cards:
+  - type: media-control
+    entity: media_player.kitchen_display
+  - type: media-control
+    entity: media_player.attic_tv
+  - type: media-control
+    entity: media_player.slaapkamer_sen_sofie
+  - type: media-control
+    entity: media_player.living_room_tv
+  - type: entities
+    entities:
+      - sensor.living_tv_source
+      - media_player.plex_lg_oled55c9pla
+  - type: entities
+    title: TV Lyo
+    show_header_toggle: false
+    entities:
+      - entity: automation.tv_living_bing
+        secondary_info: last-triggered
+      - entity: automation.tv_living_bumba
+        secondary_info: last-triggered
+      - entity: automation.tv_living_pepa_pig
+        secondary_info: last-triggered
+      - entity: automation.tv_living_powpatrol
+        secondary_info: last-triggered
+      - entity: automation.tv_living_cocomelon
+        secondary_info: last-triggered
+      - entity: input_boolean.living_tv_lyo
+icon: 'mdi:television-classic'
