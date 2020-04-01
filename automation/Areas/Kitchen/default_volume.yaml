@@ -1,0 +1,13 @@
+- alias: kitchen_default_volume
+  description: Zet het volume op een standaard wanneer de media_player wordt afgezet
+  trigger:
+    - platform: state
+      entity_id:
+        - media_player.kitchen_display
+      to: 'off'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.kitchen_display
+        volume_level: 0.4

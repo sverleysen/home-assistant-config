@@ -28,6 +28,7 @@ options.xml
 OZW_Log.txt
 pyozw.sqlite
 secrets.yaml
+motion_sensors
 
 
 # Ignore add-on files

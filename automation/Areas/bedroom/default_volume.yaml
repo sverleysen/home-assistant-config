@@ -1,0 +1,13 @@
+- alias: bedroom_default_volume
+  description: Zet het volume op een standaard wanneer de media_player wordt afgezet
+  trigger:
+    - platform: state
+      entity_id:
+        - media_player.bedroom_speaker
+      to: 'off'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.bedroom_speaker
+        volume_level: 0.2
