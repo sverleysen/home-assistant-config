@@ -6,11 +6,13 @@
       at: "12:00:00"
     - platform: time
       at: "20:00:00"
-  condition:
-    - condition: template
-      value_template: "{{states.sensor.br_minimum_temperature_1d.state |float <=0.0 }}"
   action:
   - service: notify.all_devices
     data:
       title: "Vriezen"
-      message: "Het gaat vanacht vriezen ({{ states.sensor.br_minimum_temperature_1d.state }}°C), staan alle planten binnen?"
+      message: >-
+        {%if(states.sensor.br_minimum_temperature_1d.state |float <=0.0) %}
+        Het gaat vanacht vriezen ({{ states.sensor.br_minimum_temperature_1d.state }}°C), staan alle planten binnen?
+        {%else%}
+        Het gaat vanacht niet vriezen ({{ states.sensor.br_minimum_temperature_1d.state }}°C), alle planten mogen buiten staan.
+        {%endif%}
