@@ -1,7 +1,7 @@
 platform: min_max
 name: temperature_avg
 entity_ids:
-    - sensor.badkamer_temp
-    - sensor.living_temp
-    - sensor.slaapkamer_lyo_temp
+    - sensor.badkamer_3
+    - sensor.living_2
+    - sensor.slaapkamer_lyo_2
 type: mean
