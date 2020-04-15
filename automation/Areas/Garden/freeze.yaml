@@ -1,14 +1,16 @@
 - alias: freeze
   trigger:
-    - platform: time
-      at: "08:00:00"
-    - platform: time
-      at: "12:00:00"
+    # - platform: time
+    #   at: "08:00:00"
+    # - platform: time
+    #   at: "12:00:00"
+    # - platform: time
+    #   at: "17:00:00"
     - platform: time
       at: "20:00:00"
   action:
-  - service: notify.all_devices
-    data:
+  - service: script.notify
+    data_template:
       title: "Vriezen"
       message: >-
         {%if(states.sensor.br_minimum_temperature_1d.state |float <=0.0) %}
@@ -16,3 +18,5 @@
         {%else%}
         Het gaat vanacht niet vriezen ({{ states.sensor.br_minimum_temperature_1d.state }}°C), alle planten mogen buiten staan.
         {%endif%}
+      tts: true
+      

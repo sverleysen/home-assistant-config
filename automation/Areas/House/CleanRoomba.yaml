@@ -10,7 +10,8 @@
       - fri
       - sun
   action:
-  - service: notify.all_devices
+  - service: script.notify
     data:
       title: "Roomba"
       message: "Maak de stofzuiger leeg!"
+      tts: true

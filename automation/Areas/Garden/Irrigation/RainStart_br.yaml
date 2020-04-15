@@ -4,8 +4,9 @@
     platform: numeric_state
     above: 0
   action:
-  - service: notify.all_devices
+  - service: script.notify
     data:
       title: "Irrigation"
-      message: "{{now().strftime('%H:%M:%S')}} Rain Started (buienradar)"
+      message: "Het is aan het regenen"
+      tts: false
       

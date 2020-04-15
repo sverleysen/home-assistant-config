@@ -31,10 +31,13 @@
       data:
         entity_id: input_select.dryer_status
         option: "Klaar"
-    - service: notify.all_devices
+    - service: script.notify
       data:
         title: "Droogkast"
-        message: "{{now().strftime('%H:%M:%S')}} De was is droog!"
+        message: "De was is droog!"
+        tts: true
+    
+
          
 - alias: Droogkast naar Uit zetten
   trigger:

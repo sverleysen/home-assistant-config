@@ -23,8 +23,10 @@
   - data:
       entity_id: vacuum.roomba
     service: vacuum.turn_on
-  - service: notify.all_devices
+  - service: script.notify
     data:
       title: "Roomba"
-      message: "{{now().strftime('%H:%M:%S')}} Start roomba has been triggerd."
+      message: "De stofzuiger wordt gestart."
+      tts: false
+
       

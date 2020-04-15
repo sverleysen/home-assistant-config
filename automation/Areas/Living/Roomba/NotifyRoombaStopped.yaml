@@ -9,7 +9,8 @@
     - condition: template
       value_template: "{{ state_attr('vacuum.roomba', 'status') != 'Charging' }}"
   action:
-  - service: notify.notify
+  - service: script.notify
     data:
       title: "Roomba"
       message: "Roomba is gestopt"
+      tts: false

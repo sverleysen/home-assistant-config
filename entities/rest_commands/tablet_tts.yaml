@@ -1,0 +1,11 @@
+tablet_tts:
+  url: http://192.168.0.239:2971/api/command
+  method: POST
+  # headers:
+  #   authorization: !secret rest_headers_secret
+  #   accept: 'application/json, text/html'
+  #   user-agent: 'Mozilla/5.0 {{ useragent }}'
+  # payload: '{"clearCache":true, "relaunch":true}'
+  payload: '{"speak": "{{ message }}" }}}'
+  content_type:  'application/json; charset=utf-8'
+  # verify_ssl: true

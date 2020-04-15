@@ -1,5 +1,5 @@
 name: all devices
 platform: group
 services:
-  - service: notify
+  - service: mobile_app_oneplus_sen
   - service: living_room_tv

@@ -10,8 +10,9 @@
   action:
   - service: switch.turn_on
     entity_id: switch.ventilatie
-  - service: notify.all_devices
+  - service: script.notify
     data:
       title: "ventilation"
-      message: "{{now().strftime('%H:%M:%S')}} Turn on ventilation when in bathroom"
+      message: "De ventilatie starten wanneer we in de badkamer zijn."
+      tts: false
       

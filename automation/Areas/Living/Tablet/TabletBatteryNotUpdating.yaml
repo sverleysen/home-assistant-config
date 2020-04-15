@@ -3,7 +3,8 @@
     platform: template
     value_template: "{{ as_timestamp(now()) - as_timestamp(states.sensor.tablet_battery.last_changed) > 300 }}"
   action:
-  - service: notify.all_devices
+  - service: script.notify
     data:
       title: "Tablet Batterij"
       message: "De batterij status van de tablet wordt niet meer geupdate. Open de HA app op de tablet."
+      tts: false

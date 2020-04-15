@@ -5,8 +5,9 @@
     platform: state
     to: not_home
   action:
-  - service: notify.all_devices
+  - service: script.notify
     data:
       title: "Empty Home"
-      message: "{{now().strftime('%H:%M:%S')}} Everyone is gone!"
+      message: "Iedereen is weg."
+      tts: false
       

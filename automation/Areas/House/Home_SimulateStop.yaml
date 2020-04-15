@@ -19,10 +19,11 @@
 
   action:
     - delay: '00:{{ range(15,59) | random | int }}:00'
-    - service: notify.all_devices
+    - service: script.notify
       data:
-        title: "Simulate Home"
-        message: "{{now().strftime('%H:%M:%S')}} Simulate home Stopped"
+        title: "Thuis simulatie"
+        message: "Thuis simulatie is gestopt"
+        tts: false
         
     - service: homeassistant.turn_off
       entity_id: group.simulateLights

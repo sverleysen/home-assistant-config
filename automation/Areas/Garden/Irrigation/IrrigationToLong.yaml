@@ -9,8 +9,9 @@
   action:
   - service: switch.turn_off
     entity_id: switch.ikea_tuinhuis_2 
-  - service: notify.all_devices
+  - service: script.notify
     data:
       title: "Irrigation"
-      message: "{{now().strftime('%H:%M:%S')}} Irrigation is running for to long!!!"
+      message: "De spoeiers staan te lang aan!!!"
+      tts: true
        

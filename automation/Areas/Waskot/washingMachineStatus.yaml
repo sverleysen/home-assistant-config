@@ -47,12 +47,14 @@
     - service: input_select.select_option
       data:
         entity_id: input_select.washing_machine_status
-        option: "Proper"
-    - service: notify.all_devices
+        option: "Proper" 
+    - service: script.notify
       data:
-        title: "Wasmachien"
-        message: "{{now().strftime('%H:%M:%S')}} De was is proper!"
-         
+        title: "Wasmachine"
+        message: "De was is proper!"
+        tts: true
+
+      
 - alias: Wasmachine naar Uit zetten
   trigger:
     - platform: state

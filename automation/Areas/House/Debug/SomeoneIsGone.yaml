@@ -4,8 +4,9 @@
     platform: state
     to: not_home
   action:
-  - service: notify.all_devices
+  - service: script.notify
     data_template:
       title: "Someone is gone"
-      message: "{{now().strftime('%H:%M:%S')}} {{ trigger.to_state.attributes.friendly_name }} is gone!"
+      message: "{{ trigger.to_state.attributes.friendly_name }} is weg!"
+      tts: false
       

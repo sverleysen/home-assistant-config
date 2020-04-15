@@ -1,0 +1,24 @@
+notify:
+  alias: Notify
+  icon: mdi:bell-ring
+  description: 'Notify all the required devices'
+  fields:
+    message:
+      description: 'De melding die gestuurd moet worden'
+      example: "Test melding"
+    title:
+      description: 'De titel van de melding'
+      example: "Test titel"
+    tts:
+      description: "moet TTS gebruikt worden?"
+      example: false
+  sequence:
+    - service: notify.all_devices
+      data_template:
+        title: "{{ title }}"
+        message: "{{ message }}"
+    - condition: template
+      value_template: '{{ tts }}'
+    - service: rest_command.tablet_tts
+      data_template:
+        message: "{{ message }}"

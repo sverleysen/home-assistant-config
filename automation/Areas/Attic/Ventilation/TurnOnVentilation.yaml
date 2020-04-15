@@ -12,8 +12,9 @@
   - data:
       entity_id: switch.ventilatie
     service: switch.turn_on
-  - service: notify.all_devices
-    data:
+  - service: script.notify
+    data_template:
       title: "ventilation"
-      message: "Humidity is {{states.sensor.owm_humidity.state}}% outside and {{states('sensor.humidity_avg')}}% inside, so ventilation is turned on."
+      message: "Vochtigheid is {{states.sensor.owm_humidity.state}}% buiten en {{states('sensor.humidity_avg')}}% binnen, dus de ventilatie staat aan."
+      tts: false
       
