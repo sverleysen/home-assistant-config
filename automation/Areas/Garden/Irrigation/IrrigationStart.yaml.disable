@@ -5,8 +5,9 @@
     platform: state
     to: 'on'
   action:
-  - service: notify.all_devices
+  - service: script.notify
     data:
       title: "Irrigation"
-      message: "{{now().strftime('%H:%M:%S')}} Irrigation Started"
+      message: "Irrigation Started"
+      tts: false
       

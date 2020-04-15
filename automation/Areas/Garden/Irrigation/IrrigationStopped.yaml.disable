@@ -5,8 +5,9 @@
     platform: state
     to: 'off'
   action:
-  - service: notify.all_devices
+  - service: script.notify
     data:
       title: "Irrigation"
-      message: "{{now().strftime('%H:%M:%S')}} Irrigation Stopped"
+      message: "Irrigation Stopped"
+      tts: false
       

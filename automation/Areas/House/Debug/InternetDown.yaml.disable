@@ -5,8 +5,9 @@
     platform: state
     to: "on"
   action:
-  - service: notify.all_devices
+  - service: script.notify
     data_template:
       title: "Internet was down"
-      message: "{{now().strftime('%H:%M:%S')}} Internet was down, but is back up !"
+      message: "Het internet werkte even niet, maar is terug!"
+      tts: false
       
