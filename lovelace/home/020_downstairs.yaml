@@ -1,27 +1,9 @@
 path: downstairs
 title: Beneden
 icon: 'mdi:numeric-0-box-multiple-outline'
-# badges:
-#   - sensor.roomba_on_today
 cards:
-  # - type: glance
-  #   title: Scenes
-  #   show_state: false   
-  #   entities:           
-  #     - entity: scene.film
-  #       tap_action:
-  #         action: call-service
-  #         service: scene.turn_on
-  #         service_data: 
-  #           entity_id: scene.film
-  #     - entity: scene.tv
-  #       tap_action:
-  #         action: call-service
-  #         service: scene.turn_on
-  #         service_data: 
-  #           entity_id: scene.tv
-  - type: glance
-    title: Lichten
+  - title: Lichten
+    type: glance
     show_state: false
     show_name: true
     columns: 3
@@ -126,18 +108,15 @@ cards:
       - binary_sensor.roomba_full
     title: Stofzuigen
     show_header_toggle: false
-
-  # - type: history-graph
-  #   hours_to_show : 1
-  #   entities:
-  #     - entity: sensor.lampliving_brightness
-  #     - entity: sensor.lampliving_colortemp
-  # - type: picture-entity
-  #   entity: camera.living
-  #   camera_view: "live"
-  # - type: picture-entity
-  #   entity: camera.oprit
-  #   camera_view: "live"
-  # - type: picture-entity
-  #   entity: camera.tuin
-  #   camera_view: "live"
+  - name: Temperatuur
+    type: sensor
+    entity: sensor.living_2
+    graph: line
+    hours_to_show: 8
+    detail: 2
+  - name: Vochtigheid
+    type: sensor
+    entity: sensor.living_3
+    graph: line
+    hours_to_show: 8
+    detail: 2

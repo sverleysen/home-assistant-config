@@ -131,6 +131,22 @@ cards:
                   show_name: true
               - type: horizontal-stack
                 cards:
+                  - type: sensor
+                    entity: sensor.temperature_avg
+                    name: Temparatuur
+                    graph: line
+                    hours_to_show: 8
+                    detail: 2
+                    icon: mdi:thermometer
+                  - type: sensor
+                    entity: sensor.humidity_avg
+                    name: Vochtigheid
+                    graph: line
+                    hours_to_show: 8
+                    detail: 2
+                    icon: mdi:water-percent
+              - type: horizontal-stack
+                cards:
                   - type: custom:mini-graph-card
                     entities: 
                       - sensor.sen_home_work
@@ -210,6 +226,7 @@ cards:
                         color: green
                       - value: 30
                         color: red
+              
       - type: vertical-stack
         cards: 
         - type: "custom:atomic-calendar"

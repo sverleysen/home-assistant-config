@@ -5,6 +5,7 @@ custom_header:
 title: Home
 views:
   - !include lovelace/home/010_default.yaml
+  # - !include lovelace/home/010_default_reponsive.yaml
   - !include lovelace/home/020_downstairs.yaml
   - !include lovelace/home/030_upstairs.yaml
   - !include lovelace/home/040_attic.yaml
@@ -16,5 +17,5 @@ views:
   - !include lovelace/home/090_solar.yaml
   - !include lovelace/home/100_settings.yaml
   # - !include home/lovelace/110_automation.yaml
-  # - !include lovelace/120_cast.yaml
+  # - !include lovelace/home/120_cast.yaml
   - !include lovelace/home/130_test.yaml

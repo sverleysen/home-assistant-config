@@ -111,23 +111,29 @@ cards:
       strict: true
       clickable: true
       sort_by: ip+
-      # 1st the **canidate** entities will be selected
       entities:
         include: device_tracker.*
-
-      # 2nd, the *column contents* are defined, there are
-      # different ways to match contents:
       columns:
-        # example: match entity's attribute(s)
-        # - name: Name
-        #   attr: hostname
         - attr: friendly_name
           name: Name
         - name: IP
           attr: ip
+          modify: '(x == "") ? null : x'
         - name: Home
           prop: state
-
+    - type: 'custom:flex-table-card'
+      title: Battery Levels            
+      entities:
+        include: sensor.*_battery_level              
+      sort_by: state+          
+      strict: true          
+      clickable: true       
+      columns:     
+        - attr: friendly_name
+          name: Name        
+        - prop: state          
+          name: state
+          suffix: ' %'
   - type: vertical-stack
     cards:
     - type: custom:mini-graph-card

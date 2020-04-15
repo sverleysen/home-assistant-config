@@ -22,6 +22,8 @@ lovelace:
       type: module
     - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
       type: module
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
   dashboards:
     lovelace-automations: # Needs to contain a hyphen (-)
       mode: yaml
