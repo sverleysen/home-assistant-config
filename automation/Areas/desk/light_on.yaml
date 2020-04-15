@@ -32,10 +32,3 @@
       data:
         entity_id:
           - light.bureau
-    - service: notify.file_logger
-      data:
-        message: >-
-          [Bureau] {{now().strftime('%H:%M:%S')}}: Licht aan door beweging.
-          Huidige waarde sensor is: {{states('sensor.bureau')|float}} lux. 
-          Drempel is: {{states('input_number.motion_desk_lux')|float }} lux. 
-          Is het donker? {{ state_attr('sensor.bureau', 'dark')}}.

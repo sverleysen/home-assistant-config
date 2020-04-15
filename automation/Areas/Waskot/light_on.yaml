@@ -25,10 +25,3 @@
       data:
         entity_id:
           - light.waskot
-    - service: notify.file_logger
-      data:
-        message: >-
-          [Waskot] {{now().strftime('%H:%M:%S')}}: Licht aan door beweging.
-          Huidige waarde sensor is: {{states('sensor.waskot')|float}} lux. 
-          Drempel is: {{states('input_number.motion_waskot_lux')|float }} lux. 
-          Is het donker? {{ state_attr('sensor.waskot', 'dark')}}.

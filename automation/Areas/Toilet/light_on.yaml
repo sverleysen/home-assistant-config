@@ -25,10 +25,3 @@
       data:
         entity_id:
           - light.toilet
-    - service: notify.file_logger
-      data:
-        message: >-
-          [Toilet] {{now().strftime('%H:%M:%S')}}: Licht aan door beweging.
-          Huidige waarde sensor is: {{states('sensor.toilet')|float}} lux. 
-          Drempel is: {{states('input_number.motion_toilet_lux')|float }} lux. 
-          Is het donker? {{ state_attr('sensor.toilet', 'dark')}}.

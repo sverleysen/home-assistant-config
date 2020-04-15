@@ -25,10 +25,3 @@
       data:
         entity_id:
           - light.dressing
-    - service: notify.file_logger
-      data:
-        message: >-
-          [Dressing] {{now().strftime('%H:%M:%S')}}: Licht aan door beweging.
-          Huidige waarde sensor is: {{states('sensor.dressing')|float}} lux. 
-          Drempel is: {{states('input_number.motion_dressing_lux')|float }} lux. 
-          Is het donker? {{ state_attr('sensor.dressing', 'dark')}}.
