@@ -1,0 +1,30 @@
+- alias: desk_alarm
+  description: Alarm als er niemand thuis is
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.bureau
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.persons
+      state: 'not_home'
+  action:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.bureau
+        filename: '/config/www/camera_snapshots/bureau.jpg'
+    - service: notify.mobile_app_oneplus_sen
+      data:
+        title: Alarm
+        message: Beweging in de bureau
+        data:
+          ttl: 0
+          priority: high
+          image: "/local/camera_snapshots/bureau.jpg"
+          actions:
+            - action: "alarm"
+              title: "Alarm"
+            - action: "URI"
+              title: "Open de cameras"
+              uri: "/lovelace/camera"

@@ -1,0 +1,30 @@
+- alias: toilet_alarm
+  description: Alarm als er niemand thuis is
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.toilet
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: group.persons
+      state: 'not_home'
+  action:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.oprit
+        filename: '/config/www/camera_snapshots/oprit.jpg'
+    - service: notify.mobile_app_oneplus_sen
+      data:
+        title: Alarm
+        message: Beweging in het toilet
+        data:
+          ttl: 0
+          priority: high
+          image: "/local/camera_snapshots/oprit.jpg"
+          actions:
+            - action: "alarm"
+              title: "Alarm"
+            - action: "URI"
+              title: "Open de cameras"
+              uri: "/lovelace/camera"

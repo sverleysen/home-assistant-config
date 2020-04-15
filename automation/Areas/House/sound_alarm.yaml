@@ -1,0 +1,15 @@
+- alias: house_sound_alarm
+  description: Alarm laten afgaan
+  trigger:
+    platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: alarm
+  action:
+    - service: notify.mobile_app_oneplus_sen
+      data:
+        title: Alarm
+        message: alarm gestart
+        data:
+          ttl: 0
+          priority: high
