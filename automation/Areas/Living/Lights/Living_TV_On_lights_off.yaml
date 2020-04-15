@@ -1,16 +1,17 @@
 - alias: TV aan lichten uit
   trigger:
-    - platform: time
-      at: "20:00:00"
+    - platform: state
+      entity_id: sun.sun
+      to: below_horizon
     - entity_id: media_player.living_room_tv
       platform: state
       to: 'on'
   condition:
     condition: and
     conditions:
-      - condition: time
-        after: '20:00:00'
-        before: '05:00:00'
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
       - condition: state
         entity_id: media_player.living_room_tv
         state: 'on'

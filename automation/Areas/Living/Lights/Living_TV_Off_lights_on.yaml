@@ -5,9 +5,9 @@
       platform: state
       to: 'off'
   condition:
-    - condition: time
-      after: '20:00:00'
-      before: '05:00:00'
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
   action:
     - service: switch.turn_off
       data:
@@ -21,7 +21,7 @@
         transition: 15
     - service: light.turn_on
       entity_id:
-        - light.keuken_kast
+        - light.keuken_eiland
     
 
  
