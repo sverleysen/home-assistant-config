@@ -12,6 +12,7 @@ __pycache__
 .storage
 deps
 tmp
+www/camera_snapshots/
 
 # Specific file ignores
 .config_entries.json
@@ -28,7 +29,6 @@ options.xml
 OZW_Log.txt
 pyozw.sqlite
 secrets.yaml
-motion_sensors
 
 
 # Ignore add-on files
