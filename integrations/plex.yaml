@@ -1,5 +1,5 @@
 plex:
-   host: 192.168.0.244
+   host: !secret ip_plex
    port: 32400
    token: !secret plex_token
    ssl: false

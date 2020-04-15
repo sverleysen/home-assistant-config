@@ -1,4 +1,4 @@
 platform: uvc
-nvr: 192.168.0.244
+nvr: !secret ip_nvr
 key: !secret camera_key
 password: !secret camera_password

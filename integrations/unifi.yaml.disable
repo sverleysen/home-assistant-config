@@ -1,6 +1,6 @@
 unifi:
   controllers:
-    - host: 192.168.0.244
+    - host: !secret ip_unifi_controller
       site: 'Default'
       detection_time: 300
       ssid_filter:

@@ -30,7 +30,6 @@ OZW_Log.txt
 pyozw.sqlite
 secrets.yaml
 
-
 # Ignore add-on files
 aircast.xml
 airsonos.xml
@@ -47,3 +46,4 @@ notebooks
 .google.token
 google_calendars.yaml
 plex.conf
+webostv.conf

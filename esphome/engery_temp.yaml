@@ -11,7 +11,7 @@ esphome:
   board: esp8285
   
 wifi:
-  ssid: "telenet-6E45629"
+  ssid: !secret esp_home_wifi_ssid
   password: !secret esp_home_wifi_pass
   #use_address: engery_temp.local
 

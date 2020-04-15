@@ -1,4 +1,4 @@
 platform: soundtouch
-host: 192.168.0.101
+host: !secret ip_sondtouch
 port: 8090
 name: Soundtouch Keuken

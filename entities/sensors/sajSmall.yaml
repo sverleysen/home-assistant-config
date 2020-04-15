@@ -1,5 +1,5 @@
 platform: saj
-host: 192.168.0.145
+host: !secret ip_saj_small
 name: small
 type: wifi
 username: !secret saj_username

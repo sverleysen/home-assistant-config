@@ -1,5 +1,5 @@
 platform: synologydsm
-host: 192.168.0.244
+host: !secret ip_dsm
 username: !secret dsm_username
 password: !secret dsm_password
 port: 5000

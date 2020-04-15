@@ -1,11 +1,4 @@
 spotify:
   client_id: !secret spotify_clientId 
   client_secret: !secret spotify_clientSecret 
-# aliases:
-#   9769c5f0582054524108a925d3b992a431b11c82: "Bose Keuken"
-#   03b49acced720583c6b8da0e9f723ec1: "Slaapkamer"
-#   4659934f4eb870af0b7d216e484d6d07: "Keuken display"
-#   a15e1206e07dd02a1d0b7bc3e8bae3f1: "Badkamer"
-#   843b037a-f7ab-4b68-aece-d36a23ae4fac: "Home Group"
-#   c9b6b170-631c-4550-b19a-1e977e336614: "Boven"
-  
+ 
