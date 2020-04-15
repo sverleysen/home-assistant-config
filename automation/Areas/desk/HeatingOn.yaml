@@ -4,6 +4,10 @@
     platform: state
     entity_id: calendar.homeoffice
     to: 'on'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.temperature_avg
+      below: '21.0'
   action:
     - service: switch.turn_on
       data:
