@@ -13,10 +13,20 @@ notify:
       description: "moet TTS gebruikt worden?"
       example: false
   sequence:
+    - service: notify.file_logger
+      data_template:
+        message: "{{now().strftime('%H:%M:%S')}} {{title}} - {{ message }}"
     - service: notify.all_devices
       data_template:
         title: "{{ title }}"
-        message: "{{ message }}"
+        message: "{{now().strftime('%H:%M:%S')}} {{ message }}"
+    - service: notify.all_android_devices
+      data_template:
+        title: "{{ title }}"
+        message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
+        data:
+          ttl: 0
+          priority: high
     - condition: template
       value_template: '{{ tts }}'
     - service: rest_command.tablet_tts

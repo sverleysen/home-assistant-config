@@ -1,0 +1,29 @@
+notify_alarm:
+  alias: Notify Alarm
+  icon: mdi:bell-ring
+  description: 'Notify all the required devices'
+  fields:
+    message:
+      description: 'De melding die gestuurd moet worden'
+      example: "Test melding"
+    title:
+      description: 'De titel van de melding'
+      example: "Test titel"
+    picture_url:
+      description: 'De url naar de screenshot van de camera'
+      example: "/local/camera_snapshots/bureau.jpg"
+  sequence:
+    - service: notify.all_android_devices
+      data_template:
+        title: "{{ title }}"
+        message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
+        data:
+          ttl: 0
+          priority: high
+          image: "{{ picture_url }}"
+          actions:
+            - action: "alarm"
+              title: "Alarm"
+            - action: "URI"
+              title: "Open de cameras"
+              uri: "/lovelace/camera"

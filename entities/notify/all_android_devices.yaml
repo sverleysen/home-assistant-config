@@ -1,4 +1,4 @@
-name: all devices
+name: all android devices
 platform: group
 services:
   - service: mobile_app_oneplus_sen

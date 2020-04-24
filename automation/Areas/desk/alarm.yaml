@@ -14,17 +14,8 @@
       data:
         entity_id: camera.bureau
         filename: '/config/www/camera_snapshots/bureau.jpg'
-    - service: notify.mobile_app_oneplus_sen
-      data:
+    - service: script.notify_alarm
+      data_template:
         title: Alarm
-        message: Beweging in de bureau
-        data:
-          ttl: 0
-          priority: high
-          image: "/local/camera_snapshots/bureau.jpg"
-          actions:
-            - action: "alarm"
-              title: "Alarm"
-            - action: "URI"
-              title: "Open de cameras"
-              uri: "/lovelace/camera"
+        message: Beweging in de dressing
+        picture_url: "/local/camera_snapshots/bureau.jpg"

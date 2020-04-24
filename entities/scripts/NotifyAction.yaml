@@ -1,0 +1,28 @@
+notify_action:
+  alias: Notify Action
+  icon: mdi:bell-ring
+  description: 'Notify all the required devices with an action'
+  fields:
+    message:
+      description: 'De melding die gestuurd moet worden'
+      example: "Test melding"
+    title:
+      description: 'De titel van de melding'
+      example: "Test titel"
+    action:
+      description: 'De action command name'
+      example: "StopIrrigation"
+    action_title:
+      description: "de title van de action in de notification"
+      example: "Stop de sproiers!"
+  sequence:
+    - service: notify.all_android_devices
+      data_template:
+        title: "{{ title }}"
+        message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
+        data:
+          ttl: 0
+          priority: high
+          actions:
+            - action: "{{ action }}"
+              title: "{{ action_title }}"

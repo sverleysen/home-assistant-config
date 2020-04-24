@@ -18,5 +18,5 @@
         {%else%}
         Het gaat vanacht niet vriezen ({{ states.sensor.br_minimum_temperature_1d.state }}°C), alle planten mogen buiten staan.
         {%endif%}
-      tts: true
+      tts: false
       
