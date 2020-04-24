@@ -1,0 +1,11 @@
+- alias: garden_stop_irrigation
+  description: Stop de sproiers
+  trigger:
+    platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: stopIrrigation
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.ikea_tuinhuis_2

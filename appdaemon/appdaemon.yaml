@@ -7,7 +7,7 @@ appdaemon:
   longitude: !secret home_longitude
   elevation: 28
   time_zone: Europe/Amsterdam
-  # threads: 10
+  threads: 1
   # app_dir: /config/appdaemon/apps
   plugins:
     HASS:

@@ -5,7 +5,7 @@ wb_irrigation:
   m_temp_celsius: 22
   m_temp_hours: 16
   enabled: input_boolean.wbi_enabled
-  notify: [tap_open]
+  notify: []
   taps:
     - name: p1
       days:
