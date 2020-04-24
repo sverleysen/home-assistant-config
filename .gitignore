@@ -47,3 +47,5 @@ notebooks
 google_calendars.yaml
 plex.conf
 webostv.conf
+notify_history
+.ps4-games.json
