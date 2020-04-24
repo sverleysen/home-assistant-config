@@ -1,0 +1,9 @@
+switch.ikea_tuinhuis_2:
+  room: Buiten
+  expose: true
+  name: water pomp
+  aliases:
+    - waterpomp
+    - sproeiers
+    - sproeier
+    - pomp
