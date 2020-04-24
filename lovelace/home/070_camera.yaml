@@ -34,6 +34,6 @@ cards:
 #       service: camera.play_stream
 #       service_data:
 #         entity_id: camera.oprit_generic
-#         media_player: media_player.kitchen_display
+#         media_player: media_player.google_keuken
 #     entity: camera.oprit_generic
 icon: 'mdi:cctv'  

@@ -4,7 +4,7 @@ badges: []
 cards:
 # - type: 'custom:spotify-card'
 #   client_id: !secret spotify_clientId
-#   device: media_player.kitchen_display
+#   device: media_player.google_keuken
 - type: entities
   entities:
     - input_select.music_source
@@ -16,17 +16,17 @@ cards:
   entity: media_player.spotify_sen_verleysen
 
 - type: custom:mini-media-player
-  entity: media_player.kitchen_display
+  entity: media_player.google_keuken
   tts:
     platform: google
   artwork: cover
 - type:  custom:mini-media-player
-  entity: media_player.bathroom_speaker
+  entity: media_player.badkamer
   tts:
     platform: google
   artwork: cover
 - type: custom:mini-media-player
-  entity: media_player.bedroom_speaker
+  entity: media_player.slaapkamer
   tts:
     platform: google
   artwork: cover
@@ -53,17 +53,17 @@ cards:
         volume: true
         power: true
     - type: custom:mini-media-player
-      entity: media_player.kitchen_display
+      entity: media_player.google_keuken
       group: true
       hide:
         controls: true
     - type: custom:mini-media-player
-      entity: media_player.bedroom_speaker
+      entity: media_player.slaapkamer
       group: true
       hide:
         controls: true
     - type: custom:mini-media-player
-      entity: media_player.bathroom_speaker
+      entity: media_player.badkamer
       group: true
       hide:
         controls: true

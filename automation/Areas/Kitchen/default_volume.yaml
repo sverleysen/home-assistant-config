@@ -3,11 +3,11 @@
   trigger:
     - platform: state
       entity_id:
-        - media_player.kitchen_display
+        - media_player.google_keuken
       to: 'off'
   action:
     - service: media_player.volume_set
       data:
         entity_id:
-          - media_player.kitchen_display
+          - media_player.google_keuken
         volume_level: 0.4

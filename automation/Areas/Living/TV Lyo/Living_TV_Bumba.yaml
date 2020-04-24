@@ -27,9 +27,9 @@
       data_template:
         entity_id: >-
           {% if is_state("input_select.chromecast_tv_lyo", "Living") %} media_player.living_room_tv
-          {% elif is_state("input_select.chromecast_tv_lyo", "Slaapkamer") %} media_player.slaapkamer_sen_sofie
+          {% elif is_state("input_select.chromecast_tv_lyo", "Slaapkamer") %} media_player.chromecast_slaapkamer
           {% elif is_state("input_select.chromecast_tv_lyo", "Zolder") %} media_player.attic_tv
-          {% elif is_state("input_select.chromecast_tv_lyo", "Keuken") %} media_player.kitchen_display
+          {% elif is_state("input_select.chromecast_tv_lyo", "Keuken") %} media_player.google_keuken
           {% endif %}
         media_content_id: >-
           {{ [

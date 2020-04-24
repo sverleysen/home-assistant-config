@@ -3,11 +3,11 @@
   trigger:
     - platform: state
       entity_id:
-        - media_player.bathroom_speaker
+        - media_player.badkamer
       to: 'off'
   action:
     - service: media_player.volume_set
       data:
         entity_id:
-          - media_player.bathroom_speaker
+          - media_player.badkamer
         volume_level: 0.2

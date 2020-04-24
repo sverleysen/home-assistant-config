@@ -5,10 +5,10 @@
          data_template:
            entity_id: >-
             {% if is_state("input_select.chromecast_radio", "Overal") %} media_player.home_group
-            {% elif is_state("input_select.chromecast_radio", "Keuken") %} media_player.kitchen_display
+            {% elif is_state("input_select.chromecast_radio", "Keuken") %} media_player.google_keuken
             {% elif is_state("input_select.chromecast_radio", "SoundBar") %} media_player.soundbar
-            {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %} media_player.bedroom_speaker
-            {% elif is_state("input_select.chromecast_radio", "Badkamer") %} media_player.bathroom_speaker
+            {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %} media_player.slaapkamer
+            {% elif is_state("input_select.chromecast_radio", "Badkamer") %} media_player.badkamer
             {% elif is_state("input_select.chromecast_radio", "Boven") %} media_player.boven
             {% endif %}
            media_content_id: >-

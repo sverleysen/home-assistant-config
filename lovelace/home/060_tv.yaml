@@ -3,11 +3,11 @@ title: TV
 badges: []
 cards:
   - type: media-control
-    entity: media_player.kitchen_display
+    entity: media_player.google_keuken
   - type: media-control
     entity: media_player.attic_tv
   - type: media-control
-    entity: media_player.slaapkamer_sen_sofie
+    entity: media_player.chromecast_slaapkamer
   - type: media-control
     entity: media_player.living_room_tv
   - type: entities
