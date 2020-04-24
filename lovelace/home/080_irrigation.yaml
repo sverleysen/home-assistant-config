@@ -23,8 +23,6 @@ cards:
             name: Water queue
           - entity: sensor.wbi_p1_hours
             name: Hours On Last 7 Days
-          - entity: sensor.water_used
-            name: Water Used In 7 Days
           - entity: variable.wbi_last_duration_p1
             name: Total Time On
           - entity: sensor.wb_irrigation_rain
@@ -44,137 +42,142 @@ cards:
           - input_boolean.wbi_enabled
           - entity: sensor.wb_irrigation_fao56
             name: Evaporation
-          - entity: input_number.wbi_water_per_hour
-            name: Water per Hour
           - entity: input_number.wbi_p1_duration
             name: Manual Duration
           - entity: input_number.wbi_week_p1_duration
             name: Max week duration
           - entity: input_number.wbi_max_duration
             name: Max duration
-    - type: vertical-stack
-      cards:
-      - type: custom:mini-graph-card
-        name: "Regen"
-        entities: 
-          - entity: sensor.wb_irrigation_rain_day
-            name: Rain today
-          - entity: sensor.wb_irrigation_rain
-            name: Rain Last Hour
-          # - entity: sensor.br_rain_last_hour
-          #   name: Rain Last Hour (br)
-          # - entity: sensor.br_rain_last_24h
-          #   name: Rain today (br) 
-        height: 80
-        animate: true
-        hour24: true
-        line_width: 2
-        font_size: 70
-        hours_to_show: 24
-        points_per_hour: 6
-        show:
-          extrema: false
-          fill: false
-          average: false
-          labels: true
-        line_color: var(--primary-color)
-        icon: 'mdi:weather-pouring'
+      - type: 'custom:buien-rain-forecast'
+        long: !secret home_longitude
+        lat: !secret home_latitude
+        lineColor: 'rgba(89, 160, 238, 1)'
+        fillColor: 'rgba(89, 160, 238, 0.2)'
+        update_interval: 60
+        icon: 'mdi:weather-rainy'
+    # - type: vertical-stack
+    #   cards:
+    #   - type: custom:mini-graph-card
+    #     name: "Regen"
+    #     entities: 
+    #       - entity: sensor.wb_irrigation_rain_day
+    #         name: Rain today
+    #       - entity: sensor.wb_irrigation_rain
+    #         name: Rain Last Hour
+    #       # - entity: sensor.br_rain_last_hour
+    #       #   name: Rain Last Hour (br)
+    #       # - entity: sensor.br_rain_last_24h
+    #       #   name: Rain today (br) 
+    #     height: 80
+    #     animate: true
+    #     hour24: true
+    #     line_width: 2
+    #     font_size: 70
+    #     hours_to_show: 24
+    #     points_per_hour: 6
+    #     show:
+    #       extrema: false
+    #       fill: false
+    #       average: false
+    #       labels: true
+    #     line_color: var(--primary-color)
+    #     icon: 'mdi:weather-pouring'
 
 
-      - type: custom:mini-graph-card
-        name: "Regen 7 Dagen"
-        entities: 
-          - entity: sensor.wb_irrigation_rain_day
-            name: Rain today
-          - entity: sensor.wb_irrigation_rain
-            name: Rain Last Hour
-          # - entity: sensor.br_rain_last_hour
-          #   name: Rain Last Hour (br)
-          # - entity: sensor.br_rain_last_24h
-          #   name: Rain today (br) 
-        height: 80
-        animate: true
-        hour24: true
-        line_width: 2
-        font_size: 70
-        hours_to_show: 168
-        points_per_hour: 3
-        show:
-          extrema: false
-          fill: false
-          state: false
-          average: false
-          labels: true
-        line_color: var(--primary-color)
-        icon: 'mdi:weather-pouring'
+    #   - type: custom:mini-graph-card
+    #     name: "Regen 7 Dagen"
+    #     entities: 
+    #       - entity: sensor.wb_irrigation_rain_day
+    #         name: Rain today
+    #       - entity: sensor.wb_irrigation_rain
+    #         name: Rain Last Hour
+    #       # - entity: sensor.br_rain_last_hour
+    #       #   name: Rain Last Hour (br)
+    #       # - entity: sensor.br_rain_last_24h
+    #       #   name: Rain today (br) 
+    #     height: 80
+    #     animate: true
+    #     hour24: true
+    #     line_width: 2
+    #     font_size: 70
+    #     hours_to_show: 168
+    #     points_per_hour: 3
+    #     show:
+    #       extrema: false
+    #       fill: false
+    #       state: false
+    #       average: false
+    #       labels: true
+    #     line_color: var(--primary-color)
+    #     icon: 'mdi:weather-pouring'
 
 
-      - type: custom:mini-graph-card
-        name: "Queue"
-        entities: 
-          - entity: sensor.wb_irrigation_fao56
-            name: Evaporation
-          - entity: sensor.wb_irrigation_p1
-            name: Water queue
-        height: 80
-        animate: true
-        hour24: true
-        line_width: 2
-        font_size: 70
-        hours_to_show: 168
-        points_per_hour: 3
-        show:
-          extrema: false
-          fill: false
-          state: false
-          average: false
-          labels: true
-        line_color: var(--primary-color)
-        icon: 'mdi:weather-pouring'
+    #   - type: custom:mini-graph-card
+    #     name: "Queue"
+    #     entities: 
+    #       - entity: sensor.wb_irrigation_fao56
+    #         name: Evaporation
+    #       - entity: sensor.wb_irrigation_p1
+    #         name: Water queue
+    #     height: 80
+    #     animate: true
+    #     hour24: true
+    #     line_width: 2
+    #     font_size: 70
+    #     hours_to_show: 168
+    #     points_per_hour: 3
+    #     show:
+    #       extrema: false
+    #       fill: false
+    #       state: false
+    #       average: false
+    #       labels: true
+    #     line_color: var(--primary-color)
+    #     icon: 'mdi:weather-pouring'
 
-      - type: custom:mini-graph-card
-        name: "On Time"
-        entities: 
-          - entity: variable.wbi_last_duration_p1
-            name: Total Time On
-          - entity:  sensor.wbi_p1_hours
-            name: On last 7 days
-        height: 80
-        animate: true
-        hour24: true
-        lower_bound: 0
-        line_width: 2
-        font_size: 70
-        hours_to_show: 168
-        points_per_hour: 30
-        show:
-          extrema: false
-          fill: false
-          state: false
-          average: false
-          labels: true
-        line_color: var(--primary-color)
-        icon: 'mdi:weather-pouring'
-      - type: custom:mini-graph-card
-        name: "On Time 7 days"
-        entities: 
-          - entity:  sensor.wbi_p1_hours
-            name: On last 7 days
-        height: 150
-        animate: true
-        hour24: true
-        lower_bound: 0
-        line_width: 2
-        font_size: 70
-        hours_to_show: 1680
-        points_per_hour: 0.5
-        show:
-          extrema: false
-          fill: false
-          state: true
-          average: false
-          labels: true
-        line_color: var(--primary-color)
-        icon: 'mdi:weather-pouring'
+    #   - type: custom:mini-graph-card
+    #     name: "On Time"
+    #     entities: 
+    #       - entity: variable.wbi_last_duration_p1
+    #         name: Total Time On
+    #       - entity:  sensor.wbi_p1_hours
+    #         name: On last 7 days
+    #     height: 80
+    #     animate: true
+    #     hour24: true
+    #     lower_bound: 0
+    #     line_width: 2
+    #     font_size: 70
+    #     hours_to_show: 168
+    #     points_per_hour: 30
+    #     show:
+    #       extrema: false
+    #       fill: false
+    #       state: false
+    #       average: false
+    #       labels: true
+    #     line_color: var(--primary-color)
+    #     icon: 'mdi:weather-pouring'
+    #   - type: custom:mini-graph-card
+    #     name: "On Time 7 days"
+    #     entities: 
+    #       - entity:  sensor.wbi_p1_hours
+    #         name: On last 7 days
+    #     height: 150
+    #     animate: true
+    #     hour24: true
+    #     lower_bound: 0
+    #     line_width: 2
+    #     font_size: 70
+    #     hours_to_show: 1680
+    #     points_per_hour: 0.5
+    #     show:
+    #       extrema: false
+    #       fill: false
+    #       state: true
+    #       average: false
+    #       labels: true
+    #     line_color: var(--primary-color)
+    #     icon: 'mdi:weather-pouring'
 icon: 'mdi:water'   
   

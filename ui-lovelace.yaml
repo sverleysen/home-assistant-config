@@ -6,15 +6,15 @@ title: Home
 views:
   - !include lovelace/home/010_default.yaml
   # - !include lovelace/home/010_default_reponsive.yaml
-  - !include lovelace/home/020_downstairs.yaml
-  - !include lovelace/home/030_upstairs.yaml
-  - !include lovelace/home/040_attic.yaml
+  - !include lovelace/home/075_camera.yaml
+  - !include lovelace/home/080_irrigation.yaml
   - !include lovelace/home/050_music.yaml
   - !include lovelace/home/060_tv.yaml
   # - !include lovelace/070_camera.yaml
-  - !include lovelace/home/075_camera.yaml
-  - !include lovelace/home/080_irrigation.yaml
   - !include lovelace/home/090_solar.yaml
+  - !include lovelace/home/020_downstairs.yaml
+  - !include lovelace/home/030_upstairs.yaml
+  - !include lovelace/home/040_attic.yaml
   - !include lovelace/home/100_settings.yaml
   # - !include home/lovelace/110_automation.yaml
   # - !include lovelace/home/120_cast.yaml
