@@ -1,7 +1,0 @@
-platform: roomba
-host: !secret ip_roomba
-username: !secret roomba_username
-password: !secret roomba_password
-continuous: True
-# continuous: False
-# delay: 120

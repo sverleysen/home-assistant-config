@@ -110,7 +110,7 @@ cards:
               - type: entities
                 entities:
                   - vacuum.roomba
-                  - binary_sensor.roomba_full
+                  - binary_sensor.roomba_bin_full
                 title: Stofzuigen
                 show_header_toggle: false
               - type: entity-filter

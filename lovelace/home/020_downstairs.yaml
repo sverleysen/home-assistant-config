@@ -104,8 +104,8 @@ cards:
     entities:
       - vacuum.roomba
       - sensor.roomba_on_today
-      - sensor.roomba_battery
-      - binary_sensor.roomba_full
+      - sensor.roomba_battery_level
+      - binary_sensor.roomba_bin_full
     title: Stofzuigen
     show_header_toggle: false
   - name: Temperatuur

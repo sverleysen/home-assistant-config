@@ -1,0 +1,12 @@
+synology_dsm:
+  - host: !secret ip_dsm
+    username: !secret dsm_username
+    password: !secret dsm_password
+    port: 5000
+    ssl: false
+    # monitored_conditions:
+    # - cpu_total_load
+    # - memory_real_usage
+    # - network_up
+    # - network_down
+    # - volume_percentage_used
