@@ -5,44 +5,6 @@ import ada.schedule
 
 class HassBase(hass.Hass):
 
-    GATEWAY_ID ='light.gateway_light_7c49eb193b55'	
-
-    def call_alarm (self,rind_id):	
-        self.call_service('xiaomi_aqara/play_ringtone', gw_mac= "7C:49:EB:19:3B:55",ringtone_id= rind_id)	
-
-    def retry_turn_on (self,kwargs):	
-        if self.cnt>10:	
-            self.set_light(False)	
-            return;	
-        self.cnt += 1	
-        self.toggle_light()	
-        self.run_in(self.retry_turn_on, 1)	
-
-    def blink_light (self):	
-        self.cnt=0;	
-        self.toggle_light()	
-        self.run_in(self.retry_turn_on, 1,)	
-
-    def toggle_light(self):	
-        self.toggle(HassBase.GATEWAY_ID)	
-
-    def set_light(self,enable):	
-        if enable:	
-           self.turn_on(HassBase.GATEWAY_ID)	
-        else:	
-           self.turn_off(HassBase.GATEWAY_ID)	
-
-    def set_door_bell (self):	
-        self.blink_light();	
-        self.call_alarm(DOORBELL)	
-
-    def alert_sms (self,msg):	
-       self.call_service('notify/clicksend', message = msg)	
-
-    def alert_tts (self,msg):	
-       self.call_service('notify/clicksend_tts', message = msg)	
-
-
     def my_notify (self,msg):
         t=datetime.datetime.now().strftime("%H:%M:%S")
         n_msg = t +' ' + msg
@@ -102,8 +64,6 @@ class CWBIrrigation(HassBase):
         self.log("start irrigation app");
         self.h ={}
         self.init_all_taps()
-          
-
     
     def init_all_taps(self):
         hours = self.args["m_temp_hours"]
@@ -147,6 +107,26 @@ class CWBIrrigation(HassBase):
             start_time, 
             constrain_days = days,
             tap=tap)
+
+        #run next irrigation duration calcs hourly in order to show it in UI 
+        checktime = datetime.time(0, 0, 0)
+        self.run_hourly(self.calc_next_duration, 
+            checktime, 
+            tap=tap)
+
+    #set scheduled_duration via service to make it visible in UI
+    def set_scheduled_duration(self,tap,val):
+       self.call_service('input_number/set_value', entity_id=tap["scheduled_duration"],value=val)
+
+    #calculate next irrigation duration without runninr irrigation, just calculate
+    def calc_next_duration(self,kwargs):
+        tap = kwargs['tap']
+        queue = float(self.get_state(tap["queue_sensor"]))
+        duration_min = self.read_ent_as_float(tap["m_week_duration_min"])
+        irrigation_time_min = int((-queue) *  duration_min / self.max_ev_week)
+        if irrigation_time_min < 0: irrigation_time_min = 0
+        # self.log("Next irrigation planned duration: tap {},{} min".format(tap["name"],irrigation_time_min))  # log if you wish to see in in the log
+        self.set_scheduled_duration(tap, irrigation_time_min)
 
     def time_cb_event_stop_verify(self,kwargs):
         tap = kwargs['tap']
@@ -198,6 +178,7 @@ class CWBIrrigation(HassBase):
     def start_tap (self,tap,duration_sec,desc,clear_queue):
         duration_min = int(duration_sec/60.0)
         msg = "irrigation time tap {} {} {} min".format(tap["name"],desc,duration_min)
+        self.log("irrigation time tap {} {} {} min".format(tap["name"],desc,duration_min)) #logging irrigation time just in case you are courious ;-)
         self.var_inc (tap["time_sensor"],duration_min)
         if "tap_open" in self.args["notify"]:
            self.my_notify(msg)
@@ -239,6 +220,7 @@ class CWBIrrigation(HassBase):
 
         if irrigation_time_min > duration_min:
            self.my_notify(" ERROR irrigation time is high {} min ".format(irrigation_time_min))
+           self.log(" ERROR irrigation time is high {} min ".format(irrigation_time_min)) #logging error
            irrigation_time_min = duration_min
 
         self.start_tap(tap, irrigation_time_min * 60, "timer",True)

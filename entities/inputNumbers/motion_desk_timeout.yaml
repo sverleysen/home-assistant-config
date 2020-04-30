@@ -1,0 +1,6 @@
+motion_desk_timeout:
+  name: Licht bureau timeout
+  min: 0
+  max: 15
+  step: 1
+  unit_of_measurement: 'min'

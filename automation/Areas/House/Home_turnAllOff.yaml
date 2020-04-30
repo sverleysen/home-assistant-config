@@ -63,7 +63,32 @@
       - switch.ikea_tuinhuis_1
       # - switch.kerstboom
       # - switch.kerstverlichting_trap
-      
+  - service: light.turn_off
+    entity_id:
+      - light.badkamer
+      - light.bureau
+      - light.dressing
+      - light.eethoek
+      - light.inkomhal
+      - light.keuken_eiland
+      - light.keuken_kast
+      - light.living_staande_lamp
+      - light.living
+      - light.slaapkamer_lyo
+      - light.toilet
+      - light.waskot
+      - light.zolder
+  - service: media_player.turn_off
+    entity_id:
+      - media_player.badkamer
+      - media_player.slaapkamer
+      - media_player.keuken
+      - media_player.google_keuken
+  - service: switch.turn_off
+    entity_id:
+      - switch.ikea_tuinhuis_1
+      # - switch.kerstboom
+      # - switch.kerstverlichting_trap
   - delay:
       minutes: 5
   - service: light.turn_off

@@ -134,7 +134,7 @@ class WeatherIrrigarion(RestoreEntity):
 
         async_track_utc_time_change(
                hass, self._async_update_last_day,
-                hour = 21, minute = sync_min, second = 0)
+                hour = 19, minute = sync_min, second = 0)
 
         if (self._type != TYPE_EV_RAIN_BUCKET):
           async_track_utc_time_change(

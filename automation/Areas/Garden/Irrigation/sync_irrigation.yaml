@@ -1,0 +1,9 @@
+- alias: Sync irrigation to water pump
+  trigger:
+  - entity_id: input_boolean.wbi_p1
+    platform: state
+  action:
+  - data:
+      entity_id: switch.ikea_tuinhuis_2
+    service_template: >
+        homeassistant.turn_{{ trigger.to_state.state }}

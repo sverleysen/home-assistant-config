@@ -16,32 +16,43 @@ cards:
     - type: vertical-stack
       cards:
       - type: glance
-        columns: 3
+        columns: 5
         entities:
-
           - entity: sensor.wb_irrigation_p1
             name: Water queue
-          - entity: sensor.wbi_p1_hours
-            name: Hours On Last 7 Days
-          - entity: variable.wbi_last_duration_p1
-            name: Total Time On
+          - entity: sensor.wb_irrigation_fao56
+            name: Evaporation
+          - entity: input_number.wbi_p1_scheduled_duration
+            name: Schedule
           - entity: sensor.wb_irrigation_rain
             name: Rain Last Hour
           - entity: sensor.wb_irrigation_rain_day
             name: Rain today 
+      - type: glance
+        columns: 5
+        entities:
+          - entity: sensor.history_stats_wbi_today
+            name: Vandaag
+          - entity: sensor.history_stats_wbi_yesterday
+            name: Gisteren
+          - entity: sensor.history_stats_wbi_week
+            name: Deze week
+          - entity: sensor.history_stats_wbi_month
+            name: Deze maand
+          - entity: sensor.history_stats_wbi_year
+            name: Dit jaar
           # - entity: sensor.br_rain_last_hour
           #   name: Rain Last Hour (br)
           # - entity: sensor.br_rain_last_24h
-          #   name: Rain today (br)
+          #   name: Rain today (br)  
       - type: entities
         title: Settings
         show_header_toggle: false
         entities:
           - entity: switch.ikea_tuinhuis_2
             name: Water Pump
+          - input_boolean.wbi_p1
           - input_boolean.wbi_enabled
-          - entity: sensor.wb_irrigation_fao56
-            name: Evaporation
           - entity: input_number.wbi_p1_duration
             name: Manual Duration
           - entity: input_number.wbi_week_p1_duration

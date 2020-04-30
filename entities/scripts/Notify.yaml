@@ -15,7 +15,7 @@ notify:
   sequence:
     - service: notify.file_logger
       data_template:
-        message: "{{now().strftime('%H:%M:%S')}} {{title}} - {{ message }}"
+        message: "{{now().strftime('%d/%m/%Y %H:%M:%S')}} {{title}} - {{ message }}"
     - service: notify.all_devices
       data_template:
         title: "{{ title }}"

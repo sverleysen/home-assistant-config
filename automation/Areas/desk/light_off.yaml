@@ -4,6 +4,9 @@
     - platform: state
       entity_id:
         - binary_sensor.bureau
+      to: 'off'
+      for:
+        minutes: "{{ states('input_number.motion_desk_timeout')|int }}"
   condition:
     - condition: state
       entity_id: input_boolean.motion
