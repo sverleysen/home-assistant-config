@@ -100,14 +100,16 @@ cards:
           action: toggle
         hold_action:
           action: more-info
-  - type: entities
-    entities:
-      - vacuum.roomba
-      - sensor.roomba_on_today
-      - sensor.roomba_battery_level
-      - binary_sensor.roomba_bin_full
-    title: Stofzuigen
-    show_header_toggle: false
+  - type: custom:xiaomi-vacuum-card
+    entity: vacuum.roomba
+    name: Stofzuiger
+    image: false
+    vendor: roomba  
+  # - type: entities
+  #   entities:
+  #     - sensor.roomba_on_today
+  #   title: Stofzuigen
+  #   show_header_toggle: false
   - name: Temperatuur
     type: sensor
     entity: sensor.living
@@ -120,3 +122,25 @@ cards:
     graph: line
     hours_to_show: 8
     detail: 2
+  - type: thermostat
+    entity: climate.living
+  - type: 'custom:simple-thermostat'
+    entity: climate.living
+    step_size: 0.5
+    sensors:
+      - entity: sensor.power_monitor_3_power
+        name: Power usage
+      - entity: sensor.power_monitor_3_daily_energy
+        name: Energy today
+      - attribute: min_temp
+        name: Min temp
+    control:
+      hvac:
+        some_mode: false
+        another_mode: false
+        'off':
+          name: false
+          icon: mdi:radiator-off
+        'on':
+          name: false
+          icon: mdi:whitewalker

@@ -1,0 +1,6 @@
+climate.living:
+  expose: true
+  name: Verwarming
+  aliases:
+    - Chauffage  
+  room: Living

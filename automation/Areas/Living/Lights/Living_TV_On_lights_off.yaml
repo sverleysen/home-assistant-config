@@ -29,7 +29,7 @@
           {{ state_attr('sensor.circadian_values', 'colortemp') | int }}
         brightness_pct: >-
           {{ state_attr('switch.circadian_lighting_living', 'brightness') | int }}
-        transition: 5
+        transition: 60
     - service: switch.turn_on
       data:
         entity_id: switch.circadian_lighting_living

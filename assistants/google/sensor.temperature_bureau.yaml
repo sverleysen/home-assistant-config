@@ -1,3 +1,0 @@
-sensor.temperature_bureau:
-  expose: false
-  room: Bureau

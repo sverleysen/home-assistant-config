@@ -1,0 +1,3 @@
+sensor.living_2:
+  expose: true
+  room: Living

@@ -3,6 +3,8 @@ automations_all_off:
   icon: mdi:toggle-switch-off-outline
   entities:
     - switch.alles_uit
+    - input_boolean.all_back_on
+    - automation.reset_all_back_on
     - automation.turn_all_off
     - automation.turn_all_back_on
     - automation.alles_uit_off_after_1_sec

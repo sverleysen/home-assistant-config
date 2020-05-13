@@ -26,11 +26,14 @@ cards:
               title: Wie is thuis
               show_state: false
               show_name: true
-          - type: custom:weather-card
+          # - type: custom:weather-card
+          #   entity: weather.openweathermap
+          #   current: true
+          #   details: false
+          #   forecast: true
+          - type: weather-forecast
             entity: weather.openweathermap
-            current: true
-            details: false
-            forecast: true
+            name: Weer
           - type: entity-filter
             show_empty: false
             entities:
@@ -107,12 +110,17 @@ cards:
         cards:
           - type: vertical-stack
             cards:
-              - type: entities
-                entities:
-                  - vacuum.roomba
-                  - binary_sensor.roomba_bin_full
-                title: Stofzuigen
-                show_header_toggle: false
+              - type: custom:xiaomi-vacuum-card
+                entity: vacuum.roomba
+                name: Stofzuiger
+                image: false
+                vendor: roomba
+              # - type: entities
+              #   entities:
+              #     - vacuum.roomba
+              #     - binary_sensor.roomba_bin_full
+              #   title: Stofzuigen
+              #   show_header_toggle: false
               - type: entity-filter
                 show_empty: false
                 entities:

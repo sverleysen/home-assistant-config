@@ -1,3 +1,3 @@
-sensor.temperature_17:
+sensor.slaapkamer_lyo_2:
   expose: true
   room: Slaapkamer Lyo

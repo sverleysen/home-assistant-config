@@ -2,6 +2,6 @@ roomba:
   - host: !secret ip_roomba
     blid: !secret roomba_username
     password: !secret roomba_password
-    continuous: True
-    # continuous: False
-    # delay: 120
+    # continuous: True
+    continuous: False
+    delay: 120

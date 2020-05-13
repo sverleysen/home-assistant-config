@@ -1,0 +1,15 @@
+- alias: Reset all back on
+  trigger:
+  - entity_id: input_boolean.all_back_on
+    from: 'off'
+    platform: state
+    to: 'on'
+    for:
+      minutes: 1
+  condition: 
+    - condition: state
+      entity_id: input_boolean.all_back_on
+      state: 'on'
+  action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.all_back_on

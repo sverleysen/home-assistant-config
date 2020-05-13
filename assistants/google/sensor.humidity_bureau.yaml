@@ -1,3 +1,0 @@
-sensor.humidity_bureau:
-  expose: false
-  room: Bureau

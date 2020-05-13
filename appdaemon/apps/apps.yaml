@@ -9,14 +9,14 @@ wb_irrigation:
   taps:
     - name: p1
       days:
-      - 1
+      # - 1
       - 2
-      - 3
-      - 4
+      # - 3
+      # - 4
       - 5
-      - 6
-      - 7
-      stime: "21:30:00"
+      # - 6
+      # - 7
+      stime: "05:30:00"
       m_week_duration_min: input_number.wbi_week_p1_duration
       switch: input_boolean.wbi_p1
       manual_duration: input_number.wbi_p1_duration

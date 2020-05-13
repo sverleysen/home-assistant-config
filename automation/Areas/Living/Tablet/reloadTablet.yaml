@@ -1,6 +1,6 @@
 - alias: reload tablet screen
   trigger:
     - platform: time_pattern
-      minutes: '/30'
+      minutes: '/60'
   action:
     service: rest_command.reload_tablet

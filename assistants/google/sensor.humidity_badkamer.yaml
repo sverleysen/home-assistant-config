@@ -1,3 +1,0 @@
-sensor.humidity_badkamer:
-  expose: false
-  room: Badkamer

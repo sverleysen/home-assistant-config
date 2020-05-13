@@ -5,8 +5,9 @@
     platform: state
     to: 'on'
   condition: 
-  - condition: template
-    value_template: '{{ (now() - states.automation.turn_all_off.attributes.last_triggered).total_seconds() | int <= 60}}'
+    - condition: state
+      entity_id: input_boolean.all_back_on
+      state: 'on'
   action:
   - service: scene.turn_on
     entity_id: scene.voor_alles_uit

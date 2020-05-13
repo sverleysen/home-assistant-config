@@ -5,9 +5,12 @@
     platform: state
     to: 'on'
   condition: 
-  - condition: template
-    value_template: '{{ (now() - states.automation.turn_all_off.attributes.last_triggered).total_seconds() | int > 60}}'
+  - condition: state
+    entity_id: input_boolean.all_back_on
+    state: 'off'
   action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.all_back_on
   - service: switch.turn_off
     entity_id:
       - switch.alles_uit
@@ -30,13 +33,15 @@
         - light.zolder
         - media_player.badkamer
         - media_player.slaapkamer
-        - media_player.keuken
         - media_player.google_keuken
         - switch.ikea_tuinhuis_1
+        - switch.power_monitor_3_switch
         # - switch.kerstboom
         # - switch.kerstverlichting_trap
         - light.slaapkamer_sen_en_sofie
         - light.nachtlamp
+  - delay:
+      seconds: 1
   - service: light.turn_off
     entity_id:
       - light.badkamer
@@ -52,15 +57,17 @@
       - light.toilet
       - light.waskot
       - light.zolder
+  - delay:
+      seconds: 1
   - service: media_player.turn_off
     entity_id:
       - media_player.badkamer
       - media_player.slaapkamer
-      - media_player.keuken
       - media_player.google_keuken
   - service: switch.turn_off
     entity_id:
       - switch.ikea_tuinhuis_1
+      - switch.power_monitor_3_switch
       # - switch.kerstboom
       # - switch.kerstverlichting_trap
   - service: light.turn_off
@@ -78,11 +85,27 @@
       - light.toilet
       - light.waskot
       - light.zolder
+  - delay:
+      seconds: 1
+  - service: light.turn_off
+    entity_id:
+      - light.badkamer
+      - light.bureau
+      - light.dressing
+      - light.eethoek
+      - light.inkomhal
+      - light.keuken_eiland
+      - light.keuken_kast
+      - light.living_staande_lamp
+      - light.living
+      - light.slaapkamer_lyo
+      - light.toilet
+      - light.waskot
+      - light.zolder
   - service: media_player.turn_off
     entity_id:
       - media_player.badkamer
       - media_player.slaapkamer
-      - media_player.keuken
       - media_player.google_keuken
   - service: switch.turn_off
     entity_id:
