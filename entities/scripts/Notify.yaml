@@ -29,6 +29,9 @@ notify:
           priority: high
     - condition: template
       value_template: '{{ tts }}'
+    - condition: state
+      entity_id: input_boolean.tts
+      state: 'on'
     - service: rest_command.tablet_tts
       data_template:
         message: "{{ message }}"

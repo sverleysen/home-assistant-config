@@ -1,0 +1,11 @@
+- alias: Night Mode on
+  trigger:
+  - entity_id: input_boolean.nightmode
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.motion
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.tts
