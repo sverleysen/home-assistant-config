@@ -1,7 +1,7 @@
 - alias: Start Charging Tablet
   trigger:
     platform: numeric_state
-    entity_id: sensor.tablet_battery
+    entity_id: sensor.battery_level_2
     below: 50
   condition:
     - condition: state

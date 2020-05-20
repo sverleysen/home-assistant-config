@@ -16,6 +16,10 @@ notify_action:
       description: "de title van de action in de notification"
       example: "Stop de sproiers!"
   sequence:
+    - service: notify.all_devices
+      data_template:
+        title: "{{ title }}"
+        message: "{{now().strftime('%H:%M:%S')}} {{ message }}"
     - service: notify.all_android_devices
       data_template:
         title: "{{ title }}"

@@ -37,6 +37,20 @@ cards:
           - type: entity-filter
             show_empty: false
             entities:
+              - entity: input_boolean.mail
+                tap_action:
+                  action: toggle
+            state_filter:
+              - "on"
+            card:
+              type: glance
+              title: Is er post
+              show_state: false
+              show_name: true
+              columns: 1
+          - type: entity-filter
+            show_empty: false
+            entities:
               - entity: light.badkamer
                 tap_action:
                   action: toggle

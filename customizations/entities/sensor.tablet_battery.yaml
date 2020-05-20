@@ -1,2 +1,2 @@
-sensor.tablet_battery:
+sensor.battery_level_2:
   device_class: battery

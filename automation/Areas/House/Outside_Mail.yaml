@@ -1,0 +1,20 @@
+- alias: outside_mail
+  description: Melding als er post is
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.brievenbus
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.mail
+      state: 'off'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id:
+          - input_boolean.mail
+    - service: script.notify
+      data:
+        title: "Post"
+        message: "Er is post!"
+        tts: false

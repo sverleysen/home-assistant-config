@@ -31,7 +31,7 @@ cards:
         - binary_sensor.ping_binary_sensor_internet
         # - sensor.internet_down
         # - sensor.router_down
-        - sensor.tablet_battery
+        - sensor.battery_level_2
       show_header_toggle: false
       title: HASS.IO
   - type: horizontal-stack

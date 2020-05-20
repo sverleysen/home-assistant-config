@@ -1,0 +1,19 @@
+- alias: IrrigationPlanned
+  trigger:
+    - platform: time
+      at: "19:30:00"
+  condition:
+    - condition: numeric_state
+      above: 1
+      entity_id: input_number.wbi_p1_scheduled_duration
+    - condition: time
+      weekday:
+        - sun
+        - tue
+        - thu
+        - fri
+  action:
+  - service: script.notify
+    data:
+      title: "Irrigation"
+      message: "Morgenvroeg gaan de sproeiers aan, staat alles goed?"
