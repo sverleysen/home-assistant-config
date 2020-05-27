@@ -112,14 +112,13 @@
       - switch.ikea_tuinhuis_1
       # - switch.kerstboom
       # - switch.kerstverlichting_trap
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.nightmode
   - delay:
       minutes: 5
   - service: light.turn_off
     entity_id:
       - light.slaapkamer_sen_en_sofie
       # - light.nachtlamp
-  - condition: time
-    after: '21:00:00'
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.nightmode
+  
 

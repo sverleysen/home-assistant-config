@@ -13,8 +13,12 @@
       data:
         entity_id:
           - input_boolean.mail
-    - service: script.notify
+    - service: camera.snapshot
       data:
-        title: "Post"
-        message: "Er is post!"
-        tts: false
+        entity_id: camera.oprit
+        filename: '/config/www/camera_snapshots/oprit.jpg'
+    - service: script.notify_alarm
+      data_template:
+        title: Post
+        message: Er is post
+        picture_url: "/local/camera_snapshots/oprit.jpg"
