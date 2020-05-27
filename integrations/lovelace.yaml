@@ -25,6 +25,8 @@ lovelace:
       type: module
     - url: /hacsfiles/simple-thermostat/simple-thermostat.js
       type: module
+    - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
+      type: module
   dashboards:
     lovelace-automations: # Needs to contain a hyphen (-)
       mode: yaml

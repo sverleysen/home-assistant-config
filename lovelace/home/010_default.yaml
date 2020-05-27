@@ -33,6 +33,7 @@ cards:
           #   forecast: true
           - type: weather-forecast
             entity: weather.openweathermap
+            secondary_info_attribute: false
             name: Weer
           - type: entity-filter
             show_empty: false

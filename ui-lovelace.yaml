@@ -2,6 +2,12 @@ custom_header:
   compact_mode: true
   hide_header: false
 
+swipe_nav:
+  wrap: true
+  animate: swipe
+  prevent_default: false
+  swipe_amount: 30
+
 title: Home
 views:
   - !include lovelace/home/010_default.yaml
