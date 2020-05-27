@@ -17,5 +17,5 @@
     - service: script.notify_alarm
       data_template:
         title: Alarm
-        message: Beweging in de dressing
+        message: Beweging in het waskot
         picture_url: "/local/camera_snapshots/oprit.jpg"
