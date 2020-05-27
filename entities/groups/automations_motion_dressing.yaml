@@ -4,6 +4,7 @@ automations_motion_dressing:
   entities:
     - input_boolean.motion_dressing
     - input_number.motion_dressing_lux
+    - input_number.motion_dressing_timeout
     - binary_sensor.dressing
     - sensor.dressing
     - light.dressing

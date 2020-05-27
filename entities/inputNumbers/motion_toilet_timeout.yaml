@@ -1,6 +1,6 @@
 motion_toilet_timeout:
   name: Licht toilet timeout
   min: 0
-  max: 15
-  step: 1
-  unit_of_measurement: 'min'
+  max: 120
+  step: 5
+  unit_of_measurement: 'sec'

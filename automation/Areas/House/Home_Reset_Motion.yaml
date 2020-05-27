@@ -1,0 +1,18 @@
+- alias: home_reset_motion
+  description: De beweging resetten na 5 seconden
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.bureau
+        - binary_sensor.dressing
+        - binary_sensor.toilet
+        - binary_sensor.inkom
+        - binary_sensor.waskot
+      to: 'on'
+      for:
+        seconds: 10
+  action:
+    - service: python_script.set_state
+      data_template:
+        state: "off"
+        entity_id: "{{ trigger.entity_id }}"

@@ -4,6 +4,7 @@ automations_motion_waskot:
   entities:
     - input_boolean.motion_waskot
     - input_number.motion_waskot_lux
+    - input_number.motion_waskot_timeout
     - binary_sensor.waskot
     - sensor.waskot
     - light.waskot

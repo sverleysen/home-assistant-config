@@ -4,6 +4,9 @@
     - platform: state
       entity_id:
         - binary_sensor.waskot
+      to: 'off'
+      for:
+        seconds: "{{ states('input_number.motion_waskot_timeout')|int }}"
   condition:
     - condition: state
       entity_id: input_boolean.motion

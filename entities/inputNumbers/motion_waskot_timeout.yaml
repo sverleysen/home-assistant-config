@@ -1,5 +1,5 @@
-motion_desk_timeout:
-  name: Licht bureau timeout
+motion_waskot_timeout:
+  name: Licht waskot timeout
   min: 0
   max: 120
   step: 5
