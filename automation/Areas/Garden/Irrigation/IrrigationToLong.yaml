@@ -15,5 +15,5 @@
     data:
       title: "Irrigation"
       message: "De spoeiers staan te lang aan!!!"
-      tts: true
+      tts: false
        
