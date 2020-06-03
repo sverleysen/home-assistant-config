@@ -1,18 +1,49 @@
+# - alias: home_reset_motion
+#   description: De beweging resetten na 5 seconden
+#   trigger:
+#     - platform: state
+#       entity_id:
+#         - binary_sensor.bureau
+#         - binary_sensor.dressing
+#         - binary_sensor.toilet
+#         - binary_sensor.inkom
+#         - binary_sensor.waskot
+#       to: 'on'
+#       for:
+#         seconds: 10
+#   action:
+#     - service: python_script.set_state
+#       data_template:
+#         state: "off"
+#         entity_id: "{{ trigger.entity_id }}"
 - alias: home_reset_motion
-  description: De beweging resetten na 5 seconden
+  description: 'Xiaomi Aqara Motion Sensors duration fix'
   trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.bureau
-        - binary_sensor.dressing
-        - binary_sensor.toilet
-        - binary_sensor.inkom
-        - binary_sensor.waskot
-      to: 'on'
-      for:
-        seconds: 10
+    - platform: homeassistant
+      event: start
   action:
-    - service: python_script.set_state
-      data_template:
-        state: "off"
-        entity_id: "{{ trigger.entity_id }}"
+    - service: deconz.configure
+      data:
+        entity: binary_sensor.bureau
+        field: "/config"
+        data: {"duration": 5}
+    - service: deconz.configure
+      data:
+        entity: binary_sensor.dressing
+        field: "/config"
+        data: {"duration": 5}
+    - service: deconz.configure
+      data:
+        entity: binary_sensor.toilet
+        field: "/config"
+        data: {"duration": 5}
+    - service: deconz.configure
+      data:
+        entity: binary_sensor.inkom
+        field: "/config"
+        data: {"duration": 5}
+    - service: deconz.configure
+      data:
+        entity: binary_sensor.waskot
+        field: "/config"
+        data: {"duration": 5}
