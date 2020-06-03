@@ -1,9 +1,8 @@
 chromecast_tv_lyo:
-  name: 'TV Lyo:'
+  name: 'TV Lyo'
   options:
     - Living
     - Slaapkamer
     - Zolder
     - Keuken
-  initial: Zolder
   icon: mdi:television
