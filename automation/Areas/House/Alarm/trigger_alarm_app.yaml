@@ -1,0 +1,12 @@
+- alias: house_trigger_alarm
+  description: Alarm laten afgaan
+  trigger:
+    platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: alarm
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      data: 
+        entity_id: alarm_control_panel.home_alarm
+        code: !secret alarm_code

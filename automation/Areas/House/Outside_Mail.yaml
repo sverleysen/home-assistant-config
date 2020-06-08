@@ -3,6 +3,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.brievenbus
+      from: 'off'
       to: 'on'
   condition:
     - condition: state
@@ -13,12 +14,8 @@
       data:
         entity_id:
           - input_boolean.mail
-    - service: camera.snapshot
-      data:
-        entity_id: camera.oprit
-        filename: '/config/www/camera_snapshots/oprit.jpg'
     - service: script.notify_alarm
       data_template:
         title: Post
         message: Er is post
-        picture_url: "/local/camera_snapshots/oprit.jpg"
+        camera: oprit

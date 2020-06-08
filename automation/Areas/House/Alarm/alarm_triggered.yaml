@@ -1,10 +1,9 @@
-- alias: house_sound_alarm
-  description: Alarm laten afgaan
+- alias: house_alarm_triggerd
+  description: Alarm wordt getriggerd
   trigger:
-    platform: event
-    event_type: mobile_app_notification_action
-    event_data:
-      action: alarm
+  - entity_id: alarm_control_panel.home_alarm
+    platform: state
+    to: triggered
   action:
     - service: notify.mobile_app_oneplus_sen
       data:

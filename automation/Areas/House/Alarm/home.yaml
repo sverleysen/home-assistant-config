@@ -1,0 +1,25 @@
+- alias: house_alarm_home
+  trigger:
+  - entity_id: group.persons
+    platform: state
+    to: home
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: alarm_control_panel.home_alarm
+          state: arming
+        - condition: state
+          entity_id: alarm_control_panel.home_alarm
+          state: armed_away
+        - condition: state
+          entity_id: alarm_control_panel.home_alarm
+          state: armed_home
+        - condition: state
+          entity_id: alarm_control_panel.home_alarm
+          state: triggered
+  action:
+  - service: alarm_control_panel.alarm_disarm
+    data:
+      entity_id: alarm_control_panel.home_alarm
+      code: !secret alarm_code

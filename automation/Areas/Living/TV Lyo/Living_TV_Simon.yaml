@@ -1,16 +1,16 @@
-- alias: TV Living PowPatrol
+- alias: TV Living Simon
   initial_state: 'on'
   trigger:
     - platform: event
       event_type: deconz_event
       event_data:
         id: tv_living
-        event: 5001 # hold
+        event: 2001 # hold
     - platform: event
       event_type: deconz_event
       event_data:
         id: tv_living
-        event: 5002 # short
+        event: 2002 # short
   condition:
     condition: and
     conditions:
@@ -33,9 +33,19 @@
           {% endif %}
         media_content_id: >-
           {{ [
-            "https://www.youtube.com/watch?v=Lm91EG11m48",
-            "https://www.youtube.com/watch?v=SZ_pFe-s5U8",
-            "https://www.youtube.com/watch?v=YH22VEgCDyg",
-            "https://www.youtube.com/watch?v=QZzgu88VhXQ"
+              "https://www.youtube.com/watch?v=K_--YXaZS7w",
+              "https://www.youtube.com/watch?v=15jD8I-uQrc",
+              "https://www.youtube.com/watch?v=OgjPVsljCsA",
+              "https://www.youtube.com/watch?v=vqzeg0QxC3s",
+              "https://www.youtube.com/watch?v=3nTsgcZLx2I",
+              "https://www.youtube.com/watch?v=HK0zSWxMZEA",
+              "https://www.youtube.com/watch?v=R6mJKUCnPjk",
+              "https://www.youtube.com/watch?v=x8jsiJcijm8",
+              "https://www.youtube.com/watch?v=MTXi7hMIXHU",
+              "https://www.youtube.com/watch?v=aqN0lXnNIio",
+              "https://www.youtube.com/watch?v=__uMcuHmngg",
+              "https://www.youtube.com/watch?v=nEEZw7oW1kM",
+              "https://www.youtube.com/watch?v=JaSFG2rA1TY",
+              "https://www.youtube.com/watch?v=4FHunE6-V00"
             ] | random 
           }}

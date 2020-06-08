@@ -15,11 +15,15 @@
     - service: switch.turn_off
       data:
         entity_id: switch.circadian_lighting_living
+    - service: switch.turn_off
+      data:
+        entity_id: switch.circadian_lighting_kitchen
     - service: light.turn_off
       entity_id: 
         - light.living_staande_lamp_1
         - light.living_staande_lamp_2
         - light.living_staande_lamp_3
+        - light.wled
       data:
         transition: 15
     - service: light.turn_on

@@ -1,0 +1,12 @@
+- alias: house_alarm_arm_app
+  description: Alarm aan via app
+  trigger:
+    platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: TurnAlarmOn
+  action:
+  - service: alarm_control_panel.alarm_arm_away
+    data:
+      entity_id: alarm_control_panel.home_alarm
+      code: !secret alarm_code

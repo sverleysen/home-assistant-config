@@ -1,0 +1,14 @@
+- alias: house_alarm_triggerd_stopped
+  description: Getriggerd alarm stopt
+  trigger:
+  - entity_id: alarm_control_panel.home_alarm
+    platform: state
+    from: triggered
+  action:
+    - service: notify.mobile_app_oneplus_sen
+      data:
+        title: Alarm
+        message: alarm gestopt
+        data:
+          ttl: 0
+          priority: high

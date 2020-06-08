@@ -1,16 +1,16 @@
-- alias: TV Living Bumba
+- alias: TV Living Samson En Gert
   initial_state: 'on'
   trigger:
     - platform: event
       event_type: deconz_event
       event_data:
         id: tv_living
-        event: 2001 # hold
+        event: 5001 # hold
     - platform: event
       event_type: deconz_event
       event_data:
         id: tv_living
-        event: 2002 # short
+        event: 5002 # short
   condition:
     condition: and
     conditions:
@@ -33,11 +33,18 @@
           {% endif %}
         media_content_id: >-
           {{ [
-            "https://www.youtube.com/watch?v=gScqV-By3Xc&t=1s",
-            "https://www.youtube.com/watch?v=abfLZW5rqDQ&t=1s",
-            "https://www.youtube.com/watch?v=FLuC2y4DczA&t=1s",
-            "https://www.youtube.com/watch?v=OOpXpxJjtrw&t=1s",
-            "https://www.youtube.com/watch?v=v7nzdy7ot5M&t=1s",
-            "https://www.youtube.com/watch?v=C31E5BJuIXI&t=1s"
+            "https://www.youtube.com/watch?v=Psr9bQ0_P8I",
+            "https://www.youtube.com/watch?v=iwyzwCU0P-o",
+            "https://www.youtube.com/watch?v=DFbwFCyF-rY",
+            "https://www.youtube.com/watch?v=GXPkXmTzJ_o"
+            "https://www.youtube.com/watch?v=oBqaVJ3CKoM",
+            "https://www.youtube.com/watch?v=FYPyfSMXM7w",
+            "https://www.youtube.com/watch?v=m1oZ-TP-OKo",
+            "https://www.youtube.com/watch?v=jR5JwiY6PCg",
+            "https://www.youtube.com/watch?v=oMyC5uJS474",
+            "https://www.youtube.com/watch?v=5YA5IMPe7e8",
+            "https://www.youtube.com/watch?v=Qx20Py866F4",
+            "https://www.youtube.com/watch?v=csECaXI6_n4",
+            "https://www.youtube.com/watch?v=MwItAI3eCYQ"
             ] | random 
           }}

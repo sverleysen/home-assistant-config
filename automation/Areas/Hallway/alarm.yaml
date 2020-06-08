@@ -7,15 +7,11 @@
       to: 'on'
   condition:
     - condition: state
-      entity_id: group.persons
-      state: 'not_home'
+      entity_id: alarm_control_panel.home_alarm
+      state: 'armed_away'
   action:
-    - service: camera.snapshot
-      data:
-        entity_id: camera.oprit
-        filename: '/config/www/camera_snapshots/oprit.jpg'
     - service: script.notify_alarm
       data_template:
         title: Alarm
         message: Beweging in de inkom
-        picture_url: "/local/camera_snapshots/oprit.jpg"
+        camera: oprit

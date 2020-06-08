@@ -1,0 +1,20 @@
+- alias: house_alarm_all_gone
+  trigger:
+  - entity_id: person.sen, person.sofie, person.kelsey, person.carine, person.peter, person.moeke, person.edgard
+    platform: state
+    to: not_home
+  condition:
+    - condition: state
+      entity_id: group.persons
+      state: not_home
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: disarmed
+  action:
+  - service: script.notify_action
+    data:
+      title: "Alarm"
+      message: "Iedereen is weg, moet ik het alarm aan zetten?"
+      action: "TurnAlarmOn"
+      action_title: "Zet het alarm aan"
+      

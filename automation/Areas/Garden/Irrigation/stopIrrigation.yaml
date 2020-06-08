@@ -1,5 +1,5 @@
 - alias: garden_stop_irrigation
-  description: Stop de sproiers
+  description: Stop de sproeiers
   trigger:
     platform: event
     event_type: mobile_app_notification_action
