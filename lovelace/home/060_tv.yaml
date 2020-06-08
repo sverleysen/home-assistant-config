@@ -20,11 +20,11 @@ cards:
     entities:
       - entity: automation.tv_living_bing
         secondary_info: last-triggered
-      - entity: automation.tv_living_bumba
+      - entity: automation.tv_living_simon
         secondary_info: last-triggered
       - entity: automation.tv_living_pepa_pig
         secondary_info: last-triggered
-      - entity: automation.tv_living_powpatrol
+      - entity: automation.tv_living_samson_en_gert
         secondary_info: last-triggered
       - entity: automation.tv_living_cocomelon
         secondary_info: last-triggered

@@ -1,0 +1,22 @@
+platform: group
+name: Lichten alarm
+entities:
+  - light.inkomhal
+  - light.waskot
+  - light.toilet
+  - light.living
+  - light.living_staande_lamp
+  - light.eethoek
+  - light.keuken_eiland
+  - light.keuken_kast
+  - light.bureau
+  - light.dressing
+  - light.slaapkamer_sen_en_sofie
+  - light.badkamer
+  - light.zolder
+  - light.trap
+  - light.vooraan
+  - light.zijgevel
+  - light.achteraan
+  - light.led_strip
+  - light.spot

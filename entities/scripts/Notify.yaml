@@ -27,11 +27,7 @@ notify:
         data:
           ttl: 0
           priority: high
-    - condition: template
-      value_template: '{{ tts }}'
-    - condition: state
-      entity_id: input_boolean.tts
-      state: 'on'
-    - service: rest_command.tablet_tts
+    - service: script.notify_tts
       data_template:
-        message: "{{ message }}"
+        message:  "{{ message }}"
+        tts: "{{ tts }}"

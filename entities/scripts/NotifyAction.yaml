@@ -14,7 +14,7 @@ notify_action:
       example: "StopIrrigation"
     action_title:
       description: "de title van de action in de notification"
-      example: "Stop de sproiers!"
+      example: "Stop de sproeiers!"
   sequence:
     - service: notify.all_devices
       data_template:

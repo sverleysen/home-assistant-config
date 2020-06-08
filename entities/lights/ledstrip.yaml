@@ -1,0 +1,3 @@
+platform: switch
+name: Led strip
+entity_id: switch.ikea_tuinhuis_3

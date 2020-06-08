@@ -1,0 +1,3 @@
+platform: switch
+name: Spot
+entity_id: switch.ikea_tuinhuis_1

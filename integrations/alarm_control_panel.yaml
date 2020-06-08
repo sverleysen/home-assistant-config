@@ -2,6 +2,8 @@ alarm_control_panel:
   - platform: manual
     name: Home Alarm
     code: !secret alarm_code
+    delay_time: 5 #time between tiggering the alarm and state to changed to triggerd
+    trigger_time: 300 # how long does the alarm needs to go off  
     # pending_time: 30
     # delay_time: 20
     # trigger_time: 4

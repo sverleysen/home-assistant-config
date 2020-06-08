@@ -1,0 +1,20 @@
+notify_tts:
+  alias: Notify TTS
+  icon: mdi:bell-ring
+  description: 'Notify using TTS'
+  fields:
+    message:
+      description: 'De melding die gestuurd moet worden'
+      example: "Test melding"
+    tts:
+      description: "moet TTS gebruikt worden?"
+      example: false
+  sequence:
+    - condition: template
+      value_template: '{{ tts }}'
+    - condition: state
+      entity_id: input_boolean.tts
+      state: 'on'
+    - service: rest_command.tablet_tts
+      data_template:
+        message: "{{ message }}"

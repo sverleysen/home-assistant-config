@@ -9,10 +9,14 @@ notify_alarm:
     title:
       description: 'De titel van de melding'
       example: "Test titel"
-    picture_url:
-      description: 'De url naar de screenshot van de camera'
-      example: "/local/camera_snapshots/bureau.jpg"
+    camera:
+      description: 'De naam van de camera'
+      example: "bureau"
   sequence:
+    - service: camera.snapshot
+      data_template:
+        entity_id: "camera.{{camera}}"
+        filename: "/config/www/camera_snapshots/{{camera}}.jpg"
     - service: notify.all_android_devices
       data_template:
         title: "{{ title }}"
@@ -20,7 +24,7 @@ notify_alarm:
         data:
           ttl: 0
           priority: high
-          image: "{{ picture_url }}"
+          image: "/local/camera_snapshots/{{camera}}.jpg"
           actions:
             - action: "alarm"
               title: "Alarm"
