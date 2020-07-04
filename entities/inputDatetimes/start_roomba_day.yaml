@@ -2,4 +2,3 @@ start_roomba_day:
   name: Start Roomba Dag
   has_date: false
   has_time: true
-  initial: "10:00"
