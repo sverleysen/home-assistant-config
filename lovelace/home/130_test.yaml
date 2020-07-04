@@ -3,6 +3,61 @@ title: TEST
 panel: false
 badges: []
 cards:
+  - cards:
+      - entity: light.living_staande_lamp
+        type: light
+      - entities:
+          - entities:
+              - entity: light.living
+                name: Living
+              - entity: media_player.living_room_tv
+                name: TV
+              - entity: sensor.living
+                name: Temperatuur
+              - entity: camera.living
+            head:
+              buttons:
+                - entity: light.living
+                  name: Living
+                - entity: camera.living
+                  name: camera
+                - entity: vacuum.roomba
+              type: 'custom:paper-buttons-row'
+            type: 'custom:fold-entity-row'
+        show_header_toggle: false
+        state_color: true
+        type: entities
+    type: custom:stack-in-card
+    mode: vertical
+  - cards:
+      - entity: light.keuken
+        hold_action:
+          action: more-info
+        show_icon: true
+        show_name: true
+        tap_action:
+          action: toggle
+        type: button
+
+      - entities:
+          - head:
+            buttons:
+              - entity: light.eethoek
+                name: Eethoek
+              - entity: light.keuken_eiland
+                name: Eiland
+              - entity: light.keuken_kast
+                name: Kast
+              - entity: light.wled_keuken
+                name: Ledstrip
+            type: 'custom:paper-buttons-row'
+        show_header_toggle: false
+        state_color: true
+        type: entities
+    type: custom:stack-in-card
+    mode: vertical
+
+
   - type: glance
     entities:
       - entity: sensor.power_monitor_1_daily_energy
@@ -30,4 +85,4 @@ cards:
       - entity: sensor.power_monitor_4_current
       - entity: sensor.power_monitor_4_power
       - entity: sensor.power_monitor_4_voltage
-    title: NAS
+    title: Ventilatie
