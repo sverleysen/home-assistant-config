@@ -6,6 +6,7 @@ cards:
   - type: entities
     entities:
       - switch.bureau
+      - switch.vliegenlamp
       - switch.babyfoon
     title: Stopcontacten Boven
     show_header_toggle: true
