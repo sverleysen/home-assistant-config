@@ -7,8 +7,8 @@ automations_motion_desk:
     - input_number.motion_desk_timeout
     - input_datetime.motion_desk_start
     - input_datetime.motion_desk_end
-    - binary_sensor.bureau
-    - sensor.bureau
+    - binary_sensor.desk
+    - sensor.desk
     - light.bureau
     - automation.desk_lights_off
     - automation.desk_lights_on

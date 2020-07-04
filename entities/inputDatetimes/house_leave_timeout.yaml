@@ -2,4 +2,3 @@ house_leave_timeout:
   name: Timeout iedereen weg
   has_date: false
   has_time: true
-  initial: "0:05"

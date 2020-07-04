@@ -6,4 +6,3 @@ automations_dryer:
     - automation.droogkast_naar_drogen_zetten
     - automation.droogkast_naar_klaar_zetten
     - automation.droogkast_naar_uit_zetten
-    - automation.dryer_done

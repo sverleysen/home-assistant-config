@@ -55,7 +55,7 @@ cards:
               - entity: light.badkamer
                 tap_action:
                   action: toggle
-              - entity: light.wled
+              - entity: light.wled_keuken
                 tap_action:
                   action: toggle
               - entity: light.bureau
@@ -101,6 +101,9 @@ cards:
                 tap_action:
                   action: toggle
               - entity: switch.bureau
+                tap_action:
+                  action: toggle
+              - entity: switch.vliegenlamp
                 tap_action:
                   action: toggle
               - entity: switch.ikea_tuinhuis_1

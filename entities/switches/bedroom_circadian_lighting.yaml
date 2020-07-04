@@ -2,4 +2,6 @@ platform: circadian_lighting
 name: Slaapkamer
 lights_rgb:
   - light.nachtlamp
+disable_entity: light.nachtlamp
+disable_state: 'off'
 # max_brightness: 70

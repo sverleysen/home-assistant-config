@@ -59,6 +59,6 @@ cards:
           - sensor.inkom
           - sensor.waskot
           - sensor.toilet
-          - sensor.bureau
+          - sensor.desk
           - sensor.dressing
 icon: mdi:motion-sensor

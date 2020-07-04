@@ -36,7 +36,7 @@
     - service: script.notify
       data:
         title: "Droogkast"
-        message: "De was is droog!"
+        message: "De droogkast is klaar!"
         tts: true
     
 
@@ -47,7 +47,7 @@
       entity_id: input_select.dryer_status
       to: "Klaar"
       for:
-        minutes: 1
+        seconds: 10
   action:
     - service: input_select.select_option
       data:

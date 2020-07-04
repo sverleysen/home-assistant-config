@@ -14,10 +14,10 @@
         value_template: "{{ states('sensor.ventilatie_on_today')|int > states('input_number.ventilation_min_time_on')|int }}"
       - condition: state
         state: 'on'
-        entity_id: switch.ventilatie
+        entity_id: switch.power_monitor_4_switch
   action:
   - data:
-      entity_id: switch.ventilatie
+      entity_id: switch.power_monitor_4_switch
     service: switch.turn_off
   - service: script.notify
     data_template:

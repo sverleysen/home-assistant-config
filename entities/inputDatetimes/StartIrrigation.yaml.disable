@@ -2,4 +2,3 @@ start_irrigation:
   name: Start Irrigation
   has_date: false
   has_time: true
-  initial: "05:00"

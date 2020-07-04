@@ -3,7 +3,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.bureau
+        - binary_sensor.desk
       to: 'on'
   condition:
     - condition: state

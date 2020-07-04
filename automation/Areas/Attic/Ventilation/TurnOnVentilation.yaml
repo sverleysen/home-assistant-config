@@ -7,10 +7,10 @@
   condition:
     - condition: state
       state: 'off'
-      entity_id: switch.ventilatie
+      entity_id: switch.power_monitor_4_switch
   action:
   - data:
-      entity_id: switch.ventilatie
+      entity_id: switch.power_monitor_4_switch
     service: switch.turn_on
   - service: script.notify
     data_template:

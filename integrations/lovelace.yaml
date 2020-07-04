@@ -1,9 +1,11 @@
 lovelace:
   mode: yaml
   resources:
-    - url: /hacsfiles/mini-media-player/mini-media-player.js
+    - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
       type: module
     - url: /hacsfiles/atomic_calendar/atomic_calendar.js
+      type: module
+    - url: /hacsfiles/calendar-card/calendar-card.js
       type: module
     - url: /hacsfiles/weather-card/weather-card.js
       type: module
@@ -26,6 +28,10 @@ lovelace:
     - url: /hacsfiles/simple-thermostat/simple-thermostat.js
       type: module
     - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
+      type: module
+    - url:  /hacsfiles/stack-in-card/stack-in-card.js
+      type: module
+    - url:  /hacsfiles/lovelace-paper-buttons-row/paper-buttons-row.js
       type: module
   dashboards:
     lovelace-automations: # Needs to contain a hyphen (-)

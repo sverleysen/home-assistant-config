@@ -16,4 +16,28 @@
             {% elif is_state("input_select.music_source", "Radio: MNM") %} http://icecast.vrtcdn.be/mnm-high.mp3
             {% elif is_state("input_select.music_source", "Radio: MNM Hits") %} http://icecast.vrtcdn.be/mnm_hits-high.mp3
             {% endif %}
-           media_content_type: music         
+           media_content_type: music
+      - delay:
+          seconds: 1
+      - service: media_player.media_pause
+        data_template:
+           entity_id: >-
+            {% if is_state("input_select.chromecast_radio", "Overal") %} media_player.home_group
+            {% elif is_state("input_select.chromecast_radio", "Keuken") %} media_player.google_keuken
+            {% elif is_state("input_select.chromecast_radio", "SoundBar") %} media_player.soundbar
+            {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %} media_player.slaapkamer
+            {% elif is_state("input_select.chromecast_radio", "Badkamer") %} media_player.badkamer
+            {% elif is_state("input_select.chromecast_radio", "Boven") %} media_player.boven
+            {% endif %}
+      - delay:  
+          seconds: 1
+      - service: media_player.media_play
+        data_template:
+           entity_id: >-
+            {% if is_state("input_select.chromecast_radio", "Overal") %} media_player.home_group
+            {% elif is_state("input_select.chromecast_radio", "Keuken") %} media_player.google_keuken
+            {% elif is_state("input_select.chromecast_radio", "SoundBar") %} media_player.soundbar
+            {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %} media_player.slaapkamer
+            {% elif is_state("input_select.chromecast_radio", "Badkamer") %} media_player.badkamer
+            {% elif is_state("input_select.chromecast_radio", "Boven") %} media_player.boven
+            {% endif %}

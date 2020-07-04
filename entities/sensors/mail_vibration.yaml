@@ -1,0 +1,7 @@
+platform: template
+sensors:
+  mail_vibration:
+    friendly_name: vibration strength
+    value_template: >-
+        {{ state_attr('binary_sensor.brievenbus', 'vibrationstrength')}} 
+    unit_of_measurement: 'vib'
