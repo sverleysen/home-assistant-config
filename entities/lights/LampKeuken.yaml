@@ -3,3 +3,4 @@ name: Keuken
 entities:
   - light.keuken_eiland
   - light.keuken_kast
+  - light.eethoek
