@@ -1,6 +1,6 @@
 platform: group
 name: living staande lamp
 entities:
-  - light.living_staande_lamp_1
-  - light.living_staande_lamp_2
-  - light.living_staande_lamp_3
+  - light.living_staande_lamp_beneden
+  - light.living_staande_lamp_midden
+  - light.living_staande_lamp_boven
