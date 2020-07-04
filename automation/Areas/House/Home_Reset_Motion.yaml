@@ -3,7 +3,7 @@
 #   trigger:
 #     - platform: state
 #       entity_id:
-#         - binary_sensor.bureau
+#         - binary_sensor.desk
 #         - binary_sensor.dressing
 #         - binary_sensor.toilet
 #         - binary_sensor.inkom
@@ -24,7 +24,7 @@
   action:
     - service: deconz.configure
       data:
-        entity: binary_sensor.bureau
+        entity: binary_sensor.desk
         field: "/config"
         data: {"duration": 5}
     - service: deconz.configure

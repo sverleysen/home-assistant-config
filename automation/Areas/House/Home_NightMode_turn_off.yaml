@@ -5,7 +5,7 @@
       - binary_sensor.inkom
       - binary_sensor.waskot
       - binary_sensor.toilet
-      - binary_sensor.bureau
+      - binary_sensor.desk
       - binary_sensor.dressing
     to: 'on'
   condition:
