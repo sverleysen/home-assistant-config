@@ -81,17 +81,11 @@ cards:
     group_config:
       secondary_info: last-triggered
     entities:
-      - entity: automation.wasmachine_done
-        secondary_info: last-triggered
-      - entity: automation.dryer_done
-        secondary_info: last-triggered
       - entity: automation.everyone_is_gone
         secondary_info: last-triggered
       - entity: automation.someoneishome
         secondary_info: last-triggered
       - entity: automation.someoneisgone
-        secondary_info: last-triggered
-      - entity: automation.internet_was_down
         secondary_info: last-triggered
   - type: custom:fold-entity-row
     head:
