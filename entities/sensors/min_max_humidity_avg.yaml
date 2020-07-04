@@ -1,7 +1,7 @@
 platform: min_max
 name: humidity_avg
 entity_ids:
-    - sensor.badkamaer_2
-    # - sensor.living_2
-    - sensor.slaapkamer_lyo_2
+    - sensor.badkamer_humidity
+    - sensor.living_humidity
+    - sensor.slaapkamer_lyo_humidity
 type: mean

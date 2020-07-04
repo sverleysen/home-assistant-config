@@ -1,8 +1,0 @@
-platform: template
-sensors:
-  window_door_sensor_temp:
-    friendly_name: Temperatuur Window Door sensor
-    value_template: >-
-        {{ state_attr('binary_sensor.window_door_sensor', 'temperature')}} 
-    unit_of_measurement: '°C'
-    device_class: temperature

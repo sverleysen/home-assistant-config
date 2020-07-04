@@ -1,4 +1,0 @@
-platform: generic
-name: "Oprit generic"
-still_image_url: !secret camera_oprit_still_image_url
-stream_source: !secret camera_oprit_stream_source

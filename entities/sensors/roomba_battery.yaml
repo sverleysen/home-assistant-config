@@ -1,7 +1,0 @@
-platform: template
-sensors:
-  roomba_battery:
-    friendly_name: Batterij Roomba
-    value_template: >-
-        {{ state_attr('vacuum.roomba', 'battery_level')}} 
-    unit_of_measurement: '%'

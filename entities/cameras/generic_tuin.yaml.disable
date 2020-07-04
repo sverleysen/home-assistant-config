@@ -1,4 +1,0 @@
-platform: generic
-name: "Tuin generic"
-still_image_url: !secret camera_tuin_still_image_url
-stream_source: !secret camera_tuin_stream_source
