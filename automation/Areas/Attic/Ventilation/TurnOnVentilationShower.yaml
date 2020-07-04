@@ -5,11 +5,11 @@
     above: 70
   condition: 
     condition: state
-    entity_id: switch.ventilatie
+    entity_id: switch.power_monitor_4_switch
     state: 'off'
   action:
   - service: switch.turn_on
-    entity_id: switch.ventilatie
+    entity_id: switch.power_monitor_4_switch
   - service: script.notify
     data:
       title: "ventilation"

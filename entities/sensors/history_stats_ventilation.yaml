@@ -1,6 +1,6 @@
 platform: history_stats
 name: Ventilatie ON today
-entity_id: switch.ventilatie
+entity_id: switch.power_monitor_4_switch
 state: 'on'
 type: time
 start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
