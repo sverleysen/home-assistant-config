@@ -5,8 +5,9 @@ automations_motion_toilet:
     - input_boolean.motion_toilet
     - input_number.motion_toilet_lux
     - input_number.motion_toilet_timeout
-    - binary_sensor.toilet
-    - sensor.toilet
+    - binary_sensor.toilet_ias_zone
+    - binary_sensor.toilet_occupancy
+    - sensor.toilet_illuminance
     - light.toilet
     - automation.toilet_lights_off
     - automation.toilet_lights_on

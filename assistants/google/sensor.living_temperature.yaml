@@ -1,4 +1,3 @@
-sensor.living_temperature
-:
+sensor.living_temperature:
   expose: true
   room: Living

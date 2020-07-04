@@ -1,16 +1,11 @@
 - alias: TV Living Samson En Gert
   initial_state: 'on'
   trigger:
-    - platform: event
-      event_type: deconz_event
-      event_data:
-        id: tv_living
-        event: 5001 # hold
-    - platform: event
-      event_type: deconz_event
-      event_data:
-        id: tv_living
-        event: 5002 # short
+  - device_id: 140d8639400041419415c6d5a0a7f0db
+    domain: zha
+    platform: device
+    subtype: left
+    type: remote_button_short_press
   condition:
     condition: and
     conditions:

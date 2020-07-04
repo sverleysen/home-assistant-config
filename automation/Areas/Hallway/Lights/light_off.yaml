@@ -3,10 +3,8 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.inkom
+        - binary_sensor.inkom_occupancy
       to: 'off'
-      for:
-        seconds: "{{ states('input_number.motion_hallway_timeout')|int }}"
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -14,9 +12,6 @@
     - condition: state
       entity_id: input_boolean.motion_hallway
       state: 'on'
-    - condition: state
-      entity_id: binary_sensor.inkom
-      state: 'off'
   action:
     - service: light.turn_off
       data:

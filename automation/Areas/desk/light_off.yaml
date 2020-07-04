@@ -3,10 +3,8 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.desk
+        - binary_sensor.bureau_occupancy
       to: 'off'
-      for:
-        seconds: "{{ states('input_number.motion_desk_timeout')|int }}"
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -14,9 +12,6 @@
     - condition: state
       entity_id: input_boolean.motion_desk
       state: 'on'
-    - condition: state
-      entity_id: binary_sensor.desk
-      state: 'off'
     - condition: state
       entity_id: calendar.homeoffice
       state: 'off'
@@ -26,7 +21,6 @@
     - condition: template
       value_template: >-
         {{ states('sensor.time') < (state_attr('input_datetime.motion_desk_end', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
-  
   action:
     - service: light.turn_off
       data:

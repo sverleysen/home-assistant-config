@@ -3,7 +3,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.inkom
+        - binary_sensor.inkom_ias_zone
       to: 'on'
   condition:
     - condition: state

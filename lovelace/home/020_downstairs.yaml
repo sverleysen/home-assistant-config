@@ -117,13 +117,13 @@ cards:
   #   show_header_toggle: false
   - name: Temperatuur
     type: sensor
-    entity: sensor.living
+    entity: sensor.living_temperature
     graph: line
     hours_to_show: 8
     detail: 2
   - name: Vochtigheid
     type: sensor
-    entity: sensor.living_2
+    entity: sensor.living_humidity
     graph: line
     hours_to_show: 8
     detail: 2

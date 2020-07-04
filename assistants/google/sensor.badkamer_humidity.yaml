@@ -1,4 +1,3 @@
-sensor.badkamer_humidity
-:
+sensor.badkamer_humidity:
   expose: true
   room: Badkamer

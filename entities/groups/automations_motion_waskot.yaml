@@ -5,8 +5,9 @@ automations_motion_waskot:
     - input_boolean.motion_waskot
     - input_number.motion_waskot_lux
     - input_number.motion_waskot_timeout
-    - binary_sensor.waskot
-    - sensor.waskot
+    - binary_sensor.waskot_ias_zone
+    - binary_sensor.waskot_occupancy
+    - sensor.waskot_illuminance
     - light.waskot
     - automation.waskot_lights_off
     - automation.waskot_lights_on

@@ -1,8 +1,8 @@
 - alias: Verlichting savonds aan
   trigger:
-  - entity_id: sensor.daylight
+  - entity_id: sun.sun
     platform: state
-    to: sunset_end
+    to: below_horizon
   action:
   - service: light.turn_on
     entity_id: light.lampen_automatisch

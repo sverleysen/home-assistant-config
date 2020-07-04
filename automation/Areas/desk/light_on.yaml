@@ -3,10 +3,10 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.desk
+        - binary_sensor.bureau_occupancy
     - platform: state
       entity_id:
-        - sensor.desk
+        - sensor.bureau_illuminance
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -15,21 +15,20 @@
       entity_id: input_boolean.motion_desk
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.desk
+      entity_id: binary_sensor.bureau_ias_zone
       state: 'on'
     - condition: state
       entity_id: calendar.homeoffice
       state: 'off'
     - condition: template
       value_template: >-
-        {{states('sensor.desk')|float <= states('input_number.motion_desk_lux')|float }}
+        {{states('sensor.bureau_illuminance')|float <= states('input_number.motion_desk_lux')|float }}
     - condition: template
       value_template: >-
         {{ states('sensor.time') > (state_attr('input_datetime.motion_desk_start', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
     - condition: template
       value_template: >-
         {{ states('sensor.time') < (state_attr('input_datetime.motion_desk_end', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
-  
   action:
     - service: light.turn_on
       data:

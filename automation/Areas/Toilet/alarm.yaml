@@ -3,7 +3,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.toilet
+        - binary_sensor.toilet_ias_zone
       to: 'on'
   condition:
     - condition: state

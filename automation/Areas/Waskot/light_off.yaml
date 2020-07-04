@@ -3,7 +3,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.waskot
+        - binary_sensor.waskot_ias_zone
       to: 'off'
       for:
         seconds: "{{ states('input_number.motion_waskot_timeout')|int }}"
@@ -14,9 +14,6 @@
     - condition: state
       entity_id: input_boolean.motion_waskot
       state: 'on'
-    - condition: state
-      entity_id: binary_sensor.waskot
-      state: 'off'
   action:
     - service: light.turn_off
       data:

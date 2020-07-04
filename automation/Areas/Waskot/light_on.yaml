@@ -3,10 +3,10 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.waskot
+        - binary_sensor.waskot_ias_zone
     - platform: state
       entity_id:
-        - sensor.waskot
+        - sensor.waskot_illuminance
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -15,11 +15,11 @@
       entity_id: input_boolean.motion_waskot
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.waskot
+      entity_id: binary_sensor.waskot_ias_zone
       state: 'on'
     - condition: template
       value_template: >-
-        {{states('sensor.waskot')|float <= states('input_number.motion_waskot_lux')|float }}
+        {{states('sensor.waskot_illuminance')|float <= states('input_number.motion_waskot_lux')|float }}
   action:
     - service: light.turn_on
       data:

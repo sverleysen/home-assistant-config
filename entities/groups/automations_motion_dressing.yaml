@@ -5,8 +5,9 @@ automations_motion_dressing:
     - input_boolean.motion_dressing
     - input_number.motion_dressing_lux
     - input_number.motion_dressing_timeout
-    - binary_sensor.dressing
-    - sensor.dressing
+    - binary_sensor.dressing_ias_zone
+    - binary_sensor.dressing_occupancy
+    - sensor.dressing_illuminance
     - light.dressing
     - automation.dressing_lights_off
     - automation.dressing_lights_on

@@ -3,10 +3,10 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.dressing
+        - binary_sensor.dressing_occupancy
     - platform: state
       entity_id:
-        - sensor.dressing
+        - sensor.dressing_illuminance
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -15,11 +15,11 @@
       entity_id: input_boolean.motion_dressing
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.dressing
+      entity_id: binary_sensor.dressing_occupancy
       state: 'on'
     - condition: template
       value_template: >-
-        {{states('sensor.dressing')|float <= states('input_number.motion_dressing_lux')|float }}
+        {{states('sensor.dressing_illuminance')|float <= states('input_number.motion_dressing_lux')|float }}
   action:
     - service: light.turn_on
       data:

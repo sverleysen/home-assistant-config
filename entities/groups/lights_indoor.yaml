@@ -8,6 +8,7 @@ lights_indoor:
     - light.inkomhal
     - light.keuken_eiland
     - light.keuken_kast
+    - light.wled_keuken
     - light.living
     - light.slaapkamer_lyo
     - light.slaapkamer_sen_en_sofie

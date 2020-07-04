@@ -2,11 +2,11 @@
   trigger:
   - platform: state
     entity_id:
-      - binary_sensor.inkom
-      - binary_sensor.waskot
-      - binary_sensor.toilet
-      - binary_sensor.desk
-      - binary_sensor.dressing
+      - binary_sensor.inkom_ias_zone
+      - binary_sensor.waskot_ias_zone
+      - binary_sensor.toilet_ias_zone
+      - binary_sensor.bureau_ias_zone
+      - binary_sensor.dressing_ias_zone
     to: 'on'
   condition:
     - condition: state
