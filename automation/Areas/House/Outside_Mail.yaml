@@ -9,6 +9,8 @@
     - condition: state
       entity_id: input_boolean.mail
       state: 'off'
+    - condition: template
+      value_template: '{{ state_attr("binary_sensor.brievenbus", "vibrationstrength") > 10 }}'
   action:
     - service: input_boolean.turn_on
       data:
@@ -17,5 +19,5 @@
     - service: script.notify_alarm
       data_template:
         title: Post
-        message: Er is post
+        message: Er is post ({{ state_attr("binary_sensor.brievenbus", "vibrationstrength") }} - {{ states.sensor.mail_vibration.state}} )
         camera: oprit
