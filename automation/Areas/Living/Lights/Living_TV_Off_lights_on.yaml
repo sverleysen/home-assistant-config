@@ -23,7 +23,7 @@
         - light.living_staande_lamp_1
         - light.living_staande_lamp_2
         - light.living_staande_lamp_3
-        - light.wled
+        - light.wled_keuken
       data:
         transition: 15
     - service: light.turn_on

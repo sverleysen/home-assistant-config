@@ -48,7 +48,7 @@ cards:
           action: toggle
         hold_action:
           action: more-info
-      - entity: light.wled
+      - entity: light.wled_keuken
         tap_action:
           action: toggle
         hold_action:
