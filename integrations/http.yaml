@@ -2,5 +2,5 @@
 http:
    # ssl_certificate: /ssl/fullchain.pem
    # ssl_key: /ssl/privkey.pem
-   base_url: !secret http_base_url
+   # base_url: https://senverleysen.duckdns.org:8123
    
