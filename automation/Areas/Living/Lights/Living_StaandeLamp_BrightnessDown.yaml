@@ -1,22 +1,16 @@
 - alias: Staande Lamp Helderheid Omlaag
   initial_state: 'on'
   trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: remote_living
-      event: 3002
+  - device_id: b69a06e6717a4fee9119be6832a17543
+    domain: zha
+    platform: device
+    subtype: dim_down
+    type: remote_button_short_press
   action:
     - service: switch.turn_off
       data:
         entity_id: "switch.circadian_lighting_living"
-    - service: light.turn_on
-      data_template:
-        entity_id: 
-          - light.living_staande_lamp_1
-          - light.living_staande_lamp_2
-          - light.living_staande_lamp_3
-        brightness: >
-          {% set bri = state_attr('light.living_staande_lamp_1', 'brightness') | int %}
-          {{ [bri-60, 1] | max }}
- 
+    - device_id: 3699d9f1ba8c4136948e661ad899c92e
+      domain: light
+      entity_id: light.living_staande_lamp
+      type: brightness_decrease 

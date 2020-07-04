@@ -1,11 +1,11 @@
 - alias: Staande Lamp Kleur Omlaag
   initial_state: 'on'
   trigger:
-    platform: event
-    event_type: deconz_event
-    event_data:
-      id: remote_living
-      event: 4002
+    - device_id: b69a06e6717a4fee9119be6832a17543
+      domain: zha
+      platform: device
+      subtype: left
+      type: remote_button_short_press
   action:
     - service: switch.turn_off
       data:

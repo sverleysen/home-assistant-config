@@ -1,21 +1,11 @@
 - alias: Staande Lamp uit
   initial_state: 'on'
   trigger:
-    - platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_living
-        event: 1001 # hold
-    - platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_living
-        event: 1002 # short
-    - platform: event
-      event_type: deconz_event
-      event_data:
-        id: remote_living
-        event: 1003 # long
+  - device_id: b69a06e6717a4fee9119be6832a17543
+    domain: zha
+    platform: device
+    subtype: turn_on
+    type: remote_button_short_press
   condition:
     - condition: state
       entity_id: light.living_staande_lamp
