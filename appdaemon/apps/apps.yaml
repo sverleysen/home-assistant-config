@@ -22,5 +22,5 @@ wb_irrigation:
       manual_duration: input_number.wbi_p1_duration
       scheduled_duration: input_number.wbi_p1_scheduled_duration
       queue_sensor: sensor.wb_irrigation_p1
-      water_sensor: sensor.water_used
+      # water_sensor: sensor.water_used
       time_sensor: variable.wbi_last_duration_p1
