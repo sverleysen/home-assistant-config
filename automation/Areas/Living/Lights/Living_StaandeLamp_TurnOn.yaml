@@ -1,4 +1,5 @@
-- alias: Staande Lamp aan
+- id: '1593866000942'
+  alias: Staande Lamp aan
   initial_state: 'on'
   trigger:
   - device_id: b69a06e6717a4fee9119be6832a17543
@@ -13,9 +14,7 @@
   action:
     - service: light.turn_on
       entity_id: 
-        - light.living_staande_lamp_1
-        - light.living_staande_lamp_2
-        - light.living_staande_lamp_3
+        - light.living_staande_lamp
       data_template:
         kelvin: >-
           {{ state_attr('sensor.circadian_values', 'colortemp') | int }}
@@ -25,5 +24,6 @@
     - service: switch.turn_on
       data:
         entity_id: switch.circadian_lighting_living
+
 
  

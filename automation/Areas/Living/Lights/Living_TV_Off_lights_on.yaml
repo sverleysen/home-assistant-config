@@ -20,9 +20,9 @@
         entity_id: switch.circadian_lighting_kitchen
     - service: light.turn_off
       entity_id: 
-        - light.living_staande_lamp_1
-        - light.living_staande_lamp_2
-        - light.living_staande_lamp_3
+        - light.living_staande_lamp_beneden
+        - light.living_staande_lamp_midden
+        - light.living_staande_lamp_boven
         - light.wled_keuken
       data:
         transition: 15

@@ -16,9 +16,7 @@
         entity_id: switch.circadian_lighting_living
     - service: light.turn_off
       entity_id: 
-          - light.living_staande_lamp_1
-          - light.living_staande_lamp_2
-          - light.living_staande_lamp_3
+          - light.living_staande_lamp
     
 
  

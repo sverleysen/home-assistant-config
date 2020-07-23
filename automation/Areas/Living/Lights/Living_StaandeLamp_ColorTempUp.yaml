@@ -13,10 +13,8 @@
     - service: light.turn_on
       data_template:
         entity_id: 
-          - light.living_staande_lamp_1
-          - light.living_staande_lamp_2
-          - light.living_staande_lamp_3
+          - light.living_staande_lamp
         color_temp: >
-          {% set color = state_attr('light.living_staande_lamp_1', 'color_temp') | int %}
+          {% set color = state_attr('light.living_staande_lamp_beneden', 'color_temp') | int %}
           {{ [color+60, 500] | min }}
   
