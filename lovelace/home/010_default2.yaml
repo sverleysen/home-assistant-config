@@ -1,0 +1,467 @@
+path: default2
+icon: 'mdi:home'
+title: Main
+panel: true
+badges: []
+cards:
+  - type: custom:layout-card
+    layout: vertical
+    column_width: 100%
+    cards:
+      - type: custom:layout-card
+        layout: grid
+        gridrows: auto auto auto auto 
+        gridcols: 20% 20% 20% 20% 20%
+        cards:
+          - type: weather-forecast
+            entity: weather.openweathermap
+            secondary_info_attribute: false
+            show_forecast: false
+            name: Weer
+            gridrow: 1 / 2
+            gridcol: 1 / 2
+            style: "ha-card { height: 100%; }"
+          
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:mini-graph-card
+                entities: 
+                  - entity: sensor.sen_work_home
+                    name: Sen
+                height: 200
+                animate: true
+                hour24: true
+                line_width: 5
+                font_size: 70
+                hours_to_show: 12
+                points_per_hour: 12
+                show:
+                  extrema: false
+                  fill: false
+                line_color: var(--primary-color)
+                color_thresholds:
+                  - value: 45
+                    color: green
+                  - value: 60
+                    color: red
+              - type: custom:mini-graph-card
+                entities: 
+                  - entity: sensor.sen_home_work
+                    name: Sen
+                height: 100
+                animate: true
+                hour24: true
+                line_width: 5
+                font_size: 70
+                hours_to_show: 12
+                points_per_hour: 12
+                show:
+                  extrema: false
+                  fill: false
+                line_color: var(--primary-color)
+                color_thresholds:
+                  - value: 45
+                    color: green
+                  - value: 60
+                    color: red
+            gridrow: 1 / 2
+            gridcol: 2 / 3
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:mini-graph-card
+                entities: 
+                  - entity: sensor.sofie_work_home
+                    name: Sofie
+                height: 200
+                animate: true
+                hour24: true
+                line_width: 5
+                font_size: 70
+                hours_to_show: 12
+                points_per_hour: 12
+                show:
+                  extrema: false
+                  fill: false
+                line_color: var(--primary-color)
+                color_thresholds:
+                  - value: 29
+                    color: green
+                  - value: 30
+                    color: red
+              - type: custom:mini-graph-card
+                entities: 
+                  - entity: sensor.sofie_home_work
+                    name: Sofie
+                height: 200
+                animate: true
+                hour24: true
+                line_width: 5
+                font_size: 70
+                hours_to_show: 12
+                points_per_hour: 12
+                show:
+                  extrema: false
+                  fill: false
+                line_color: var(--primary-color)
+                color_thresholds:
+                  - value: 29
+                    color: green
+                  - value: 30
+                    color: red
+            gridrow: 1 / 2
+            gridcol: 3 / 4
+            style: "ha-card { height: 100%; }"
+          - type: picture-entity
+            entity: camera.oprit
+            camera_view: "live"
+            show_state: false
+            show_name: false
+            gridrow: 1 / 2
+            gridcol: 4 / 5
+            style: "ha-card { height: 100%; }"
+          - type: picture-entity
+            entity: camera.tuin
+            camera_view: "live"
+            show_state: false
+            show_name: false          
+            gridrow: 1 / 2
+            gridcol: 5 / 5
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.inkomhal
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - entities:
+                - head:
+                  buttons:
+                    - entity: input_boolean.mail
+                      name: Is er post?
+                      state_text:
+                        "on": "Er is post"
+                        "off": "Er is geen post"
+                  type: 'custom:paper-buttons-row'
+                show_header_toggle: false
+                state_color: true
+                type: entities
+            gridrow: 2 / 3
+            gridcol: 1 / 2
+            icon_height: 70px
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.toilet
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - type: markdown
+                content: " "
+              - type: markdown
+                content: " "
+            gridrow: 2 / 3
+            gridcol: 2 / 3
+            icon_height: 70px
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.waskot
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - entities:
+                - head:
+                  buttons:
+                    - entity: input_select.washing_machine_status
+                      name: Wasmachine
+                      state_text:
+                        "Uit": "Was: Uit"
+                        "Wassen": "Was: Wassen"
+                        "Zwieren": "Was: Zwieren"
+                        "Proper": "Was: Proper"
+                    - entity: input_select.dryer_status
+                      name: Droogkast
+                      state_text:
+                        "Uit": "Droogkast: Uit"
+                        "Drogen": "Droogkast: Drogen"
+                        "Klaar": "Droogkast: Klaar"
+                  type: 'custom:paper-buttons-row'
+                show_header_toggle: false
+                state_color: true
+                type: entities
+            gridrow: 2 / 3
+            gridcol: 3 / 4
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.living_staande_lamp
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                name: Living
+                icon_height: 70px
+              - entities:
+                  - type: 'custom:paper-buttons-row'
+                    buttons:
+                      - entity: light.living
+                        name: Living
+                      - entity: vacuum.roomba
+                        name: Stofzuiger
+                        icon: mdi:robot-vacuum
+                        tap_action: 
+                          action: call-service
+                          service: vacuum.start
+                          service_data:
+                            entity_id: vacuum.roomba
+                      # - entity: media_player.living_room_tv
+                      #   name: TV
+                      #   icon: mdi:television
+                show_header_toggle: false
+                state_color: true
+                type: entities
+            gridrow: 2 / 3
+            gridcol: 4 / 5
+            style: "ha-card { height: 100%; }"
+          - type: "custom:atomic-calendar"
+            title: "Calendar"
+            entities:
+              - entity: calendar.verleysen_van_tilburg
+              - entity: calendar.feestdagen_in_belgie
+              - entity: calendar.verjaardagen
+              # - entity: calendar.sen_verleysen_gmail_com
+              - entity: calendar.lyo
+            fullDayEventText: 'Heel de dag'
+            untilText: 'Tot'
+            maxDaysToShow: 14
+            # defaultMode: 2
+            # enableModeChange: true
+            showLoader: true
+            showLocation: true
+            showMonth: false
+            showCurrentEventLine: true
+            dimFinishedEvents: true
+            showProgressBar: true
+            hoursFormat: 24h
+            gridrow: 2 / 5
+            gridcol: 5 / 5
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.keuken_eiland
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - entities:
+                - head:
+                  buttons:
+                    - entity: light.eethoek
+                      name: Eethoek
+                    - entity: light.keuken_kast
+                      name: Kast
+                    - entity: light.wled_keuken
+                      name: Led
+                  type: 'custom:paper-buttons-row'
+                show_header_toggle: false
+                state_color: true
+                type: entities
+            gridrow: 3 / 4
+            gridcol: 1 / 2
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.bureau
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - entities:
+                  - type: 'custom:paper-buttons-row'
+                    buttons:
+                      - entity: switch.bureau
+                        name: Verwarming
+                      - entity: switch.vliegenlamp
+                        name: Vliegenlamp
+                show_header_toggle: false
+                state_color: true
+                type: entities
+            gridrow: 3 / 4
+            gridcol: 2 / 3
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.dressing
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - type: markdown
+                content: " "
+              - type: markdown
+                content: " "
+            icon_height: 70px
+            gridrow: 3 / 4
+            gridcol: 3 / 4
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.slaapkamer_lyo
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - entities:
+                - head:
+                  buttons:
+                    - entity: switch.babyfoon
+                      name: Babyfoon
+                  type: 'custom:paper-buttons-row'
+                show_header_toggle: false
+                state_color: true
+                type: entities
+            gridrow: 3 / 4
+            gridcol: 4 / 5
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.slaapkamer_sen_en_sofie
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - entities:
+                - head:
+                  buttons:
+                    - entity: light.nachtlamp
+                      name: Nachtlamp
+                  type: 'custom:paper-buttons-row'
+                show_header_toggle: false
+                state_color: true
+                type: entities
+            gridrow: 4 / 5
+            gridcol: 1 / 2
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.badkamer
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - type: markdown
+                content: " "
+              - type: markdown
+                content: " "
+            icon_height: 70px
+            gridrow: 4 / 5
+            gridcol: 2 / 3
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.zolder
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - entities:
+                - head:
+                  buttons:
+                    - entity: switch.power_monitor_4_switch
+                      name: Ventilatie
+                    - entity: switch.oplader_tablet
+                      name: Tablet
+                  type: 'custom:paper-buttons-row'
+                show_header_toggle: false
+                state_color: true
+                type: entities
+            gridrow: 4 / 5
+            gridcol: 3 / 4
+            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - entity: light.lampen_automatisch
+                name: Gevel
+                hold_action:
+                  action: more-info
+                show_icon: true
+                show_name: true
+                tap_action:
+                  action: toggle
+                type: button
+                icon_height: 70px
+              - entities:
+                - head:
+                  buttons:
+                    - entity: light.led_strip
+                      name: Led
+                    - entity: light.spot
+                      name: Spot
+                  type: 'custom:paper-buttons-row'
+                show_header_toggle: false
+                state_color: true
+                type: entities
+            gridrow: 4 / 5
+            gridcol: 4 / 5
+            style: "ha-card { height: 100%; }"
