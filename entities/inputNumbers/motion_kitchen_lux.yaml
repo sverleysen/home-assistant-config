@@ -1,0 +1,7 @@
+motion_kitchen_lux:
+  name: Min licht keuken
+  min: 0
+  max: 10
+  step: 1
+  unit_of_measurement: 'lux'
+  # icon: mdi:timer-sand 
