@@ -1,4 +1,4 @@
 name: Sofie
 id: Sofie
 device_trackers:
-- device_tracker.galaxy_a50
+- device_tracker.gsm_sofie
