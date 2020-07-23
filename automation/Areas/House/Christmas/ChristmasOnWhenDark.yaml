@@ -1,8 +1,8 @@
 - alias: kerst aan wanneer donker
   trigger:
-  - entity_id: sensor.daylight
+  - entity_id: sun.sun
     platform: state
-    to: golden_hour_2
+    to: below_horizon
   condition:
     - condition: state
       entity_id: group.persons
