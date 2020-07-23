@@ -3,7 +3,7 @@ logbook:
     domains:
       - media_player
       - weather
-      - automation
+      # - automation
       - group
       - device_tracker
     entities:
