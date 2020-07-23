@@ -1,4 +1,5 @@
 - alias: update
+  id: dcb8e2bc-0b49-41f1-9fa2-3519b6410fe3
   trigger:
     platform: state
     entity_id: binary_sensor.updater

@@ -1,4 +1,5 @@
 - alias: Staande Lamp uit
+  id: d31aa71f-9107-457f-975a-c1112a1b0fa2
   initial_state: 'on'
   trigger:
   - device_id: b69a06e6717a4fee9119be6832a17543

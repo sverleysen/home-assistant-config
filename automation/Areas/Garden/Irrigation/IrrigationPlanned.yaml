@@ -1,4 +1,5 @@
 - alias: IrrigationPlanned
+  id:fc16b1b3-db93-4705-929f-90ebbeaf8438 
   trigger:
     - platform: time
       at: "19:30:00"

@@ -1,4 +1,5 @@
 - alias: Set the run roomba at night setting
+  id: 9c58c49a-5d07-4f3a-a7e7-64816170e41b
   trigger:
     platform: numeric_state
     entity_id: sensor.roomba_on_today

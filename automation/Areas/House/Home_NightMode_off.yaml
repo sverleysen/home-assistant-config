@@ -1,4 +1,5 @@
 - alias: Night Mode off
+  id: 6d830c49-fa72-4de7-812c-3f038ea78253
   trigger:
   - entity_id: input_boolean.nightmode
     from: 'on'

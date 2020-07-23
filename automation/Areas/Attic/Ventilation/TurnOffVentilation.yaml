@@ -1,4 +1,5 @@
 - alias: Turn Off Ventilation
+  id: e2895438-29a2-450b-845e-415a6208ad30
   trigger:
     platform: template
     value_template: "{{ states('sensor.owm_humidity')|int < states('sensor.humidity_avg')|int }}"

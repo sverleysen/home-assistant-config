@@ -1,4 +1,5 @@
 - alias: bathroom_default_volume
+  id: 356b41e6-5ef1-4d67-9aa3-016a0dedc65f
   description: Zet het volume op een standaard wanneer de media_player wordt afgezet
   trigger:
     - platform: state

@@ -1,4 +1,5 @@
 - alias: Everyone Is Gone
+  id: 23e00e3c-1061-45f3-9ca8-7c52e361fe5e
   trigger:
   - entity_id: group.persons
     from: home

@@ -1,4 +1,5 @@
 - alias: Turn All Off
+  id: 27d07b48-0618-46de-b5f4-70d943d82079
   trigger:
   - entity_id: switch.alles_uit
     from: 'off'

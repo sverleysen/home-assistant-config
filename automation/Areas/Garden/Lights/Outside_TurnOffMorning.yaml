@@ -1,4 +1,5 @@
 - alias: Verlichting sochtens uit
+  id: d7958ae5-ed2b-4b47-9bd2-4e47838ffcc0
   trigger:
   - entity_id: sun.sun
     platform: state

@@ -1,4 +1,5 @@
 - alias: SomeOneIsGone
+  id: 524ac926-a96e-4a9e-97a6-c4e1002af9db
   trigger:
   - entity_id: person.sen, person.sofie, person.kelsey, person.carine, person.peter, person.moeke, person.edgard
     platform: state

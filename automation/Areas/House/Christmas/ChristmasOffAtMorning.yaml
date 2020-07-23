@@ -1,4 +1,5 @@
 - alias: kerst uit in de ochtend
+  id: 911a0957-7420-4c0f-91bd-5b211584feca
   trigger:
     platform: time
     at: "07:30:00"

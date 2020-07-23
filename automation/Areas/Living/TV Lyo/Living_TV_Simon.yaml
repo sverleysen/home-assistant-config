@@ -1,4 +1,5 @@
 - alias: TV Living Simon
+  id: d7d1f438-04c0-4b59-a609-84eb69a96d90
   initial_state: 'on'
   trigger:
   - device_id: 140d8639400041419415c6d5a0a7f0db

@@ -1,4 +1,5 @@
 - alias: Droogkast naar Drogen zetten
+  id: 2cb64644-5733-408b-bac5-dfdf578741b5
   trigger:
     - platform: numeric_state
       entity_id: sensor.power_monitor_1_power

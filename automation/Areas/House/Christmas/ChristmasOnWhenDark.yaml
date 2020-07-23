@@ -1,4 +1,5 @@
 - alias: kerst aan wanneer donker
+  id: 455b3718-9f67-4a8d-a3bb-a1a0abc72cec
   trigger:
   - entity_id: sun.sun
     platform: state

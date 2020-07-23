@@ -1,4 +1,5 @@
 - alias: Verlichting savonds aan
+  id: 44ca692b-852e-4fc8-8964-65ef8cf85942
   trigger:
   - entity_id: sun.sun
     platform: state

@@ -1,4 +1,5 @@
 - alias: house_alarm_triggerd_stopped
+  id: c49b8603-8c02-46d8-abc8-bd202e23c5b3
   description: Getriggerd alarm stopt
   trigger:
   - entity_id: alarm_control_panel.home_alarm

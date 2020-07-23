@@ -1,4 +1,5 @@
 - alias: desk_lights_on
+  id: 7ea5d234-14d7-40cd-a4dd-d54d63b65170
   description: Doe het licht aan in de bureau aan als er beweging is
   trigger:
     - platform: state

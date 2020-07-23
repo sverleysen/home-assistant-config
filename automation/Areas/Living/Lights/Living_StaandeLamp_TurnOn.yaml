@@ -1,5 +1,5 @@
-- id: '1593866000942'
-  alias: Staande Lamp aan
+- alias: Staande Lamp aan
+  id: 4e6e2936-dc0c-47ed-94f2-ef6bb2c6ae07
   initial_state: 'on'
   trigger:
   - device_id: b69a06e6717a4fee9119be6832a17543

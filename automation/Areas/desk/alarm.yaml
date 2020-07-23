@@ -1,4 +1,5 @@
 - alias: desk_alarm
+  id: 0c680ca5-5f39-4277-a1ea-0883aad7761a
   description: Alarm als er niemand thuis is
   trigger:
     - platform: state

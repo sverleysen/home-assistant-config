@@ -1,4 +1,5 @@
 - alias: toilet_lights_on
+  id: 46a84df4-d046-497d-a9a7-c70cc6b6ee4f
   description: Doe het licht aan in het toilet aan als er beweging is
   trigger:
     - platform: state

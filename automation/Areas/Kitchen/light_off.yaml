@@ -1,4 +1,5 @@
 - alias: kitchen_lights_off
+  id: d9404328-2cdd-4805-9a8b-105a39bd1a97
   description: Dim het licht in de keuken na beweging
   trigger:
     - platform: state

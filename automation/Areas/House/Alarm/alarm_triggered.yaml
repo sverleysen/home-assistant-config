@@ -1,4 +1,5 @@
 - alias: house_alarm_triggerd
+  id: c4aedbe5-06de-4b75-b89c-82387ba6d89c
   description: Alarm wordt getriggerd
   trigger:
   - entity_id: alarm_control_panel.home_alarm

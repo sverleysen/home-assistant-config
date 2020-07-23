@@ -1,4 +1,5 @@
 - alias: TV aan lichten uit
+  id: ee7110af-a757-4ca5-a1a2-4cc63de240a0
   trigger:
     - platform: state
       entity_id: sun.sun

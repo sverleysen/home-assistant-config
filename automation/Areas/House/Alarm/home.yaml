@@ -1,4 +1,5 @@
 - alias: house_alarm_home
+  id: f74ae6c4-937b-4ba0-bdfa-cab59c693cd8
   trigger:
   - entity_id: group.persons
     platform: state

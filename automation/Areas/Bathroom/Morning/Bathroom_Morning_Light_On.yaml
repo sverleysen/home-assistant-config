@@ -1,4 +1,5 @@
 - alias: Badkamer licht aan ochtend
+  id: 12bffabf-2bfc-4800-ad85-1fbe8ebb6f52
   trigger:
   - entity_id: light.badkamer
     platform: state

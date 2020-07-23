@@ -2,7 +2,7 @@
 ## Turn on/off indoor lights randomly straing 30 min before sunset till 22:30
 #############################################################################
 - alias: Simulate Home
-
+  id: 3b227228-2ec9-44c3-ae01-30c17fae3ab2
   trigger:
     - platform: time_pattern
       minutes: '/10'

@@ -1,9 +1,8 @@
 ################################################################
 ## Turn off indoor lights randomly between 22:45 ~ 23:30
 ################################################################
-- id: '13'
-  alias: Stop simulate Home
-
+- alias: Stop simulate Home
+  id: b3734f4c-7309-452c-9acc-e0127e0526bb
   trigger:
     - platform: time
       at: '22:30:00'

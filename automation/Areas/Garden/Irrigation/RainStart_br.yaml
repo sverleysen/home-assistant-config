@@ -1,4 +1,5 @@
 - alias: RainStart BR
+  id: fb196625-de73-4e53-9d06-5eeb92964eb7
   trigger:
   - entity_id: sensor.br_rain_last_hour
     platform: numeric_state

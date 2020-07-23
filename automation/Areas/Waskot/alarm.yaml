@@ -1,4 +1,5 @@
 - alias: waskot_alarm
+  id: 1626b0c2-d132-458e-871e-1b0f53ddc50e
   description: Alarm als er niemand thuis is
   trigger:
     - platform: state

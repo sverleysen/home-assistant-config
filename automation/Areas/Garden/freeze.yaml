@@ -1,4 +1,5 @@
 - alias: freeze
+  id: 0d6a5afe-1b67-434e-b0f7-de3f00d8e7ac
   trigger:
     - platform: time
       at: "20:00:00"

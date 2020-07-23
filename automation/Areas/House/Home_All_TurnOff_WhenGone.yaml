@@ -1,4 +1,5 @@
 - alias: turn all off when gone
+  id: 3212b06b-fde3-4e4e-8a15-6d1d5a908f62
   trigger:
   - entity_id: group.persons
     for: "{{ states('input_datetime.house_leave_timeout') }}"

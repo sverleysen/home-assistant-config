@@ -1,4 +1,5 @@
 - alias: Reset Roomba Setting
+  id: b5ee52dd-8dd1-46a0-a4b7-d8ccf38cd3e9
   trigger:
       platform: time
       at: '6:00:00'

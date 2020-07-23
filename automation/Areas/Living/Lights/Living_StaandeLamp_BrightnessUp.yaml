@@ -1,4 +1,5 @@
 - alias: Staande Lamp Helderheid Omhoog
+  id: d00cadd9-e668-4c8a-83ad-0d00f20bd159
   initial_state: 'on'
   trigger:
   - device_id: b69a06e6717a4fee9119be6832a17543

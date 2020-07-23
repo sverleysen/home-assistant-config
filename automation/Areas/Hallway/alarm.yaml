@@ -1,4 +1,5 @@
 - alias: hallway_alarm
+  id: 6298de68-556f-4355-8541-6d71fc166aa8
   description: Alarm als er niemand thuis is
   trigger:
     - platform: state

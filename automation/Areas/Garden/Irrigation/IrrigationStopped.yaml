@@ -1,4 +1,5 @@
 - alias: IrrigationStopped
+  id: c3b9fba5-63e8-4ca5-a803-cde2d1c439ee
   trigger:
   - entity_id: switch.ikea_tuinhuis_2
     from: 'on'

@@ -1,4 +1,5 @@
 - alias: Reset all back on
+  id: bbe3e9a2-fd71-43c7-ae4c-3b9aa64a6638
   trigger:
   - entity_id: input_boolean.all_back_on
     from: 'off'

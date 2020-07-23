@@ -1,4 +1,5 @@
 - alias: Spot achteraan uit na 15 min
+  id: 055ab93f-5593-480e-94fe-d23ce0854388
   trigger:
   - platform: state
     entity_id: switch.ikea_tuinhuis_1

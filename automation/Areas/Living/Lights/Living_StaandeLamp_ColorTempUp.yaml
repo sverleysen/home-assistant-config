@@ -1,4 +1,5 @@
 - alias: Staande Lamp Kleur Omhoog
+  id: 93d0b0c9-4710-4bfb-ad35-9eaadd4926d7
   initial_state: 'on'
   trigger:
   - device_id: b69a06e6717a4fee9119be6832a17543

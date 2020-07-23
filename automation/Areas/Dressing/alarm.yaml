@@ -1,4 +1,5 @@
 - alias: dressing_alarm
+  id: a6011064-16e4-4613-ad84-036705bfc62e
   description: Alarm als er niemand thuis is
   trigger:
     - platform: state

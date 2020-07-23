@@ -1,4 +1,5 @@
 - alias: Led Muur Ikea Nico Home Control Sync
+  id: 7d350aa0-9ce8-4f46-9498-3dceeb3f8ec8
   trigger:
   - entity_id: switch.muur
     platform: state

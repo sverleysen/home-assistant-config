@@ -1,4 +1,5 @@
 - alias: Notify is Roomba is stopped
+  id: 167e9a45-cc35-4430-9abb-3d34174f9d41
   trigger:
     platform: state
     entity_id: vacuum.roomba

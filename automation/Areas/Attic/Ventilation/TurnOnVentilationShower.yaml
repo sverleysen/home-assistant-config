@@ -1,4 +1,5 @@
 - alias: Turn On Ventilation Shower
+  id: f66acbc1-d48f-4409-9492-ea05db861685
   trigger:
     platform: numeric_state
     entity_id: sensor.badkamer_humidity

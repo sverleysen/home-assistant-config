@@ -1,4 +1,5 @@
 - alias: waskot_lights_on
+  id: c4036be1-342a-4911-9190-e02cc5b887f4
   description: Doe het licht aan in het waskot aan als er beweging is
   trigger:
     - platform: state

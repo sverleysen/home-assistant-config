@@ -1,4 +1,5 @@
 - alias: Turn Night Mode off
+  id: 6b784ee6-7d5b-4aa8-ad06-877e04e56f5d
   trigger:
   - platform: state
     entity_id:

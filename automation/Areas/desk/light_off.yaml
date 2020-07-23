@@ -1,4 +1,5 @@
 - alias: desk_lights_off
+  id: 4e7c747e-f702-4fff-a026-c956732d6331
   description: Doe het licht uit in de bureau na beweging
   trigger:
     - platform: state

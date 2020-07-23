@@ -1,4 +1,5 @@
 - alias: outside_mail
+  id: 1d4d5f23-2eb7-463f-94c4-72320fbc4671
   description: Melding als er post is
   trigger:
     - platform: state

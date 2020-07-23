@@ -1,4 +1,5 @@
 - alias: house_alarm_arm_app
+  id: 715d7eda-0b75-40d0-8324-f8d58a8ee015
   description: Alarm aan via app
   trigger:
     platform: event

@@ -1,4 +1,5 @@
 - alias: kitchen_default_volume
+  id: 5d301792-b615-4cc9-8277-380d95a85b33
   description: Zet het volume op een standaard wanneer de media_player wordt afgezet
   trigger:
     - platform: state

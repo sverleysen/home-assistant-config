@@ -1,4 +1,5 @@
 - alias: Start Roomba When Gone
+  id: c5c14713-db3e-425f-8f9b-37bf3a0e11c4
   trigger:
   - entity_id: group.persons
     for: 0:10:00

@@ -1,4 +1,5 @@
 - alias: Staande Lamp Helderheid Omlaag
+  id: 5affa4c4-19a9-4ce4-bea8-729a4050712a
   initial_state: 'on'
   trigger:
   - device_id: b69a06e6717a4fee9119be6832a17543

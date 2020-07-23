@@ -1,4 +1,5 @@
 - alias: garden_stop_irrigation
+  id: eed7d986-8224-4e59-9d42-f37c72bf2a9a
   description: Stop de sproeiers
   trigger:
     platform: event

@@ -1,4 +1,5 @@
 - alias: SomeOneIsHome
+  id: d1a61897-b290-4847-925c-9541f4d5840e
   trigger:
   - entity_id: person.sen, person.sofie, person.kelsey, person.carine, person.peter, person.moeke, person.edgard
     platform: state

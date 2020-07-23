@@ -1,4 +1,5 @@
 - alias: Sync irrigation to water pump
+  id: b4f852a3-65bd-4ac2-8ba4-96c312444e54
   trigger:
   - entity_id: input_boolean.wbi_p1
     platform: state

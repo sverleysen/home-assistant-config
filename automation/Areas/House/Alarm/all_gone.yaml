@@ -1,4 +1,5 @@
 - alias: house_alarm_all_gone
+  id: 8cb0de3e-e91c-4961-a306-82e08091c076
   trigger:
   - entity_id: person.sen, person.sofie, person.kelsey, person.carine, person.peter, person.moeke, person.edgard
     platform: state

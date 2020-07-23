@@ -1,4 +1,5 @@
 - alias: kitchen_lights_on
+  id: 9032497c-9868-433c-8cc9-ae96ee7ddda8
   description: Doe het licht aan in de keuken aan als er beweging is
   trigger:
     - platform: state

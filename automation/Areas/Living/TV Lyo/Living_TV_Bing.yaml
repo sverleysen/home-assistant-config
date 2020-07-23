@@ -1,4 +1,5 @@
 - alias: TV Living Bing
+  id: 968d8298-760f-43f7-b5da-e2121ff35690
   initial_state: 'on'
   trigger:
   - device_id: 140d8639400041419415c6d5a0a7f0db

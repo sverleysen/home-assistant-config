@@ -1,4 +1,5 @@
 - alias: waskot_lights_off
+  id: d75cfd87-cb4d-459b-991c-b2a545de109f
   description: Doe het licht uit in het waskot na beweging
   trigger:
     - platform: state

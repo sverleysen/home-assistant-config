@@ -1,4 +1,5 @@
 - alias: Stop Charging Tablet
+  id: 49c0c2a0-a35a-4bba-b76e-5bdc0430f899
   trigger:
     platform: numeric_state
     entity_id: sensor.battery_level_2

@@ -1,4 +1,5 @@
 - alias: dressing_lights_off
+  id: c6b3bc38-3055-4e4b-ab49-74489005d8db
   description: Doe het licht uit in de dressing na beweging
   trigger:
     - platform: state

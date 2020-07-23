@@ -1,4 +1,5 @@
 - alias: TV Living Pepa Pig
+  id: 9a7db9ef-d1c6-4b09-b969-145ba58162b1
   initial_state: 'on'
   trigger:
   - device_id: 140d8639400041419415c6d5a0a7f0db

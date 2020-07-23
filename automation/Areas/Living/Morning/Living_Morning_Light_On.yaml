@@ -1,4 +1,5 @@
 - alias: Beneden licht aan ochtend
+  id: c180ee04-a1b8-4568-bea5-6997f7c00c8a
   trigger:
   - entity_id: group.lights_downstairs
     platform: state

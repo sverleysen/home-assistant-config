@@ -1,4 +1,5 @@
 - alias: Start Charging Tablet
+  id: 270307a3-fc71-43dc-a08e-42ee7e3155b3
   trigger:
     platform: numeric_state
     entity_id: sensor.battery_level_2

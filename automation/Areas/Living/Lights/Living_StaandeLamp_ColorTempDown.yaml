@@ -1,4 +1,5 @@
 - alias: Staande Lamp Kleur Omlaag
+  id: cf0eb0fd-7231-487d-b856-57bf10da824e
   initial_state: 'on'
   trigger:
     - device_id: b69a06e6717a4fee9119be6832a17543

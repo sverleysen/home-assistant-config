@@ -1,4 +1,5 @@
 - alias: Start Roomba Guestmode
+  id: ed63fe98-5181-44ce-8456-4d0c982490eb
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (state_attr('input_datetime.start_roomba_day', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"

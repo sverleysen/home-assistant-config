@@ -1,4 +1,5 @@
 - alias: TV Living CocoMelon
+  id: 522e9762-340a-4c05-923a-ec61edf15e78
   initial_state: 'on'
   trigger:
   - device_id: 140d8639400041419415c6d5a0a7f0db

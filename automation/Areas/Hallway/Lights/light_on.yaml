@@ -1,4 +1,5 @@
 - alias: hallway_lights_on
+  id: c6002974-76a3-463d-9727-74a2d6cb8129
   description: Doe het licht aan in de inkomhal aan als er beweging is
   trigger:
     - platform: state

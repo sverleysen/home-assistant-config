@@ -1,4 +1,5 @@
 - alias: toilet_lights_off
+  id: aec09915-7bba-490b-99cb-483072a6bfc1
   description: Doe het licht uit in het toilet na beweging
   trigger:
     - platform: state

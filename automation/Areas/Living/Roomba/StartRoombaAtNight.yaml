@@ -1,4 +1,5 @@
 - alias: Start Roomba At Night
+  id: 6a970094-3a37-4c3a-bef7-02e0182a6e85
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (state_attr('input_datetime.start_roomba_night', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"

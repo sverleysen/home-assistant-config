@@ -1,4 +1,5 @@
 - alias: Wasmachine naar Wassen zetten
+  id: 6829dfc8-b940-4e1e-a6ce-0c93427dc95f
   trigger:
     - platform: numeric_state
       entity_id: sensor.power_monitor_2_power

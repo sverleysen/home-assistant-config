@@ -1,4 +1,5 @@
 - alias: dressing_lights_on
+  id: ade139f3-61c6-4f3a-b853-540fedec2b47
   description: Doe het licht aan in de dressing aan als er beweging is
   trigger:
     - platform: state

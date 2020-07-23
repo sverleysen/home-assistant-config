@@ -1,4 +1,5 @@
 - alias: house_trigger_alarm
+  id: 1a920bf4-69d7-4d78-a89d-4bdf3006fe88
   description: Alarm laten afgaan
   trigger:
     platform: event

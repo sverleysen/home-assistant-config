@@ -1,4 +1,5 @@
 - alias: bedroom_default_volume
+  id: a6d96c0c-f20a-46f3-b9eb-b55c5019111b
   description: Zet het volume op een standaard wanneer de media_player wordt afgezet
   trigger:
     - platform: state

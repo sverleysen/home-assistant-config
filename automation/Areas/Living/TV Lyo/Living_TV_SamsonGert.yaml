@@ -1,4 +1,5 @@
 - alias: TV Living Samson En Gert
+  id: 59cc5f87-ce0e-41dd-be89-f55c09b2f27a
   initial_state: 'on'
   trigger:
   - device_id: 140d8639400041419415c6d5a0a7f0db

@@ -1,4 +1,5 @@
 - alias: alles uit off after 1 sec
+  id: 0a55a20b-f30d-4230-8e32-bb0fab6adf03
   trigger:
   - entity_id: switch.alles_uit
     from: 'off'
