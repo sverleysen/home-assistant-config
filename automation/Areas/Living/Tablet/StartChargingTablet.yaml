@@ -2,7 +2,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.battery_level_2
-    below: 50
+    below: 30
   condition:
     - condition: state
       entity_id: switch.oplader_tablet
