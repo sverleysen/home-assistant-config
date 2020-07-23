@@ -1,7 +1,8 @@
 path: settings
 title: Settings
 badges: []
-icon: 'mdi:settings'
+panel: false
+icon: 'mdi:cog'
 cards:
   - type: vertical-stack
     cards:
@@ -134,34 +135,6 @@ cards:
         - prop: state          
           name: state
           suffix: ' %'
-    - sort_by: available
-      type: 'custom:zha-network-card'
-      clickable: true
-      columns:
-        - name: Name
-          prop: name
-        - attr: available
-          id: available
-          modify: x || "false"
-          name: Online
-        - attr: manufacturer
-          name: Manufacturer
-        - attr: model
-          name: Model
-        - attr: ieee
-          name: IEEE
-        - name: NWK
-          prop: nwk
-        - attr: rssi
-          name: RSSI
-        - attr: lqi
-          name: LQI
-        - attr: last_seen
-          name: Last Seen
-        - attr: power_source
-          name: Power Source
-        - attr: quirk_class
-          name: Quirk
   - type: vertical-stack
     cards:
     - type: custom:mini-graph-card
