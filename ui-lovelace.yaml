@@ -10,6 +10,7 @@ swipe_nav:
 
 title: Home
 views:
+  - !include lovelace/home/010_default2.yaml
   - !include lovelace/home/010_default.yaml
   # - !include lovelace/home/010_default_reponsive.yaml
   - !include lovelace/home/075_camera.yaml
