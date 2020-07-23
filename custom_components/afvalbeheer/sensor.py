@@ -1,7 +1,7 @@
 """
 Sensor component for waste pickup dates from dutch and belgium waste collectors
 Original Author: Pippijn Stortelder
-Current Version: 4.4.0 20200707 - Pippijn Stortelder
+Current Version: 4.5.0 20200722 - Pippijn Stortelder
 20200419 - Major code refactor (credits @basschipper)
 20200420 - Add sensor even though not in mapping
 20200420 - Added support for DeAfvalApp
@@ -33,6 +33,10 @@ Current Version: 4.4.0 20200707 - Pippijn Stortelder
 20200629 - Added support for Schouwen-Duiveland
 20200701 - Fix mapping for MijnAfvalWijzer
 20200707 - Added option to print out all possible fractions on HA boot
+20200709 - Move messages from error log to persistant notification
+20200715 - Hotfix for Suez sll problem
+20200722 - Added Omrin timeout (credits @Jordi1990)
+20200722 - Added AddressID override for Meerlanden
 
 Example config:
 Configuration.yaml:
@@ -76,6 +80,7 @@ from homeassistant.const import (CONF_RESOURCES, DEVICE_CLASS_TIMESTAMP)
 from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.event import async_track_point_in_utc_time
 from homeassistant.util import dt as dt_util
+from homeassistant.components import persistent_notification
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -87,6 +92,7 @@ CONF_POSTCODE = 'postcode'
 CONF_STREET_NAME = 'streetname'
 CONF_STREET_NUMBER = 'streetnumber'
 CONF_SUFFIX = 'suffix'
+CONF_ADDRESS_ID = 'addressid'
 CONF_DATE_FORMAT = 'dateformat'
 CONF_TODAY_TOMORROW = 'upcomingsensor'
 CONF_DATE_ONLY = 'dateonly'
@@ -104,6 +110,8 @@ ATTR_WASTE_COLLECTOR = 'Wastecollector'
 ATTR_HIDDEN = 'Hidden'
 ATTR_SORT_DATE = 'Sort-date'
 ATTR_DAYS_UNTIL = 'Days-until'
+
+NOTIFICATION_ID = "Afvalbeheer"
 
 OPZET_COLLECTOR_URLS = {
     'alkmaar': 'https://inzamelkalender.stadswerk072.nl/',
@@ -186,6 +194,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_CITY_NAME, default=''): cv.string,
     vol.Optional(CONF_STREET_NAME, default=''): cv.string,
     vol.Optional(CONF_SUFFIX, default=''): cv.string,
+    vol.Optional(CONF_ADDRESS_ID, default=''): cv.string,
     vol.Optional(CONF_WASTE_COLLECTOR, default='Cure'): cv.string,
     vol.Optional(CONF_DATE_FORMAT, default='%d-%m-%Y'): cv.string,
     vol.Optional(CONF_TODAY_TOMORROW, default=False): cv.boolean,
@@ -210,6 +219,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     street_name = config.get(CONF_STREET_NAME)
     street_number = config.get(CONF_STREET_NUMBER)
     suffix = config.get(CONF_SUFFIX)
+    address_id = config.get(CONF_ADDRESS_ID)
     waste_collector = config.get(CONF_WASTE_COLLECTOR).lower()
     date_format = config.get(CONF_DATE_FORMAT)
     sensor_today = config.get(CONF_TODAY_TOMORROW)
@@ -229,14 +239,23 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
         date_only = config.get(CONF_DATE_ONLY)
 
     if waste_collector == "cure":
-        _LOGGER.error("Afvalbeheer - Update your config to use Mijnafvalwijzer! You are still using Cure as a wast collector, which is deprecated. It's from now on; Mijnafvalwijzer. Check your automations and lovelace config, as the sensor names may also be changed!")
+        persistent_notification.create(
+                hass,
+                "Update your config to use Mijnafvalwijzer! You are still using Cure as a wast collector, which is deprecated. It's from now on; Mijnafvalwijzer. Check your automations and lovelace config, as the sensor names may also be changed!",
+                'Afvalwijzer', NOTIFICATION_ID)
         waste_collector = "mijnafvalwijzer"
     elif waste_collector == "ximmio":
-        _LOGGER.error("Ximmio - due to more collectors using Ximmio, you need to change your config. Set the wast collector to the actual collector (i.e. Meerlanden, TwenteMilieu , etc.). Using Ximmio in your config, this sensor will asume you meant Meerlanden.")
+        persistent_notification.create(
+                hass,
+                "Due to more collectors using Ximmio, you need to change your config. Set the wast collector to the actual collector (i.e. Meerlanden, TwenteMilieu , etc.). Using Ximmio in your config, this sensor will asume you meant Meerlanden.",
+                'Afvalwijzer', NOTIFICATION_ID)
     elif waste_collector == "area":
-        _LOGGER.error("Area - Update your config to use AreaReiniging as a waste collector.")
+        persistent_notification.create(
+                hass,
+                "Update your config to use AreaReiniging as a waste collector.",
+                'Afvalwijzer', NOTIFICATION_ID)
         waste_collector = "areareiniging"    
-    data = WasteData(hass, waste_collector, city_name, postcode, street_name, street_number, suffix, print_waste_type)
+    data = WasteData(hass, waste_collector, city_name, postcode, street_name, street_number, suffix, address_id, print_waste_type)
 
     entities = []
 
@@ -307,7 +326,7 @@ class WasteCollection(object):
 
 class WasteData(object):
 
-    def __init__(self, hass, waste_collector, city_name, postcode, street_name, street_number, suffix, print_waste_type):
+    def __init__(self, hass, waste_collector, city_name, postcode, street_name, street_number, suffix, address_id, print_waste_type):
         self.hass = hass
         self.waste_collector = waste_collector
         self.city_name = city_name
@@ -315,13 +334,14 @@ class WasteData(object):
         self.street_name = street_name
         self.street_number = street_number
         self.suffix = suffix
+        self.address_id = address_id
         self.print_waste_type = print_waste_type
         self.collector = None
         self.__select_collector()
 
     def __select_collector(self):
         if self.waste_collector in XIMMIO_COLLECTOR_IDS.keys():
-            self.collector = XimmioCollector(self.hass, self.waste_collector, self.postcode, self.street_number, self.suffix)
+            self.collector = XimmioCollector(self.hass, self.waste_collector, self.postcode, self.street_number, self.suffix, self.address_id)
         elif self.waste_collector in ["mijnafvalwijzer", "afvalstoffendienstkalender"]:
             self.collector = AfvalwijzerCollector(self.hass, self.waste_collector, self.postcode, self.street_number, self.suffix)
         elif self.waste_collector == "afvalalert":
@@ -343,7 +363,10 @@ class WasteData(object):
         elif self.waste_collector in OPZET_COLLECTOR_URLS.keys():
             self.collector = OpzetCollector(self.hass, self.waste_collector, self.postcode, self.street_number, self.suffix)
         else:
-            _LOGGER.error('Waste collector "{}" not found!'.format(self.waste_collector))
+            persistent_notification.create(
+                self.hass,
+                'Waste collector "{}" not found!'.format(self.waste_collector),
+                'Afvalwijzer', NOTIFICATION_ID)
 
     async def schedule_update(self, interval):
         nxt = dt_util.utcnow() + interval
@@ -353,7 +376,10 @@ class WasteData(object):
         await self.collector.update()
         await self.schedule_update(SCHEDULE_UPDATE_INTERVAL)
         if self.print_waste_type:
-            _LOGGER.error('Available waste types: ' + ', '.join(self.collector.collections.get_available_waste_types()))
+            persistent_notification.create(
+                self.hass,
+                'Available waste types: ' + ', '.join(self.collector.collections.get_available_waste_types()),
+                'Afvalwijzer', NOTIFICATION_ID)
             self.print_waste_type = False
 
     @property
@@ -772,19 +798,18 @@ class OmrinCollector(WasteCollector):
         encryptedRequest = pkcs1.encrypt(json.dumps(requestBody).encode(), rsaPublicKey)
         base64EncodedRequest = b64encode(encryptedRequest).decode("utf-8")
 
-        response = requests.post("{}/FetchAccount/".format(self.main_url) + self.appId, '"' + base64EncodedRequest + '"').json()
+        response = requests.post("{}/FetchAccount/".format(self.main_url) + self.appId, '"' + base64EncodedRequest + '"', timeout=60).json()
         return response['CalendarHomeV2']
 
     async def update(self):
         _LOGGER.debug('Updating Waste collection dates using Rest API')
-
-        self.collections.remove_all()
 
         try:
             if not self.publicKey:
                 await self.hass.async_add_executor_job(self.__fetch_publickey)
 
             response = await self.hass.async_add_executor_job(self.__get_data)
+            self.collections.remove_all()
             for item in response:
                 if not item['Datum']:
                     continue
@@ -900,10 +925,14 @@ class OpzetCollector(WasteCollector):
         super(OpzetCollector, self).__init__(hass, waste_collector, postcode, street_number, suffix)
         self.main_url = OPZET_COLLECTOR_URLS[self.waste_collector]
         self.bag_id = None
+        if waste_collector == "suez":
+            self._verify = False
+        else:
+            self._verify = True
 
     def __fetch_address(self):
         response = requests.get(
-            "{}/rest/adressen/{}-{}".format(self.main_url, self.postcode, self.street_number)).json()
+            "{}/rest/adressen/{}-{}".format(self.main_url, self.postcode, self.street_number), verify=self._verify).json()
 
         if not response:
             _LOGGER.error('Address not found!')
@@ -915,7 +944,7 @@ class OpzetCollector(WasteCollector):
         get_url = "{}/rest/adressen/{}/afvalstromen".format(
                 self.main_url,
                 self.bag_id)
-        return requests.get(get_url)
+        return requests.get(get_url, verify=self._verify)
 
     async def update(self):
         _LOGGER.debug('Updating Waste collection dates using Rest API')
@@ -1101,11 +1130,14 @@ class XimmioCollector(WasteCollector):
         'TREE': WASTE_TYPE_TREE,
     }
 
-    def __init__(self, hass, waste_collector, postcode, street_number, suffix):
+    def __init__(self, hass, waste_collector, postcode, street_number, suffix, address_id):
         super(XimmioCollector, self).__init__(hass, waste_collector, postcode, street_number, suffix)
         self.main_url = "https://wasteapi.ximmio.com"
         self.company_code = XIMMIO_COLLECTOR_IDS[self.waste_collector]
-        self.address_id = None
+        if address_id:
+            self.address_id = address_id
+        else:
+            self.address_id = None
 
     def __fetch_address(self):
         data = {
