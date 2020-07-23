@@ -5,9 +5,11 @@ cards:
   - type: media-control
     entity: media_player.google_keuken
   - type: media-control
-    entity: media_player.attic_tv
+    entity: media_player.chromecast_living
   - type: media-control
-    entity: media_player.chromecast_slaapkamer
+    entity: media_player.chromecast_slaapkamer_2
+  - type: media-control
+    entity: media_player.slaapkamer_sen_sofie
   - type: media-control
     entity: media_player.living_room_tv
   - type: entities

@@ -21,22 +21,28 @@ cards:
     platform: google
   artwork: cover
 - type:  custom:mini-media-player
-  entity: media_player.badkamer
+  entity: media_player.keuken
   tts:
     platform: google
   artwork: cover
-- type: custom:mini-media-player
-  entity: media_player.slaapkamer
-  tts:
-    platform: google
-  artwork: cover
+
 - type:  custom:mini-media-player
   entity: media_player.soundbar
   tts:
     platform: google
   artwork: cover
 - type:  custom:mini-media-player
-  entity: media_player.keuken
+  entity: media_player.badkamer
+  tts:
+    platform: google
+  artwork: cover
+- type: custom:mini-media-player
+  entity: media_player.slaapkamer_sen_sofie
+  tts:
+    platform: google
+  artwork: cover
+- type: custom:mini-media-player
+  entity: media_player.bureau
   tts:
     platform: google
   artwork: cover
