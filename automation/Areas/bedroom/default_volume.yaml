@@ -3,11 +3,11 @@
   trigger:
     - platform: state
       entity_id:
-        - media_player.slaapkamer
+        - media_player.slaapkamer_sen_sofie
       to: 'off'
   action:
     - service: media_player.volume_set
       data:
         entity_id:
-          - media_player.slaapkamer
-        volume_level: 0.2
+          - media_player.slaapkamer_sen_sofie
+        volume_level: 0.1

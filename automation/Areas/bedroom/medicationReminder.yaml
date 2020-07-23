@@ -1,0 +1,18 @@
+- alias: Herinnering pillen als we gaan slapen
+  trigger:
+  - entity_id: light.slaapkamer_sen_en_sofie
+    platform: state
+    to: 'on'
+  condition:
+    - condition: time
+      after: '21:00:00'
+      before: '03:00:00'
+  action:
+    - service: media_player.volume_set
+      entity_id: media_player.slaapkamer_sen_sofie
+      data:
+        volume_level: 0.4
+    - service: tts.google_say
+      entity_id: media_player.slaapkamer_sen_sofie
+      data:
+        message: "Heb je je pillen genomen?"
