@@ -1,6 +1,6 @@
 logger:
   default: warning
-  logs:
+  # logs:
     # custom_components: debug
-    custom_components.nhc2: debug
-    homeassistant.components.openweathermap.sensor: debug
+    # custom_components.nhc2: debug
+    # homeassistant.components.zha: debug
