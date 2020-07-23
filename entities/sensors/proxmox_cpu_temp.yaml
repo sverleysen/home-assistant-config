@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  proxmox_cpu_temp:
+    value_template: '{{ states("input_number.cpu_temp") | multiply(0.001) | round(1) }}'
+    unit_of_measurement: '°C'
