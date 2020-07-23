@@ -3,7 +3,8 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.bureau_occupancy
+        - binary_sensor.bureau_ias_zone
+      to: 'on'
     - platform: state
       entity_id:
         - sensor.bureau_illuminance
@@ -22,7 +23,7 @@
       state: 'off'
     - condition: template
       value_template: >-
-        {{states('sensor.bureau_illuminance')|float <= states('input_number.motion_desk_lux')|float }}
+        {{states.sensor.bureau_illuminance.state != "unavailable" and states('sensor.bureau_illuminance')|float <= states('input_number.motion_desk_lux')|float }}
     - condition: template
       value_template: >-
         {{ states('sensor.time') > (state_attr('input_datetime.motion_desk_start', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}

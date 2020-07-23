@@ -4,6 +4,7 @@
     - platform: state
       entity_id:
         - binary_sensor.waskot_ias_zone
+      to: 'on'
     - platform: state
       entity_id:
         - sensor.waskot_illuminance
@@ -19,7 +20,7 @@
       state: 'on'
     - condition: template
       value_template: >-
-        {{states('sensor.waskot_illuminance')|float <= states('input_number.motion_waskot_lux')|float }}
+        {{states.sensor.waskot_illuminance.state != "unavailable" and states('sensor.waskot_illuminance')|float <= states('input_number.motion_waskot_lux')|float }}
   action:
     - service: light.turn_on
       data:

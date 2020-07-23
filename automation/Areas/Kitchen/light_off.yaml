@@ -1,0 +1,19 @@
+- alias: kitchen_lights_off
+  description: Dim het licht in de keuken na beweging
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.test_occupancy
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.motion
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.motion_kitchen
+      state: 'on'
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id:
+          - switch.circadian_lighting_kitchen
