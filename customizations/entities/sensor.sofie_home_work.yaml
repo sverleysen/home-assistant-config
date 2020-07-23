@@ -1,2 +1,3 @@
 sensor.sofie_home_work:
   friendly_name: Sofie thuis naar werk
+  icon: mdi:briefcase
