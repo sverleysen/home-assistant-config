@@ -1,0 +1,20 @@
+platform: afvalbeheer
+wastecollector: RecycleApp
+resources:
+  - groente-, fruit-, en tuinafval
+  - papier
+  - pmd
+  - restafval
+postcode: 2040
+streetname: Heidestraat
+streetnumber: 64
+upcomingsensor: 1
+dateformat: '%d-%m-%Y'
+dateonly: 1
+dateobject: 0
+# printwastetypes: 1
+# name: ''
+nameprefix: 0
+builtinicons: 1
+disableicons: 0
+dutch: 1
