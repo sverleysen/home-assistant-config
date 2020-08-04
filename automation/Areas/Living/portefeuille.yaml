@@ -1,0 +1,14 @@
+- alias: portefeuille
+  id: bd81c2ae-7bce-4a27-a0c5-cb40ae33fa59
+  description: Portefeuille is bewogen
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.portefeuille_ias_zone
+      to: 'on'
+  action:
+    - service: script.notify_alarm
+      data_template:
+        title: Alarm
+        message: Portefeuille is bewogen
+        camera: living
