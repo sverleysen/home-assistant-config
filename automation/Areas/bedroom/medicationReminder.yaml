@@ -1,5 +1,6 @@
 - alias: Herinnering pillen als we gaan slapen
   id: da68964f-16b3-4364-ad16-c29f07d04ded
+  mode: single
   trigger:
   - entity_id: light.slaapkamer_sen_en_sofie
     platform: state
@@ -17,3 +18,5 @@
       entity_id: media_player.slaapkamer_sen_sofie
       data:
         message: "Heb je je pillen genomen?"
+    - delay:
+        minutes: 10
