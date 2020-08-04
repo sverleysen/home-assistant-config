@@ -1,0 +1,12 @@
+house_chore_sheets_sen_sofie:
+  name: Lakens Sen en Sofie
+  has_date: true
+  has_time: false
+house_chore_sheets_lyo:
+  name: Lakens Lyo
+  has_date: true
+  has_time: false
+house_chore_plants_living:
+    name: Orchidee water geven
+    has_date: true
+    has_time: false

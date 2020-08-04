@@ -1,0 +1,32 @@
+platform: template
+switches:
+  house_chore_sheets_sen_sofie:
+    value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.house_chore_sheets_sen_sofie','timestamp')) | int / 86400) | round(0) -1 > 6 }}"
+    turn_on: []
+    turn_off:
+      service: input_datetime.set_datetime
+      entity_id: input_datetime.house_chore_sheets_sen_sofie
+      data_template:
+        date: '{{ now().strftime("%Y-%m-%d") }}'
+    friendly_name: Lakens Sen en Sofie
+    icon_template:  mdi:calendar-check-outline
+  house_chore_sheets_lyo:
+    value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.house_chore_sheets_lyo','timestamp')) | int / 86400) | round(0) -1 > 6 }}"
+    turn_on: []
+    turn_off:
+      service: input_datetime.set_datetime
+      entity_id: input_datetime.house_chore_sheets_lyo
+      data_template:
+        date: '{{ now().strftime("%Y-%m-%d") }}'
+    friendly_name: Lakens Lyo
+    icon_template: mdi:calendar-check-outline
+  house_chore_plants_living:
+    value_template: "{{ ((as_timestamp(now()) - state_attr('input_datetime.house_chore_plants_living','timestamp')) | int / 86400) | round(0) -1 > 6 }}"
+    turn_on: []
+    turn_off:
+      service: input_datetime.set_datetime
+      entity_id: input_datetime.house_chore_plants_living
+      data_template:
+        date: '{{ now().strftime("%Y-%m-%d") }}'
+    friendly_name: Orchidee water geven
+    icon_template: mdi:calendar-check-outline

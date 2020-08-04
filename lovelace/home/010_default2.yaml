@@ -248,29 +248,43 @@ cards:
             gridrow: 2 / 3
             gridcol: 4 / 5
             style: "ha-card { height: 100%; }"
-          - type: "custom:atomic-calendar"
-            title: "Calendar"
-            entities:
-              - entity: calendar.verleysen_van_tilburg
-              - entity: calendar.feestdagen_in_belgie
-              - entity: calendar.verjaardagen
-              # - entity: calendar.sen_verleysen_gmail_com
-              - entity: calendar.lyo
-            fullDayEventText: 'Heel de dag'
-            untilText: 'Tot'
-            maxDaysToShow: 14
-            # defaultMode: 2
-            # enableModeChange: true
-            showLoader: true
-            showLocation: true
-            showMonth: false
-            showCurrentEventLine: true
-            dimFinishedEvents: true
-            showProgressBar: true
-            hoursFormat: 24h
+          - type: vertical-stack
             gridrow: 2 / 5
             gridcol: 5 / 5
             style: "ha-card { height: 100%; }"
+            cards:
+              - type: entity-filter
+                show_empty: false
+                entities:
+                  - switch.house_chore_sheets_sen_sofie
+                  - switch.house_chore_sheets_lyo
+                  - switch.house_chore_plants_living
+                state_filter:
+                  - 'on'
+                card:
+                  title: "TODO"
+                  show_header_toggle: false
+              - type: "custom:atomic-calendar"
+                title: "Calendar"
+                entities:
+                  - entity: calendar.verleysen_van_tilburg
+                  - entity: calendar.feestdagen_in_belgie
+                  - entity: calendar.verjaardagen
+                  # - entity: calendar.sen_verleysen_gmail_com
+                  - entity: calendar.lyo
+                fullDayEventText: 'Heel de dag'
+                untilText: 'Tot'
+                maxDaysToShow: 14
+                # defaultMode: 2
+                # enableModeChange: true
+                showLoader: true
+                showLocation: true
+                showMonth: false
+                showCurrentEventLine: true
+                dimFinishedEvents: true
+                showProgressBar: true
+                hoursFormat: 24h
+              
           - type: custom:stack-in-card
             mode: vertical
             cards:

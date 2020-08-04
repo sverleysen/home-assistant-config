@@ -1,0 +1,86 @@
+- alias: 'Huishoudelijke Taken'
+  id: 9356a4f6-73a4-417d-9614-d3b724988b43
+  mode: queued
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.house_chore_sheets_sen_sofie
+        - switch.house_chore_sheets_lyo
+        - switch.house_chore_plants_living
+      to: 'on'
+  action:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.entity_id == 'switch.house_chore_sheets_sen_sofie' }}"
+          sequence:
+            - service: script.notify_action
+              data:
+                title: "Taken"
+                message: "De lakens van Sen en Sofie moeten gewassen worden"
+                action: "sheets_sen_sofie_done"
+                action_title: "Gedaan"
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.entity_id == 'switch.house_chore_sheets_lyo' }}"
+          sequence:
+            - service: script.notify_action
+              data:
+                title: "Taken"
+                message: "De lakens van Lyo moeten gewassen worden"
+                action: "sheets_lyo_done"
+                action_title: "Gedaan"
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.entity_id == 'switch.house_chore_plants_living' }}"
+          sequence:
+            - service: script.notify_action
+              data:
+                title: "Taken"
+                message: "De orchidee moet water krijgen"
+                action: "plants_living"
+                action_title: "Gedaan"
+      default:
+        - service: script.notify
+          data_template:
+            title: "Taken"
+            message: "Taak {{ trigger.entity_id }} niet opgenomen in de chooser"
+            tts: false
+
+
+- alias: 'Huishoudelijke Taak gedaan'
+  id: 6c617f20-bb25-44fe-833c-b56eed326486
+  mode: parallel
+  trigger:
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: sheets_sen_sofie_done
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: sheets_lyo_done
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: plants_living
+  action:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.event.data.action == 'sheets_sen_sofie_done' }}"
+          sequence:
+            - service: switch.turn_off
+              entity_id: switch.house_chore_sheets_sen_sofie
+        - conditions:
+          - condition: template
+            value_template: "{{ trigger.event.data.action == 'sheets_lyo_done' }}"
+          sequence:
+            - service: switch.turn_off
+              entity_id: switch.house_chore_sheets_lyo
+        - conditions:
+          - condition: template
+            value_template: "{{ trigger.event.data.action == 'plants_living' }}"
+          sequence:
+            - service: switch.turn_off
+              entity_id: switch.house_chore_plants_living
