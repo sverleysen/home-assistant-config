@@ -36,7 +36,16 @@ cards:
           #   name: Power Source
           # - attr: quirk_class
           #   name: Quirk
-    
+      - title: lux
+        type: history-graph
+        hours_to_show: 4
+        entities:
+          - sensor.inkom_illuminance
+          - sensor.waskot_illuminance
+          - sensor.toilet_illuminance
+          - sensor.bureau_illuminance
+          - sensor.dressing_illuminance
+          - sensor.kitchen_illuminance
     - type: vertical-stack
       cards:
       - title: Inkom
@@ -84,19 +93,13 @@ cards:
             open: true
             group_config:
               secondary_info: last-changed
-      - title: Test sensor
+      - title: keuken
         type: entities
         entities:
-          - binary_sensor.test_ias_zone
-          - binary_sensor.test_occupancy
-          - sensor.test_illuminance
-      - title: lux
-        type: history-graph
-        hours_to_show: 4
-        entities:
-          - sensor.inkom_illuminance
-          - sensor.waskot_illuminance
-          - sensor.toilet_illuminance
-          - sensor.bureau_illuminance
-          - sensor.dressing_illuminance
+          - head: group.automations_motion_kitchen
+            type: custom:fold-entity-row
+            open: true
+            group_config:
+              secondary_info: last-changed
+     
 icon: mdi:motion-sensor

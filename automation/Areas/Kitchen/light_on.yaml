@@ -4,11 +4,11 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.test_ias_zone
+        - binary_sensor.kitchen_ias_zone
       to: 'on'
     - platform: state
       entity_id:
-        - sensor.test_illuminance
+        - sensor.kitchen_illuminance
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -17,13 +17,19 @@
       entity_id: input_boolean.motion_kitchen
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.test_occupancy
+      entity_id: binary_sensor.kitchen_occupancy
       state: 'on'
     - condition: template
       value_template: >-
-        {{states.sensor.test_illuminance.state != "unavailable" and states('sensor.test_illuminance')|float <= states('input_number.motion_kitchen_lux')|float }}
+        {{states.sensor.kitchen_illuminance.state != "unavailable" and states('sensor.kitchen_illuminance')|float <= states('input_number.motion_kitchen_lux')|float }}
   action:
-    - service: input_boolean.turn_off
+    - service: scene.create
+      data:
+        scene_id: keuken_motion_led
+        snapshot_entities: 
+          - light.wled_keuken
+          - switch.circadian_lighting_kitchen
+    - service: switch.turn_off
       data:
         entity_id:
           - switch.circadian_lighting_kitchen
@@ -32,3 +38,4 @@
         entity_id:
           - light.wled_keuken
         brightness_pct: 100
+        rgb_color: [255, 255, 255]

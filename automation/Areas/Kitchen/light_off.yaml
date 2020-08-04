@@ -4,7 +4,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.test_occupancy
+        - binary_sensor.kitchen_occupancy
       to: 'off'
   condition:
     - condition: state
@@ -13,8 +13,9 @@
     - condition: state
       entity_id: input_boolean.motion_kitchen
       state: 'on'
+    - condition: state
+      entity_id: light.wled_keuken
+      state: 'on'
   action:
-    - service: input_boolean.turn_on
-      data:
-        entity_id:
-          - switch.circadian_lighting_kitchen
+    - service: scene.turn_on
+      entity_id: scene.keuken_motion_led
