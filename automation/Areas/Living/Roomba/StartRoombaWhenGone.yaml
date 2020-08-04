@@ -2,10 +2,10 @@
   id: c5c14713-db3e-425f-8f9b-37bf3a0e11c4
   trigger:
   - entity_id: group.persons
-    for: 0:10:00
-    from: home
     platform: state
+    from: home
     to: not_home
+    for: 0:10:00
   condition:
   - condition: and
     conditions:
@@ -21,7 +21,7 @@
       - sat
       - sun
     - condition: numeric_state
-      below: '0.5'
+      below: 0.5
       entity_id: sensor.roomba_on_today
   action:
   - data:
