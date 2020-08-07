@@ -3,4 +3,6 @@ http:
    # ssl_certificate: /ssl/fullchain.pem
    # ssl_key: /ssl/privkey.pem
    # base_url: https://senverleysen.duckdns.org:8123
-   
+   use_x_forwarded_for: true
+   trusted_proxies:
+      - 192.168.0.0/24

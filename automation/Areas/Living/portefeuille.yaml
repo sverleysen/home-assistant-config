@@ -12,3 +12,19 @@
         title: Alarm
         message: Portefeuille is bewogen
         camera: living
+
+- alias: portefeuille_tilt
+  id: 17131f3b-08eb-4c10-9f83-79fb382be1f3
+  description: Portefeuille is bewogen
+  trigger:
+    - device_id: e64ab572f33a416090196dd0258ff967
+      domain: zha
+      platform: device
+      subtype: device_tilted
+      type: device_tilted
+  action:
+    - service: script.notify_alarm
+      data_template:
+        title: Alarm
+        message: Portefeuille is bewogen (tilt)
+        camera: living

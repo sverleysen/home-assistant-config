@@ -13,14 +13,36 @@ cards:
         gridrows: auto auto auto auto 
         gridcols: 20% 20% 20% 20% 20%
         cards:
-          - type: weather-forecast
-            entity: weather.openweathermap
-            secondary_info_attribute: false
-            show_forecast: false
-            name: Weer
-            gridrow: 1 / 2
-            gridcol: 1 / 2
-            style: "ha-card { height: 100%; }"
+          - type: custom:stack-in-card
+            mode: vertical
+            cards:
+              - type: weather-forecast
+                entity: weather.openweathermap
+                secondary_info_attribute: false
+                show_forecast: false
+                name: Weer
+                gridrow: 1 / 2
+                gridcol: 1 / 2
+                style: "ha-card { height: 100%; }"
+              - type: entity-filter
+                show_empty: false
+                entities:
+                  - media_player.spotify
+                  - media_player.google_keuken
+                  - media_player.keuken
+                  - media_player.bureau
+                  - media_player.soundbar
+                  - media_player.badkamer
+                  - media_player.slaapkamer
+                  - media_player.home_group
+                state_filter:
+                  - 'playing'
+                  - 'paused'
+                card:
+                  type: entities
+                  show_state: true
+                  show_name: true
+          
           
           - type: custom:stack-in-card
             mode: horizontal
@@ -284,7 +306,21 @@ cards:
                 dimFinishedEvents: true
                 showProgressBar: true
                 hoursFormat: 24h
-              
+              - type: custom:stack-in-card
+                mode: horizontal
+                cards:  
+                  - name: Temperatuur
+                    type: sensor
+                    entity: sensor.temperature_avg
+                    graph: line
+                    hours_to_show: 8
+                    detail: 2
+                  - name: Vochtigheid
+                    type: sensor
+                    entity: sensor.humidity_avg
+                    graph: line
+                    hours_to_show: 8
+                    detail: 2
           - type: custom:stack-in-card
             mode: vertical
             cards:

@@ -2,7 +2,7 @@
   id: f251d5b3-bda2-4673-939b-cdbedfa1244d
   trigger:
     platform: template
-    value_template: "{{ as_timestamp(now()) - as_timestamp(states.sensor.battery_level_2.last_changed) > 300 }}"
+    value_template: "{{ as_timestamp(now()) - as_timestamp(states.sensor.battery_level_2.last_changed) > 1800 }}"
   action:
   - service: script.notify
     data:

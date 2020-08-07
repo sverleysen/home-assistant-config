@@ -4,11 +4,11 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.kitchen_ias_zone
+        - binary_sensor.kitchen_occupancy
       to: 'on'
-    - platform: state
-      entity_id:
-        - sensor.kitchen_illuminance
+    # - platform: state
+    #   entity_id:
+    #     - sensor.kitchen_illuminance
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -16,9 +16,9 @@
     - condition: state
       entity_id: input_boolean.motion_kitchen
       state: 'on'
-    - condition: state
-      entity_id: binary_sensor.kitchen_occupancy
-      state: 'on'
+    # - condition: state
+    #   entity_id: binary_sensor.kitchen_occupancy
+    #   state: 'on'
     - condition: template
       value_template: >-
         {{states.sensor.kitchen_illuminance.state != "unavailable" and states('sensor.kitchen_illuminance')|float <= states('input_number.motion_kitchen_lux')|float }}

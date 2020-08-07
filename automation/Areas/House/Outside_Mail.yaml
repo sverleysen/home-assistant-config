@@ -13,13 +13,47 @@
     # - condition: template
     #   value_template: '{{ state_attr("binary_sensor.brievenbus", "vibrationstrength") > 10 }}'
   action:
-    - service: input_boolean.turn_on
-      data:
-        entity_id:
-          - input_boolean.mail
+    # - service: input_boolean.turn_on
+    #   data:
+    #     entity_id:
+    #       - input_boolean.mail
     - service: script.notify_alarm
       data_template:
         title: Post
         # message: Er is post ({{ state_attr("binary_sensor.brievenbus", "vibrationstrength") }} - {{ states.sensor.mail_vibration.state}} )
         message: Er is post
         camera: oprit
+
+
+
+
+- alias: outside_mail_tilt
+  id: 9991bd2c-4759-4a09-9f55-9d46ed0098d5
+  description: Melding als er post is
+  trigger:
+    - device_id: 97c550828eed4e16ab54b23b82f08406
+      domain: zha
+      platform: device
+      subtype: device_tilted
+      type: device_tilted
+  condition:
+    - condition: state
+      entity_id: input_boolean.mail
+      state: 'off'
+    # - condition: template
+    #   value_template: '{{ state_attr("binary_sensor.brievenbus", "vibrationstrength") > 10 }}'
+  action:
+    # - service: input_boolean.turn_on
+    #   data:
+    #     entity_id:
+    #       - input_boolean.mail
+    - service: script.notify_alarm
+      data_template:
+        title: Post
+        # message: Er is post ({{ state_attr("binary_sensor.brievenbus", "vibrationstrength") }} - {{ states.sensor.mail_vibration.state}} )
+        message: Er is post (tilt)
+        camera: oprit
+
+
+
+       

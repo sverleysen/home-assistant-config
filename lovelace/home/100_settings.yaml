@@ -35,6 +35,27 @@ cards:
         - sensor.battery_level_2
       show_header_toggle: false
       title: HASS.IO
+    - type: 'custom:battery-state-card'
+      title: Battery levels
+      sort_by_level: "asc"
+      collapse: 4
+      entities:
+        # entities requiring additional properties can be added explicitly
+        - entity: sensor.battery_level_2
+          charging_state: # uses other entity state value
+            entity_id: sensor.tablet_living_battery_state
+            state: "charging"
+        - entity: sensor.oneplus_sen_battery_level
+          charging_state: # uses other entity state value
+            entity_id: sensor.oneplus_sen_battery_state
+            state: "charging"
+      filter:
+        include: # filters for auto-adding
+          - name: attributes.device_class # and entities which device_class attribute equals "battery"
+            value: battery
+        exclude: # filters for removing
+          - name: entity_id # entities which id ends with "_battery_level"
+            value: "*_battery_state"
   - type: horizontal-stack
     cards:
       - type: custom:mini-graph-card
@@ -122,19 +143,6 @@ cards:
           modify: '(x == "") ? null : x'
         - name: Home
           prop: state
-    - type: 'custom:flex-table-card'
-      title: Battery Levels            
-      entities:
-        include: sensor.*_power              
-      sort_by: state+          
-      strict: true          
-      clickable: true       
-      columns:     
-        - attr: friendly_name
-          name: Name        
-        - prop: state          
-          name: state
-          suffix: ' %'
   - type: vertical-stack
     cards:
     - type: custom:mini-graph-card
