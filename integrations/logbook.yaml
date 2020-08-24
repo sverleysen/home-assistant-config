@@ -8,21 +8,30 @@ logbook:
       - device_tracker
     entities:
       - sensor.date_time
+      - sensor.time_date
       - sensor.time
+      - input_number.cpu_temp
   #     - sensor.date
   #     - sensor.date_time
-  #     - sensor.br_condition
-  #     - sensor.br_precipitation
-  #     - sensor.br_humidity
-  #     - sensor.br_precipitation_forecast_average
-  #     - sensor.br_precipitation_forecast_total
-  #     - sensor.br_rain_last_24h
-  #     - sensor.br_rain_last_hour
-  #     - sensor.br_stationname
-  #     - sensor.br_symbol
-  #     - sensor.br_temperature
-  #     - sensor.br_wind_direction
-  #     - sensor.br_wind_force
+      - sensor.br_condition
+      - sensor.br_precipitation
+      - sensor.br_humidity
+      - sensor.br_precipitation_forecast_average
+      - sensor.br_precipitation_forecast_total
+      - sensor.br_rain_last_24h
+      - sensor.br_rain_last_hour
+      - sensor.br_stationname
+      - sensor.br_symbol
+      - sensor.br_temperature
+      - sensor.br_wind_direction
+      - sensor.br_wind_force
+      - light.lichten_alarm
+      - sensor.owm_temperature
+      - sensor.owm_wind_speed
+      - script.notify
+      - script.notify_tts
+      - script.notify_alarm
+      - script.notify_action
   # include:
   #   domains:
   #     - automation
