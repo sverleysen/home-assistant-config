@@ -1,0 +1,60 @@
+- alias: 'Ramen open of toe'
+  id: e4d3d18f-40f5-4ceb-975d-d0c4514ab78e
+  mode: parallel
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.owm_temperature
+        - sensor.living_temperature
+        - sensor.badkamer_temperature
+        - sensor.slaapkamer_lyo_temperature
+      above: 20
+      below: 40
+  action: 
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.to_state.state > states.sensor.owm_temperature.state }}"
+            - condition: state
+              entity_id: input_boolean.windows_open
+              state:  "off"
+          sequence:
+            - service: script.notify
+              data_template:
+                title: "Ramen"
+                message: "{{trigger.to_state.attributes.friendly_name }} is {{trigger.to_state.state}} en buiten is het {{states.sensor.owm_temperature.state}}. De ramen mogen open."
+                tts: false
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.to_state.state > trigger.from_state.state }}"
+            - condition: state
+              entity_id: input_boolean.windows_open
+              state:  "on"
+            - condition: template
+              value_template: "{{ trigger.entity_id != 'sensor.owm_temperature' }}"
+          sequence:
+            - service: script.notify
+              data_template:
+                title: "Ramen"
+                message: "{{trigger.to_state.attributes.friendly_name }} is aan het stijgen. De ramen mogen daar toe."
+                tts: false
+        - conditions:
+            - condition: template
+              value_template: "{{ trigger.to_state.state > trigger.from_state.state }}"
+            - condition: template
+              value_template: "{{trigger.to_state.state > states.sensor.owm_temperature.state }}"
+            - condition: state
+              entity_id: input_boolean.windows_open
+              state:  "on"
+          sequence:
+            - service: script.notify
+              data_template:
+                title: "Ramen"
+                message: "{{trigger.to_state.attributes.friendly_name }} is {{trigger.to_state.state}} en buiten is het {{states.sensor.owm_temperature.state}}. De ramen mogen toe."
+                tts: false
+      # default:
+      #   - service: script.notify
+      #     data_template:
+      #       title: "Ramen"
+      #       message: "{{trigger.to_state.attributes.friendly_name }} is van {{ trigger.from_state.state }} naar {{ trigger.to_state.state }} gegaan"
+      #       tts: false
