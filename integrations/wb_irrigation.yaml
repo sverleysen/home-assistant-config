@@ -1,6 +1,6 @@
 wb_irrigation:
   api_key: !secret openweathermap_api
-  rain_factor: 60
+  rain_factor: 30
   max_ev: 700 
   min_ev: -1500.0
   name: "wb_irrigation"
