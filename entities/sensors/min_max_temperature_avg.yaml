@@ -3,5 +3,5 @@ name: temperature_avg
 entity_ids:
     - sensor.badkamer_temperature
     - sensor.living_temperature
-    - sensor.slaapkamer_lyo_temperature
+    - sensor.zolder_temperature
 type: mean

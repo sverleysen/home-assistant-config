@@ -4,11 +4,11 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.toilet_ias_zone
+        - binary_sensor.toilet
       to: 'on'
     - platform: state
       entity_id:
-        - sensor.toilet_illuminance
+        - sensor.toilet
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -17,11 +17,11 @@
       entity_id: input_boolean.motion_toilet
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.toilet_occupancy
+      entity_id: binary_sensor.toilet
       state: 'on'
     - condition: template
       value_template: >-
-        {{states.sensor.toilet_illuminance.state != "unavailable" and states('sensor.toilet_illuminance')|float <= states('input_number.motion_toilet_lux')|float }}
+        {{states.sensor.toilet.state != "unavailable" and states('sensor.toilet')|float <= states('input_number.motion_toilet_lux')|float }}
   action:
     - service: light.turn_on
       data:

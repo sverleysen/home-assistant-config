@@ -4,11 +4,11 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.bureau_ias_zone
+        - binary_sensor.bureau
       to: 'on'
     - platform: state
       entity_id:
-        - sensor.bureau_illuminance
+        - sensor.bureau
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -17,14 +17,14 @@
       entity_id: input_boolean.motion_desk
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.bureau_ias_zone
+      entity_id: binary_sensor.bureau
       state: 'on'
     - condition: state
       entity_id: calendar.homeoffice
       state: 'off'
     - condition: template
       value_template: >-
-        {{states.sensor.bureau_illuminance.state != "unavailable" and states('sensor.bureau_illuminance')|float <= states('input_number.motion_desk_lux')|float }}
+        {{states.sensor.bureau.state != "unavailable" and states('sensor.bureau')|float <= states('input_number.motion_desk_lux')|float }}
     - condition: template
       value_template: >-
         {{ states('sensor.time') > (state_attr('input_datetime.motion_desk_start', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}

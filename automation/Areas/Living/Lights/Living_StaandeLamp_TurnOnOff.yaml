@@ -1,0 +1,39 @@
+- id: d31aa71f-9107-457f-975a-c1112a1b0fa2
+  alias: Staande Lamp aan uit
+  description: ''
+  trigger:
+  - device_id: b49a9a054fcd4925abf69a0973d24755
+    domain: deconz
+    platform: device
+    subtype: turn_on
+    type: remote_button_short_press
+  - device_id: b49a9a054fcd4925abf69a0973d24755
+    domain: deconz
+    platform: device
+    subtype: turn_on
+    type: remote_button_long_press
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: light.living_staande_lamp
+        state: 'on'
+      sequence:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.circadian_lighting_living
+      - service: light.turn_off
+        data:
+          entity_id: light.living_staande_lamp
+    default:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.circadian_lighting_living
+    - service: light.turn_on
+      data:
+        entity_id: light.living_staande_lamp
+  mode: single
+    
+
+ 

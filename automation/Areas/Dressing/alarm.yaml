@@ -4,7 +4,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.dressing_ias_zone
+        - binary_sensor.dressing
       to: 'on'
   condition:
     - condition: state

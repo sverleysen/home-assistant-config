@@ -1,17 +1,26 @@
-- alias: Staande Lamp Helderheid Omlaag
-  id: 5affa4c4-19a9-4ce4-bea8-729a4050712a
-  initial_state: 'on'
+- id: 5affa4c4-19a9-4ce4-bea8-729a4050712a
+  alias: Staande Lamp Helderheid Omlaag
+  description: ''
   trigger:
-  - device_id: b69a06e6717a4fee9119be6832a17543
-    domain: zha
+  - device_id: b49a9a054fcd4925abf69a0973d24755
+    domain: deconz
     platform: device
     subtype: dim_down
     type: remote_button_short_press
+  - device_id: b49a9a054fcd4925abf69a0973d24755
+    domain: deconz
+    platform: device
+    subtype: dim_down
+    type: remote_button_long_press
+  condition: []
   action:
-    - service: switch.turn_off
-      data:
-        entity_id: "switch.circadian_lighting_living"
-    - device_id: 3699d9f1ba8c4136948e661ad899c92e
-      domain: light
+  - data: {}
+    entity_id: switch.circadian_lighting_living
+    service: switch.turn_off
+  - service: light.turn_on
+    data:
+      brightness_step_pct: -25
       entity_id: light.living_staande_lamp
-      type: brightness_decrease 
+  mode: single
+    
+      

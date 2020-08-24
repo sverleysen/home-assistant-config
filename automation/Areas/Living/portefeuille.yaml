@@ -4,7 +4,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.portefeuille_ias_zone
+        - binary_sensor.portefeuille
       to: 'on'
   action:
     - service: script.notify_alarm

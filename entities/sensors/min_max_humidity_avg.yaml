@@ -3,5 +3,5 @@ name: humidity_avg
 entity_ids:
     - sensor.badkamer_humidity
     - sensor.living_humidity
-    - sensor.slaapkamer_lyo_humidity
+    - sensor.zolder_humidity
 type: mean

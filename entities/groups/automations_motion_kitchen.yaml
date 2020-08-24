@@ -4,10 +4,9 @@ automations_motion_kitchen:
   entities:
     - input_boolean.motion_kitchen
     - input_number.motion_kitchen_lux
-    # - input_number.motion_kitchen_timeout
-    - binary_sensor.kitchen_ias_zone
-    - binary_sensor.kitchen_occupancy
-    - sensor.kitchen_illuminance
+    - input_number.motion_kitchen_timeout
+    - binary_sensor.keuken
+    - sensor.keuken
     - light.wled_keuken
     - automation.kitchen_lights_on
     - automation.kitchen_lights_off

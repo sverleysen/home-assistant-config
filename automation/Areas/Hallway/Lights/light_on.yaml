@@ -4,11 +4,11 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.inkom_ias_zone
+        - binary_sensor.hal
       to: 'on'
     - platform: state
       entity_id:
-        - sensor.inkom_illuminance
+        - sensor.hal
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -17,11 +17,11 @@
       entity_id: input_boolean.motion_hallway
       state: 'on'
     - condition: state
-      entity_id: binary_sensor.inkom_occupancy
+      entity_id: binary_sensor.hal
       state: 'on'
     - condition: template
       value_template: >-
-        {{states.sensor.inkom_illuminance.state != "unavailable" and states('sensor.inkom_illuminance')|float <= states('input_number.motion_hallway_lux')|float }}
+        {{states.sensor.hal.state != "unavailable" and states('sensor.hal')|float <= states('input_number.motion_hallway_lux')|float }}
   action:
     - service: light.turn_on
       data:

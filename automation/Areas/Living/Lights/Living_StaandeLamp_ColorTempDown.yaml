@@ -1,21 +1,27 @@
-- alias: Staande Lamp Kleur Omlaag
-  id: cf0eb0fd-7231-487d-b856-57bf10da824e
-  initial_state: 'on'
+- id: cf0eb0fd-7231-487d-b856-57bf10da824e
+  alias: Staande Lamp Kleur Omlaag
+  description: ''
   trigger:
-    - device_id: b69a06e6717a4fee9119be6832a17543
-      domain: zha
-      platform: device
-      subtype: left
-      type: remote_button_short_press
+  - device_id: b49a9a054fcd4925abf69a0973d24755
+    domain: deconz
+    platform: device
+    subtype: left
+    type: remote_button_short_press
+  - device_id: b49a9a054fcd4925abf69a0973d24755
+    domain: deconz
+    platform: device
+    subtype: left
+    type: remote_button_long_press
+  condition: []
   action:
-    - service: switch.turn_off
-      data:
-        entity_id: "switch.circadian_lighting_living"
-    - service: light.turn_on
-      data_template:
-        entity_id: 
-          - light.living_staande_lamp
-        color_temp: >
-          {% set color = state_attr('light.living_staande_lamp_beneden', 'color_temp') | int %}
-          {{ [color-60, 153] | max }}
- 
+  - data: {}
+    entity_id: switch.circadian_lighting_living
+    service: switch.turn_off
+  - service: light.turn_on
+    data_template:
+      entity_id: 
+        - light.living_staande_lamp
+      color_temp: >
+        {% set color = state_attr('light.staande_lamp_beneden', 'color_temp') | int %}
+        {{ [color-60, 153] | max }}
+  mode: single

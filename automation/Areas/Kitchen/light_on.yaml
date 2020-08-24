@@ -4,11 +4,11 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.kitchen_occupancy
+        - binary_sensor.keuken
       to: 'on'
     # - platform: state
     #   entity_id:
-    #     - sensor.kitchen_illuminance
+    #     - sensor.keuken
   condition:
     - condition: state
       entity_id: input_boolean.motion
@@ -16,12 +16,13 @@
     - condition: state
       entity_id: input_boolean.motion_kitchen
       state: 'on'
-    # - condition: state
-    #   entity_id: binary_sensor.kitchen_occupancy
-    #   state: 'on'
+    - condition: state
+      entity_id:
+        - light.wled_keuken
+      state: 'off'
     - condition: template
       value_template: >-
-        {{states.sensor.kitchen_illuminance.state != "unavailable" and states('sensor.kitchen_illuminance')|float <= states('input_number.motion_kitchen_lux')|float }}
+        {{states.sensor.keuken.state != "unavailable" and states('sensor.keuken')|float <= states('input_number.motion_kitchen_lux')|float }}
   action:
     - service: scene.create
       data:
@@ -34,8 +35,13 @@
         entity_id:
           - switch.circadian_lighting_kitchen
     - service: light.turn_on
-      data:
+      data_template:
         entity_id:
           - light.wled_keuken
-        brightness_pct: 100
+        brightness_pct: >-
+          {% if states.sensor.time.state < '22:30' | timestamp_custom('%H:%M') %}
+            100
+          {% else %}
+            25
+          {% endif %}    
         rgb_color: [255, 255, 255]

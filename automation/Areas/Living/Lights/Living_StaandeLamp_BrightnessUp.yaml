@@ -1,19 +1,26 @@
-- alias: Staande Lamp Helderheid Omhoog
-  id: d00cadd9-e668-4c8a-83ad-0d00f20bd159
-  initial_state: 'on'
+- id: d00cadd9-e668-4c8a-83ad-0d00f20bd159
+  alias: Staande Lamp Helderheid Omhoog
+  description: ''
   trigger:
-  - device_id: b69a06e6717a4fee9119be6832a17543
-    domain: zha
+  - device_id: b49a9a054fcd4925abf69a0973d24755
+    domain: deconz
     platform: device
     subtype: dim_up
     type: remote_button_short_press
+  - device_id: b49a9a054fcd4925abf69a0973d24755
+    domain: deconz
+    platform: device
+    subtype: dim_up
+    type: remote_button_long_press
+  condition: []
   action:
-    - service: switch.turn_off
-      data:
-        entity_id: "switch.circadian_lighting_living"
-    - device_id: a5c42e606bf8458d8604ea6d9f224395
-      domain: light
+  - data: {}
+    entity_id: switch.circadian_lighting_living
+    service: switch.turn_off
+  - service: light.turn_on
+    data:
+      brightness_step_pct: 25
       entity_id: light.living_staande_lamp
-      type: brightness_increase
+  mode: single
 
   

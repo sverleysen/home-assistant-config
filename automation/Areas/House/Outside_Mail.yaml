@@ -2,10 +2,11 @@
   id: 1d4d5f23-2eb7-463f-94c4-72320fbc4671
   description: Melding als er post is
   trigger:
-    - platform: state
-      entity_id: binary_sensor.brievenbus_ias_zone
-      from: 'off'
-      to: 'on'
+    - device_id: f809b8b8e4104208a712f1fab105028f
+      domain: binary_sensor
+      entity_id: binary_sensor.brievenbus
+      platform: device
+      type: vibration
   condition:
     - condition: state
       entity_id: input_boolean.mail
@@ -13,10 +14,10 @@
     # - condition: template
     #   value_template: '{{ state_attr("binary_sensor.brievenbus", "vibrationstrength") > 10 }}'
   action:
-    # - service: input_boolean.turn_on
-    #   data:
-    #     entity_id:
-    #       - input_boolean.mail
+    - service: input_boolean.turn_on
+      data:
+        entity_id:
+          - input_boolean.mail
     - service: script.notify_alarm
       data_template:
         title: Post

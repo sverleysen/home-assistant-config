@@ -22,9 +22,9 @@
     #     - group.lights_downstairs
     - service: light.turn_on
       entity_id: 
-        - light.living_staande_lamp_beneden
-        - light.living_staande_lamp_midden
-        - light.living_staande_lamp_boven
+        - light.staande_lamp_beneden
+        - light.staande_lamp_midden
+        - light.staande_lamp_boven
       data_template:
         kelvin: >-
           {{ state_attr('sensor.circadian_values', 'colortemp') | int }}

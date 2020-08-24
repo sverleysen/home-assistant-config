@@ -1,6 +1,6 @@
 platform: circadian_lighting
 name: Living
 lights_ct:
-  - light.living_staande_lamp_beneden
-  - light.living_staande_lamp_midden
-  - light.living_staande_lamp_boven
+  - light.staande_lamp_beneden
+  - light.staande_lamp_midden
+  - light.staande_lamp_boven

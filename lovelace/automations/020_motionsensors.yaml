@@ -3,49 +3,8 @@ title: Motion Sensors
 panel: true
 badges: []
 cards:
-  
   - type: horizontal-stack
     cards:
-    - type: vertical-stack
-      cards:
-      - sort_by: lqi
-        type: 'custom:zha-network-card'
-        clickable: true
-        columns:
-          - name: Name
-            prop: name
-          - attr: available
-            id: available
-            modify: x || "false"
-            name: Online
-          # - attr: manufacturer
-          #   name: Manufacturer
-          # - attr: model
-          #   name: Model
-          # - attr: ieee
-          #   name: IEEE
-          # - name: NWK
-          #   prop: nwk
-          - attr: rssi
-            name: RSSI
-          - attr: lqi
-            name: LQI
-          # - attr: last_seen
-          #   name: Last Seen
-          # - attr: power_source
-          #   name: Power Source
-          # - attr: quirk_class
-          #   name: Quirk
-      - title: lux
-        type: history-graph
-        hours_to_show: 4
-        entities:
-          - sensor.inkom_illuminance
-          - sensor.waskot_illuminance
-          - sensor.toilet_illuminance
-          - sensor.bureau_illuminance
-          - sensor.dressing_illuminance
-          - sensor.kitchen_illuminance
     - type: vertical-stack
       cards:
       - title: Inkom
@@ -101,5 +60,14 @@ cards:
             open: true
             group_config:
               secondary_info: last-changed
-     
+      - title: lux
+        type: history-graph
+        hours_to_show: 4
+        entities:
+          - sensor.hal
+          - sensor.waskot
+          - sensor.toilet
+          - sensor.bureau
+          - sensor.dressing
+          - sensor.keuken
 icon: mdi:motion-sensor
