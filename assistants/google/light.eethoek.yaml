@@ -1,0 +1,8 @@
+light.eethoek:
+  expose: true
+  name: Eethoek
+  aliases:
+    - Keuken tafel
+    - Tafel
+    - Eettafel  
+  room: Keuken
