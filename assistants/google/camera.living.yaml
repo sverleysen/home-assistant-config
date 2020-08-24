@@ -1,9 +1,3 @@
 camera.living:
-  expose: true
-  name: Living
-  aliases:
-    - Living camera
-    - Living room camera
-    - Living cam
-  room: Living
+  expose: false
     

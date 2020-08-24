@@ -1,0 +1,4 @@
+platform: generic
+name: "Oprit stream"
+still_image_url: !secret camera_oprit_still_image_url
+stream_source: !secret camera_oprit_stream_source

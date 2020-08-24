@@ -1,8 +1,2 @@
 camera.tuin:
-  expose: true
-  name: Tuin
-  aliases:
-    - Tuin camera
-    - Garden camera
-    - Garden cam  
-  room: Buiten
+  expose: false

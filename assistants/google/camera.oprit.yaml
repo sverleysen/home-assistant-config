@@ -1,10 +1,3 @@
 camera.oprit:
-  expose: true
-  name: Oprit
-  aliases:
-    - Driveway
-    - Oprit camera
-    - Driveway camera
-    - Driveway cam
-  room: Inkom
+  expose: false
     

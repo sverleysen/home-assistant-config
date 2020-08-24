@@ -1,9 +1,2 @@
 camera.bureau:
-  expose: true
-  name: Bureau
-  aliases:
-    - Desk
-    - Bureau camera
-    - Desk camera
-    - Desk cam
-  room: Bureau
+  expose: false

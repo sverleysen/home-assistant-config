@@ -1,0 +1,4 @@
+platform: generic
+name: "Bureau stream"
+still_image_url: !secret camera_bureau_still_image_url
+stream_source: !secret camera_bureau_stream_source
