@@ -1,4 +1,4 @@
 name: Edgard
 id: Edgard
 device_trackers:
-- device_tracker.edgard
+  - device_tracker.gsm_edgard
