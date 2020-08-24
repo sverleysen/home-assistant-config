@@ -286,26 +286,22 @@ cards:
                 card:
                   title: "TODO"
                   show_header_toggle: false
-              - type: "custom:atomic-calendar"
-                title: "Calendar"
+              - type: "custom:atomic-calendar-revive"
                 entities:
                   - entity: calendar.verleysen_van_tilburg
                   - entity: calendar.feestdagen_in_belgie
                   - entity: calendar.verjaardagen
                   # - entity: calendar.sen_verleysen_gmail_com
                   - entity: calendar.lyo
-                fullDayEventText: 'Heel de dag'
-                untilText: 'Tot'
-                maxDaysToShow: 14
-                # defaultMode: 2
-                # enableModeChange: true
-                showLoader: true
+                maxEventCount: 10
                 showLocation: true
                 showMonth: false
-                showCurrentEventLine: true
-                dimFinishedEvents: true
-                showProgressBar: true
-                hoursFormat: 24h
+                showWeekDay: true
+                showLoader: true
+                showDescription: true
+                sortByStartTime: true
+                showFullDayProgress: true
+
               - type: custom:stack-in-card
                 mode: horizontal
                 cards:  

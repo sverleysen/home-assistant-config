@@ -12,66 +12,20 @@ cards:
     - script.chromecast_music
   title: Start Muziek
   show_header_toggle: false
-- type:  custom:mini-media-player
+- type:  media-control
   entity: media_player.spotify_sen_verleysen
 
-- type: custom:mini-media-player
+- type: media-control
   entity: media_player.google_keuken
-  tts:
-    platform: google
-  artwork: cover
-- type:  custom:mini-media-player
+- type:  media-control
   entity: media_player.keuken
-  tts:
-    platform: google
-  artwork: cover
-
-- type:  custom:mini-media-player
+- type:  media-control
   entity: media_player.soundbar
-  tts:
-    platform: google
-  artwork: cover
-- type:  custom:mini-media-player
+- type:  media-control
   entity: media_player.badkamer
-  tts:
-    platform: google
-  artwork: cover
-- type: custom:mini-media-player
+- type: media-control
   entity: media_player.slaapkamer_sen_sofie
-  tts:
-    platform: google
-  artwork: cover
-- type: custom:mini-media-player
+- type: media-control
   entity: media_player.bureau
-  tts:
-    platform: google
-  artwork: cover
-
-
-- type: entities
-  entities:
-    - type: custom:mini-media-player
-      entity: media_player.home_group
-      group: true
-      source: icon
-      info: short
-      hide:
-        volume: true
-        power: true
-    - type: custom:mini-media-player
-      entity: media_player.google_keuken
-      group: true
-      hide:
-        controls: true
-    - type: custom:mini-media-player
-      entity: media_player.slaapkamer
-      group: true
-      hide:
-        controls: true
-    - type: custom:mini-media-player
-      entity: media_player.badkamer
-      group: true
-      hide:
-        controls: true
 icon: 'mdi:music'
  
