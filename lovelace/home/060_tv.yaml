@@ -15,7 +15,6 @@ cards:
   - type: entities
     entities:
       - sensor.living_tv_source
-      - media_player.plex_lg_oled55c9pla
   - type: entities
     title: TV Lyo
     show_header_toggle: false
