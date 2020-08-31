@@ -10,3 +10,7 @@ house_chore_plants_living:
     name: Orchidee water geven
     has_date: true
     has_time: false
+house_chore_lyo_mosquito:
+  name: Muggenbandje Lyo
+  has_date: true
+  has_time: false
