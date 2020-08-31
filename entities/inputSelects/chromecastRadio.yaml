@@ -7,5 +7,6 @@ chromecast_radio:
     - Slaapkamer
     - Badkamer
     - Boven
+    - Bureau
   initial: Keuken
   icon: mdi:speaker-wireless

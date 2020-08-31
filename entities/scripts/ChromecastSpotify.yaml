@@ -3,13 +3,14 @@
     sequence:
       - service: spotcast.start
         data_template:
-          entity_id: >-
-            {% if is_state("input_select.chromecast_radio", "Overal") %}media_player.home_group
-            {% elif is_state("input_select.chromecast_radio", "Keuken") %}media_player.google_keuken
-            {% elif is_state("input_select.chromecast_radio", "SoundBar") %}media_player.soundbar
-            {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %}media_player.slaapkamer
-            {% elif is_state("input_select.chromecast_radio", "Badkamer") %}media_player.badkamer
-            {% elif is_state("input_select.chromecast_radio", "Boven") %}media_player.boven
+          device_name: >-
+            {% if is_state("input_select.chromecast_radio", "Overal") %}Home group
+            {% elif is_state("input_select.chromecast_radio", "Keuken") %}Google Keuken
+            {% elif is_state("input_select.chromecast_radio", "SoundBar") %}SoundBar
+            {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %}Slaapkamer Sen Sofie
+            {% elif is_state("input_select.chromecast_radio", "Badkamer") %}Badkamer
+            {% elif is_state("input_select.chromecast_radio", "Boven") %}Boven
+            {% elif is_state("input_select.chromecast_radio", "Bureau") %}Bureau
             {% endif %}
           uri: >-
             {% if is_state("input_select.music_source", "Spotify: Lyo") %}spotify:playlist:1qQ48Sbo2tVqzIBLFiniH3

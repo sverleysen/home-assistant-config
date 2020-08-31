@@ -10,6 +10,7 @@
             {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %} media_player.slaapkamer
             {% elif is_state("input_select.chromecast_radio", "Badkamer") %} media_player.badkamer
             {% elif is_state("input_select.chromecast_radio", "Boven") %} media_player.boven
+            {% elif is_state("input_select.chromecast_radio", "Bureau") %}media_player.bureau
             {% endif %}
            media_content_id: >-
             {% if is_state("input_select.music_source", "Radio: Q-Music") %} http://playerservices.streamtheworld.com/api/livestream-redirect/QMUSICAAC.aac?tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNTczMzEyNDUwLCJ0ZC1yZWciOmZhbHNlfQ.U1aRVXE4Tea90bipzlCS9oYZr2QY3YkW3xUIDM_Nflw
@@ -28,6 +29,7 @@
             {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %} media_player.slaapkamer
             {% elif is_state("input_select.chromecast_radio", "Badkamer") %} media_player.badkamer
             {% elif is_state("input_select.chromecast_radio", "Boven") %} media_player.boven
+            {% elif is_state("input_select.chromecast_radio", "Bureau") %}media_player.bureau
             {% endif %}
       - delay:  
           seconds: 1
@@ -40,4 +42,5 @@
             {% elif is_state("input_select.chromecast_radio", "Slaapkamer") %} media_player.slaapkamer
             {% elif is_state("input_select.chromecast_radio", "Badkamer") %} media_player.badkamer
             {% elif is_state("input_select.chromecast_radio", "Boven") %} media_player.boven
+            {% elif is_state("input_select.chromecast_radio", "Bureau") %}media_player.bureau
             {% endif %}
