@@ -49,18 +49,18 @@ cards:
           action: toggle
         hold_action:
           action: more-info
-  - name: Temperatuur Lyo
-    type: sensor
-    entity: sensor.slaapkamer_lyo_temperature
-    graph: line
-    hours_to_show: 8
-    detail: 2
-  - name: Vochtigheid Lyo
-    type: sensor
-    entity: sensor.slaapkamer_lyo_humidity
-    graph: line
-    hours_to_show: 8
-    detail: 2
+  # - name: Temperatuur Lyo
+  #   type: sensor
+  #   entity: sensor.slaapkamer_lyo_temperature
+  #   graph: line
+  #   hours_to_show: 8
+  #   detail: 2
+  # - name: Vochtigheid Lyo
+  #   type: sensor
+  #   entity: sensor.slaapkamer_lyo_humidity
+  #   graph: line
+  #   hours_to_show: 8
+  #   detail: 2
   - name: Temperatuur Badkamer
     type: sensor
     entity: sensor.badkamer_temperature

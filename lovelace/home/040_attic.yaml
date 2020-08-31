@@ -14,4 +14,15 @@ cards:
       - light.zolder
     title: Lichten
     show_header_toggle: true
- 
+  - name: Temperatuur Zolder
+    type: sensor
+    entity: sensor.zolder_temperature
+    graph: line
+    hours_to_show: 8
+    detail: 2
+  - name: Vochtigheid Zolder
+    type: sensor
+    entity: sensor.zolder_humidity
+    graph: line
+    hours_to_show: 8
+    detail: 2
