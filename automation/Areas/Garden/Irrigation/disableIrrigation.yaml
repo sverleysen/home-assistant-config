@@ -1,0 +1,26 @@
+- alias: 'DisableIrrigation'
+  id: 45baf0e2-cf7a-4f20-846b-af9b209ec5b7
+  description: 'Disable irrigation when scheduled duration is low'
+  mode: single
+  trigger:
+  - above: '30'
+    below: '30'
+    entity_id: input_number.wbi_p1_scheduled_duration
+    platform: numeric_state
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - above: '30'
+        condition: numeric_state
+        entity_id: input_number.wbi_p1_scheduled_duration
+      - condition: state
+        entity_id: input_boolean.wbi_enabled
+        state: 'off'
+      sequence:
+      - entity_id: input_boolean.wbi_enabled
+        service: input_boolean.turn_on
+    default:
+    - entity_id: input_boolean.wbi_enabled
+      service: input_boolean.turn_off
+  
