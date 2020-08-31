@@ -1,0 +1,3 @@
+sensor.groente_fruit_en_tuinafval:
+  entity_picture: "/local/images/gft.png"
+  friendly_name: GFT

@@ -281,11 +281,31 @@ cards:
                   - switch.house_chore_sheets_sen_sofie
                   - switch.house_chore_sheets_lyo
                   - switch.house_chore_plants_living
+                  - switch.house_chore_lyo_mosquito
                 state_filter:
                   - 'on'
                 card:
                   title: "TODO"
                   show_header_toggle: false
+              - type: entity-filter
+                show_empty: false
+                entities:
+                  - sensor.groente_fruit_en_tuinafval
+                  - sensor.papier
+                  - sensor.pmd
+                  - sensor.restafval
+                state_filter:
+                  - operator: "<"
+                    value: 2
+                    attribute: Days-until
+                  - operator: ">="
+                    value: 0
+                    attribute: Days-until
+                card:
+                  type: glance
+                  title: Vuilbakken buiten zetten
+                  show_state: false
+                  show_name: true
               - type: "custom:atomic-calendar-revive"
                 entities:
                   - entity: calendar.verleysen_van_tilburg
@@ -293,30 +313,30 @@ cards:
                   - entity: calendar.verjaardagen
                   # - entity: calendar.sen_verleysen_gmail_com
                   - entity: calendar.lyo
-                maxEventCount: 10
+                maxEventCount: 6
                 showLocation: true
                 showMonth: false
                 showWeekDay: true
-                showLoader: true
-                showDescription: true
+                showLoader: false
+                showDescription: false
                 sortByStartTime: true
                 showFullDayProgress: true
 
-              - type: custom:stack-in-card
-                mode: horizontal
-                cards:  
-                  - name: Temperatuur
-                    type: sensor
-                    entity: sensor.temperature_avg
-                    graph: line
-                    hours_to_show: 8
-                    detail: 2
-                  - name: Vochtigheid
-                    type: sensor
-                    entity: sensor.humidity_avg
-                    graph: line
-                    hours_to_show: 8
-                    detail: 2
+              # - type: custom:stack-in-card
+              #   mode: horizontal
+              #   cards:  
+              #     - name: Temperatuur
+              #       type: sensor
+              #       entity: sensor.temperature_avg
+              #       graph: line
+              #       hours_to_show: 8
+              #       detail: 2
+              #     - name: Vochtigheid
+              #       type: sensor
+              #       entity: sensor.humidity_avg
+              #       graph: line
+              #       hours_to_show: 8
+              #       detail: 2
           - type: custom:stack-in-card
             mode: vertical
             cards:
