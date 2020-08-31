@@ -25,8 +25,6 @@ lovelace:
       type: module
     - url:  /hacsfiles/lovelace-paper-buttons-row/paper-buttons-row.js
       type: module
-    - url:  /hacsfiles/zha-network-card/zha-network-card.js
-      type: module
     - url: /hacsfiles/battery-state-card/battery-state-card.js
       type: module
   dashboards:
