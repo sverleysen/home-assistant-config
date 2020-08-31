@@ -17,4 +17,7 @@ monitored_conditions:
   - rainlast24hour
   - rainlasthour
   - mintemp_1d
+  - windforce_1d
+  - windspeed_1d
+  - symbol_1d
   # - irradiance
