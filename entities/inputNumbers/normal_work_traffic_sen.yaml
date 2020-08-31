@@ -1,0 +1,6 @@
+normal_work_traffic_sen:
+  name: Normaal verkeer Sen
+  min: 20
+  max: 60
+  step: 1
+  unit_of_measurement: 'min'

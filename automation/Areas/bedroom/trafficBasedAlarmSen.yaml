@@ -1,0 +1,31 @@
+- alias: TrafficBasedAlarmSen
+  id: 0bc4eb0a-f3f9-41c5-a68e-558169d370ff
+  mode: single
+  description: 'Wekker vroeger laten aflopen op basis van het verkeer (Sen)'
+  trigger:
+    - platform: template
+      value_template: "{{  states('sensor.sen_home_work')|int > states('input_number.normal_work_traffic_sen')|int }}"
+  condition:
+    - condition: template
+      value_template: "{{states('sensor.gm1903_next_alarm') != 'unavailable'}}"
+    - condition: template
+      value_template: >-
+        "{{
+            (
+              as_timestamp(states('sensor.gm1903_next_alarm')) 
+              - 
+              (
+                states("sensor.sen_home_work")|int 
+                - 
+                states('input_number.normal_work_traffic_sen')|int 
+              ) 
+              *60
+            ) 
+            <= as_timestamp(now())
+          }}"
+  action:
+  - service: script.notify
+    data_template:
+      title: "Wekker"
+      message: "Het verkeer voor Sen is hoger dan normaal ( {{states('sensor.sen_home_work')|int - states('input_number.normal_work_traffic_sen')}} minuten extra. Het is tijd om op te staan."
+      tts: false
