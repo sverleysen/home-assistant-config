@@ -1,0 +1,24 @@
+- alias: Babyfoon aan uit
+  id: f1ed7786-3da1-492a-8231-f7eaa185f477
+  trigger:
+    - platform: time
+      at: '09:00:00'
+    - platform: time
+      at: '18:00:00'
+  action:
+    - choose:
+      - conditions:
+        - after: '8:59'
+          before: '17:59'
+          condition: time
+        sequence:
+        - service: switch.turn_off
+          entity_id: switch.babyfoon
+      - conditions:
+        - after: '17:59'
+          before: '8:59'
+          condition: time
+        sequence:
+        - service: switch.turn_on
+          entity_id: switch.babyfoon
+      default: []
