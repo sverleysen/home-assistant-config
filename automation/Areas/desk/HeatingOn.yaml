@@ -7,8 +7,8 @@
     to: 'on'
   condition:
     - condition: numeric_state
-      entity_id: sensor.temperature_avg
-      below: '21.0'
+      entity_id: sensor.badkamer_temperature
+      below: 21
   action:
     - service: switch.turn_on
       data:
