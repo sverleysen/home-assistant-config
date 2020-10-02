@@ -5,6 +5,9 @@ automations_motion_desk:
     - input_boolean.motion_desk
     - input_number.motion_desk_lux
     - input_number.motion_desk_timeout
+    - input_number.motion_desk_timeout_not_homeoffice
+    - input_number.motion_desk_timeout_homeoffice
+    - sensor.homeoffice
     - input_datetime.motion_desk_start
     - input_datetime.motion_desk_end
     - binary_sensor.bureau

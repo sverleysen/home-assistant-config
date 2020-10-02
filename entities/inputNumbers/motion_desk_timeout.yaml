@@ -1,6 +1,6 @@
 motion_desk_timeout:
   name: Licht bureau timeout
   min: 0
-  max: 120
+  max: 1800
   step: 5
   unit_of_measurement: 'sec'

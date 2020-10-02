@@ -1,0 +1,4 @@
+platform: template
+sensors:
+  homeoffice:
+    value_template: "{{states('sensor.power_monitor_3_power')|int>32}}"
