@@ -1,0 +1,27 @@
+- alias: lyo_escaped
+  id: b5340276-af7e-4577-8864-d33651d0432c
+  description: Melden dat Lyo zijn deur zelf heeft open gedaan
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.slaapkamer_lyo_deur
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.bureau
+      state: 'off'
+  action:
+    - service: script.notify
+      data:
+        title: "Lyo"
+        message: "Lyo heeft zijn deur zelf open gedaan"
+        tts: false
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.slaapkamer_sen_sofie
+        volume_level: 0.4
+    - service: tts.google_say
+      entity_id: media_player.slaapkamer_sen_sofie
+      data:
+        message: 'Lio heeft zijn deur zelf open gedaan.'
