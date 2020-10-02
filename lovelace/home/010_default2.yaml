@@ -27,23 +27,22 @@ cards:
               - type: entity-filter
                 show_empty: false
                 entities:
-                  - media_player.spotify
-                  - media_player.google_keuken
-                  - media_player.keuken
-                  - media_player.bureau
-                  - media_player.soundbar
-                  - media_player.badkamer
-                  - media_player.slaapkamer
-                  - media_player.home_group
+                  - sensor.groente_fruit_en_tuinafval
+                  - sensor.papier
+                  - sensor.pmd
+                  - sensor.restafval
                 state_filter:
-                  - 'playing'
-                  - 'paused'
+                  - operator: "=="
+                    value: 1
+                    attribute: Days-until
+                  # - operator: ">="
+                  #   value: 0
+                  #   attribute: Days-until
                 card:
-                  type: entities
-                  show_state: true
-                  show_name: true
-          
-          
+                  type: glance
+                  # title: Vuilbakken buiten zetten
+                  show_state: false
+                  show_name: false
           - type: custom:stack-in-card
             mode: horizontal
             cards:
@@ -192,10 +191,9 @@ cards:
                   action: toggle
                 type: button
                 icon_height: 70px
-              - type: markdown
-                content: " "
-              - type: markdown
-                content: " "
+              - type: custom:button-card
+                color_type: blank-card
+                aspect_ratio: 1/1
             gridrow: 2 / 3
             gridcol: 2 / 3
             icon_height: 70px
@@ -287,33 +285,15 @@ cards:
                 card:
                   title: "TODO"
                   show_header_toggle: false
-              - type: entity-filter
-                show_empty: false
-                entities:
-                  - sensor.groente_fruit_en_tuinafval
-                  - sensor.papier
-                  - sensor.pmd
-                  - sensor.restafval
-                state_filter:
-                  - operator: "<"
-                    value: 2
-                    attribute: Days-until
-                  - operator: ">="
-                    value: 0
-                    attribute: Days-until
-                card:
-                  type: glance
-                  title: Vuilbakken buiten zetten
-                  show_state: false
-                  show_name: true
+              
               - type: "custom:atomic-calendar-revive"
                 entities:
                   - entity: calendar.verleysen_van_tilburg
+                  - entity: calendar.lyo
                   - entity: calendar.feestdagen_in_belgie
                   - entity: calendar.verjaardagen
                   # - entity: calendar.sen_verleysen_gmail_com
-                  - entity: calendar.lyo
-                maxEventCount: 6
+                maxDaysToShow: 2
                 showLocation: true
                 showMonth: false
                 showWeekDay: true
@@ -321,7 +301,16 @@ cards:
                 showDescription: false
                 sortByStartTime: true
                 showFullDayProgress: true
-
+              # - type: calendar
+              #   entities:
+              #     - calendar.sen_verleysen_gmail_com
+              #     - calendar.verjaardagen
+              #     - calendar.gezin
+              #     - calendar.homeoffice
+              #     - calendar.lyo
+              #     - calendar.verleysen_van_tilburg
+              #     - calendar.feestdagen_in_belgie
+              #   style: "ha-card { height:460px } .header {padding-top: 0px !important;}"
               # - type: custom:stack-in-card
               #   mode: horizontal
               #   cards:  
@@ -382,8 +371,6 @@ cards:
                     buttons:
                       - entity: switch.bureau
                         name: Verwarming
-                      - entity: switch.vliegenlamp
-                        name: Vliegenlamp
                 show_header_toggle: false
                 state_color: true
                 type: entities
@@ -402,10 +389,9 @@ cards:
                   action: toggle
                 type: button
                 icon_height: 70px
-              - type: markdown
-                content: " "
-              - type: markdown
-                content: " "
+              - type: custom:button-card
+                color_type: blank-card
+                aspect_ratio: 1/1
             icon_height: 70px
             gridrow: 3 / 4
             gridcol: 3 / 4
@@ -470,10 +456,9 @@ cards:
                   action: toggle
                 type: button
                 icon_height: 70px
-              - type: markdown
-                content: " "
-              - type: markdown
-                content: " "
+              - type: custom:button-card
+                color_type: blank-card
+                aspect_ratio: 1/1
             icon_height: 70px
             gridrow: 4 / 5
             gridcol: 2 / 3
