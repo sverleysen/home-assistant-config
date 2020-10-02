@@ -7,7 +7,7 @@
       value_template: "{{  states('sensor.sofie_home_work')|int > states('input_number.normal_work_traffic_sofie')|int }}"
   condition:
     - condition: template
-      value_template: "{{states('sensor.gm1903_next_alarm') != 'unavailable'}}"
+      value_template: "{{not (states('sensor.gm1903_next_alarm') == 'unavailable')}}"
     - condition: template
       value_template: >-
         "{{
@@ -28,4 +28,37 @@
     data_template:
       title: "Wekker"
       message: "Het verkeer voor Sofie is hoger dan normaal ( {{states('sensor.sofie_home_work')|int - states('input_number.normal_work_traffic_sofie')}} minuten extra. Het is tijd om op te staan."
+      tts: false
+
+
+- alias: TrafficBasedAlarmSofieDebug
+  id: 2f461e4a-3d96-40ee-bcf8-f08b4d70d0a1
+  mode: single
+  description: 'Wekker vroeger laten aflopen op basis van het verkeer (Sofie)'
+  trigger:
+    - platform: template
+      value_template: "{{  states('sensor.sofie_home_work')|int > states('input_number.normal_work_traffic_sofie')|int }}"
+  condition:
+    - condition: template
+      value_template: "{{not (states('sensor.gm1903_next_alarm') == 'unavailable')}}"
+    # - condition: template
+    #   value_template: >-
+    #     "{{
+    #         (
+    #           as_timestamp(states('sensor.gm1903_next_alarm')) 
+    #           - 
+    #           (
+    #             states("sensor.sofie_home_work")|int 
+    #             - 
+    #             states('input_number.normal_work_traffic_sofie')|int 
+    #           ) 
+    #           *60
+    #         ) 
+    #         <= as_timestamp(now())
+    #       }}"
+  action:
+  - service: script.notify
+    data_template:
+      title: "Wekker"
+      message: "DEBUG: Het verkeer voor Sofie is hoger dan normaal ( {{states('sensor.sofie_home_work')|int - states('input_number.normal_work_traffic_sofie')}} minuten extra. Het is tijd om op te staan."
       tts: false
