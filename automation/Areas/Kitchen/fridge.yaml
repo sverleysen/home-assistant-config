@@ -1,0 +1,13 @@
+- id: 706b13eb-8672-4267-a5c8-a304534dc01e
+  alias: frigde_below_0
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.frigo_temperature
+      below: 0
+  condition: []
+  action:
+    - service: script.notify
+      data_template:
+        title: "Frigo"
+        message: "De temperatuur van de frigo is onder 0, zet de stand hoger."
+        tts: false
