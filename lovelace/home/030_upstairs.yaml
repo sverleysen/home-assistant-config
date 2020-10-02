@@ -6,7 +6,6 @@ cards:
   - type: entities
     entities:
       - switch.bureau
-      - switch.vliegenlamp
       - switch.babyfoon
     title: Stopcontacten Boven
     show_header_toggle: true
@@ -70,6 +69,42 @@ cards:
   - name: Vochtigheid Badkamer
     type: sensor
     entity: sensor.badkamer_humidity
+    graph: line
+    hours_to_show: 8
+    detail: 2
+  - name: Temperatuur slaapkamer Lyo
+    type: sensor
+    entity: sensor.slaapkamer_lyo_temperature
+    graph: line
+    hours_to_show: 8
+    detail: 2
+  - name: Vochtigheid slaapkamer Lyo
+    type: sensor
+    entity: sensor.slaapkamer_lyo_humidity
+    graph: line
+    hours_to_show: 8
+    detail: 2
+  - name: Temperatuur Bureau
+    type: sensor
+    entity: sensor.bureau_temperature
+    graph: line
+    hours_to_show: 8
+    detail: 2
+  - name: Vochtigheid Bureau
+    type: sensor
+    entity: sensor.bureau_humidity
+    graph: line
+    hours_to_show: 8
+    detail: 2
+  - name: Temperatuur Slaapkamer S&S
+    type: sensor
+    entity: sensor.slaapkamer_sen_sofie_temperature
+    graph: line
+    hours_to_show: 8
+    detail: 2
+  - name: Vochtigheid Slaapkamer S&S
+    type: sensor
+    entity: sensor.slaapkamer_sen_sofie_humidity
     graph: line
     hours_to_show: 8
     detail: 2

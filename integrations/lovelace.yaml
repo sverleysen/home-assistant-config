@@ -27,11 +27,12 @@ lovelace:
       type: module
     - url: /hacsfiles/battery-state-card/battery-state-card.js
       type: module
-  dashboards:
-    lovelace-automations: # Needs to contain a hyphen (-)
-      mode: yaml
-      filename: ui-automations.yaml
-      title: automations
-      icon: mdi:clipboard-text-play
-      show_in_sidebar: true
-      require_admin: false
+    - url: /local/card-mod.js?v=1
+      type: module
+    - url: /local/dwains-flexbox-card.js
+      type: module
+    - url: /local/button-card.js
+      type: module
+  
+  dashboards: !include ../lovelace/dashboards.yaml
+    

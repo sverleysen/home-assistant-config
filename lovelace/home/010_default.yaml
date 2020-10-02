@@ -103,9 +103,6 @@ cards:
               - entity: switch.bureau
                 tap_action:
                   action: toggle
-              - entity: switch.vliegenlamp
-                tap_action:
-                  action: toggle
               - entity: switch.ikea_tuinhuis_1
                 tap_action:
                   action: toggle

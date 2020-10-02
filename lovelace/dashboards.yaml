@@ -1,0 +1,14 @@
+# automation-settings: # Needs to contain a hyphen (-)
+#   mode: yaml
+#   title: Automations Settings
+#   icon: mdi:head-cog
+#   show_in_sidebar: true
+#   require_admin: false
+#   filename: lovelace/automation-settings/dashboard.yaml
+lovelace-automations: # Needs to contain a hyphen (-)
+  mode: yaml
+  filename: ui-automations.yaml
+  title: automations
+  icon: mdi:clipboard-text-play
+  show_in_sidebar: true
+  require_admin: false

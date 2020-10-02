@@ -1,0 +1,26 @@
+# custom_header:
+#   compact_mode: true
+#   hide_header: false
+
+# swipe_nav:
+#   wrap: true
+#   animate: swipe
+#   prevent_default: false
+#   swipe_amount: 30
+# title: Automations
+# views: !include_dir_list ./views
+
+
+custom_header:
+  compact_mode: true
+  hide_header: false
+
+swipe_nav:
+  wrap: true
+  animate: swipe
+  prevent_default: false
+  swipe_amount: 30
+title: Automations
+views:
+  - !include lovelace/automations/020_motionsensors.yaml
+  - !include lovelace/automations/010_default.yaml

@@ -8,9 +8,13 @@ swipe_nav:
   prevent_default: false
   swipe_amount: 30
 
+button_card_templates:
+  !include_dir_merge_named lovelace/button-cards-templates     
+
 title: Home
 views:
   - !include lovelace/home/010_default2.yaml
+  - !include lovelace/home/010_default3.yaml
   # - !include lovelace/home/010_default.yaml
   # - !include lovelace/home/010_default_reponsive.yaml
   - !include lovelace/home/075_camera.yaml
