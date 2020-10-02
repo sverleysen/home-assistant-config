@@ -26,8 +26,8 @@ logbook:
       - sensor.br_wind_direction
       - sensor.br_wind_force
       - light.lichten_alarm
-      - sensor.owm_temperature
-      - sensor.owm_wind_speed
+      - sensor.openweathermap_temperature
+      - sensor.openweathermap_wind_speed
       - script.notify
       - script.notify_tts
       - script.notify_alarm
