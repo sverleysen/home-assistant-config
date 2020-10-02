@@ -1,0 +1,5 @@
+head: group.automations_desk
+type: custom:fold-entity-row
+open: false
+group_config:
+  secondary_info: last-triggered

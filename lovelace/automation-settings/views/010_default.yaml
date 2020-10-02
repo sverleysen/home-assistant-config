@@ -1,0 +1,5 @@
+path: automation
+title: Automation
+badges: []
+cards: !include_dir_list ../cards/010_default
+icon: 'mdi:clipboard-text-play'

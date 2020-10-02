@@ -1,0 +1,11 @@
+type: custom:fold-entity-row
+head:
+  type: section
+  label: Deurbel
+open: false
+group_config:
+  secondary_info: last-triggered
+entities:
+  - entity: automation.someone_is_at_the_frontdoor
+    name: "[TEST] Someone is at the frontdoor"
+    secondary_info: last-triggered

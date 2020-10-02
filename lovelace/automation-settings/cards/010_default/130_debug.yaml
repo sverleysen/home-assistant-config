@@ -1,0 +1,14 @@
+type: custom:fold-entity-row
+head:
+  type: section
+  label: DEBUG
+open: false
+group_config:
+  secondary_info: last-triggered
+entities:
+  - entity: automation.everyone_is_gone
+    secondary_info: last-triggered
+  - entity: automation.someoneishome
+    secondary_info: last-triggered
+  - entity: automation.someoneisgone
+    secondary_info: last-triggered

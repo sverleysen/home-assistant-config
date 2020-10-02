@@ -1,0 +1,13 @@
+title: Settings
+type: entities
+show_header_toggle: false
+entities:
+  - entity: input_boolean.roomba_at_night
+  - entity: input_boolean.guestmode
+  - entity: switch.circadian_lighting_living
+  - entity: switch.circadian_lighting_slaapkamer
+  - entity: switch.circadian_lighting_kitchen
+  - entity: input_boolean.living_tv_lyo
+  - entity: input_boolean.motion
+  - entity: input_boolean.tts
+  - entity: input_boolean.nightmode
