@@ -1,0 +1,15 @@
+- alias: 'Slaapkamer Lyo ramen open of toe'
+  id: 0bbf496a-d808-4d4c-96e9-3f5d41040080
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.slaapkamer_lyo_temperature
+  action: 
+    - service: script.windowsopenorclose
+      data_template:
+        room: "Slaapkamer Lyo"
+        new_temp: "{{ trigger.to_state.state }}"
+        old_temp: "{{ trigger.from_state.state }}"
+        target_temp: 22
+        window_state: "{{states.binary_sensor.slaapkamer_lyo_raam.state}}"

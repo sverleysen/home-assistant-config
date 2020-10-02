@@ -1,0 +1,44 @@
+windowsopenorclose:
+  alias: windowsOpenOrClose
+  icon: mdi:window-open
+  description: 'Open or close windows based on temperature'
+  mode: parallel
+  max: 100
+  fields:
+    room:
+      description: "Welke kamer"
+      example: "Living"
+    new_temp:
+      description: 'De nieuwe temperatuur van de kamer'
+      example: "23"
+    old_temp:
+      description: 'De oude temperatuur van de kamer'
+      example: "22.8"
+    target_temp:
+      description: "De gewenste temperatuur van de kamer"
+      example: "22"
+    window_state:
+      description: "Is de venster open of toe"
+      example: 'on'
+  sequence:
+    - choose:
+      - conditions:
+          - condition: template
+          # aan het stijgen & raam staat open -> venster dicht
+            value_template: "{{(new_temp|float > old_temp|float) and (window_state == 'on')}}"
+        sequence:
+          - service: script.notify
+            data_template:
+              title: "Ramen"
+              message: "De temperatuur in {{room }} is aan het stijgen ({{new_temp}}) en buiten is het {{states. sensor.openweathermap_temperature.state}}. De ramen mogen toe."
+              tts: false
+      # - conditions:
+      #   - condition: template
+      #   # binnen te warm & buiten kouder & raam toe -> raam mag open
+      #     value_template: "{{(new_temp|float > target_temp|float) and (new_temp|float > states. sensor.openweathermap_temperature.state|float) and (window_state == 'off')}}"
+      #   sequence:
+      #     - service: script.notify
+      #       data_template:
+      #         title: "Ramen"
+      #         message: "De temperatuur in {{room }} is hoog ({{new_temp}}) en buiten is het {{states. sensor.openweathermap_temperature.state}}. De ramen mogen open."
+      #         tts: false

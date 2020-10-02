@@ -1,0 +1,15 @@
+- alias: 'Zolder ramen open of toe'
+  id: 3745554b-64d1-4c6d-be81-8f9d5aca1750
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.zolder_temperature
+  action: 
+    - service: script.windowsopenorclose
+      data_template:
+        room: "Zolder"
+        new_temp: "{{ trigger.to_state.state }}"
+        old_temp: "{{ trigger.from_state.state }}"
+        target_temp: 22
+        window_state: "{{states.binary_sensor.zolder_raam.state}}"

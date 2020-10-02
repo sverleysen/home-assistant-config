@@ -1,0 +1,15 @@
+- alias: 'Living ramen open of toe'
+  id: 3a296087-d85f-4411-8085-61f29c73105c
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.living_temperature
+  action: 
+    - service: script.windowsopenorclose
+      data_template:
+        room: "Living"
+        new_temp: "{{ trigger.to_state.state }}"
+        old_temp: "{{ trigger.from_state.state }}"
+        target_temp: 22
+        window_state: "{{ states.binary_sensor.schuifdeur.state }}"

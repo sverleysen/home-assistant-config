@@ -1,0 +1,15 @@
+- alias: 'Slaapkamer S&S ramen open of toe'
+  id: 7a405783-f136-4c95-8232-71bc5b523329
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.slaapkamer_sen_sofie_temperature
+  action: 
+    - service: script.windowsopenorclose
+      data_template:
+        room: "Slaapkamer S&S"
+        new_temp: "{{ trigger.to_state.state }}"
+        old_temp: "{{ trigger.from_state.state }}"
+        target_temp: 22
+        window_state: "{{states.binary_sensor.slaapkamer_sen_sofie_raam.state}}"

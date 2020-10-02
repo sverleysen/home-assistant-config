@@ -1,0 +1,15 @@
+- alias: 'badkamer ramen open of toe'
+  id: c72e7c2a-74a6-4cad-93d5-2645647c080c
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.badkamer_temperature
+  action: 
+    - service: script.windowsopenorclose
+      data_template:
+        room: "Badkamer"
+        new_temp: "{{ trigger.to_state.state }}"
+        old_temp: "{{ trigger.from_state.state }}"
+        target_temp: 22
+        window_state: "{{states.binary_sensor.badkamer_raam.state}}"
