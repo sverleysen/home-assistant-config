@@ -25,8 +25,9 @@ notify:
         title: "{{ title }}"
         message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
         data:
+          channel: "{{ title }}"
           ttl: 0
-          priority: high
+          importance: high
     - service: script.notify_tts
       data_template:
         message:  "{{ message }}"
