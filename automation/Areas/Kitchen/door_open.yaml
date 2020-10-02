@@ -1,0 +1,24 @@
+- alias: kitchen_door_open
+  id: 842893b3-4b4b-4175-b734-7cd244ea57e0
+  description: Doe het buiten licht aan als de deur open gaat
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.schuifdeur
+      to: 'on'
+  condition:
+    - condition: sun
+      after: sunset
+      after_offset: "00:20:00"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id:
+          - switch.muur
+    - delay:
+        minutes: 10
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - switch.muur

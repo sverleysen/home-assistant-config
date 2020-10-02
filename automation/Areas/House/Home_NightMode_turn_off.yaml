@@ -3,7 +3,7 @@
   trigger:
   - platform: state
     entity_id:
-      - binary_sensor.hal
+      - binary_sensor.hal_beweging
       - binary_sensor.waskot
       - binary_sensor.toilet
       - binary_sensor.bureau

@@ -1,0 +1,2 @@
+binary_sensor.dressing_raam:
+  device_class: window

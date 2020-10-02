@@ -5,9 +5,8 @@ automations_motion_hall:
     - input_boolean.motion_hallway
     - input_number.motion_hallway_lux
     - input_number.motion_hallway_timeout
-    - binary_sensor.hal
-    - sensor.hal
+    - binary_sensor.hal_beweging
+    - sensor.hal_beweging
     - light.inkomhal
     - automation.hallway_lights_off
     - automation.hallway_lights_on
-    

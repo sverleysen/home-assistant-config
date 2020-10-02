@@ -4,7 +4,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.hal
+        - binary_sensor.hal_beweging
       to: 'on'
   condition:
     - condition: state

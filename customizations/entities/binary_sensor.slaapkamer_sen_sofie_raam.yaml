@@ -1,0 +1,2 @@
+binary_sensor.slaapkamer_sen_sofie_raam:
+  device_class: window

@@ -1,0 +1,2 @@
+binary_sensor.zolder_raam:
+  device_class: window
