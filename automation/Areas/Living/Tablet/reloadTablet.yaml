@@ -2,6 +2,6 @@
   id: c71d5b46-bbe5-41be-9ae8-058a94d6188b
   trigger:
     - platform: time_pattern
-      minutes: '/60'
+      hours: "*"
   action:
     service: rest_command.reload_tablet
