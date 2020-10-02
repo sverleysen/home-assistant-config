@@ -2,7 +2,7 @@
   id: 3cdc31ff-9f81-4a4f-9218-8be8e3ad7dc6
   trigger:
     platform: template
-    value_template: "{{ states('sensor.owm_humidity')|int > states('sensor.humidity_avg')|int }}"
+    value_template: "{{ states('sensor.openweathermap_humidity')|int > states('sensor.humidity_avg')|int }}"
     for:
       minutes: 20
   condition:
@@ -16,6 +16,6 @@
   - service: script.notify
     data_template:
       title: "ventilation"
-      message: "Vochtigheid is {{states.sensor.owm_humidity.state}}% buiten en {{states('sensor.humidity_avg')}}% binnen, dus de ventilatie staat aan."
+      message: "Vochtigheid is {{states.sensor.openweathermap_humidity.state}}% buiten en {{states('sensor.humidity_avg')}}% binnen, dus de ventilatie staat aan."
       tts: false
       
