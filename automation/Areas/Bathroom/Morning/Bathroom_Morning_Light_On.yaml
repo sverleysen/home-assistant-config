@@ -7,7 +7,7 @@
   condition:
     - condition: time
       after: '6:00:00'
-      before: '7:00:00'
+      before: '7:30:00'
       weekday:
         - mon
         - tue
@@ -32,5 +32,5 @@
       data_template:
         message: "Het verkeer voor Sen naar zijn werk is {{states('sensor.sen_home_work')}} minuten via {{state_attr('sensor.sen_home_work', 'route')|regex_replace(find='[;]', replace='', ignorecase=False)}}.
                   Het verkeer voor Sofie naar haar werk is {{states('sensor.sofie_home_work')}} minuten via {{state_attr('sensor.sofie_home_work', 'route')|regex_replace(find='[;]', replace='', ignorecase=False)}}.
-                  De temperatuur is momenteel {{states('sensor.owm_temperature')|regex_replace(find='[.]', replace=' komma ', ignorecase=False)}} graden."
+                  De temperatuur is momenteel {{states(' sensor.openweathermap_temperature')|regex_replace(find='[.]', replace=' komma ', ignorecase=False)}} graden."
  
