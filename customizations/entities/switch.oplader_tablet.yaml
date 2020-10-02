@@ -1,0 +1,2 @@
+switch.oplader_tablet:
+  device_class: plug
