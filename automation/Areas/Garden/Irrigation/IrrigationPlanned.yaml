@@ -5,7 +5,7 @@
       at: "19:30:00"
   condition:
     - condition: numeric_state
-      above: 1
+      above: 15
       entity_id: input_number.wbi_p1_scheduled_duration
     - condition: time
       weekday:
