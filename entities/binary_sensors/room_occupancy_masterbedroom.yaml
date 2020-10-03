@@ -1,0 +1,11 @@
+platform: template
+sensors:
+  room_occupancy_masterbedroom:
+    value_template: >-
+      {{
+        states("media_player.slaapkamer_sen_sofie") != 'off' or
+        is_state("light.slaapkamer_sen_en_sofie", "on") or
+        is_state("light.nachtlamp", "on")
+      }} 
+    friendly_name: Aanwezigheid slaapkamer Sen en Sofie
+    device_class: 'occupancy'

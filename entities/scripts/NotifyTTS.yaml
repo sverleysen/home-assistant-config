@@ -1,20 +1,69 @@
 notify_tts:
   alias: Notify TTS
   icon: mdi:bell-ring
-  description: 'Notify using TTS'
+  description: "Notify using TTS"
   fields:
     message:
-      description: 'De melding die gestuurd moet worden'
+      description: "De melding die gestuurd moet worden"
       example: "Test melding"
     tts:
       description: "moet TTS gebruikt worden?"
-      example: false
+      example: "false"
   sequence:
     - condition: template
-      value_template: '{{ tts }}'
+      value_template: "{{ tts }}"
     - condition: state
       entity_id: input_boolean.tts
-      state: 'on'
-    - service: rest_command.tablet_tts
-      data_template:
-        message: "{{ message }}"
+      state: "on"
+    - choose:
+        - conditions: 
+          - condition: state
+            entity_id: binary_sensor.room_occupancy_living
+            state: "on"
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: media_player.google_keuken
+                state: "idle"
+              - condition: state
+                entity_id: media_player.google_keuken
+                state: "off"
+          sequence:
+            - service: tts.google_say
+              entity_id: media_player.google_keuken
+              data:
+                message: "{{ message }}"
+      default:
+        - service: rest_command.tablet_tts
+          data_template:
+            message: "{{ message }}"
+    - choose:
+      - conditions: 
+        - condition: state
+          entity_id: binary_sensor.room_occupancy_desk
+          state: "on"
+        sequence:
+          - service: tts.google_say
+            entity_id: media_player.bureau
+            data:
+              message: "{{ message }}"
+    - choose:
+      - conditions: 
+        - condition: state
+          entity_id: binary_sensor.room_occupancy_bathroom
+          state: "on"
+        sequence:
+          - service: tts.google_say
+            entity_id: media_player.badkamer
+            data:
+              message: "{{ message }}"
+    - choose:
+      - conditions: 
+        - condition: state
+          entity_id: binary_sensor.room_occupancy_masterbedroom
+          state: "on"
+        sequence:
+          - service: tts.google_say
+            entity_id: media_player.slaapkamer_sen_sofie
+            data:
+              message: "{{ message }}"

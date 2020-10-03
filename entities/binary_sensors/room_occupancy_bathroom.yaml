@@ -1,0 +1,11 @@
+platform: template
+sensors:
+  room_occupancy_bathroom:
+    value_template: >-
+      {{
+        states("media_player.badkamer") != 'off' or
+        is_state("light.badkamer", "on") or
+        states("sensor.badkamer_humidity")|int > 70
+      }} 
+    friendly_name: Aanwezigheid badkamer
+    device_class: 'occupancy'

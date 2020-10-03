@@ -1,0 +1,12 @@
+platform: template
+sensors:
+  room_occupancy_desk:
+    value_template: >-
+      {{
+        is_state("binary_sensor.bureau", "on") or
+        is_state("sensor.homeoffice", "True") or
+        states("media_player.bureau") != 'off' or
+        is_state("light.bureau", "on")                     
+      }} 
+    friendly_name: 'Aanwezigheid bureau'
+    device_class: 'occupancy'
