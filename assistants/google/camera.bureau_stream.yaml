@@ -6,4 +6,5 @@ camera.bureau_stream:
     - Bureau camera
     - Desk camera
     - Desk cam
+    - Home office
   room: Bureau
