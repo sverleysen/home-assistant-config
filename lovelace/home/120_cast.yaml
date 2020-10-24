@@ -30,3 +30,9 @@ cards:
         # The path of the view (or number)
         view: camera_view
         hide_if_unavailable: false
+      - type: cast
+        name: Camera2
+        # The path of the view (or number)
+        view: camera_view
+        dashboard: lovelace-test
+        hide_if_unavailable: false
