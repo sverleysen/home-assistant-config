@@ -10,3 +10,4 @@
       title: "Someone is home"
       message: "{{ trigger.to_state.attributes.friendly_name }} is home!"
       tts: false
+      persistant: false

@@ -11,3 +11,4 @@
       title: "Irrigation"
       message: "Irrigation Stopped"
       tts: false
+      persistant: false

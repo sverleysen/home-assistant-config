@@ -23,6 +23,7 @@
         title: "Thuis simulatie"
         message: "Thuis simulatie is gestopt"
         tts: false
+        persistant: false
         
     - service: homeassistant.turn_off
       entity_id: group.simulateLights

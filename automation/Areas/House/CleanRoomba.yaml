@@ -16,3 +16,4 @@
       title: "Roomba"
       message: "Maak de stofzuiger leeg!"
       tts: true
+      persistant: true

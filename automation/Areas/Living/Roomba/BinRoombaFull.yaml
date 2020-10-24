@@ -13,3 +13,4 @@
       title: "Roomba"
       message: "Maak de stofzuiger leeg, de vuilbak zit vol!"
       tts: true
+      persistant: true

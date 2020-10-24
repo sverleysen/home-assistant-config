@@ -5,6 +5,7 @@
     - platform: state
       entity_id:
         - binary_sensor.slaapkamer_lyo_deur
+      from: 'off'
       to: 'on'
   condition:
     - condition: state
@@ -16,6 +17,7 @@
         title: "Lyo"
         message: "Lyo heeft zijn deur zelf open gedaan"
         tts: false
+        persistant: false
     - service: media_player.volume_set
       data:
         entity_id:

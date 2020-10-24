@@ -11,11 +11,23 @@ notify:
       example: "Test titel"
     tts:
       description: "moet TTS gebruikt worden?"
-      example: false
+      example: "false"
+    persistant:
+      description: "Persistant notification maken?"
+      example: "false"
   sequence:
     - service: notify.file_logger
       data_template:
         message: "{{now().strftime('%d/%m/%Y %H:%M:%S')}} {{title}} - {{ message }}"
+    - choose:
+      - conditions: 
+        - condition: template
+          value_template: "{{ persistant }}"
+        sequence:
+          - service: persistent_notification.create
+            data_template:
+              title: "{{ title }}"
+              message: "{{now().strftime('%H:%M:%S')}} {{ message }}"
     - service: notify.all_devices
       data_template:
         title: "{{ title }}"

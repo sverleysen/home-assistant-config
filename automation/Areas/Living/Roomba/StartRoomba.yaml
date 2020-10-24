@@ -29,5 +29,7 @@
       title: "Roomba"
       message: "De stofzuiger wordt gestart."
       tts: false
+      persistant: false
+
 
       

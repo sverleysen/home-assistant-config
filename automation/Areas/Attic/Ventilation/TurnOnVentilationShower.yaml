@@ -16,4 +16,5 @@
       title: "ventilation"
       message: "De ventilatie starten wanneer we in de badkamer zijn."
       tts: false
+      persistant: false
       

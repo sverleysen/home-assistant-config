@@ -10,4 +10,5 @@
       title: "Someone is gone"
       message: "{{ trigger.to_state.attributes.friendly_name }} is weg!"
       tts: false
+      persistant: false
       

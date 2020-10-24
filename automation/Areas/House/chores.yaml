@@ -57,6 +57,7 @@
             title: "Taken"
             message: "Taak {{ trigger.entity_id }} niet opgenomen in de chooser"
             tts: false
+            persistant: true
 
 
 - alias: 'Huishoudelijke Taak gedaan'

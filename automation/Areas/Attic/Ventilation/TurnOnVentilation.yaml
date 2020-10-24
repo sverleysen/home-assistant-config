@@ -18,4 +18,5 @@
       title: "ventilation"
       message: "Vochtigheid is {{states.sensor.openweathermap_humidity.state}}% buiten en {{states('sensor.humidity_avg')}}% binnen, dus de ventilatie staat aan."
       tts: false
+      persistant: false
       

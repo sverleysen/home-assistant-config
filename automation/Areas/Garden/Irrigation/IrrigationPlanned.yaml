@@ -18,3 +18,4 @@
     data:
       title: "Irrigation"
       message: "Morgenvroeg gaan de sproeiers aan, staat alles goed?"
+      persistant: true

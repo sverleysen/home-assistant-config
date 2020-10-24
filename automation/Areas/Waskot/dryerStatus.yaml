@@ -39,6 +39,7 @@
         title: "Droogkast"
         message: "De droogkast is klaar!"
         tts: true
+        persistant: true
     
 
          

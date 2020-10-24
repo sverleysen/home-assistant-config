@@ -11,3 +11,4 @@
         title: "Frigo"
         message: "De temperatuur van de frigo is onder 0, zet de stand hoger."
         tts: false
+        persistant: true

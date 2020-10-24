@@ -10,4 +10,5 @@
       title: "Irrigation"
       message: "Het is aan het regenen"
       tts: false
+      persistant: false
       

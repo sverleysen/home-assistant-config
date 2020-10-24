@@ -54,6 +54,7 @@
         title: "Wasmachine"
         message: "De wasmachine is klaar!"
         tts: true
+        persistant: true
 
       
 - alias: Wasmachine naar Uit zetten

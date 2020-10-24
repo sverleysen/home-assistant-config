@@ -9,3 +9,4 @@
       title: "Tablet Batterij"
       message: "De batterij status van de tablet wordt niet meer geupdate. Open de HA app op de tablet."
       tts: false
+      persistant: true

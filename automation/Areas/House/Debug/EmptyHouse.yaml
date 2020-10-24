@@ -11,4 +11,5 @@
       title: "Empty Home"
       message: "Iedereen is weg."
       tts: false
+      persistant: false
       

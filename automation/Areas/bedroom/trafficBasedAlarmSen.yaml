@@ -30,6 +30,7 @@
       message: "Het verkeer voor Sen is hoger dan normaal ( {{states('sensor.sen_home_work')|int - states('input_number.normal_work_traffic_sen')|int}} minuten extra. Het is tijd om op te staan."
       # message: "Het verkeer voor Sen is hoger dan normaal ( {{states('sensor.sen_home_work')|int - states('input_number.normal_work_traffic_sen')}} minuten extra. Het is tijd om op te staan."
       tts: false
+      persistant: false
 
 - alias: TrafficBasedAlarmSenDebug
   id: 0bc4eb0a-f3f9-41c5-a68e-558169d370f1
@@ -63,3 +64,4 @@
       message: "DEBUG: Het verkeer voor Sen is hoger dan normaal ( {{states('sensor.sen_home_work')|int - states('input_number.normal_work_traffic_sen')|int}} minuten extra. Het is tijd om op te staan."
       # message: "Het verkeer voor Sen is hoger dan normaal ( {{states('sensor.sen_home_work')|int - states('input_number.normal_work_traffic_sen')}} minuten extra. Het is tijd om op te staan."
       tts: false
+      persistant: false

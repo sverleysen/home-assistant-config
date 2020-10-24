@@ -11,4 +11,5 @@
       title: "Internet was down"
       message: "Het internet werkte even niet, maar is terug!"
       tts: false
+      persistant: false
       
