@@ -1,0 +1,36 @@
+- alias: toggle_doorbell_based_on_door
+  id: 1c9d0834-8d8a-431c-bcab-da20ec29c8bf
+  description: Deurbel aan of uit zetten op basis van Lyo zijn deur
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.slaapkamer_lyo_deur
+  action:
+    - choose:
+      - conditions:
+        - condition: state
+          entity_id: binary_sensor.slaapkamer_lyo_deur
+          state: 'on'
+        sequence:
+        - service: switch.turn_on
+          entity_id: switch.doorbell_chime_active
+        - service: script.notify
+          data:
+            title: "Deurbel"
+            message: "Lyo zijn deur is open, dus deurbel terug aan"
+            tts: false
+            persistant: false
+      - conditions:
+        - condition: state
+          entity_id: binary_sensor.slaapkamer_lyo_deur
+          state: 'off'
+        sequence:
+        - service: switch.turn_off
+          entity_id: switch.doorbell_chime_active
+        - service: script.notify
+          data:
+            title: "Deurbel"
+            message: "Lyo zijn deur is toe, dus deurbel uit"
+            tts: false
+            persistant: false
+      default: []

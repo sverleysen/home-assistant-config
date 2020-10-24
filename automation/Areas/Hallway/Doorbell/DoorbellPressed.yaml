@@ -1,0 +1,15 @@
+- alias: doorbell_pressed
+  id: 769d787f-3cf4-4b2c-9997-a4cfe57dc21f
+  description: Er wordt gebeld
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_button
+      to: 'on'
+  action:
+    - service: script.notify
+      data_template:
+        title: Deurbel
+        message: Er belt iemand aan
+        camera: oprit
+        tts: true
+        persistant: false
