@@ -6,9 +6,8 @@
       platform: state
       to: 'off'
   condition:
-    - condition: state
-      entity_id: sun.sun
-      state: below_horizon
+    - condition: sun
+      after: sunset
     - condition: state
       entity_id: input_boolean.guestmode
       state: 'off'
