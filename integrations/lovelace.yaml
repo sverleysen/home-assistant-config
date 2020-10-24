@@ -1,11 +1,9 @@
 lovelace:
   mode: yaml
-  resources:
+  resources: 
     - url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
       type: module
     - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
-      type: module
-    - url: /hacsfiles/custom-header/custom-header.js
       type: module
     - url: /hacsfiles/flex-table-card/flex-table-card.js
       type: js
@@ -13,13 +11,7 @@ lovelace:
       type: module
     - url: /hacsfiles/lovelace-layout-card/layout-card.js
       type: module
-    - url: /hacsfiles/lovelace-buien-rain-card/buien-rain-card.js
-      type: module
     - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
-      type: module
-    - url: /hacsfiles/simple-thermostat/simple-thermostat.js
-      type: module
-    - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
       type: module
     - url:  /hacsfiles/stack-in-card/stack-in-card.js
       type: module
@@ -27,12 +19,13 @@ lovelace:
       type: module
     - url: /hacsfiles/battery-state-card/battery-state-card.js
       type: module
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
     - url: /local/card-mod.js?v=1
       type: module
-    - url: /local/dwains-flexbox-card.js
-      type: module
-    - url: /local/button-card.js
-      type: module
+    # - url: /local/dwains-flexbox-card.js
+    #   type: module
+    
   
   dashboards: !include ../lovelace/dashboards.yaml
     
