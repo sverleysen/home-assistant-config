@@ -17,9 +17,9 @@ notify_tts:
       state: "on"
     - choose:
         - conditions: 
-          - condition: state
-            entity_id: binary_sensor.room_occupancy_living
-            state: "on"
+          # - condition: state
+          #   entity_id: binary_sensor.room_occupancy_living
+          #   state: "on"
           - condition: or
             conditions:
               - condition: state
