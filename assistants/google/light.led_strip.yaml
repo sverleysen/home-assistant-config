@@ -1,0 +1,8 @@
+light.led_strip:
+  expose: true
+  name: Led strip
+  aliases:
+    - Led strip
+    - muur buiten
+    - led strip buiten
+  room: Buiten

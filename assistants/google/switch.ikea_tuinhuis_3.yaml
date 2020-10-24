@@ -1,6 +1,6 @@
 switch.ikea_tuinhuis_3:
   room: Buiten
-  expose: true
+  expose: false
   name: Led muur
   aliases:
     - muur
