@@ -12,10 +12,13 @@
       entity_id: alarm_control_panel.home_alarm
       state: disarmed
   action:
-  - service: script.notify_action
+  - service: script.notify
     data:
       title: "Alarm"
       message: "Iedereen is weg, moet ik het alarm aan zetten?"
       action: "TurnAlarmOn"
       action_title: "Zet het alarm aan"
+      tts: false
+      persistant: false
+      actionname: "custom"
       

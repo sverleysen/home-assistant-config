@@ -7,11 +7,13 @@
         - binary_sensor.portefeuille
       to: 'on'
   action:
-    - service: script.notify_alarm
+    - service: script.notify
       data_template:
         title: Alarm
         message: Portefeuille is bewogen
         camera: living
+        tts: false
+        persistant: false
 
 - alias: portefeuille_tilt
   id: 17131f3b-08eb-4c10-9f83-79fb382be1f3
@@ -23,8 +25,10 @@
       subtype: device_tilted
       type: device_tilted
   action:
-    - service: script.notify_alarm
+    - service: script.notify
       data_template:
         title: Alarm
         message: Portefeuille is bewogen (tilt)
         camera: living
+        tts: false
+        persistant: false

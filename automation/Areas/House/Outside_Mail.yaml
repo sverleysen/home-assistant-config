@@ -14,8 +14,10 @@
       data:
         entity_id:
           - input_boolean.mail
-    - service: script.notify_alarm
+    - service: script.notify
       data_template:
         title: Post
         message: Er is post
         camera: oprit
+        tts: true
+        persistant: false

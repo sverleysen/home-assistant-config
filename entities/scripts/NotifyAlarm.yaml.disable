@@ -2,6 +2,7 @@ notify_alarm:
   alias: Notify Alarm
   icon: mdi:bell-ring
   description: 'Notify all the required devices'
+  mode: parallel
   fields:
     message:
       description: 'De melding die gestuurd moet worden'
@@ -22,6 +23,7 @@ notify_alarm:
         title: "{{ title }}"
         message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
         data:
+          channel: "{{ title }}"
           ttl: 0
           priority: high
           image: "/local/camera_snapshots/{{camera}}.jpg"

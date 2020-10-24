@@ -15,42 +15,54 @@
             - condition: template
               value_template: "{{ trigger.entity_id == 'switch.house_chore_sheets_sen_sofie' }}"
           sequence:
-            - service: script.notify_action
+            - service: script.notify
               data:
                 title: "Taken"
                 message: "De lakens van Sen en Sofie moeten gewassen worden"
                 action: "sheets_sen_sofie_done"
                 action_title: "Gedaan"
+                tts: false
+                persistant: false
+                actionname: "custom"
         - conditions:
             - condition: template
               value_template: "{{ trigger.entity_id == 'switch.house_chore_sheets_lyo' }}"
           sequence:
-            - service: script.notify_action
+            - service: script.notify
               data:
                 title: "Taken"
                 message: "De lakens van Lyo moeten gewassen worden"
                 action: "sheets_lyo_done"
                 action_title: "Gedaan"
+                tts: false
+                persistant: false
+                actionname: "custom"
         - conditions:
             - condition: template
               value_template: "{{ trigger.entity_id == 'switch.house_chore_plants_living' }}"
           sequence:
-            - service: script.notify_action
+            - service: script.notify
               data:
                 title: "Taken"
                 message: "De orchidee moet water krijgen"
                 action: "plants_living"
                 action_title: "Gedaan"
+                tts: false
+                persistant: false
+                actionname: "custom"
         - conditions:
             - condition: template
               value_template: "{{ trigger.entity_id == 'switch.house_chore_lyo_mosquito' }}"
           sequence:
-            - service: script.notify_action
+            - service: script.notify
               data:
                 title: "Taken"
                 message: "Het muggenbandje van Lyo moet vervangen worden"
                 action: "mosquito_lyo"
                 action_title: "Gedaan"
+                tts: false
+                persistant: false
+                actionname: "custom"
       default:
         - service: script.notify
           data_template:

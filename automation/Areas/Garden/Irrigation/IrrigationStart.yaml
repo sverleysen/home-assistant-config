@@ -6,9 +6,12 @@
     platform: state
     to: 'on'
   action:
-  - service: script.notify_action
+  - service: script.notify
     data:
       title: "Irrigation"
       message: "Irrigation Started"
       action: "stopIrrigation"
       action_title: "Stop de sproeiers"
+      tts: false
+      persistant: false
+      actionname: "custom"

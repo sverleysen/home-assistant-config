@@ -15,7 +15,28 @@ notify:
     persistant:
       description: "Persistant notification maken?"
       example: "false"
+    camera:
+      description: "Een snapshot van deze camera toevoegen"
+      example: "oprit"
+    actionname:
+        description: "De naam van 1 van de predefined actions"
+        example: "alarm"
+    action_title:
+      description: "De title van de actie als de actionname custom is"
+      example: "Action title"
+    action:
+      description: "De actie als de actionname custom is"
+      example: "Action"
   sequence:
+    - choose:
+      - conditions: 
+        - condition: template
+          value_template: "{{ camera }}"
+        sequence:
+          - service: camera.snapshot
+            data_template:
+              entity_id: "camera.{{camera}}"
+              filename: "/config/www/camera_snapshots/{{camera}}.jpg"
     - service: notify.file_logger
       data_template:
         message: "{{now().strftime('%d/%m/%Y %H:%M:%S')}} {{title}} - {{ message }}"
@@ -32,15 +53,54 @@ notify:
       data_template:
         title: "{{ title }}"
         message: "{{now().strftime('%H:%M:%S')}} {{ message }}"
-    - service: notify.all_android_devices
-      data_template:
-        title: "{{ title }}"
-        message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
-        data:
-          channel: "{{ title }}"
-          ttl: 0
-          importance: high
     - service: script.notify_tts
       data_template:
         message:  "{{ message }}"
         tts: "{{ tts }}"
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: "{{ actionname == 'alarm' }}"
+        sequence:
+          - service: notify.all_android_devices
+            data_template:
+              title: "{{ title }}"
+              message:  "{{now().strftime('%H:%M:%S')}} {{  message }}"
+              data:
+                channel: "{{ title }}"
+                ttl: 0
+                priority: high
+                image: "/local/camera_snapshots/{{camera}}.jpg"
+                actions:
+                  - action: "alarm"
+                    title: "Alarm"
+                  - action: "URI"
+                    title: "Open de cameras"
+                    uri: "/lovelace/camera"
+      - conditions:
+        - condition: template
+          value_template: "{{ actionname == 'custom' }}"
+        sequence:
+          - service: notify.all_android_devices
+            data_template:
+              title: "{{ title }}"
+              message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
+              data:
+                image: "{% if(camera) %}  /local/camera_snapshots/{{camera}}.jpg  {% else %}  ''  {%endif%}"
+                channel: "{{ title }}"
+                ttl: 0
+                priority: high
+                actions:
+                  - action: "{{ action }}"
+                    title: "{{ action_title }}"
+      default:
+        - service: notify.all_android_devices
+          data_template:
+            title: "{{ title }}"
+            message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
+            data:
+              image: "{% if(camera) %}  /local/camera_snapshots/{{camera}}.jpg  {% else %}  ''  {%endif%}"
+              channel: "{{ title }}"
+              ttl: 0
+              importance: high
+    

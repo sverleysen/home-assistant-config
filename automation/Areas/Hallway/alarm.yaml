@@ -11,8 +11,11 @@
       entity_id: alarm_control_panel.home_alarm
       state: 'armed_away'
   action:
-    - service: script.notify_alarm
+    - service: script.notify
       data_template:
         title: Alarm
         message: Beweging in de inkom
         camera: oprit
+        tts: false
+        persistant: false
+        actionname: alarm
