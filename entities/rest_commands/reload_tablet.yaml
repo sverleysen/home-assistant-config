@@ -5,7 +5,7 @@ reload_tablet:
   #   authorization: !secret rest_headers_secret
   #   accept: 'application/json, text/html'
   #   user-agent: 'Mozilla/5.0 {{ useragent }}'
-  # payload: '{"clearCache":true, "relaunch":true}'
-  payload: '{"relaunch": true }}}'
+  payload: '{"clearCache":true, "relaunch":true}'
+  # payload: '{"relaunch": true }}}'
   content_type:  'application/json; charset=utf-8'
   # verify_ssl: true
