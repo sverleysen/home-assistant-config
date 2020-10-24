@@ -77,3 +77,9 @@ Google Dark Theme:
   mdc-theme-surface: var(--primary-background-color)
   # Pre/Code
   markdown-code-background-color: rgb(23, 23, 23)
+
+  card-mod-theme: Google Dark Theme
+  card-mod-root: |
+    app-toolbar {
+      display: none;
+    }
