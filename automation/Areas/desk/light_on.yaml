@@ -19,9 +19,9 @@
     - condition: state
       entity_id: binary_sensor.bureau
       state: 'on'
-    # - condition: state
-    #   entity_id: calendar.homeoffice
-    #   state: 'off'
+    - condition: state
+      entity_id: sensor.homeoffice
+      state: 'False'
     - condition: template
       value_template: >-
         {{states.sensor.bureau.state != "unavailable" and states('sensor.bureau')|float <= states('input_number.motion_desk_lux')|float }}

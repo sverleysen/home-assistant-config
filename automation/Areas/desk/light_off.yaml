@@ -16,8 +16,8 @@
       entity_id: input_boolean.motion_desk
       state: 'on'
     - condition: state
-      entity_id: calendar.homeoffice
-      state: 'off'
+      entity_id: sensor.homeoffice
+      state: 'False'
     - condition: template
       value_template: >-
         {{ states('sensor.time') > (state_attr('input_datetime.motion_desk_start', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
