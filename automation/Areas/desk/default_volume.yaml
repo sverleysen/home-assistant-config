@@ -1,0 +1,14 @@
+- alias: desk_default_volume
+  id: a6d96c0c-f20a-46f3-b9eb-b55c5019125b
+  description: Zet het volume op een standaard wanneer de media_player wordt afgezet
+  trigger:
+    - platform: state
+      entity_id:
+        - media_player.bureau
+      to: 'off'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.bureau
+        volume_level: 0.15
