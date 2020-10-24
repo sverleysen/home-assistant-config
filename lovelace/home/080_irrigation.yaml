@@ -59,13 +59,6 @@ cards:
             name: Max week duration
           - entity: input_number.wbi_max_duration
             name: Max duration
-      - type: 'custom:buien-rain-forecast'
-        long: !secret home_longitude
-        lat: !secret home_latitude
-        lineColor: 'rgba(89, 160, 238, 1)'
-        fillColor: 'rgba(89, 160, 238, 0.2)'
-        update_interval: 60
-        icon: 'mdi:weather-rainy'
     # - type: vertical-stack
     #   cards:
     #   - type: custom:mini-graph-card
