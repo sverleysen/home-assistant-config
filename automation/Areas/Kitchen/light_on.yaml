@@ -20,6 +20,10 @@
       entity_id:
         - light.wled_keuken
       state: 'off'
+    - condition: state
+      entity_id:
+        - light.keuken
+      state: 'off'
     - condition: template
       value_template: >-
         {{states.sensor.keuken.state != "unavailable" and states('sensor.keuken')|float <= states('input_number.motion_kitchen_lux')|float }}
