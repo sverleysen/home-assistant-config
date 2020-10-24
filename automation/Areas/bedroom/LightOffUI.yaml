@@ -1,6 +1,6 @@
 - alias: Nachtlamp uit UI
   id: 6a2e9075-0bd3-4c25-be5f-842d94000a58
-  initial_state: 'on'
+  initial_state: true
   trigger:
     platform: state
     entity_id: light.nachtlamp

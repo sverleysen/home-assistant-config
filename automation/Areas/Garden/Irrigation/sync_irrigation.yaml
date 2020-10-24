@@ -6,5 +6,4 @@
   action:
   - data:
       entity_id: switch.ikea_tuinhuis_2
-    service_template: >
-        homeassistant.turn_{{ trigger.to_state.state }}
+    service_template: homeassistant.turn_{{ trigger.to_state.state }}

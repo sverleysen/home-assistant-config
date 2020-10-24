@@ -1,6 +1,6 @@
 - alias: Verwarming uit HomeOffice
   id: 4f410409-b95d-4116-9506-ea2c19cb97ee
-  initial_state: 'on'
+  initial_state: true
   trigger:
     platform: state
     entity_id: calendar.homeoffice
