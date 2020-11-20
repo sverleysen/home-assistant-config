@@ -7,10 +7,12 @@ cards:
   - type: custom:layout-card
     layout: vertical
     column_width: 100%
+    min_columns: 2
+    max_columns: 5
     cards:
       - type: custom:layout-card
         layout: grid
-        gridrows: auto auto auto auto
+        # gridrows: auto auto auto auto
         gridcols: 20% 20% 20% 20% 20%
         cards:
           - type: custom:stack-in-card
@@ -137,7 +139,7 @@ cards:
             style: "ha-card { height: 100%; }"
           - type: picture-entity
             entity: camera.oprit
-            camera_view: "live"
+            camera_view: "auto"
             show_state: false
             show_name: false
             gridrow: 1 / 2
@@ -145,7 +147,7 @@ cards:
             style: "ha-card { height: 100%; }"
           - type: picture-entity
             entity: camera.tuin
-            camera_view: "live"
+            camera_view: "auto"
             show_state: false
             show_name: false
             gridrow: 1 / 2
@@ -164,14 +166,12 @@ cards:
                 type: button
                 icon_height: 70px
               - entities:
-                - head:
+                - type: 'custom:paper-buttons-row'
                   buttons:
                     - entity: input_boolean.mail
-                      name: Is er post?
-                      state_text:
-                        "on": "Er is post"
-                        "off": "Er is geen post"
-                  type: 'custom:paper-buttons-row'
+                      name: false
+                    - entity: switch.doorbell_chime_active
+                      name: false
                 show_header_toggle: false
                 state_color: true
                 type: entities
@@ -250,15 +250,21 @@ cards:
                   - type: 'custom:paper-buttons-row'
                     buttons:
                       - entity: light.living
-                        name: Living
+                        name: false
                       - entity: vacuum.roomba
-                        name: Stofzuiger
+                        name: false
                         icon: mdi:robot-vacuum
                         tap_action:
                           action: call-service
                           service: vacuum.start
                           service_data:
                             entity_id: vacuum.roomba
+                      - entity: switch.kerstboom
+                        name: false
+                      - entity: switch.kerst_gordijn
+                        name: false
+                      - entity: switch.kerst_tv
+                        name: false
                       # - entity: media_player.living_room_tv
                       #   name: TV
                       #   icon: mdi:television
@@ -377,8 +383,15 @@ cards:
               - entities:
                   - type: 'custom:paper-buttons-row'
                     buttons:
-                      - entity: switch.bureau
+                      # - entity: switch.bureau
+                      - entity: climate.desk
                         name: Verwarming
+                        state_icons:
+                          "heat": "mdi:radiator"
+                          "off": "mdi:radiator-disabled"
+                        # state_text:
+                        #   "heat": Verwarmen
+                        #   "off": Uit
                 show_header_toggle: false
                 state_color: true
                 type: entities
@@ -421,6 +434,14 @@ cards:
                   buttons:
                     - entity: switch.babyfoon
                       name: Babyfoon
+                    - entity: binary_sensor.slaapkamer_lyo_deur
+                      state_icons:
+                        "on": "mdi:door"
+                        "off": "mdi:door"
+                      state_text:
+                        "on": Open
+                        "off": Gesloten
+                      # name: Babyfoon
                   type: 'custom:paper-buttons-row'
                 show_header_toggle: false
                 state_color: true

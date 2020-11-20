@@ -18,7 +18,7 @@ cards:
 - type: media-control
   entity: media_player.google_keuken
 - type:  media-control
-  entity: media_player.keuken
+  entity: media_player.soundtouch_keuken
 - type:  media-control
   entity: media_player.soundbar
 - type:  media-control

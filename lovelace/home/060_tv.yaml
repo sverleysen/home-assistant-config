@@ -7,11 +7,11 @@ cards:
   - type: media-control
     entity: media_player.chromecast_living
   - type: media-control
-    entity: media_player.chromecast_slaapkamer_2
-  - type: media-control
     entity: media_player.slaapkamer_sen_sofie
   - type: media-control
     entity: media_player.living_room_tv
+  - type: media-control
+    entity: media_player.plex_plex_for_lg_lg_oled55c9pla
   - type: entities
     entities:
       - sensor.living_tv_source
