@@ -7,4 +7,4 @@
     to: home
   action:
   - service: switch.turn_on
-    entity_id: group.kerst_verlichting
+    entity_id: switch.kerstboom

@@ -4,10 +4,6 @@
   - entity_id: sun.sun
     platform: state
     to: below_horizon
-  condition:
-    - condition: state
-      entity_id: group.persons
-      state: 'not_home'
   action:
   - service: switch.turn_on
     entity_id: group.kerst_verlichting

@@ -1,0 +1,6 @@
+kerst_verlichting:
+  name: Kerstverlichting
+  entities:
+    - switch.kerst_gordijn
+    - switch.kerst_tv
+    - switch.kerstboom
