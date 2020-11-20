@@ -33,12 +33,12 @@
         - light.waskot
         - light.zolder
         - media_player.badkamer
-        - media_player.slaapkamer
         - media_player.google_keuken
         - switch.ikea_tuinhuis_1
-        # - switch.power_monitor_3_switch
-        # - switch.kerstboom
-        # - switch.kerstverlichting_trap
+        - switch.bureau
+        - switch.kerstboom
+        - switch.kerst_gordijn
+        - switch.kerst_tv
         - light.slaapkamer_sen_en_sofie
         - light.nachtlamp
         - light.wled_keuken
@@ -68,14 +68,14 @@
         - service: media_player.turn_off
           entity_id:
             - media_player.badkamer
-            - media_player.slaapkamer
             - media_player.google_keuken
         - service: switch.turn_off
           entity_id:
             - switch.ikea_tuinhuis_1
-            # - switch.power_monitor_3_switch
-            # - switch.kerstboom
-            # - switch.kerstverlichting_trap
+            - switch.bureau
+            - switch.kerstboom
+            - switch.kerst_gordijn
+            - switch.kerst_tv
   - service: input_boolean.turn_on
     entity_id: input_boolean.nightmode
   - delay:
