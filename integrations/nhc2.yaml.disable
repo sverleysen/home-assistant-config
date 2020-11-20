@@ -1,5 +1,5 @@
 nhc2:
   host: !secret ip_nhc2 #00:11:2A:22:35:73 - FP00112A223573
-  port: 8883
+  # port: 8883
   username: !secret nhc2_username
   password: !secret nhc2_password
