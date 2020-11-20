@@ -20,4 +20,4 @@
         message: Er is post
         camera: oprit
         tts: true
-        persistant: false
+        persistant: true
