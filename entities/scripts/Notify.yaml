@@ -27,16 +27,18 @@ notify:
     action:
       description: "De actie als de actionname custom is"
       example: "Action"
+  variables:
+    timestamp: "{{now().strftime('%d%m%Y%H%M%S')}}"
   sequence:
     - choose:
       - conditions: 
         - condition: template
-          value_template: "{{ camera }}"
+          value_template: "{{ camera != undefined }}"
         sequence:
           - service: camera.snapshot
             data_template:
               entity_id: "camera.{{camera}}"
-              filename: "/config/www/camera_snapshots/{{camera}}.jpg"
+              filename: "/config/www/camera_snapshots/{{timestamp}}-{{camera}}.jpg"
     - service: notify.file_logger
       data_template:
         message: "{{now().strftime('%d/%m/%Y %H:%M:%S')}} {{title}} - {{ message }}"
@@ -48,7 +50,8 @@ notify:
           - service: persistent_notification.create
             data_template:
               title: "{{ title }}"
-              message: "{{now().strftime('%H:%M:%S')}} {{ message }}"
+              message: "{{now().strftime('%H:%M:%S')}} {{ message }} {% if(camera) %} ![image](/local/camera_snapshots/{{timestamp}}-{{camera}}.jpg)  {%endif%}"
+              notification_id: "{{ title }}"
     - service: notify.all_devices
       data_template:
         title: "{{ title }}"
@@ -70,7 +73,7 @@ notify:
                 channel: "{{ title }}"
                 ttl: 0
                 priority: high
-                image: "/local/camera_snapshots/{{camera}}.jpg"
+                image: "/local/camera_snapshots/{{timestamp}}-{{camera}}.jpg"
                 actions:
                   - action: "alarm"
                     title: "Alarm"
@@ -86,7 +89,7 @@ notify:
               title: "{{ title }}"
               message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
               data:
-                image: "{% if(camera) %}  /local/camera_snapshots/{{camera}}.jpg  {% else %}  ''  {%endif%}"
+                image: "{% if(camera) %}  /local/camera_snapshots/{{timestamp}}-{{camera}}.jpg  {% else %}  ''  {%endif%}"
                 channel: "{{ title }}"
                 ttl: 0
                 priority: high
@@ -99,8 +102,8 @@ notify:
             title: "{{ title }}"
             message:  "{{now().strftime('%H:%M:%S')}} {{ message }}"
             data:
-              image: "{% if(camera) %}  /local/camera_snapshots/{{camera}}.jpg  {% else %}  ''  {%endif%}"
+              image: "{% if(camera) %}  /local/camera_snapshots/{{timestamp}}-{{camera}}.jpg  {% else %}  ''  {%endif%}"
               channel: "{{ title }}"
               ttl: 0
-              importance: high
+              priority: high
     

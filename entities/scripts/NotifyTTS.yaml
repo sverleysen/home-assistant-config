@@ -9,12 +9,78 @@ notify_tts:
     tts:
       description: "moet TTS gebruikt worden?"
       example: "false"
+  variables:
+    media_players: >-2
+      [
+      {%if(is_state("media_player.google_keuken", "idle") or  is_state("media_player.google_keuken", "off")) %}media_player.google_keuken,{%endif%}
+      {%if(is_state("binary_sensor.room_occupancy_desk", "on")) %}media_player.bureau{%endif%}
+      {%if(is_state("binary_sensor.room_occupancy_bathroom", "on")) %}media_player.badkamer,{%endif%}
+      {%if(is_state("binary_sensor.room_occupancy_masterbedroom", "on")) %}media_player.slaapkamer_sen_sofie,{%endif%}
+      ]
   sequence:
+    # - service: notify.file_logger
+    #   data_template:
+    #     message: "{{ media_players }}"
     - condition: template
       value_template: "{{ tts }}"
     - condition: state
       entity_id: input_boolean.tts
       state: "on"
+    
+    # - service: media_player.turn_on
+    #   entity_id: "{{ media_players }}"
+    # - service: tts.google_say
+    #   entity_id: "{{ media_players }}"
+    #   data:
+    #     message: "{{ message }}"
+    - choose:
+      - conditions: 
+        # - condition: state
+        #   entity_id: binary_sensor.room_occupancy_living
+        #   state: "on"
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: media_player.google_keuken
+              state: "idle"
+            - condition: state
+              entity_id: media_player.google_keuken
+              state: "off"
+        sequence:
+          - service: media_player.turn_on
+            entity_id: media_player.google_keuken
+      default:
+        - service: media_player.turn_on
+          entity_id: media_player.soundtouch_keuken
+        - service: media_player.volume_set
+          data:
+            entity_id:
+              - media_player.soundtouch_keuken
+            volume_level: 0.4
+    - choose:
+      - conditions: 
+        - condition: state
+          entity_id: binary_sensor.room_occupancy_desk
+          state: "on"
+        sequence:
+          - service: media_player.turn_on
+            entity_id: media_player.bureau
+    - choose:
+      - conditions: 
+        - condition: state
+          entity_id: binary_sensor.room_occupancy_bathroom
+          state: "on"
+        sequence:
+          - service: media_player.turn_on
+            entity_id: media_player.badkamer
+    - choose:
+      - conditions: 
+        - condition: state
+          entity_id: binary_sensor.room_occupancy_masterbedroom
+          state: "on"
+        sequence:
+          - service: media_player.turn_on
+            entity_id: media_player.slaapkamer_sen_sofie
     - choose:
         - conditions: 
           # - condition: state
@@ -34,8 +100,9 @@ notify_tts:
               data:
                 message: "{{ message }}"
       default:
-        - service: rest_command.tablet_tts
-          data_template:
+        - service: tts.google_say
+          entity_id: media_player.soundtouch_keuken
+          data:
             message: "{{ message }}"
     - choose:
       - conditions: 
