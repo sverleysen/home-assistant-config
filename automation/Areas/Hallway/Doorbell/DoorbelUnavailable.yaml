@@ -1,0 +1,14 @@
+- alias: doorbell_unavailable
+  id: 83a216d8-f58c-4fe5-a02e-f6d809ff6e03
+  description: Deurbel is offline
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_button
+      to: 'unavailable'
+  action:
+    - service: script.notify
+      data_template:
+        title: Deurbel
+        message: De deurbel is offline
+        tts: true
+        persistant: true

@@ -1,6 +1,7 @@
 - alias: doorbell_pressed
   id: 769d787f-3cf4-4b2c-9997-a4cfe57dc21f
   description: Er wordt gebeld
+  mode: single
   trigger:
     - platform: state
       entity_id: binary_sensor.doorbell_button
@@ -13,3 +14,5 @@
         camera: oprit
         tts: true
         persistant: false
+    - delay:
+        seconds: 15
