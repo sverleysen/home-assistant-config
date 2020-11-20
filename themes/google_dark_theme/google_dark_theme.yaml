@@ -79,7 +79,7 @@ Google Dark Theme:
   markdown-code-background-color: rgb(23, 23, 23)
 
   card-mod-theme: Google Dark Theme
-  card-mod-root: |
-    app-toolbar {
-      display: none;
-    }
+  # card-mod-root: |
+  #   app-toolbar {
+  #     display: none;
+  #   }
