@@ -1,0 +1,17 @@
+platform: generic_thermostat
+name: Desk
+heater: switch.bureau
+target_sensor: sensor.bureau_temperature
+min_temp: 18
+max_temp: 23
+ac_mode: false
+target_temp: 21.5
+cold_tolerance: 0.0
+hot_tolerance: 0.1
+min_cycle_duration:
+  seconds: 5
+keep_alive:
+  minutes: 3
+initial_hvac_mode: "off"
+away_temp: 16
+precision: 0.1

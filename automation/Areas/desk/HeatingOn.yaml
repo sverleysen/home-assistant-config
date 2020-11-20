@@ -3,14 +3,14 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: calendar.homeoffice
-    to: 'on'
-  condition:
-    - condition: numeric_state
-      entity_id: sensor.badkamer_temperature
-      below: 21
+    entity_id: sensor.homeoffice
+    to: 'True'
+  # condition:
+  #   - condition: numeric_state
+  #     entity_id: sensor.bureau_temperature
+  #     below: 21
   action:
-    - service: switch.turn_on
+    - service: climate.turn_on
       data:
-        entity_id: switch.bureau
+        entity_id: climate.desk
 

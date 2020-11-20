@@ -3,10 +3,10 @@
   initial_state: true
   trigger:
     platform: state
-    entity_id: calendar.homeoffice
-    to: 'off'
+    entity_id: sensor.homeoffice
+    to: 'False'
   action:
-    - service: switch.turn_off
+    - service: climate.turn_off
       data:
-        entity_id: switch.bureau
+        entity_id: climate.desk
 
