@@ -12,7 +12,7 @@ logger:
   #   zigpy_xbee.api: debug
   #   zigpy_zigate: debug
   #   zhaquirks: debug
-  # logs:
+  logs:
     # custom_components: debug
-    # custom_components.nhc2: debug
+    custom_components.nhc2: debug
     # homeassistant.components.zha: debug
