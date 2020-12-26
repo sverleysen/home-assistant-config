@@ -20,7 +20,7 @@ cards:
             cards:
               - type: weather-forecast
                 entity: weather.openweathermap
-                secondary_info_attribute: false
+                secondary_info_attribute: wind_speed
                 show_forecast: false
                 name: Weer
                 gridrow: 1 / 2
