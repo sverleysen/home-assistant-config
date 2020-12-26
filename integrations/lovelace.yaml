@@ -1,8 +1,6 @@
 lovelace:
   mode: yaml
   resources: 
-    - url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
-      type: module
     - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
       type: module
     - url: /hacsfiles/flex-table-card/flex-table-card.js
