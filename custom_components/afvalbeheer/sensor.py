@@ -1,7 +1,7 @@
 """
 Sensor component for waste pickup dates from dutch and belgium waste collectors
 Original Author: Pippijn Stortelder
-Current Version: 4.7.0 20201102 - Pippijn Stortelder
+Current Version: 4.7.7 20201222 - Pippijn Stortelder
 20200419 - Major code refactor (credits @basschipper)
 20200420 - Add sensor even though not in mapping
 20200420 - Added support for DeAfvalApp
@@ -50,6 +50,13 @@ Current Version: 4.7.0 20201102 - Pippijn Stortelder
 20201028 - Added platform to Omrin keyrequest
 20201029 - Omrin skip unusable dates
 20201102 - Support for waardlanden
+20201110 - Support for exceptions in RecycleApp
+20201126 - Added support for Reinis (credit @RobinvG)
+20201202 - Added support for suffix in Opzetcollector
+20201207 - Added support for Avri
+20201213 - Added support for Middelburg-Vlissingen
+20201218 - Added Community variable to Ximmio request for better data
+20201222 - Better support for address selection in OpzetCollector
 
 Example config:
 Configuration.yaml:
@@ -138,6 +145,7 @@ OPZET_COLLECTOR_URLS = {
     'denhaag': 'https://huisvuilkalender.denhaag.nl',
     'gad': 'https://inzamelkalender.gad.nl',
     'hvc': 'https://inzamelkalender.hvcgroep.nl',
+    'middelburg-vlissingen': 'https://afvalwijzer.middelburgvlissingen.nl',
     'montfoort': 'https://afvalkalender.cyclusnv.nl',
     'peelenmaas': 'https://afvalkalender.peelenmaas.nl',
     'purmerend': 'https://afvalkalender.purmerend.nl',
@@ -156,11 +164,13 @@ XIMMIO_COLLECTOR_IDS = {
     'acv': 'f8e2844a-095e-48f9-9f98-71fceb51d2c3',
     'almere': '53d8db94-7945-42fd-9742-9bbc71dbe4c1',
     'areareiniging': 'adc418da-d19b-11e5-ab30-625662870761',
+    'avri': '78cd4156-394b-413d-8936-d407e334559a',
     'hellendoorn': '24434f5b-7244-412b-9306-3a2bd1e22bc1',
     'meerlanden': '800bf8d7-6dd1-4490-ba9d-b419d6dc8a45',
     'twentemilieu': '8d97bb56-5afd-4cbc-a651-b4f7314264b4',
     'waardlanden': '942abcf6-3775-400d-ae5d-7380d728b23c',
     'ximmio': '800bf8d7-6dd1-4490-ba9d-b419d6dc8a45',
+    'reinis': '9dc25c8a-175a-4a41-b7a1-83f237a80b77',
 }
 
 DEPRECATED_AND_NEW_WASTECOLLECTORS = {
@@ -930,7 +940,15 @@ class OpzetCollector(WasteCollector):
             _LOGGER.error('Address not found!')
             return
 
-        self.bag_id = response[0]['bagId']
+        if len(response) > 1 and self.suffix:
+            for item in response:
+                if item['huisletter'] == self.suffix or item['huisnummerToevoeging'] == self.suffix:
+                    self.bag_id = item['bagId']
+                    break
+        elif (len(response) > 1):
+            self.bag_id = response[-1]['bagId']
+        else:
+            self.bag_id = response[0]['bagId']
 
     def __get_data(self):
         get_url = "{}/rest/adressen/{}/afvalstromen".format(
@@ -1138,6 +1156,8 @@ class RecycleApp(WasteCollector):
                     continue
                 if not item['fraction'] or not 'name' in item['fraction'] or not 'nl' in item['fraction']['name']:
                     continue
+                if 'exception' in item and 'replacedBy' in item['exception']:
+                    continue
 
                 waste_type = self.map_waste_type(item['fraction']['name']['nl'])
                 if not waste_type:
@@ -1245,6 +1265,7 @@ class XimmioCollector(WasteCollector):
         super(XimmioCollector, self).__init__(hass, waste_collector, postcode, street_number, suffix)
         self.main_url = "https://wasteapi.ximmio.com"
         self.company_code = XIMMIO_COLLECTOR_IDS[self.waste_collector]
+        self.community = ""
         if address_id:
             self.address_id = address_id
         else:
@@ -1264,6 +1285,9 @@ class XimmioCollector(WasteCollector):
             _LOGGER.error('Address not found!')
             return
 
+        if response['dataList'][0]['Community']:
+            self.community = response['dataList'][0]['Community']
+
         self.address_id = response['dataList'][0]['UniqueId']
 
     def __get_data(self):
@@ -1272,6 +1296,7 @@ class XimmioCollector(WasteCollector):
             "startDate": datetime.now().strftime('%Y-%m-%d'),
             "endDate": (datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d'),
             "companyCode": self.company_code,
+            "community": self.community,
         }
         response = requests.post(
             "{}/api/GetCalendar".format(self.main_url),
