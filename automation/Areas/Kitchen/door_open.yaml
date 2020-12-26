@@ -8,9 +8,13 @@
         - binary_sensor.schuifdeur
       to: 'on'
   condition:
-    - condition: sun
-      after: sunset
-      after_offset: "00:20:00"
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "00:20:00"
+      - condition: sun
+        before: sunrise
   action:
     - service: switch.turn_on
       data:
