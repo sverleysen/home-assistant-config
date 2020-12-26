@@ -1,0 +1,24 @@
+- alias: TV Living Boven
+  id: 522e9762-340a-4c05-923a-ec61edf15e78
+  initial_state: 'on'
+  trigger:
+    - device_id: 240c5b5f001647e490e1d5ab9fe4bdcb
+      domain: deconz
+      platform: device
+      type: remote_button_short_press
+      subtype: dim_up
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.living_tv_lyo
+        state: 'on'
+      - condition: state
+        entity_id: media_player.living_room_tv
+        state: 'on'
+  action:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv
+        button: UP
+ 

@@ -1,0 +1,23 @@
+- alias: TV Living Left
+  id: 59cc5f87-ce0e-41dd-be89-f55c09b2f27a
+  initial_state: 'on'
+  trigger:
+    - device_id: 240c5b5f001647e490e1d5ab9fe4bdcb
+      domain: deconz
+      platform: device
+      type: remote_button_short_press
+      subtype: left
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.living_tv_lyo
+        state: 'on'
+      - condition: state
+        entity_id: media_player.living_room_tv
+        state: 'on'
+  action:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv
+        button: LEFT

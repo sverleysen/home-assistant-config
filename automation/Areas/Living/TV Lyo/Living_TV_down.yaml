@@ -1,0 +1,23 @@
+- alias: TV Living onder
+  id: 9a7db9ef-d1c6-4b09-b969-145ba58162b1
+  initial_state: 'on'
+  trigger:
+    - device_id: 240c5b5f001647e490e1d5ab9fe4bdcb
+      domain: deconz
+      platform: device
+      type: remote_button_short_press
+      subtype: dim_down
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.living_tv_lyo
+        state: 'on'
+      - condition: state
+        entity_id: media_player.living_room_tv
+        state: 'on'
+  action:
+    - service: webostv.button
+      data:
+        entity_id: media_player.living_room_tv
+        button: DOWN
