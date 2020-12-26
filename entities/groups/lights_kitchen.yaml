@@ -1,0 +1,7 @@
+lights_kitchen:
+  name: Keuken verlichting
+  entities:
+    - light.keuken_eiland
+    - light.keuken_kast
+    - light.eethoek
+    - light.wled_keuken

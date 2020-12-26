@@ -1,0 +1,5 @@
+zolder_devices:
+  name: Zolder devices
+  entities:
+    - switch.power_monitor_4_switch
+    - switch.oplader_tablet

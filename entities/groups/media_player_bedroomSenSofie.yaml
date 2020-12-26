@@ -1,0 +1,5 @@
+media_player_bedroom_sen_sofie:
+  name: Slaapkamer Sen en Sofie media players
+  entities:
+    - media_player.chromecast_slaapkamer
+    - media_player.slaapkamer_sen_sofie

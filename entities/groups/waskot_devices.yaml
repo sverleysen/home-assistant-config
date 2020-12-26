@@ -1,0 +1,5 @@
+waskot_devices:
+  name: Waskot devices
+  entities:
+    - input_select.washing_machine_status
+    - input_select.dryer_status

@@ -1,0 +1,8 @@
+living_lights:
+  name: Lichten in de living
+  entities:
+    - light.living_staande_lamp
+    - light.living
+    - switch.kerstboom
+    - switch.kerst_gordijn
+    - switch.kerst_tv

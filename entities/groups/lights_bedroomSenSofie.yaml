@@ -1,0 +1,5 @@
+lights_bedroom_sen_sofie:
+  name: Slaapkamer Sen en Sofie verlichting
+  entities:
+    - light.slaapkamer_sen_en_sofie
+    - light.nachtlamp

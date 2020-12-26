@@ -4,3 +4,5 @@ lights_outdoor:
     - light.achteraan
     - light.zijgevel
     - light.vooraan
+    - light.led_strip
+    - light.spot
