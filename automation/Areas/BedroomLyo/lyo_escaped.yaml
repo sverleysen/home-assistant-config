@@ -16,14 +16,14 @@
       data:
         title: "Lyo"
         message: "Lyo heeft zijn deur zelf open gedaan"
-        tts: false
+        tts: true
         persistant: false
     - service: media_player.volume_set
       data:
         entity_id:
           - media_player.slaapkamer_sen_sofie
         volume_level: 0.4
-    - service: tts.google_say
+    - service: tts.microsoft_say
       entity_id: media_player.slaapkamer_sen_sofie
       data:
-        message: 'Lio heeft zijn deur zelf open gedaan.'
+        message: 'Lyo heeft zijn deur zelf open gedaan.'

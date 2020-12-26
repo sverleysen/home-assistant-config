@@ -14,7 +14,7 @@
       entity_id: media_player.slaapkamer_sen_sofie
       data:
         volume_level: 0.4
-    - service: tts.google_say
+    - service: tts.microsoft_say
       entity_id: media_player.slaapkamer_sen_sofie
       data:
         message: "Heb je je pillen genomen?"

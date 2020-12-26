@@ -29,7 +29,7 @@ notify_tts:
     
     # - service: media_player.turn_on
     #   entity_id: "{{ media_players }}"
-    # - service: tts.google_say
+    # - service: tts.microsoft_say
     #   entity_id: "{{ media_players }}"
     #   data:
     #     message: "{{ message }}"
@@ -95,12 +95,12 @@ notify_tts:
                 entity_id: media_player.google_keuken
                 state: "off"
           sequence:
-            - service: tts.google_say
+            - service: tts.microsoft_say
               entity_id: media_player.google_keuken
               data:
                 message: "{{ message }}"
       default:
-        - service: tts.google_say
+        - service: tts.microsoft_say
           entity_id: media_player.soundtouch_keuken
           data:
             message: "{{ message }}"
@@ -110,7 +110,7 @@ notify_tts:
           entity_id: binary_sensor.room_occupancy_desk
           state: "on"
         sequence:
-          - service: tts.google_say
+          - service: tts.microsoft_say
             entity_id: media_player.bureau
             data:
               message: "{{ message }}"
@@ -120,7 +120,7 @@ notify_tts:
           entity_id: binary_sensor.room_occupancy_bathroom
           state: "on"
         sequence:
-          - service: tts.google_say
+          - service: tts.microsoft_say
             entity_id: media_player.badkamer
             data:
               message: "{{ message }}"
@@ -130,7 +130,7 @@ notify_tts:
           entity_id: binary_sensor.room_occupancy_masterbedroom
           state: "on"
         sequence:
-          - service: tts.google_say
+          - service: tts.microsoft_say
             entity_id: media_player.slaapkamer_sen_sofie
             data:
               message: "{{ message }}"

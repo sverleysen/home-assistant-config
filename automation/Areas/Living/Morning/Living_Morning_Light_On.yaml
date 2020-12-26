@@ -27,7 +27,7 @@
       entity_id: media_player.google_keuken
       data:
         volume_level: 0.3
-    - service: tts.google_say
+    - service: tts.microsoft_say
       entity_id: media_player.google_keuken
       data_template:
         message: "Het verkeer voor Sen naar zijn werk is {{states('sensor.sen_home_work')}} minuten via {{state_attr('sensor.sen_home_work', 'route')|regex_replace(find='[;]', replace='', ignorecase=False)}}.
