@@ -1,5 +1,5 @@
 platform: dsmr
-host: 192.168.0.127
+host: 192.168.0.128
 port: 23
 dsmr_version: 5B
 precision: 2
