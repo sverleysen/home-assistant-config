@@ -1,0 +1,116 @@
+# https://dwainscheeren.github.io/dwains-lovelace-dashboard/configuration/rooms.html
+
+rooms:
+  - name: Inkom
+    icon: mdi:door
+    light: light.inkomhal
+    # temperature: sensor.bureau_temperature
+    # climate: climate.desk
+    # humidity: sensor.bureau_humidity
+    motion: binary_sensor.hal_beweging
+    door: binary_sensor.voordeur
+    device: switch.doorbell_chime_active
+    more_entities:
+      entities:
+        - entity: input_boolean.mail
+  - name: Toilet
+    icon: mdi:toilet
+    light: light.toilet
+    motion: binary_sensor.toilet
+  - name: Waskot
+    icon: mdi:washing-machine
+    light: light.waskot
+    motion: binary_sensor.waskot
+    window: binary_sensor.waskot_raam
+    # device: group.waskot_devices
+    page_entities:
+      entities:
+        - entity: input_select.washing_machine_status
+        - entity: input_select.dryer_status
+  - name: Living
+    icon: mdi:sofa
+    light: group.living_lights
+    temperature: sensor.living_temperature
+    humidity: sensor.living_humidity
+    vacuum: 
+      entity: vacuum.roomba
+    media_player: media_player.living_room_tv
+  - name: Keuken
+    icon: mdi:table-chair
+    light: group.lights_kitchen
+    temperature: sensor.frigo_temperature
+    humidity: sensor.frigo_humidity
+    motion: binary_sensor.keuken
+    door: binary_sensor.schuifdeur
+    media_player: media_player.google_keuken
+  - name: Bureau
+    icon: mdi:desktop-mac
+    light: light.bureau
+    temperature: sensor.bureau_temperature
+    climate: climate.desk
+    humidity: sensor.bureau_humidity
+    motion: binary_sensor.bureau
+    media_player: media_player.bureau
+  - name: Dressing
+    icon: mdi:wardrobe
+    light: light.dressing
+    motion: binary_sensor.dressing
+    window: binary_sensor.dressing_raam
+  - name: Slaapkamer Lyo
+    icon: mdi:bed-single-outline
+    light: light.slaapkamer_lyo
+    temperature: sensor.slaapkamer_lyo_temperature
+    humidity:  sensor.slaapkamer_lyo_humidity
+    door: binary_sensor.slaapkamer_lyo_deur
+    window: binary_sensor.slaapkamer_lyo_raam
+    device: switch.babyfoon
+  - name: Slaapkamer Sen en Sofie
+    icon: mdi:bed-double-outline
+    light: group.lights_bedroom_sen_sofie
+    temperature: sensor.slaapkamer_sen_sofie_temperature
+    humidity: sensor.slaapkamer_sen_sofie_humidity
+    window: binary_sensor.slaapkamer_sen_sofie_raam
+    media_player: group.media_player_bedroom_sen_sofie
+  - name: Badkamer
+    icon: mdi:shower
+    light: light.badkamer
+    temperature: sensor.badkamer_temperature
+    humidity: sensor.badkamer_humidity
+    window: binary_sensor.badkamer_raam
+    media_player: media_player.badkamer
+  - name: Zolder
+    icon: mdi:home-floor-2
+    light: light.zolder
+    temperature: sensor.zolder_temperature
+    humidity: sensor.zolder_humidity
+    window: binary_sensor.zolder_raam
+    device: group.zolder_devices
+    media_player: media_player.kd_49x8005c
+  - name: Buiten
+    icon: mdi:home
+    light: group.lights_outdoor
+#   - name: Garage
+#     icon: mdi:garage
+#     light: group.garage_lights
+#     door: group.garage_doors
+#     addons:
+#       - name: Hello room
+#         icon: mdi:puzzle
+#         path: 'dwains-theme/addons/rooms/hello-room/page.yaml'
+#         button_path: 'dwains-theme/addons/rooms/hello-room/button.yaml'
+#         data:
+#           some_data: 'This is some data parsed.'
+#           some_other_data: 'and some other data.'
+#           entity: vacuum.roborock
+#   - name: Bedroom
+#     icon: fal:bed
+#     more_entities:
+#       columns: 2 #optional
+#       entities:
+#         - entity: sensor.name1
+#         - entity: sensor.name2
+#     page_entities:
+#       columns: 1 #optional
+#       entities:
+#         - entity: sensor.name1
+#         - entity: sensor.name2
