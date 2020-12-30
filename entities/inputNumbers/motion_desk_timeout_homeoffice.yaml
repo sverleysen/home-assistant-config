@@ -1,6 +1,0 @@
-motion_desk_timeout_homeoffice:
-  name: Licht bureau timeout Home Office
-  min: 0
-  max: 1800
-  step: 20
-  unit_of_measurement: 'sec'
