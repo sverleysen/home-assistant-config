@@ -14,7 +14,6 @@ cards:
       - entity: input_boolean.living_tv_lyo
       - entity: input_boolean.motion
       - entity: input_boolean.tts
-      - entity: input_boolean.nightmode
   - head: group.automations_tv_lyo
     type: custom:fold-entity-row
     open: false

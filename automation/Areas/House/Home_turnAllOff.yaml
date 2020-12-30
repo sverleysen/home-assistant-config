@@ -76,8 +76,6 @@
             - switch.kerstboom
             - switch.kerst_gordijn
             - switch.kerst_tv
-  - service: input_boolean.turn_on
-    entity_id: input_boolean.nightmode
   - delay:
       minutes: 5
   - service: light.turn_off
