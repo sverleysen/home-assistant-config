@@ -8,6 +8,5 @@ automations_motion_waskot:
     - binary_sensor.waskot
     - sensor.waskot
     - light.waskot
-    - automation.waskot_lights_off
     - automation.waskot_lights_on
     
