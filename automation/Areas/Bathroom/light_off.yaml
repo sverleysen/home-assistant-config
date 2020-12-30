@@ -1,0 +1,11 @@
+- alias: bathroom_light_off
+  id: 2bff4658-0695-40c9-9be7-2d30159d3287
+  description: Het licht uit doen na een bepaalde tijd
+  use_blueprint:
+    path: no_motion_light_off.yaml
+    input:
+      motion_entity: binary_sensor.badkamer_beweging
+      motion_enabled: input_boolean.motion_bathroom
+      light_target:
+        entity_id: light.badkamer
+      no_motion_wait: input_number.motion_bathroom_timeout

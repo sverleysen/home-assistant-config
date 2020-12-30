@@ -1,0 +1,11 @@
+- alias: bedroom_light_off
+  id: 4e3e3355-9dea-46f5-bcd2-915481380fa5
+  description: Het licht uit doen na een bepaalde tijd
+  use_blueprint:
+    path: no_motion_light_off.yaml
+    input:
+      motion_entity: binary_sensor.slaapkamer_beweging
+      motion_enabled: input_boolean.motion_bedroom_sen_sofie
+      light_target:
+        entity_id: light.slaapkamer_sen_en_sofie
+      no_motion_wait: input_number.motion_bedroom_sen_sofie_timeout

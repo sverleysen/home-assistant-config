@@ -1,0 +1,11 @@
+- alias: attic_light_off
+  id: 77d57bdf-2fea-497f-ad24-96b369952110
+  description: Het licht uit doen na een bepaalde tijd
+  use_blueprint:
+    path: no_motion_light_off.yaml
+    input:
+      motion_entity: binary_sensor.zolder_beweging
+      motion_enabled: input_boolean.motion_attic
+      light_target:
+        entity_id: light.zolder
+      no_motion_wait: input_number.motion_attic_timeout

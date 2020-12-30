@@ -24,8 +24,6 @@ cards:
             open: true
             group_config:
               secondary_info: last-changed
-    - type: vertical-stack
-      cards:
       - title: Waskot
         type: entities
         entities:
@@ -34,6 +32,8 @@ cards:
             open: true
             group_config:
               secondary_info: last-changed
+    - type: vertical-stack
+      cards:
       - title: Dressing
         type: entities
         entities:
@@ -42,8 +42,6 @@ cards:
             open: true
             group_config:
               secondary_info: last-changed
-    - type: vertical-stack
-      cards:
       - title: Bureau
         type: entities
         entities:
@@ -56,6 +54,32 @@ cards:
         type: entities
         entities:
           - head: group.automations_motion_kitchen
+            type: custom:fold-entity-row
+            open: true
+            group_config:
+              secondary_info: last-changed
+    - type: vertical-stack
+      cards:
+      - title: Slaapkamer
+        type: entities
+        entities:
+          - head: group.automations_motion_bedroom
+            type: custom:fold-entity-row
+            open: true
+            group_config:
+              secondary_info: last-changed
+      - title: Badkamer
+        type: entities
+        entities:
+          - head: group.automations_motion_bathroom
+            type: custom:fold-entity-row
+            open: true
+            group_config:
+              secondary_info: last-changed
+      - title: Zolder
+        type: entities
+        entities:
+          - head: group.automations_motion_attic
             type: custom:fold-entity-row
             open: true
             group_config:

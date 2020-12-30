@@ -1,0 +1,6 @@
+motion_bathroom_timeout:
+  name: Licht badkamer timeout
+  min: 0
+  max: 1800
+  step: 5
+  unit_of_measurement: 'sec'

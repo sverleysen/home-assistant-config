@@ -1,0 +1,6 @@
+motion_attic_timeout:
+  name: Licht zolder timeout
+  min: 0
+  max: 1800
+  step: 5
+  unit_of_measurement: 'sec'
