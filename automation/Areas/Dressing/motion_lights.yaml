@@ -1,0 +1,13 @@
+- alias: dressing_motion_lights
+  id: ade139f3-61c6-4f3a-b853-540fedec2b47
+  description: Doe het licht aan in de dressing aan als er beweging is
+  use_blueprint:
+    path: motion_lights.yaml
+    input:
+      motion_entity: binary_sensor.dressing
+      illuminance_entity: sensor.dressing
+      min_illuminance: input_number.motion_dressing_lux
+      motion_enabled: input_boolean.motion_dressing
+      light_target:
+        entity_id: light.dressing
+      no_motion_wait: input_number.motion_dressing_timeout

@@ -1,0 +1,13 @@
+- alias: toilet_motion_lights
+  id: 46a84df4-d046-497d-a9a7-c70cc6b6ee4f
+  description: Doe het licht aan in het toilet aan als er beweging is
+  use_blueprint:
+    path: motion_lights.yaml
+    input:
+      motion_entity: binary_sensor.toilet
+      illuminance_entity: sensor.toilet
+      min_illuminance: input_number.motion_toilet_lux
+      motion_enabled: input_boolean.motion_toilet
+      light_target:
+        entity_id: light.toilet
+      no_motion_wait: input_number.motion_toilet_timeout

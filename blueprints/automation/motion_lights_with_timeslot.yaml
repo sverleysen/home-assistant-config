@@ -1,0 +1,97 @@
+blueprint:
+  name: Motion-activated Light with time slot
+  description: Turn on a light when motion is detected.
+  domain: automation
+  input:
+    motion_entity:
+      name: Motion Sensor
+      selector:
+        entity:
+          domain: binary_sensor
+          device_class: motion
+    illuminance_entity:
+      name: Lux sensor
+      selector:
+        entity:
+          domain: sensor
+          device_class: illuminance
+    min_illuminance:
+      name: Minimum illuminance
+      selector:
+        entity:
+          domain: input_number
+    motion_enabled:
+      name: Is motion enabled
+      selector:
+        entity:
+          domain: input_boolean
+    light_target:
+      name: Light
+      selector:
+        target:
+          entity:
+            domain: light
+    start_time:
+      name: Start Time
+      selector:
+        target:
+          entity:
+            domain: input_datetime
+    end_time:
+      name: End Time
+      selector:
+        target:
+          entity:
+            domain: input_datetime
+    no_motion_wait:
+      name: Wait time
+      description: Time to leave the light on after last motion is detected.
+      selector:
+        entity:
+          domain: input_number
+
+# If motion is detected within the delay,
+# we restart the script.
+mode: restart
+max_exceeded: silent
+
+trigger:
+  - platform: state
+    entity_id: !input motion_entity
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: !input illuminance_entity
+
+condition:
+  - condition: state
+    entity_id: input_boolean.motion
+    state: 'on'
+  - condition: state
+    entity_id: !input motion_enabled
+    state: 'on'
+  - condition: state
+    entity_id: !input motion_entity
+    state: 'on'
+  - condition: template
+    value_template: >-
+      {{states(illuminance_entity)|float <= states(min_illuminance)|float }}
+  - condition: template
+    value_template: >-
+      {{ states('sensor.time') > (state_attr(start_time, 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
+  - condition: template
+    value_template: >-
+      {{ states('sensor.time') < (state_attr(end_time, 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
+
+
+action:
+  - service: light.turn_on
+    target: !input light_target
+  - wait_for_trigger:
+      platform: state
+      entity_id: !input motion_entity
+      from: "on"
+      to: "off"
+  - delay: !input no_motion_wait
+  - service: light.turn_off
+    target: !input light_target

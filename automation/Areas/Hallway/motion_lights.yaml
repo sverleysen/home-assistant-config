@@ -1,0 +1,13 @@
+- alias: hallway_motion_lights
+  id: c6002974-76a3-463d-9727-74a2d6cb8129
+  description: Doe het licht aan in de inkomhal aan als er beweging is
+  use_blueprint:
+    path: motion_lights.yaml
+    input:
+      motion_entity: binary_sensor.hal_beweging
+      illuminance_entity: sensor.hal_beweging
+      min_illuminance: input_number.motion_hallway_lux
+      motion_enabled: input_boolean.motion_hallway
+      light_target:
+        entity_id: light.inkomhal
+      no_motion_wait: input_number.motion_hallway_timeout

@@ -1,0 +1,17 @@
+- alias: desk_motion_lights
+  id: 7ea5d234-14d7-40cd-a4dd-d54d63b65170
+  description: Doe het licht aan in de bureau aan als er beweging is
+  use_blueprint:
+    path: motion_lights_with_timeslot.yaml
+    input:
+      motion_entity: binary_sensor.bureau
+      illuminance_entity: sensor.bureau
+      min_illuminance: input_number.motion_desk_lux
+      motion_enabled: input_boolean.motion_desk
+      light_target:
+        entity_id: light.bureau
+      start_time:
+        entity_id: input_datetime.motion_desk_start
+      end_time:
+        entity_id: input_datetime.motion_desk_end
+      no_motion_wait: input_number.motion_desk_timeout

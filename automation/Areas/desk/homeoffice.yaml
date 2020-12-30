@@ -1,0 +1,18 @@
+- alias: homeOffice_motion_sensor
+  id: 81b99fb4-6bb7-4d69-955a-186d855de98c
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: sensor.homeoffice
+  action:
+    - choose:
+      - conditions: "{{ trigger.from_state.state == 'False' }}"
+        sequence:
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.motion_desk
+      - conditions: "{{ trigger.from_state.state == 'True' }}"
+        sequence:
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.motion_desk
+      default: []
+
