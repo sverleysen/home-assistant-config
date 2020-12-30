@@ -8,5 +8,4 @@ automations_motion_hall:
     - binary_sensor.hal_beweging
     - sensor.hal_beweging
     - light.inkomhal
-    - automation.hallway_lights_off
     - automation.hallway_lights_on

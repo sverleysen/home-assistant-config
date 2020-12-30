@@ -11,6 +11,5 @@ automations_motion_desk:
     - binary_sensor.bureau
     - sensor.bureau
     - light.bureau
-    - automation.desk_lights_off
     - automation.desk_lights_on
     

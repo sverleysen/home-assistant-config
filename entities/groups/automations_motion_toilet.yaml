@@ -8,6 +8,5 @@ automations_motion_toilet:
     - binary_sensor.toilet
     - sensor.toilet
     - light.toilet
-    - automation.toilet_lights_off
     - automation.toilet_lights_on
     

@@ -8,6 +8,5 @@ automations_motion_dressing:
     - binary_sensor.dressing
     - sensor.dressing
     - light.dressing
-    - automation.dressing_lights_off
     - automation.dressing_lights_on
     
