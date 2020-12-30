@@ -6,11 +6,11 @@
     entity_id: sensor.homeoffice
   action:
     - choose:
-      - conditions: "{{ trigger.from_state.state == 'False' }}"
+      - conditions: "{{ trigger.from_state.state == 'True' }}"
         sequence:
         - service: input_boolean.turn_on
           entity_id: input_boolean.motion_desk
-      - conditions: "{{ trigger.from_state.state == 'True' }}"
+      - conditions: "{{ trigger.from_state.state == 'False' }}"
         sequence:
           - service: input_boolean.turn_off
             entity_id: input_boolean.motion_desk
