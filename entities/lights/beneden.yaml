@@ -1,0 +1,12 @@
+platform: group
+name: beneden
+entities:
+  - light.eethoek
+  - light.inkomhal
+  - light.keuken_eiland
+  - light.keuken_kast
+  - light.wled_keuken
+  - light.living
+  - light.living_staande_lamp
+  - light.toilet
+  - light.waskot

@@ -1,0 +1,68 @@
+blueprint:
+  name: Morning briefing
+  description: >-
+    give a morning briefing when a light goes on
+  domain: automation
+  input:
+    light_target:
+      name: Light
+      selector:
+        target:
+          entity:
+            domain: light
+    media_player:
+      name: media player
+      selector:
+        target:
+          entity:
+            domain: media_player
+    speaker_volume:
+      name: Speaker Volume
+      default: 0.2
+      selector:
+        number:
+          min: 0
+          max: 1
+          mode: slider
+          step: 0.1
+
+mode: queued
+
+trigger:
+  - platform: state
+    entity_id: !input light_target
+    to: 'on'
+
+condition:
+  - condition: time
+    after: '6:00:00'
+    before: '7:30:00'
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: person.sen
+        state: 'home'
+      - condition: state
+        entity_id: person.sofie
+        state: 'home'
+
+action:
+  - service: media_player.volume_set
+    entity_id: !input media_player
+    data:
+      volume_level: !input speaker_volume
+  - service: tts.microsoft_say
+    entity_id: !input media_player
+    data_template:
+      message: >-
+          {% if is_state("calendar.homeoffice", 'on') -%}
+          "Het verkeer voor Sen naar zijn werk is {{states('sensor.sen_home_work')}} minuten via {{state_attr('sensor.sen_home_work', 'route')|regex_replace(find='[;]', replace='', ignorecase=False)}}."
+          {%endif%}
+          "Het verkeer voor Sofie naar haar werk is {{states('sensor.sofie_home_work')}} minuten via {{state_attr('sensor.sofie_home_work', 'route')|regex_replace(find='[;]', replace='', ignorecase=False)}}.
+          De temperatuur is momenteel {{states('sensor.openweathermap_temperature')|regex_replace(find='[.]', replace=' komma ', ignorecase=False)}} graden."

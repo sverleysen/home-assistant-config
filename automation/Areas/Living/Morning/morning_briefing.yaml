@@ -1,0 +1,10 @@
+- alias: Ochtend briefing Beneden
+  id: c180ee04-a1b8-4568-bea5-6997f7c00c8a
+  use_blueprint:
+    path: morning_briefing.yaml
+    input:
+      speaker_volume: 0.3
+      light_target:
+        entity_id: light.beneden
+      media_player:
+        entity_id: media_player.google_keuken

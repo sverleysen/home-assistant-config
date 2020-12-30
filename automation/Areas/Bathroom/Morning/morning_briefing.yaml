@@ -1,0 +1,10 @@
+- alias: Ochtend briefing Badkamer
+  id: 12bffabf-2bfc-4800-ad85-1fbe8ebb6f52
+  use_blueprint:
+    path: morning_briefing.yaml
+    input:
+      speaker_volume: 0.2
+      light_target:
+        entity_id: light.badkamer
+      media_player:
+        entity_id: media_player.badkamer
