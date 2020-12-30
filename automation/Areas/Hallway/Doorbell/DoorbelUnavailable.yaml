@@ -10,5 +10,5 @@
       data_template:
         title: Deurbel
         message: De deurbel is offline
-        tts: true
+        tts: false
         persistant: true
