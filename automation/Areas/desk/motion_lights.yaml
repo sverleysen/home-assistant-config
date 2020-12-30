@@ -10,8 +10,6 @@
       motion_enabled: input_boolean.motion_desk
       light_target:
         entity_id: light.bureau
-      start_time:
-        entity_id: input_datetime.motion_desk_start
-      end_time:
-        entity_id: input_datetime.motion_desk_end
+      start_time: input_datetime.motion_desk_start
+      end_time: input_datetime.motion_desk_end
       no_motion_wait: input_number.motion_desk_timeout

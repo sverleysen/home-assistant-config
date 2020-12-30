@@ -7,10 +7,9 @@ blueprint:
     triggerd_sensor:
       name: Triggerd sensor
       selector:
-        target:
-          entity:
-            domain: binary_sensor
-            device_class: motion
+        entity:
+          domain: binary_sensor
+          device_class: motion
     message:
       name: The message to send
     camera:

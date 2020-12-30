@@ -34,15 +34,13 @@ blueprint:
     start_time:
       name: Start Time
       selector:
-        target:
-          entity:
-            domain: input_datetime
+        entity:
+          domain: input_datetime
     end_time:
       name: End Time
       selector:
-        target:
-          entity:
-            domain: input_datetime
+        entity:
+          domain: input_datetime
     no_motion_wait:
       name: Wait time
       description: Time to leave the light on after last motion is detected.
@@ -63,6 +61,13 @@ trigger:
   - platform: state
     entity_id: !input illuminance_entity
 
+variables:
+  illuminanceEntityVar: !input illuminance_entity
+  minIlluminanceVar: !input min_illuminance
+  startTimeVar: !input start_time
+  endTimeVar: !input end_time
+  noMotionWait: !input no_motion_wait
+
 condition:
   - condition: state
     entity_id: input_boolean.motion
@@ -75,13 +80,13 @@ condition:
     state: 'on'
   - condition: template
     value_template: >-
-      {{states(illuminance_entity)|float <= states(min_illuminance)|float }}
+      {{states(illuminanceEntityVar)|float <= states(minIlluminanceVar)|float }}
   - condition: template
     value_template: >-
-      {{ states('sensor.time') > (state_attr(start_time, 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
+      {{ states('sensor.time') > (state_attr(startTimeVar, 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
   - condition: template
     value_template: >-
-      {{ states('sensor.time') < (state_attr(end_time, 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
+      {{ states('sensor.time') < (state_attr(endTimeVar, 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
 
 
 action:
@@ -92,6 +97,7 @@ action:
       entity_id: !input motion_entity
       from: "on"
       to: "off"
-  - delay: !input no_motion_wait
+  - delay: 
+      seconds: "{{ states(noMotionWait)|int }}"
   - service: light.turn_off
     target: !input light_target

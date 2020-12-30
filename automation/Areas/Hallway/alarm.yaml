@@ -6,6 +6,5 @@
     path: alarm.yaml
     input:
       message: Beweging in de inkom
-      triggerd_sensor:
-        entity_id: binary_sensor.hal_beweging
+      triggerd_sensor: binary_sensor.hal_beweging
       camera: oprit

@@ -6,6 +6,5 @@
     path: alarm.yaml
     input:
       message: Beweging in het waskot
-      triggerd_sensor:
-        entity_id: binary_sensor.waskot
+      triggerd_sensor: binary_sensor.waskot
       camera: oprit

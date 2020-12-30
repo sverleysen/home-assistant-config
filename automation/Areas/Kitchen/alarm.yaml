@@ -6,6 +6,5 @@
     path: alarm.yaml
     input:
       message: Beweging in de keuken
-      triggerd_sensor:
-        entity_id: binary_sensor.keuken
+      triggerd_sensor: binary_sensor.keuken
       camera: living

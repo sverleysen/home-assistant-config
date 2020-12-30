@@ -7,9 +7,8 @@ blueprint:
     media_player:
       name: media player
       selector:
-        target:
-          entity:
-            domain: media_player
+        entity:
+          domain: media_player
     speaker_volume:
       name: Speaker Volume
       default: 0.2

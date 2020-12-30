@@ -5,5 +5,4 @@
     path: default_volume.yaml
     input:
       speaker_volume: 0.2
-      media_player:
-        entity_id: media_player.bureau
+      media_player: media_player.bureau

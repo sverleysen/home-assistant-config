@@ -5,6 +5,5 @@
     path: alarm.yaml
     input:
       message: Beweging in de bureau
-      triggerd_sensor:
-        entity_id: binary_sensor.bureau
+      triggerd_sensor: binary_sensor.bureau
       camera: bureau

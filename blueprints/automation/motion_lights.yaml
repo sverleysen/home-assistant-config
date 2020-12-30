@@ -50,6 +50,12 @@ trigger:
     to: "on"
   - platform: state
     entity_id: !input illuminance_entity
+
+variables:
+  illuminanceEntityVar: !input illuminance_entity
+  minIlluminanceVar: !input min_illuminance
+  noMotionWait: !input no_motion_wait
+
 condition:
   - condition: state
     entity_id: input_boolean.motion
@@ -62,7 +68,7 @@ condition:
     state: 'on'
   - condition: template
     value_template: >-
-      {{states(illuminance_entity)|float <= states(min_illuminance)|float }}
+      {{states(illuminanceEntityVar)|float <= states(minIlluminanceVar)|float }}
 
 action:
   - service: light.turn_on
@@ -72,6 +78,6 @@ action:
       entity_id: !input motion_entity
       from: "on"
       to: "off"
-  - delay: !input no_motion_wait
+  - delay: "{{ states(noMotionWait)|int }}"
   - service: light.turn_off
     target: !input light_target

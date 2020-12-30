@@ -4,7 +4,5 @@
     path: morning_briefing.yaml
     input:
       speaker_volume: 0.3
-      light_target:
-        entity_id: light.beneden
-      media_player:
-        entity_id: media_player.google_keuken
+      light_target: light.beneden
+      media_player: media_player.google_keuken

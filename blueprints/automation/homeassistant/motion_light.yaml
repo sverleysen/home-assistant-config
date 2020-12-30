@@ -13,9 +13,8 @@ blueprint:
     light_target:
       name: Light
       selector:
-        target:
-          entity:
-            domain: light
+        entity:
+          domain: light
     no_motion_wait:
       name: Wait time
       description: Time to leave the light on after last motion is detected.
@@ -39,7 +38,7 @@ trigger:
 
 action:
   - service: light.turn_on
-    target: !input light_target
+    entity_id: !input light_target
   - wait_for_trigger:
       platform: state
       entity_id: !input motion_entity
@@ -47,4 +46,4 @@ action:
       to: "off"
   - delay: !input no_motion_wait
   - service: light.turn_off
-    target: !input light_target
+    entity_id: !input light_target

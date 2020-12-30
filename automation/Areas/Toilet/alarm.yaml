@@ -6,6 +6,5 @@
     path: alarm.yaml
     input:
       message: Beweging in het toilet
-      triggerd_sensor:
-        entity_id: binary_sensor.toilet
+      triggerd_sensor: binary_sensor.toilet
       camera: oprit

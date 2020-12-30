@@ -4,7 +4,5 @@
     path: morning_briefing.yaml
     input:
       speaker_volume: 0.2
-      light_target:
-        entity_id: light.badkamer
-      media_player:
-        entity_id: media_player.badkamer
+      light_target: light.badkamer
+      media_player: media_player.badkamer

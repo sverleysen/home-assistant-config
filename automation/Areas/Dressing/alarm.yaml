@@ -5,6 +5,5 @@
     path: alarm.yaml
     input:
       message: Beweging in de dressing
-      triggerd_sensor:
-        entity_id: binary_sensor.dressing
+      triggerd_sensor: binary_sensor.dressing
       camera: bureau
