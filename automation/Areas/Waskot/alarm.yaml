@@ -1,21 +1,11 @@
 - alias: waskot_alarm
   id: 1626b0c2-d132-458e-871e-1b0f53ddc50e
   description: Alarm als er niemand thuis is
-  trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.waskot
-      to: 'on'
-  condition:
-    - condition: state
-      entity_id: alarm_control_panel.home_alarm
-      state: 'armed_away'
-  action:
-    - service: script.notify
-      data_template:
-        title: Alarm
-        message: Beweging in het waskot
-        camera: oprit
-        tts: false
-        persistant: false
-        actionname: alarm
+
+  use_blueprint:
+    path: alarm.yaml
+    input:
+      message: Beweging in het waskot
+      triggerd_sensor:
+        entity_id: binary_sensor.waskot
+      camera: oprit

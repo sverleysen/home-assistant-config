@@ -1,0 +1,38 @@
+blueprint:
+  name: alarm triggerd
+  description: >-
+    The alarm is triggerd
+  domain: automation
+  input:
+    triggerd_sensor:
+      name: Triggerd sensor
+      selector:
+        target:
+          entity:
+            domain: binary_sensor
+            device_class: motion
+    message:
+      name: The message to send
+    camera:
+      name: The camera to use in the notification
+mode: queued
+trigger:
+  - platform: state
+    entity_id: !input triggerd_sensor
+    to: 'on'
+
+condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_alarm
+    state: 'armed_away'
+
+action:
+  - service: script.notify
+    data_template:
+      title: Alarm
+      message: !input message
+      camera: !input camera
+      tts: false
+      persistant: false
+      actionname: alarm
+      

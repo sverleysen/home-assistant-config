@@ -1,0 +1,11 @@
+- alias: kitchen_alarm
+  id: 3afcda54-96fa-401d-bcd7-5d081304e527
+  description: Alarm als er niemand thuis is
+
+  use_blueprint:
+    path: alarm.yaml
+    input:
+      message: Beweging in de keuken
+      triggerd_sensor:
+        entity_id: binary_sensor.keuken
+      camera: living

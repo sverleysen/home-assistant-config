@@ -1,18 +1,10 @@
 - alias: desk_alarm
   id: 0c680ca5-5f39-4277-a1ea-0883aad7761a
   description: Alarm als er niemand thuis is
-  trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.bureau
-      to: 'on'
-  condition:
-    - condition: state
-      entity_id: alarm_control_panel.home_alarm
-      state: 'armed_away'
-  action:
-    - service: script.notify
-      data_template:
-        title: Alarm
-        message: Beweging in de bureau
-        camera: bureau
+  use_blueprint:
+    path: alarm.yaml
+    input:
+      message: Beweging in de bureau
+      triggerd_sensor:
+        entity_id: binary_sensor.bureau
+      camera: bureau

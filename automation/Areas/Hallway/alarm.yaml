@@ -1,21 +1,11 @@
 - alias: hallway_alarm
   id: 6298de68-556f-4355-8541-6d71fc166aa8
   description: Alarm als er niemand thuis is
-  trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.hal_beweging
-      to: 'on'
-  condition:
-    - condition: state
-      entity_id: alarm_control_panel.home_alarm
-      state: 'armed_away'
-  action:
-    - service: script.notify
-      data_template:
-        title: Alarm
-        message: Beweging in de inkom
-        camera: oprit
-        tts: false
-        persistant: false
-        actionname: alarm
+
+  use_blueprint:
+    path: alarm.yaml
+    input:
+      message: Beweging in de inkom
+      triggerd_sensor:
+        entity_id: binary_sensor.hal_beweging
+      camera: oprit
