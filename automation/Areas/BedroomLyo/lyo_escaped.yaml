@@ -17,13 +17,5 @@
         title: "Lyo"
         message: "Lyo heeft zijn deur zelf open gedaan"
         tts: true
+        priority: "High"
         persistant: false
-    - service: media_player.volume_set
-      data:
-        entity_id:
-          - media_player.slaapkamer_sen_sofie
-        volume_level: 0.4
-    - service: tts.microsoft_say
-      entity_id: media_player.slaapkamer_sen_sofie
-      data:
-        message: 'Lyo heeft zijn deur zelf open gedaan.'

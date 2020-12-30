@@ -12,6 +12,9 @@ notify:
     tts:
       description: "moet TTS gebruikt worden?"
       example: "false"
+    priority:
+      description: "De prioriteit van de melding. High or Low"
+      example: "High"
     persistant:
       description: "Persistant notification maken?"
       example: "false"
@@ -60,6 +63,7 @@ notify:
       data_template:
         message:  "{{ message }}"
         tts: "{{ tts }}"
+        priority: "{{ priority }}"
     - choose:
       - conditions:
         - condition: template

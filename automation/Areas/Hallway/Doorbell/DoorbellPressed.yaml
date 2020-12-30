@@ -14,5 +14,6 @@
         camera: oprit
         tts: true
         persistant: false
+        priority: "High"
     - delay:
         seconds: 15

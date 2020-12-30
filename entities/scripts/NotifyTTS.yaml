@@ -10,6 +10,9 @@ notify_tts:
     tts:
       description: "moet TTS gebruikt worden?"
       example: "false"
+    priority:
+      description: "De prioriteit van de melding. High or Low"
+      example: "High"
   variables:
     media_players: >-2
       [
@@ -21,7 +24,7 @@ notify_tts:
   sequence:
     - service: notify.file_logger
       data_template:
-        message: "TTS is aangeroepen"
+        message: "TTS is aangeroepen {{priority}} - Is High:{{ priority == 'High'}}"
     - condition: template
       value_template: "{{ tts }}"
     - condition: state
@@ -59,10 +62,7 @@ notify_tts:
                   entity_id: media_player.google_keuken
                   message: "{{ message }}"
     - choose:
-      - conditions: 
-        - condition: state
-          entity_id: binary_sensor.room_occupancy_desk
-          state: "on"
+      - conditions: "{{ is_state('binary_sensor.room_occupancy_desk', 'on') or priority == 'High'}}"
         sequence:
           - service: notify.file_logger
             data_template:
@@ -75,9 +75,13 @@ notify_tts:
                 message: "{{ message }}"
     - choose:
       - conditions: 
-        - condition: state
-          entity_id: binary_sensor.room_occupancy_bathroom
-          state: "on"
+        - condition: or
+          conditions:
+            - condition: template
+              value_template: "{{ priority == 'High'}}"
+            - condition: state
+              entity_id: binary_sensor.room_occupancy_bathroom
+              state: "on"
         sequence:
           - service: notify.file_logger
             data_template:
@@ -90,9 +94,13 @@ notify_tts:
                 message: "{{ message }}"
     - choose:
       - conditions: 
-        - condition: state
-          entity_id: binary_sensor.room_occupancy_masterbedroom
-          state: "on"
+        - condition: or
+          conditions:
+            - condition: template
+              value_template: "{{ priority == 'High'}}"
+            - condition: state
+              entity_id: binary_sensor.room_occupancy_masterbedroom
+              state: "on"
         sequence:
           - service: notify.file_logger
             data_template:
