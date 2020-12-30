@@ -2,6 +2,7 @@ notify_tts:
   alias: Notify TTS
   icon: mdi:bell-ring
   description: "Notify using TTS"
+  mode: queued
   fields:
     message:
       description: "De melding die gestuurd moet worden"
@@ -18,9 +19,9 @@ notify_tts:
       {%if(is_state("binary_sensor.room_occupancy_masterbedroom", "on")) %}media_player.slaapkamer_sen_sofie,{%endif%}
       ]
   sequence:
-    # - service: notify.file_logger
-    #   data_template:
-    #     message: "{{ media_players }}"
+    - service: notify.file_logger
+      data_template:
+        message: "TTS is aangeroepen"
     - condition: template
       value_template: "{{ tts }}"
     - condition: state
@@ -33,54 +34,7 @@ notify_tts:
     #   entity_id: "{{ media_players }}"
     #   data:
     #     message: "{{ message }}"
-    - choose:
-      - conditions: 
-        # - condition: state
-        #   entity_id: binary_sensor.room_occupancy_living
-        #   state: "on"
-        - condition: or
-          conditions:
-            - condition: state
-              entity_id: media_player.google_keuken
-              state: "idle"
-            - condition: state
-              entity_id: media_player.google_keuken
-              state: "off"
-        sequence:
-          - service: media_player.turn_on
-            entity_id: media_player.google_keuken
-      default:
-        - service: media_player.turn_on
-          entity_id: media_player.soundtouch_keuken
-        - service: media_player.volume_set
-          data:
-            entity_id:
-              - media_player.soundtouch_keuken
-            volume_level: 0.4
-    - choose:
-      - conditions: 
-        - condition: state
-          entity_id: binary_sensor.room_occupancy_desk
-          state: "on"
-        sequence:
-          - service: media_player.turn_on
-            entity_id: media_player.bureau
-    - choose:
-      - conditions: 
-        - condition: state
-          entity_id: binary_sensor.room_occupancy_bathroom
-          state: "on"
-        sequence:
-          - service: media_player.turn_on
-            entity_id: media_player.badkamer
-    - choose:
-      - conditions: 
-        - condition: state
-          entity_id: binary_sensor.room_occupancy_masterbedroom
-          state: "on"
-        sequence:
-          - service: media_player.turn_on
-            entity_id: media_player.slaapkamer_sen_sofie
+
     - choose:
         - conditions: 
           # - condition: state
@@ -89,48 +43,63 @@ notify_tts:
           - condition: or
             conditions:
               - condition: state
-                entity_id: media_player.google_keuken
-                state: "idle"
+                entity_id: binary_sensor.room_occupancy_living
+                state: "on"
               - condition: state
-                entity_id: media_player.google_keuken
-                state: "off"
+                entity_id: group.persons
+                state: "home"
           sequence:
-            - service: tts.microsoft_say
-              entity_id: media_player.google_keuken
+            - service: notify.file_logger
+              data_template:
+                message: "TTS Keuken is aangeroepen"
+            - service: script.turn_on
+              entity_id: script.notify_tts_restore
               data:
-                message: "{{ message }}"
-      default:
-        - service: tts.microsoft_say
-          entity_id: media_player.soundtouch_keuken
-          data:
-            message: "{{ message }}"
+                variables:
+                  entity_id: media_player.google_keuken
+                  message: "{{ message }}"
     - choose:
       - conditions: 
         - condition: state
           entity_id: binary_sensor.room_occupancy_desk
           state: "on"
         sequence:
-          - service: tts.microsoft_say
-            entity_id: media_player.bureau
+          - service: notify.file_logger
+            data_template:
+              message: "TTS Bureau is aangeroepen"
+          - service: script.turn_on
+            entity_id: script.notify_tts_restore
             data:
-              message: "{{ message }}"
+              variables:
+                entity_id: media_player.bureau
+                message: "{{ message }}"
     - choose:
       - conditions: 
         - condition: state
           entity_id: binary_sensor.room_occupancy_bathroom
           state: "on"
         sequence:
-          - service: tts.microsoft_say
-            entity_id: media_player.badkamer
+          - service: notify.file_logger
+            data_template:
+              message: "TTS badkamer is aangeroepen"
+          - service: script.turn_on
+            entity_id: script.notify_tts_restore
             data:
-              message: "{{ message }}"
+              variables:
+                entity_id: media_player.badkamer
+                message: "{{ message }}"
     - choose:
       - conditions: 
         - condition: state
           entity_id: binary_sensor.room_occupancy_masterbedroom
           state: "on"
         sequence:
-          - service: tts.microsoft_say
-            entity_id: media_player.slaapkamer_sen_sofie
+          - service: notify.file_logger
+            data_template:
+              message: "TTS slaapkamer is aangeroepen"
+          - service: script.turn_on
+            entity_id: script.notify_tts_restore
             data:
-              message: "{{ message }}"
+              variables:
+                entity_id: media_player.slaapkamer_sen_sofie
+                message: "{{ message }}"

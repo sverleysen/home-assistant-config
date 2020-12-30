@@ -1,0 +1,60 @@
+notify_tts_restore:
+  alias: Notify TTS and restore state
+  mode: parallel
+  fields:
+    message:
+      description: "De melding die gestuurd moet worden"
+      example: "Test melding"
+    entity_id:
+      description: "De media player naar waar de tts gestuurd moet worden"
+      example: "media_player.bureau"
+  variables:
+    spotify: >-
+      {{ is_state_attr(entity_id, 'app_name', 'Spotify') }}
+    playing: >-
+      {{ is_state(entity_id, 'playing')  }}
+    media_content: >-
+      {{ state_attr(entity_id, 'media_content_id') }}
+    media_type: >-
+      {{ state_attr(entity_id, 'media_content_type') }}
+  sequence:
+  - service: notify.file_logger
+    data_template:
+      message: "{{now().strftime('%H:%M:%S')}} - TTS is aangeroepen {{entity_id}} - {{spotify}} - {{playing}} - {{media_content}} - {{media_type}}"
+  - service: tts.microsoft_say
+    data:
+      entity_id: "{{ entity_id }}"
+      message: "{{ message }}"
+  - delay: 4
+  - wait_template: "{{ is_state(entity_id, 'idle') }}"
+  - choose:
+    - conditions: "{{ spotify }}"
+      sequence:
+      - service: spotcast.start
+        data:
+          entity_id: "{{ entity_id }}"
+      - delay: 1
+      - service: media_player.media_pause
+        data:
+          entity_id: media_player.spotify_sen_verleysen
+      - delay: 1
+      - service: media_player.media_play
+        data:
+          entity_id: media_player.spotify_sen_verleysen
+    - conditions: "{{ playing }}"
+      sequence:
+      - service: media_player.play_media
+        data:
+          entity_id: "{{ entity_id }}"
+          media_content_id: "{{ media_content }}"
+          media_content_type: "music"
+      - delay:
+          seconds: 1
+      - service: media_player.media_pause
+        data:
+          entity_id: "{{ entity_id }}"
+      - delay:  
+          seconds: 1
+      - service: media_player.media_play
+        data:
+          entity_id: "{{ entity_id }}"
