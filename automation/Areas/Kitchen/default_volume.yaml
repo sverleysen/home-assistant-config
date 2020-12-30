@@ -1,14 +1,9 @@
 - alias: kitchen_default_volume
   id: 5d301792-b615-4cc9-8277-380d95a85b33
   description: Zet het volume op een standaard wanneer de media_player wordt afgezet
-  trigger:
-    - platform: state
-      entity_id:
-        - media_player.google_keuken
-      to: 'off'
-  action:
-    - service: media_player.volume_set
-      data:
-        entity_id:
-          - media_player.google_keuken
-        volume_level: 0.4
+  use_blueprint:
+    path: default_volume.yaml
+    input:
+      speaker_volume: 0.4
+      media_player:
+        entity_id: media_player.google_keuken

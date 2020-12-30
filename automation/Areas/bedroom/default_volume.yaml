@@ -1,14 +1,9 @@
 - alias: bedroom_default_volume
   id: a6d96c0c-f20a-46f3-b9eb-b55c5019111b
   description: Zet het volume op een standaard wanneer de media_player wordt afgezet
-  trigger:
-    - platform: state
-      entity_id:
-        - media_player.slaapkamer_sen_sofie
-      to: 'off'
-  action:
-    - service: media_player.volume_set
-      data:
-        entity_id:
-          - media_player.slaapkamer_sen_sofie
-        volume_level: 0.1
+  use_blueprint:
+    path: default_volume.yaml
+    input:
+      speaker_volume: 0.1
+      media_player:
+        entity_id: media_player.slaapkamer_sen_sofie

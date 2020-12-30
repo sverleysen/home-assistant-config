@@ -1,14 +1,9 @@
 - alias: bathroom_default_volume
   id: 356b41e6-5ef1-4d67-9aa3-016a0dedc65f
   description: Zet het volume op een standaard wanneer de media_player wordt afgezet
-  trigger:
-    - platform: state
-      entity_id:
-        - media_player.badkamer
-      to: 'off'
-  action:
-    - service: media_player.volume_set
-      data:
-        entity_id:
-          - media_player.badkamer
-        volume_level: 0.2
+  use_blueprint:
+    path: default_volume.yaml
+    input:
+      speaker_volume: 0.2
+      media_player:
+        entity_id: media_player.badkamer

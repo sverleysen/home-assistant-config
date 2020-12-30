@@ -1,0 +1,32 @@
+blueprint:
+  name: default volume
+  description: >-
+    Set a media player to a default volume when idle
+  domain: automation
+  input:
+    media_player:
+      name: media player
+      selector:
+        target:
+          entity:
+            domain: media_player
+    speaker_volume:
+      name: Speaker Volume
+      default: 0.2
+      selector:
+        number:
+          min: 0
+          max: 1
+          mode: slider
+          step: 0.1
+mode: queued
+trigger:
+  - platform: state
+    entity_id: !input media_player
+    to: 'off'
+
+action:
+  - service: media_player.volume_set
+    data:
+      entity_id: !input media_player
+      volume_level: !input speaker_volume
