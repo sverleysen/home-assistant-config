@@ -9,9 +9,9 @@
       title: "Vriezen"
       message: >-
         {%if(states.sensor.br_minimum_temperature_1d.state |float <=0.0) %}
-        Het gaat vanacht vriezen ({{ states.sensor.br_minimum_temperature_1d.state }}°C), staan alle planten binnen?
+        Het gaat vanacht vriezen ({{ states.sensor.br_minimum_temperature_1d.state }}°C).
         {%else%}
-        Het gaat vanacht niet vriezen ({{ states.sensor.br_minimum_temperature_1d.state }}°C), alle planten mogen buiten staan.
+        Het gaat vanacht niet vriezen ({{ states.sensor.br_minimum_temperature_1d.state }}°C).
         {%endif%}
       tts: false
       persistant: true
